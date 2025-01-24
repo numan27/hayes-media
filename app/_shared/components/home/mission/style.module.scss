@@ -1,0 +1,55 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.missionContainer {
+
+  @include RP(("padding-top": 50,
+      "padding-bottom": 50,
+    ));
+
+  .contentWrapper {
+    background-image: url("../../../../_assets/images/mission-bg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100% !important;
+    min-height: 500px;
+    width: 100%;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+    }
+
+    .content {
+      position: relative;
+      max-width: 60%;
+
+      @media screen and (max-width: 1200px) {
+        max-width: 50% !important;
+      }
+
+      @media screen and (max-width: 640px) {
+        max-width: 100% !important;
+      }
+
+    }
+
+    .missonSectionImg {
+
+      img {
+        @media screen and (max-width: 1200px) {
+          max-width: 500px !important;
+        }
+
+        @media screen and (max-width: 992px) {
+          max-width: 300px !important;
+          height: auto;
+        }
+      }
+    }
+  }
+}

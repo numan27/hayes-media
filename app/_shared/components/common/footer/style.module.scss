@@ -1,0 +1,99 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.footer {
+  background-color: #000;
+  mask-image: url("../../../../_assets/images/landing-background.png");
+  mask-position: center;
+  mask-size: cover;
+  width: 100%;
+  height: 100%;
+  // height: 50vh !important;
+  @include RP(( // "height": 80,
+      "padding-top": 50,
+      "padding-bottom": 50,
+    ));
+
+  // @media screen and (max-width: 768px) {
+  //   height: auto;
+  // }
+
+
+  .customContainer {
+    @include RP(("padding-left": 100,
+        "padding-right": 100,
+      ));
+
+    @media screen and (max-width: 475px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .logo {
+      @include RP(("width": 125,
+          "height": 125,
+        ), 1);
+
+      @media screen and (max-width: 767px) {
+        @include RP(("width": 85,
+            "height": 85,
+          ), 1);
+      }
+    }
+
+    .menus {
+      h5 {
+        font-weight: 600;
+      }
+
+      li {
+        transition: all 0.2s ease-in-out !important;
+        color: #B6B6B6;
+
+        a {
+          font-weight: 400;
+          @include RP(("font-size": 14,
+            ));
+        }
+
+        &:hover {
+          @include PRIMARY_TEXT;
+          transform: translateX(3px) !important;
+        }
+      }
+    }
+
+    &__copyright {
+
+      .socialContainer {
+        span {
+          cursor: pointer;
+
+          svg {
+            width: 23px;
+            height: 23px;
+          }
+        }
+      }
+
+      .copyright {
+        color: $WHITE !important;
+        font-weight: 400 !important;
+        @include RP(("font-size": 14,
+          ), 1);
+      }
+
+      a {
+        color: rgba(208, 208, 209, 1) !important;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        @include RP(("font-size": 16,
+          ));
+
+        &:hover {
+          color: $PRIMARY !important;
+        }
+      }
+    }
+  }
+}

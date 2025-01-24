@@ -1,0 +1,101 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.mainContainer {
+  background-image: url("../../../../_assets/images/testimonial-bg.png");
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .customContainer {
+    @include RP(("padding-top": 60,
+        "padding-bottom": 40,
+      ));
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.4);
+  }
+}
+
+.heading {
+  color: $WHITE;
+  font-weight: 600;
+
+  @include RP(("font-size": 40,
+      "line-height": 46,
+    ));
+
+  span {
+    color: rgba(var(--primary-color), 1);
+  }
+}
+
+.reviewImage {
+  border-radius: 6px !important;
+  object-fit: cover !important;
+  min-width: 311px;
+  @include RP(("height": 460,
+    ));
+
+  // @media screen and (max-width: 1200px) {
+  //   object-fit: contain !important;
+  // }
+
+  @media screen and (max-width: 510px) {
+    @include RP(("height": 300,
+        "width": 300), 1);
+    border-radius: 100%;
+    object-fit: contain !important;
+    margin: 0 auto;
+  }
+}
+
+.cardContainer {
+  display: flex !important;
+  border-radius: 16px;
+  @include RP(("margin-top": 24,
+    ));
+
+  @media screen and (max-width: 510px) {
+    display: block !important;
+  }
+}
+
+.reviewOutSection {
+  @include RP(("padding-right": 24,
+    ));
+}
+
+.reviewSection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  color: $WHITE;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include RP(("font-size": 20,
+    ));
+}
+
+.review {
+  text-align: justify !important;
+}
+
+@media screen and (max-width: 630px) {
+  .name {
+    @include RP(("font-size": 16,
+        "line-height": 18,
+      ));
+  }
+}

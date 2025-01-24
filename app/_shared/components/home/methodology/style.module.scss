@@ -1,0 +1,111 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  @include RP(("padding-top": 40, "padding-bottom": 50));
+
+  .contentWrapper {
+    @include RP(("padding-top": 30, "padding-bottom": 30));
+
+    @media screen and (max-width: 510px) {
+      @include RP(("padding-top": 30, "padding-bottom": 30));
+    }
+
+    .timelineContainer {
+      position: relative;
+      height: 5px;
+      margin: 5px 0;
+
+      .animatedLine {
+        position: relative;
+        height: 5px;
+        display: flex;
+        align-items: center;
+
+        .arrow {
+          position: absolute;
+          left: 0;
+          color: $WHITE;
+          animation: moveArrow 4s linear infinite;
+        }
+
+        .dots {
+          width: 100%;
+          height: 5px;
+          background: repeating-linear-gradient(to right,
+              $WHITE,
+              $WHITE 10px,
+              transparent 10px,
+              transparent 20px);
+          animation: zigzag 4s ease-in-out infinite;
+        }
+      }
+    }
+
+    .gridContainer {
+      @include RP(("padding-top": 40));
+
+      .gridItem {
+        background-color: transparent;
+        transition: all 0.1s ease-in-out;
+        border-radius: 8px;
+        @include RP(("padding-top": 20, "padding-bottom": 20));
+
+        h5 {
+          @include RP(("height": 75, "margin-top": 10));
+
+          @media screen and (max-width: 768px) {
+            height: fit-content;
+            @include RP(("margin-bottom": 10), 1);
+          }
+        }
+
+        .iconContainer {
+          @include RP(("width": 70, "height": 70, "margin-bottom": 20));
+          background-color: $BLACK;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+        }
+
+        .step {
+          @include PRIMARY_TEXT;
+        }
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes moveArrow {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes zigzag {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

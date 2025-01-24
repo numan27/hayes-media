@@ -1,0 +1,18 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.gridContainer {
+  @include RP(
+    (
+      // "padding-top": 40,
+      "padding-bottom": 50
+    )
+  );
+}
+.paginationContainer {
+  @include RP(
+    (
+      "padding-bottom": 40,
+    )
+  );
+}

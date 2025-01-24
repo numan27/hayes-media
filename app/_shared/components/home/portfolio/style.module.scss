@@ -1,0 +1,97 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  @include RP(("padding-top": 40,
+      "padding-bottom": 50,
+    ));
+
+  .contentWrapper {
+    @include RP(("padding-top": 30,
+        "padding-bottom": 30,
+        "padding-left": 60,
+        "padding-right": 60,
+      ));
+
+    .review_section {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+
+      .image {
+        width: 100%;
+        height: 474px;
+        transition: transform 0.3s ease;
+      }
+
+      // &:hover .image {
+      //   transform: scale(1.1);
+      // }
+
+      // &.activeSlide {
+      //   .image {
+      //     transform: scale(1.2);
+      //   }
+
+      //   .overlay {
+      //     opacity: 1;
+      //     visibility: visible;
+      //   }
+      // }
+
+      // .overlay {
+      //   position: absolute;
+      //   inset: 0;
+      //   // background: rgba(0, 0, 0, 0.6);
+      //   background: rgba(124, 0, 43, 0.9);
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   visibility: hidden;
+      //   transition: opacity 0.3s ease, visibility 0.3s ease;
+      // }
+
+      .content {
+        text-align: center;
+        color: #fff;
+        padding: 1rem;
+
+        .title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        .userType {
+          font-style: italic;
+          margin-bottom: 1rem;
+        }
+
+        .text {
+          font-size: 1rem;
+        }
+      }
+    }
+
+
+    .activeSlide {
+      .image {
+        transform: scale(1.2);
+      }
+
+      .bg-opacity-60 {
+        transition: opacity 0.3s ease;
+      }
+    }
+
+  }
+
+
+  @media screen and (max-width: 510px) {
+    @include RP(("padding-top": 30,
+        "padding-bottom": 30,
+        "padding-left": 35,
+        "padding-right": 35,
+      ));
+  }
+}

@@ -1,0 +1,97 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  mask-image: url("../../../../_assets/images/landing-background.png");
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 100%;
+  background-color: #0C0B12 !important;
+  @include RP(("padding-top": 40,
+      "padding-bottom": 50,
+    ));
+
+  .contentWrapper {
+    @include RP(("padding-top": 30,
+        "padding-bottom": 30,
+      ));
+
+    @media screen and (max-width: 510px) {
+      @include RP(("padding-top": 30,
+          "padding-bottom": 30,
+        ));
+    }
+
+    .gridContainer {
+      @include RP(("padding-top": 40,
+        ));
+
+      .gridItem {
+        border: 1px solid $WHITE;
+        background-color: transparent;
+        transition: all 0.1s ease-in-out;
+        border-radius: 4px;
+        @include RP(("padding-top": 24,
+            "padding-bottom": 24,
+            "padding-left": 24,
+            "padding-right": 24,
+          ));
+
+        .imgContainer {
+          background: $PRIMARY;
+          width: 100%;
+          border-radius: 4px;
+          @include RP(("height": 150,
+              "margin-bottom": 20,
+            ));
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        .category {
+          background-color: $WHITE;
+          border-radius: 4px;
+          width: fit-content;
+          padding: 4px 8px;
+          @include RP(("height": 24,
+            ));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            @include PRIMARY_TEXT;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+          }
+        }
+
+        h5 {
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        &:hover {}
+      }
+    }
+
+    .linkContainer {
+      a {
+        @include PRIMARY_TEXT;
+        @include RP(("font-size": 18,
+          ));
+
+        img {
+          @include RP(("width": 20,
+              "height": 20,
+            ));
+        }
+      }
+    }
+  }
+}

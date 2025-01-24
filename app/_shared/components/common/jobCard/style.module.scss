@@ -1,0 +1,84 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.eventItem {
+  background-color: $WHITE;
+  box-shadow: 0px 4px 44px 0px #00162b12;
+  @include RP(
+    (
+      "border-radius": 24,
+      "padding-top": 24,
+      "padding-bottom": 24,
+      "padding-left": 24,
+      "padding-right": 24,
+    )
+  );
+
+  .cardContent {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    .iconContainer {
+      background-color: $BLUE;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // @include RP(
+      //   (
+      //     "width": 80,
+      //     "height": 80,
+      //     "margin-bottom": 30,
+      //   )
+      // );
+    }
+    .title {
+      h6 {
+        color: $DARK;
+      }
+      span {
+        font-weight: 500;
+        color: $LABEL;
+        @include RP(
+          (
+            "font-size": 12,
+          )
+        );
+      }
+    }
+    .company {
+      color: $LABEL;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+  }
+  .itemContent {
+    @include RP(
+      (
+        "margin-top": 25,
+        "border-radius": 10,
+        "padding-top": 16,
+        "padding-bottom": 20,
+        "padding-left": 16,
+        "padding-right": 16,
+      )
+    );
+    background-color: #f8f8f8;
+    p {
+      color: #8a8686;
+      font-weight: 500;
+      @include RP(
+        (
+          "font-size": 14,
+          "line-height": 23,
+        )
+      );
+      margin-top: 10px;
+    }
+  }
+}
+.buttonContainer {
+  @media screen and (max-width: 639px) {
+    width: 100%;
+  }
+  width: fit-content;
+}

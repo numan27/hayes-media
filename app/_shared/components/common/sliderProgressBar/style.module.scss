@@ -1,0 +1,11 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.progressBarContainer {
+  background-color: gray;
+  height: 2px;
+}
+
+.progressBar {
+  background-color: $WHITE;
+}

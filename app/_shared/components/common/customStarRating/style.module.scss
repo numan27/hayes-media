@@ -1,0 +1,73 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.starRating {
+  display: flex;
+  align-items: center;
+  .ratingLabel {
+    color: #3c3c3d;
+    @include RP(
+      (
+        "font-size": 15,
+      ),
+      1
+    );
+  }
+}
+.ratingLabelBelowStar {
+  color: $PRIMARY;
+  @include RP(
+    (
+      "font-size": 14,
+    ),
+    1
+  );
+}
+
+.starIcon {
+  margin-right: 4px;
+  cursor: pointer;
+  path {
+    fill: $PRIMARY !important;
+  }
+  @include RP(
+    (
+      "width": 16,
+      "height": 16,
+    )
+  );
+  &.big {
+    margin-right: 10px;
+    @include RP(
+      (
+        "width": 33,
+        "height": 33,
+      )
+    );
+  }
+}
+.emptyIcon {
+  margin-right: 4px;
+  cursor: pointer;
+  &:hover {
+    path {
+      fill: $PRIMARY !important;
+      stroke: $PRIMARY;
+    }
+  }
+  @include RP(
+    (
+      "width": 16,
+      "height": 16,
+    )
+  );
+  &.big {
+    margin-right: 10px;
+    @include RP(
+      (
+        "width": 33,
+        "height": 33,
+      )
+    );
+  }
+}

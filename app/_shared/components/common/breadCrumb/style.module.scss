@@ -1,0 +1,24 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.breadCrumbActive,
+.breadCrumbDefault {
+  @include RP(
+    (
+      "font-size": 16,
+      "line-height": 26,
+    )
+  );
+  color: $DARK;
+  font-weight: 700;
+}
+
+.breadCrumbDefault {
+  color: $PRIMARY;
+  margin-right: 10px;
+  @include RP(
+    (
+      "margin-right": 10,
+    )
+  );
+}

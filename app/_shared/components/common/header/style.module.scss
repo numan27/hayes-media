@@ -1,0 +1,170 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.header {
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-height: 100px;
+  height: auto;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border-bottom: 0.5px solid #0092d633;
+
+  @include RP(("height": 100,
+    ));
+
+  .hamIcon {
+    @include RP(("height": 40,
+        "width": 40,
+      ));
+    cursor: pointer;
+  }
+
+  .logo {
+
+    @include RP(("height": 29,
+        "width": 29,
+      ));
+    width: 100%;
+  }
+
+  .main__menu {
+    &>li {
+      position: relative;
+    }
+
+    .dropdown__menu {
+      position: absolute;
+      top: 30px;
+    }
+
+    .subMenu {
+      list-style: none;
+      min-width: 150px;
+      border-radius: 4px;
+      background-color: #F2F7FB;
+      min-width: 240px;
+
+      .subMenuItem {
+        @include RP(("height": 56,
+          ));
+        border-bottom: 0.5px solid #0092D633;
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .subMenuLink {
+          text-wrap: nowrap;
+          @include RP(("font-size": 16,
+              "padding-left": 20,
+              "padding-right": 20,
+              "padding-top": 16,
+              "padding-bottom": 16,
+            ));
+          color: $DESC;
+          font-weight: 500;
+          width: 100%;
+          height: 100%;
+
+          &:hover {
+            color: $PRIMARY;
+          }
+        }
+      }
+    }
+  }
+
+  .navLink {
+    color: $LINK;
+    font-weight: 500;
+    position: relative;
+    @include RP(("font-size": 16));
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      @include PRIMARY_TEXT;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: $PRIMARY;
+        bottom: -2px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+    }
+
+    svg {
+      path {
+        stroke: $DESC;
+      }
+    }
+  }
+
+  .activeLink {
+    font-weight: 600;
+    position: relative;
+    @include PRIMARY_TEXT;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $PRIMARY;
+      bottom: -2px;
+      left: 0;
+    }
+  }
+
+  .header__right {
+    .loginButton {
+      color: $DESC;
+      font-family: var(--font-montserrat);
+      font-weight: 500;
+      @include RP(("font-size": 16,
+        ));
+
+      &:hover {
+        color: $PRIMARY;
+      }
+    }
+  }
+
+  .site__logo {
+    img {
+      @include RP(("width": 56,
+          "height": 56,
+        ))
+    }
+  }
+}
+
+.login_btn {
+  padding: 12px 16px !important;
+}
+
+@media (max-width: 1024px) {
+  .header__icon svg {
+    max-width: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__right button {
+    font-size: 12px;
+  }
+
+  .site__logo {
+    max-width: 80px;
+  }
+}

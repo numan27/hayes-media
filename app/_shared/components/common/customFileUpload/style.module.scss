@@ -1,0 +1,119 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .previewContainer {
+    position: relative;
+    width: 100% !important;
+
+    .removeButton {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background-color: $BLUE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include RP(
+        (
+          "width": 36,
+          "height": 36,
+        )
+      );
+
+      svg {
+        @include RP(
+          (
+            "width": 22,
+            "height": 22,
+          )
+        );
+        path {
+          fill: $WHITE !important;
+        }
+      }
+    }
+    iframe {
+      @include RP(
+        (
+          "height": 600,
+        )
+      );
+    }
+  }
+}
+
+.uploadArea {
+  background-color: $WHITE;
+  border: 1px dashed $BORDER;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  @include RP(
+    (
+      "height": 200,
+      "margin-top": 30,
+    )
+  );
+
+  .uploadIcon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: $BLUE;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    @include RP(
+      (
+        "height": 36,
+        "width": 36,
+      )
+    );
+
+    svg {
+      @include RP(
+        (
+          "height": 18.33,
+          "width": 18.33,
+        )
+      );
+      path {
+        stroke: $WHITE;
+      }
+    }
+  }
+  .uploadPlaceholder {
+    p {
+      font-weight: 500;
+      color: $PRIMARY !important;
+    }
+  }
+}
+
+.fileInput {
+  display: none;
+}
+
+.dragActive {
+  border-color: green !important;
+}
+
+.dragReject {
+  border-color: $PRIMARY !important;
+}

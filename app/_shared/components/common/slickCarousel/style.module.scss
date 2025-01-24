@@ -1,0 +1,83 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.carousel {
+  max-width: 1200px;
+
+  .activeSlide {
+    transform: scaleX(2);
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .slick-slide {
+    transition: transform 0.3s ease;
+  }
+
+  .slick-arrow {
+    background-color: #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    &::before {
+      color: #333;
+      font-size: 18px;
+    }
+  }
+
+  .slick-dots {
+    bottom: -20px;
+
+    li button::before {
+      color: #999;
+    }
+
+    li.slick-active button::before {
+      color: #333;
+    }
+  }
+}
+
+.carousel {
+  max-width: 1200px;
+  position: relative;
+
+  .slick-slide {
+    transition: transform 0.3s ease;
+
+    &.slick-center {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nextArrow {
+  right: -20px;
+}
+
+.prevArrow {
+  left: -20px;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+.arrow:hover {
+  background-color: #f0f0f0;
+}

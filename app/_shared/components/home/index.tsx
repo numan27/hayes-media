@@ -1,0 +1,44 @@
+import HeroBanner from "./heroBanner";
+import classNames from "classnames";
+import styles from "./style.module.scss";
+import Image from "next/image";
+import { Images } from "assets";
+import Mission from "./mission";
+import Services from "./services";
+import ServicesDetail from "./services-detail";
+import Portfolio from "./portfolio";
+import CeoMessage from "./ceoMessage";
+import Methodology from "./methodology";
+import TeamSection from "./teamReviewSection";
+import Blogs from "./blogs";
+import Newsletter from "./newsletter";
+
+const LandingPage = () => {
+  return (
+    <div className={classNames(styles.homeWrapper)}>
+      <HeroBanner />
+      <Mission />
+      <Services />
+      <ServicesDetail />
+      {/* <Portfolio /> */}
+      <CeoMessage />
+      <Methodology />
+      <TeamSection />
+      <Blogs />
+      <div className={classNames(styles.newsletterWrapper, "relative")}>
+        <div
+          className={classNames(styles.bg, "absolute -top-12 left-0 right-0")}
+        >
+          <Image src={Images.NewsLetterBg} alt="bg-img" />
+        </div>
+        <Newsletter />
+      </div>
+
+      {/* <div className={classNames(styles.backShadow)}>
+        <Image src={Images.BackShadow} alt="" />
+      </div> */}
+    </div>
+  );
+};
+
+export default LandingPage;

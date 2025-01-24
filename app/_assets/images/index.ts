@@ -1,0 +1,60 @@
+import Logo from "./logo.png";
+import LogoDashboard from "./dashboard-logo.png";
+import HeroBanner from "./hero-banner.png";
+import PlayIconImg from "./play-icon.png";
+import BackShadow from "./back-shadow.png";
+import BrandLogo from "./sample-brand-logo.png";
+import MissionSectionImg from "./mission-section-img.png";
+import ServiceIcon1 from "./service-icon-1.png";
+import ServiceIcon2 from "./service-icon-2.png";
+import ServiceIcon3 from "./service-icon-3.png";
+import ServiceIcon4 from "./service-icon-4.png";
+import ServiceIcon5 from "./service-icon-5.png";
+import ServiceIcon6 from "./service-icon-6.png";
+import LongArrow from "./long-arrow.png";
+import GradientLineX from "./gradient-line-x.png";
+import GradientPlaceholder from "./gradient-rectangle.png";
+import ReviewSlider1 from "./review-slider-1.png";
+import ReviewSlider2 from "./review-slider-2.png";
+import ReviewSlider3 from "./review-slider-3.jpeg";
+import CeoPlaceholder from "./ceo.png";
+import ReviewImg1 from "./review-img-1.png";
+import ReviewImg2 from "./review-img-2.png";
+import ReviewImg3 from "./review-img-3.jpeg";
+import SliderArrowLeft from "./slider-arrow-left.png";
+import SliderArrowRight from "./slider-arrow-right.png";
+import RoundedArrowRight from "./rounded-arrow-left.png";
+import NewsLetterBg from "./newsletter-bg.png";
+
+
+const Images = {
+  Logo,
+  LogoDashboard,
+  HeroBanner,
+  PlayIconImg,
+  BackShadow,
+  BrandLogo,
+  MissionSectionImg,
+  ServiceIcon1,
+  ServiceIcon2,
+  ServiceIcon3,
+  ServiceIcon4,
+  ServiceIcon5,
+  ServiceIcon6,
+  LongArrow,
+  GradientLineX,
+  GradientPlaceholder,
+  ReviewSlider1,
+  ReviewSlider2,
+  ReviewSlider3,
+  CeoPlaceholder,
+  ReviewImg1,
+  ReviewImg2,
+  ReviewImg3,
+  SliderArrowLeft,
+  SliderArrowRight,
+  RoundedArrowRight,
+  NewsLetterBg
+};
+
+export { Images };

@@ -1,0 +1,27 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  mask-image: url("../../../../_assets/images/landing-background.png");
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 100%;
+  background-color: #0C0B12 !important;
+  @include RP(("padding-bottom": 50,
+      "margin-top": 50,
+    ));
+  z-index: -1 !important;
+
+  .contentWrapper {
+    @include RP(("padding-top": 30,
+        "padding-bottom": 30,
+      ));
+
+    @media screen and (max-width: 510px) {
+      @include RP(("padding-top": 30,
+          "padding-bottom": 30,
+        ));
+    }
+  }
+}
