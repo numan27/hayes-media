@@ -1,0 +1,202 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  .contentContainer {
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 100px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // justify-content: center;
+    align-items: center;
+
+    .contentItem {
+      // width: 100% !important;
+      height: 100%;
+      position: relative;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+      // overflow: visible;
+      // margin: 0 auto !important;
+
+      &:first-child {
+        width: 80% !important;
+        // width: 1300px !important;
+        // height: 300px !important;
+        // max-height: 300px !important;
+        z-index: 100 !important;
+      }
+
+      &:nth-child(2) {
+        width: 70% !important;
+        // width: 1200px !important;
+        height: 250px !important;
+        max-height: 250px !important;
+        transform: translateY(40px);
+        z-index: 99 !important;
+      }
+
+      &:nth-child(3) {
+        width: 60%;
+        // width: 1050px !important;
+        // height: 220px !important;
+        // max-height: 220px !important;
+        transform: translateY(70px);
+        z-index: 98 !important;
+      }
+
+      &:last-child {
+        width: 50%;
+        // width: 950px !important;
+        // height: 180px !important;
+        // max-height: 180px !important;
+        transform: translateY(40px);
+        z-index: 97 !important;
+      }
+
+      &:hover {
+        svg {
+          path {
+            fill: #000 !important;
+          }
+        }
+
+        &:nth-child(2) {
+          transform: translateY(15px);
+          z-index: 100 !important;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(50px);
+          z-index: 100 !important;
+        }
+
+        &:last-child {
+          transform: translateY(30px);
+          z-index: 100 !important;
+        }
+
+        .heading {
+          @include PRIMARY_TEXT;
+        }
+      }
+
+      .svgWrapper {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        right: 0;
+        // width: 100% !important;
+        // height: 100% !important;
+
+        svg {
+          width: 100% !important;
+          height: 100% !important;
+
+          // &:first-child {
+          //   width: 1300px !important;
+          //   height: 100% !important;
+          //   max-height: 380px !important;
+          // }
+
+          // &:nth-child(2) {
+          //   width: 1200px !important;
+          //   height: 100% !important;
+          //   max-height: 300px !important;
+          // }
+
+          // &:nth-child(3) {
+          //   width: 1050px !important;
+          //   height: 100% !important;
+          //   max-height: 220 !important;
+          // }
+
+          // &:nth-child(4) {
+          //   width: 950px !important;
+          //   height: 100% !important;
+          //   max-height: 180px !important;
+          // }
+
+          // path {
+          //   fill: transparent;
+          // }
+
+          svg {
+            path {
+              fill: #000 !important;
+            }
+          }
+        }
+
+        .heading {
+          position: absolute;
+          top: 50%;
+          left: 45px;
+          transform: translate(-50%, -50%);
+          @include RP(("font-size": 32));
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+
+      .hiddenContent {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        z-index: 2;
+        opacity: 0;
+        transform: scale(0.9);
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0.3s;
+        max-width: 70% !important;
+
+        .customBadge {
+          background: $PRIMARY;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1.5px 3px;
+          color: #fff;
+          border-radius: 35px;
+          font-size: 12px;
+          width: fit-content;
+
+          .badgeContent {
+            border: 2px solid #000 !important;
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            padding: 2px 12px 2px 2px;
+
+            .iconContainer {
+              border-radius: 100%;
+              background-color: $WHITE;
+              @include RP(("width": 36, "height": 36), 1);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              svg {
+                @include RP(("width": 16, "height": 16), 1);
+              }
+            }
+          }
+        }
+      }
+
+      &:hover .hiddenContent {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s;
+      }
+    }
+  }
+}

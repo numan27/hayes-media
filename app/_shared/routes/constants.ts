@@ -26,7 +26,7 @@ const routeConstant = {
     title: "Contact",
   },
   serviceDetails: {
-    path: "/serviceDetails",
+    path: "general/serviceDetails",
     title: "Service Details",
   },
 

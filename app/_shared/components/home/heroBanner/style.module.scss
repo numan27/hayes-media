@@ -42,7 +42,26 @@
       grid-template-columns: 1fr;
     }
 
-    h1 {}
+    .heroContentIcon {
+      border-radius: 100%;
+      background-color: $WHITE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include RP(("width": 75,
+          "height": 75,
+        ));
+
+      img {
+        @include RP(("width": 40,
+            "height": 40,
+          ));
+      }
+    }
+
+    h1 {
+      margin-bottom: 0 !important;
+    }
 
     .title {
       color: $WHITE;

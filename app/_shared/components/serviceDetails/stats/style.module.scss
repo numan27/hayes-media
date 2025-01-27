@@ -1,0 +1,12 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+
+  @include RP(("padding-top": 50,
+      "padding-bottom": 50,
+    ));
+  background: $PRIMARY;
+
+  .contentContainer {}
+}

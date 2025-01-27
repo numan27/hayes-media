@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import Image from "next/image";
-import CustomSecondaryHeading from "components/common/customSecondaryHeading";
+import CustomArrowHeading from "components/common/customArrowHeading";
 
 const ServicesDetail = () => {
   const servicesData = [
@@ -58,7 +58,7 @@ const ServicesDetail = () => {
                   )}
                 >
                   <div className="mb-12">
-                    <CustomSecondaryHeading
+                    <CustomArrowHeading
                       number={index + 1}
                       heading={item.title}
                     />
