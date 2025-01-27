@@ -1,52 +1,28 @@
 import { memo } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
 
-const brands = [
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-  {
-    img: Images.BrandLogo,
-  },
-];
+interface BrandSliderProps {
+  imagesData?: StaticImageData[] | any;
+}
 
-const BrandSlider = () => {
+const BrandSlider = ({ imagesData }: BrandSliderProps) => {
   return (
     <section className={classNames(styles.brands__section)}>
       <div className={classNames(styles.customContainer)}>
         <div className={classNames(styles.brands__sectionContent)}>
           <h4>
-            <span className="">Our Brands that work with us:</span>
+            <span>Our Brands that work with us:</span>
           </h4>
           <div className={classNames(styles.loopSlider)}>
             <div
               className={classNames(styles.inner, "flex items-center gap-2")}
             >
-              {[...brands, ...brands, ...brands, ...brands].map(
-                (supplier, index) => {
-                  return <SlideItem image={supplier.img} key={index} />;
-                }
+              {[...imagesData, ...imagesData, ...imagesData, ...imagesData].map(
+                (image, index) => (
+                  <SlideItem image={image} key={index} />
+                )
               )}
             </div>
           </div>
@@ -56,13 +32,13 @@ const BrandSlider = () => {
   );
 };
 
-interface SliderProps {
+interface SlideItemProps {
   image: StaticImageData;
 }
 
-const SlideItem = ({ image }: SliderProps) => (
+const SlideItem = ({ image }: SlideItemProps) => (
   <div className={classNames(styles.slideItem)}>
-    <Image src={image} alt="" className={classNames()} />
+    <Image src={image} alt="Brand logo" />
   </div>
 );
 

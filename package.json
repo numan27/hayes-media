@@ -12,6 +12,7 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf/renderer": "^4.1.5",
+    "@react-spring/web": "^9.7.5",
     "@reduxjs/toolkit": "^2.2.1",
     "@svgr/webpack": "^8.1.0",
     "@tippyjs/react": "^4.2.6",

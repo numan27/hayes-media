@@ -6,6 +6,7 @@ import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomButton from "components/common/customButton";
 import Image from "next/image";
 import Link from "next/link";
+import { routeConstant } from "routes/constants";
 
 const Services = () => {
   const servicesData = [
@@ -80,10 +81,12 @@ const Services = () => {
                       </span>
                       <h4>{items.title}</h4>
                       <p>{items.desc}</p>
-                      <CustomButton
-                        title="More Details"
-                        containerStyle="mt-3"
-                      />
+                      <Link href={routeConstant.serviceDetails.path}>
+                        <CustomButton
+                          title="More Details"
+                          containerStyle="mt-3"
+                        />
+                      </Link>
                     </div>
                   </div>
                 </CustomAnimatedBorder>

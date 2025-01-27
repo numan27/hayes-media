@@ -6,6 +6,8 @@ import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 import BannerVideo from "./banner-video";
 import BrandSlider from "./brandSlider";
+import { Images } from "assets";
+import Image, { StaticImageData } from "next/image";
 
 const changingTexts = [
   "INNOVATIVE CREATIVE SOLUTIONS",
@@ -16,23 +18,36 @@ const changingTexts = [
   "CREATIVE BUSINESS GROWTH",
 ];
 
-const HeroBanner = () => {
+interface HeroBannerProps {
+  contentIcon?: boolean;
+  title?: string | any;
+  desc?: string | any;
+  videoSrc?: string | any;
+  brandImagesData?: StaticImageData[] | any;
+}
+
+const HeroBanner = ({
+  contentIcon,
+  title,
+  desc,
+  videoSrc = "/HomePageHeader1.webm",
+  brandImagesData,
+}: HeroBannerProps) => {
   const [currentText, setCurrentText] = useState(changingTexts[0]);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true); // Start the animation
+      setIsAnimating(true);
       setTimeout(() => {
-        // Change text after animation
         setCurrentText((prevText) => {
           const currentIndex = changingTexts.indexOf(prevText);
           const nextIndex = (currentIndex + 1) % changingTexts.length;
           return changingTexts[nextIndex];
         });
-        setIsAnimating(false); // Reset animation
-      }, 1000); // Match the animation duration
-    }, 3000); // Interval for text change
+        setIsAnimating(false);
+      }, 1000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -48,7 +63,8 @@ const HeroBanner = () => {
         <div className="absolute right-20 left-0 top-0 bottom-8 z-0">
           <div className={classNames(styles.customContainer, "h-full")}>
             <BannerVideo
-              videoSrc="/HomePageHeader1.webm"
+              // videoSrc="/HomePageHeader1.webm"
+              videoSrc={videoSrc}
               thumbnailSrc="/hero-banner.png"
               alt="Sample Video Thumbnail"
             />
@@ -66,19 +82,30 @@ const HeroBanner = () => {
             )}
           >
             <div className="flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
-              <h1 className="text-white md:text-left text-center">
-                HAYES MEDIA IS A <br />{" "}
-                <span
-                  className={classNames(
-                    styles.animatedText,
-                    { "opacity-0": isAnimating },
-                    "transition-all"
-                  )}
-                >
-                  {currentText}
-                </span>{" "}
-                <br /> WITH AN EMOTIONALLY <br /> INTELLIGENT APPROACH
+              {contentIcon && (
+                <div className={classNames(styles.heroContentIcon)}>
+                  <Image src={Images.Speaker} alt="icon" />
+                </div>
+              )}
+              <h1 className="text-white md:text-left text-center uppercase mb-0">
+                {title || (
+                  <>
+                    HAYES MEDIA IS A <br />
+                    <span
+                      className={classNames(
+                        styles.animatedText,
+                        { "opacity-0": isAnimating },
+                        "transition-all"
+                      )}
+                    >
+                      {currentText}
+                    </span>{" "}
+                    <br /> WITH AN EMOTIONALLY <br /> INTELLIGENT APPROACH
+                  </>
+                )}
               </h1>
+              {desc && <p>{desc}</p>}
+
               <CustomButton title="get started" />
             </div>
 
@@ -92,7 +119,7 @@ const HeroBanner = () => {
           "sm:mt-0 pt-6 sm:mb-20 mb-0"
         )}
       >
-        <BrandSlider />
+        <BrandSlider imagesData={brandImagesData} />
       </div>
     </div>
   );

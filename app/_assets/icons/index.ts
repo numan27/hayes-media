@@ -100,6 +100,12 @@ import Instagram from "./insta.svg";
 import Facebook from "./facebook.svg";
 import Twitter from "./twitter.svg";
 import Youtube from "./youtube.svg";
+import RoundedShapedRectangle1 from "./rounded-shape.svg";
+import RoundedShapedRectangle2 from "./rounded-shape-2.svg";
+import RoundedShapedRectangle3 from "./rounded-shape-3.svg";
+import RoundedShapedRectangle4 from "./rounded-shape-4.svg";
+import Speaker from "./speaker.svg";
+import GradientGridBox from "./gradient-grid-shape.svg";
 
 const Icons = {
   ArrowRight,
@@ -203,7 +209,13 @@ const Icons = {
   Instagram,
   Facebook,
   Twitter,
-  Youtube
+  Youtube,
+  RoundedShapedRectangle1,
+  RoundedShapedRectangle2,
+  RoundedShapedRectangle3,
+  RoundedShapedRectangle4,
+  Speaker,
+  GradientGridBox
 };
 
 export { Icons };

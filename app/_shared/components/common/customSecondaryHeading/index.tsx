@@ -3,39 +3,42 @@ import styles from "./style.module.scss";
 import Image from "next/image";
 import { Images } from "assets";
 
-interface CustomSeconadryHeadingProps {
-  number: number;
-  heading: string;
+interface CustomSecondaryHeadingProps {
+  heading: string | any;
+  textCase?: "uppercase" | "lowercase" | "capitalize" | "none";
+  size?: "default" | "md" | "small" | "large";
 }
 
 const CustomSecondaryHeading = ({
-  number,
   heading,
-}: CustomSeconadryHeadingProps) => (
-  <div
-    className={classNames(
-      styles.sectionHeading,
-      "flex items-end sm:justify-start justify-center xs:gap-0 gap-1.5"
-    )}
-  >
-    <h1 className={classNames(styles.number)}>{number}</h1>
-    <div className="flex items-baseline mt-auto">
-      <h3 className={classNames(styles.title)}>
-        {heading}
-        <span className={classNames(styles.arrow)}>
-          <Image
-            height={25}
-            width={25}
-            src={Images.LongArrow}
-            alt="arrow-icon"
-          />
-        </span>
+  size = "default",
+  textCase = "uppercase",
+}: CustomSecondaryHeadingProps) => {
+  const HeadingTag =
+    size === "large"
+      ? "h1"
+      : size === "md"
+      ? "h4"
+      : size === "small"
+      ? "h5"
+      : "h3";
+
+  return (
+    <div className={classNames(styles.sectionHeading)}>
+      <HeadingTag
+        style={{
+          textTransform: textCase,
+          fontSize: size === "large" ? "50px" : undefined,
+        }}
+        className={classNames(styles.title)}
+      >
+        <span>{heading}</span>
         <span className={classNames(styles.lineX)}>
           <Image src={Images.GradientLineX} alt="lineX-icon" />
         </span>
-      </h3>
+      </HeadingTag>
     </div>
-  </div>
-);
+  );
+};
 
 export default CustomSecondaryHeading;

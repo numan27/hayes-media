@@ -25,6 +25,8 @@ import SliderArrowLeft from "./slider-arrow-left.png";
 import SliderArrowRight from "./slider-arrow-right.png";
 import RoundedArrowRight from "./rounded-arrow-left.png";
 import NewsLetterBg from "./newsletter-bg.png";
+import Speaker from "./speaker.png";
+import GradientBoxShape from "./gradient-box-shape.png";
 
 
 const Images = {
@@ -54,7 +56,9 @@ const Images = {
   SliderArrowLeft,
   SliderArrowRight,
   RoundedArrowRight,
-  NewsLetterBg
+  NewsLetterBg,
+  Speaker,
+  GradientBoxShape
 };
 
 export { Images };

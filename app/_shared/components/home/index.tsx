@@ -12,15 +12,28 @@ import Methodology from "./methodology";
 import TeamSection from "./teamReviewSection";
 import Blogs from "./blogs";
 import Newsletter from "./newsletter";
+import GetStartedCall from "./getStartedCall";
 
 const LandingPage = () => {
+  const brands = [
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+    Images.BrandLogo,
+  ];
+
   return (
     <div className={classNames(styles.homeWrapper)}>
-      <HeroBanner />
+      <HeroBanner brandImagesData={brands} />
       <Mission />
       <Services />
       <ServicesDetail />
       {/* <Portfolio /> */}
+      <GetStartedCall />
       <CeoMessage />
       <Methodology />
       <TeamSection />
