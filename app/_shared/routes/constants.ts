@@ -29,6 +29,10 @@ const routeConstant = {
     path: "general/serviceDetails",
     title: "Service Details",
   },
+  socialMedia: {
+    path: "general/socialMedia",
+    title: "Social Media",
+  },
 
   // Auth
   login: {

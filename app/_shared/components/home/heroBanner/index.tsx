@@ -24,6 +24,7 @@ interface HeroBannerProps {
   title?: string | any;
   desc?: string | any;
   videoSrc?: string | any;
+  btnTitle?: string | any;
   brandImagesData?: StaticImageData[] | any;
 }
 
@@ -33,6 +34,7 @@ const HeroBanner = ({
   desc,
   videoSrc = "/HomePageHeader1.webm",
   brandImagesData,
+  btnTitle = "Get Started",
 }: HeroBannerProps) => {
   const [currentText, setCurrentText] = useState(changingTexts[0]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -119,7 +121,7 @@ const HeroBanner = ({
               </h1>
               {desc && <p>{desc}</p>}
 
-              <CustomButton data-aos="fade-up" title="get started" />
+              <CustomButton data-aos="fade-up" title={btnTitle} />
             </div>
 
             <div className="hidden md:block" />

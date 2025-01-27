@@ -14,31 +14,37 @@ const Services = () => {
       icon: Images.ServiceIcon1,
       title: "Full-Stack Digital Marketing",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.serviceDetails.path,
     },
     {
       icon: Images.ServiceIcon2,
-      title: "Branding",
+      title: "Social Media",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.socialMedia.path,
     },
     {
       icon: Images.ServiceIcon3,
       title: "Web Development",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.serviceDetails.path,
     },
     {
       icon: Images.ServiceIcon4,
       title: "Mobile App Development",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.socialMedia.path,
     },
     {
       icon: Images.ServiceIcon5,
       title: "SEO",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.serviceDetails.path,
     },
     {
       icon: Images.ServiceIcon6,
       title: "Intake Consultation",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
+      path: routeConstant.socialMedia.path,
     },
   ];
 
@@ -81,7 +87,7 @@ const Services = () => {
                       </span>
                       <h4>{items.title}</h4>
                       <p>{items.desc}</p>
-                      <Link href={routeConstant.serviceDetails.path}>
+                      <Link href={items.path}>
                         <CustomButton
                           title="More Details"
                           containerStyle="mt-3"
