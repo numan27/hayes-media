@@ -14,8 +14,9 @@ const CeoMessage = () => {
           "grid sm:grid-cols-2 grid-cols-1"
         )}
       >
-        <Image src={Images.CeoPlaceholder} alt="ceo-img" />
+        <Image data-aos="zoom-in" src={Images.CeoPlaceholder} alt="ceo-img" />
         <div
+          data-aos="fade-down"
           className={classNames(
             styles.contentContainer,
             "flex flex-col items-center justify-center lg:gap-8 sm:gap-5 gap-4"

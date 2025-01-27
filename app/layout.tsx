@@ -15,6 +15,8 @@ import "swiper/css/navigation";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 // import CustomProvider from "redux/provider";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 export const metadata: Metadata = {
   title: "Hayes Media",
@@ -60,6 +62,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000, // Animation duration in milliseconds
+  //     offset: 200, // Offset from the element before animation starts
+  //     easing: "ease-in-out", // Default easing for animations
+  //     once: false, // Ensure animations trigger every time the element is in view
+  //     mirror: true, // Allow animations to repeat on scroll up and down
+  //   });
+  // }, []);
+
   return (
     <html
       lang="en"

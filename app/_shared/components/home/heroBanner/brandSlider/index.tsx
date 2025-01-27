@@ -12,7 +12,7 @@ const BrandSlider = ({ imagesData }: BrandSliderProps) => {
     <section className={classNames(styles.brands__section)}>
       <div className={classNames(styles.customContainer)}>
         <div className={classNames(styles.brands__sectionContent)}>
-          <h4>
+          <h4 data-aos="fade-down">
             <span>Our Brands that work with us:</span>
           </h4>
           <div className={classNames(styles.loopSlider)}>

@@ -58,7 +58,13 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
             href={routeConstant.home.path}
             className={classNames(styles.site__logo)}
           >
-            <Image src={Images.Logo} alt="Hayes Media" width={56} height={56} />
+            <Image
+              data-aos="flip-right"
+              src={Images.Logo}
+              alt="Hayes Media"
+              width={56}
+              height={56}
+            />
           </Link>
           <div
             className={classNames(styles.crossContainer)}

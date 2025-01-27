@@ -55,6 +55,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:items-start items-center gap-3">
               <Image
+                data-aos="flip-right"
                 className={classNames(styles.logo)}
                 width={125}
                 height={125}

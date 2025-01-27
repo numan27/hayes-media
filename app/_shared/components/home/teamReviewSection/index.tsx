@@ -51,6 +51,7 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
                 >
                   <div>
                     <Image
+                      data-aos="zoom-out"
                       src={item?.image}
                       alt="team-review"
                       className={styles.reviewImage}

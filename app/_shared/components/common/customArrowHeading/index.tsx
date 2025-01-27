@@ -18,9 +18,11 @@ const CustomArrowHeading = ({
       "flex items-end sm:justify-start justify-center xs:gap-0 gap-1.5"
     )}
   >
-    <h1 className={classNames(styles.number)}>{number}</h1>
+    <h1 date-aos="flip-left" className={classNames(styles.number)}>
+      {number}
+    </h1>
     <div className="flex items-baseline mt-auto">
-      <h3 className={classNames(styles.title)}>
+      <h3 data-aos="fade-up" className={classNames(styles.title)}>
         {heading}
         <span className={classNames(styles.arrow)}>
           <Image
@@ -30,7 +32,7 @@ const CustomArrowHeading = ({
             alt="arrow-icon"
           />
         </span>
-        <span className={classNames(styles.lineX)}>
+        <span data-aos="fade-right" className={classNames(styles.lineX)}>
           <Image src={Images.GradientLineX} alt="lineX-icon" />
         </span>
       </h3>

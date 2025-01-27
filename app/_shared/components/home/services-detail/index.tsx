@@ -45,6 +45,7 @@ const ServicesDetail = () => {
               >
                 <div className={classNames(styles.imgContainer)}>
                   <Image
+                    data-aos="zoom-out"
                     src={Images.GradientPlaceholder}
                     alt={item.title}
                     className="rounded-lg"
@@ -64,7 +65,11 @@ const ServicesDetail = () => {
                     />
                   </div>
                   <p>{item.desc}</p>
-                  <CustomButton title="Get A Quote" containerStyle="mt-2" />
+                  <CustomButton
+                    data-aos="zoom-out"
+                    title="Get A Quote"
+                    containerStyle="mt-2"
+                  />
                 </div>
               </div>
             ))}

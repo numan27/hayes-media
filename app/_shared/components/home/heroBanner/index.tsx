@@ -8,6 +8,7 @@ import BannerVideo from "./banner-video";
 import BrandSlider from "./brandSlider";
 import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
+// import AOS from "aos";
 
 const changingTexts = [
   "INNOVATIVE CREATIVE SOLUTIONS",
@@ -35,6 +36,15 @@ const HeroBanner = ({
 }: HeroBannerProps) => {
   const [currentText, setCurrentText] = useState(changingTexts[0]);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  // useEffect(() => {
+  //   AOS.init({
+  //     duration: 1000,
+  //     offset: 200,
+  //     easing: "ease-in-out",
+  //     once: true,
+  //   });
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,7 +97,10 @@ const HeroBanner = ({
                   <Image src={Images.Speaker} alt="icon" />
                 </div>
               )}
-              <h1 className="text-white md:text-left text-center uppercase mb-0">
+              <h1
+                data-aos="fade-right"
+                className="text-white md:text-left text-center uppercase mb-0"
+              >
                 {title || (
                   <>
                     HAYES MEDIA IS A <br />
@@ -106,7 +119,7 @@ const HeroBanner = ({
               </h1>
               {desc && <p>{desc}</p>}
 
-              <CustomButton title="get started" />
+              <CustomButton data-aos="fade-up" title="get started" />
             </div>
 
             <div className="hidden md:block" />
@@ -119,7 +132,7 @@ const HeroBanner = ({
           "sm:mt-0 pt-6 sm:mb-20 mb-0"
         )}
       >
-        <BrandSlider imagesData={brandImagesData} />
+        <BrandSlider data-aos="fade-up" imagesData={brandImagesData} />
       </div>
     </div>
   );

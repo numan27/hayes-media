@@ -1,11 +1,24 @@
+"use client";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Images } from "assets";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import AOS from "aos";
 
 const Blogs = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+      offset: 200,
+      easing: "ease-in-out",
+      once: false,
+      mirror: true,
+    });
+  }, []);
+
   const blogsData = [
     { img: "", category: "Website", title: "Creative landing page" },
     {
@@ -35,7 +48,7 @@ const Blogs = () => {
             )}
           >
             {blogsData.map((items) => (
-              <div className={classNames(styles.gridItem)}>
+              <div data-aos="zoom-in" className={classNames(styles.gridItem)}>
                 <div className={classNames(styles.imgContainer)}></div>
                 <div
                   className={classNames(

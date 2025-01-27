@@ -28,11 +28,17 @@ const CustomSectionHeading = ({
         className={classNames(styles.titleContainer, "flex items-center gap-1")}
       >
         <span>
-          <Image height={36} width={36} src={Images.Logo} alt="mission-img" />
+          <Image
+            data-aos="fade-right"
+            height={36}
+            width={36}
+            src={Images.Logo}
+            alt="mission-img"
+          />
         </span>
-        <h2>{heading}</h2>
+        <h2 data-aos="fade-up">{heading}</h2>
       </div>
-      <p>{description}</p>
+      <p data-aos="fade-up">{description}</p>
     </div>
   );
 };

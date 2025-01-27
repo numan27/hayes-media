@@ -1,9 +1,23 @@
+"use client";
+
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import { Icons } from "assets";
+import { useEffect } from "react";
+import AOS from "aos";
 
 const Methodology = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+      offset: 200,
+      easing: "ease-in-out",
+      once: false,
+      mirror: true,
+    });
+  }, []);
+
   const methodologyData = [
     {
       icon: <Icons.MethodologyIcon />,
@@ -49,6 +63,8 @@ const Methodology = () => {
           >
             {methodologyData.map((items, index) => (
               <div
+                data-aos="zoom-in"
+                data-aos-duration="3000"
                 key={index}
                 className={classNames(
                   styles.gridItem,

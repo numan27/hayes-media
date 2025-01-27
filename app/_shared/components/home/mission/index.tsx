@@ -33,6 +33,7 @@ const Mission = () => {
           )}
         >
           <Image
+            data-aos="fade-left"
             height={400}
             src={Images.MissionSectionImg}
             alt="mission-img"
