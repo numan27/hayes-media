@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.7",
     "@svgr/webpack": "^8.1.0",
     "@tippyjs/react": "^4.2.6",
     "apexcharts": "^3.53.0",

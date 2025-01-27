@@ -1,29 +1,27 @@
-import dynamic from "next/dynamic";
+import styles from "./style.module.scss";
 import { useContext, useState } from "react";
 import { MyContext } from "utils/myContext";
-import classNames from "classnames";
-import styles from "../style.module.scss";
-import Link from "next/link";
 import { routeConstant } from "routes/constants";
-import { useSelector } from "react-redux";
 import CustomButton from "components/common/customButton";
 import ProfileDropdown from "components/common/headerComponents/profileDropdown";
 import { Icons } from "assets";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
+import classNames from "classnames";
+import dynamic from "next/dynamic";
 
 const DynamicActions = () => {
-  const {
-    auth: { isLoggedIn },
-  } = useSelector((state: any) => state.root);
-  const [becomeFellowModal, setBecomeFellowModal] = useState(false);
+  // const {
+  //   auth: { isLoggedIn },
+  // } = useSelector((state: any) => state.root);
+  // const [becomeFellowModal, setBecomeFellowModal] = useState(false);
 
-  const openFellowModal = () => {
-    setBecomeFellowModal(true);
-  };
+  // const openFellowModal = () => {
+  //   setBecomeFellowModal(true);
+  // };
 
-  const closeFellowModal = () => {
-    setBecomeFellowModal(false);
-  };
+  // const closeFellowModal = () => {
+  //   setBecomeFellowModal(false);
+  // };
 
   return (
     <>
