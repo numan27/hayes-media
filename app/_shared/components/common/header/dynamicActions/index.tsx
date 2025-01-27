@@ -1,9 +1,8 @@
-import styles from "./style.module.scss";
+import styles from "../style.module.scss";
 import { useContext, useState } from "react";
 import { MyContext } from "utils/myContext";
 import { routeConstant } from "routes/constants";
 import CustomButton from "components/common/customButton";
-import ProfileDropdown from "components/common/headerComponents/profileDropdown";
 import { Icons } from "assets";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import classNames from "classnames";

@@ -1,6 +1,6 @@
 "use client";
-import { resetAuthReducer } from "redux/reducers/authSlice";
-import { store } from "redux/store";
+// import { resetAuthReducer } from "redux/reducers/authSlice";
+// import { store } from "redux/store";
 import { routeConstant } from "routes/constants";
 import { SUPPORTED_FORMATS } from "./enum";
 
@@ -46,19 +46,19 @@ function findScreenTitle(pathname: string): string {
   return matchedRoute.title || "Untitled";
 }
 
-const resetRedux = () => {
-  const { auth }: any = store.getState().root;
-  if (auth?.token) {
-    store.dispatch(resetAuthReducer());
-    if (document) {
-      document.cookie.split(";").forEach(function (c) {
-        document.cookie = c
-          .replace(/^ +/, "")
-          .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-      });
-    }
-  }
-};
+// const resetRedux = () => {
+//   const { auth }: any = store.getState().root;
+//   if (auth?.token) {
+//     store.dispatch(resetAuthReducer());
+//     if (document) {
+//       document.cookie.split(";").forEach(function (c) {
+//         document.cookie = c
+//           .replace(/^ +/, "")
+//           .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+//       });
+//     }
+//   }
+// };
 
 function getTopPosition(divElement: HTMLElement) {
   const rect = divElement.getBoundingClientRect();
@@ -78,5 +78,5 @@ export {
   getTopPosition,
   getWindowDimensions,
   isImage,
-  resetRedux,
+  // resetRedux,
 };
