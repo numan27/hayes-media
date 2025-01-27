@@ -1,6 +1,6 @@
 "use client";
 
-import { useSpring, animated } from "@react-spring/web";
+// import { useSpring, animated } from "@react-spring/web";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
@@ -15,12 +15,12 @@ const Stats = () => {
 
   const animateNumber = (endValue: string) => {
     const formattedValue = endValue.replace(/[^0-9]/g, "");
-    const startValue = 0;
-    return useSpring({
-      from: { number: startValue },
-      to: { number: Number(formattedValue) },
-      config: { tension: 100, friction: 10 },
-    });
+    // const startValue = 0;
+    // return useSpring({
+    //   from: { number: startValue },
+    //   to: { number: Number(formattedValue) },
+    //   config: { tension: 100, friction: 10 },
+    // });
   };
 
   return (
@@ -42,9 +42,10 @@ const Stats = () => {
                   "flex flex-col items-center"
                 )}
               >
-                <animated.h1>
+                <h1>{items.number}</h1>
+                {/* <animated.h1>
                   {animationProps.number.to((n: number) => n.toFixed(0))}
-                </animated.h1>
+                </animated.h1> */}
                 <p>{items.details}</p>
               </div>
             );
