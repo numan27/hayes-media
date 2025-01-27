@@ -27,6 +27,8 @@ import RoundedArrowRight from "./rounded-arrow-left.png";
 import NewsLetterBg from "./newsletter-bg.png";
 import Speaker from "./speaker.png";
 import GradientBoxShape from "./gradient-box-shape.png";
+import OtherServiceImg1 from "./other-service-1.png";
+import OtherServiceImg2 from "./other-service-2.png";
 
 
 const Images = {
@@ -58,7 +60,9 @@ const Images = {
   RoundedArrowRight,
   NewsLetterBg,
   Speaker,
-  GradientBoxShape
+  GradientBoxShape,
+  OtherServiceImg1,
+  OtherServiceImg2
 };
 
 export { Images };

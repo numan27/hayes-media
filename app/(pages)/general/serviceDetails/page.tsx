@@ -4,6 +4,8 @@ import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
 import TeamSection from "components/home/teamReviewSection";
 import Features from "components/serviceDetails/featuresSection";
+import GetQuote from "components/serviceDetails/getQuote";
+import OtherServices from "components/serviceDetails/otherServices";
 import Stats from "components/serviceDetails/stats";
 import VideoSection from "components/serviceDetails/videoSection";
 
@@ -36,8 +38,8 @@ const ServiceDetails = () => {
       <Stats />
       <GetStartedCall />
       <TeamSection />
-      <h1>Other Service</h1>
-      <h1>Get a Quote</h1>
+      <OtherServices />
+      <GetQuote />
       <FAQs />
     </div>
   );

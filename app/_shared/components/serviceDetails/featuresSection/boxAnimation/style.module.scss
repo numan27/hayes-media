@@ -30,6 +30,10 @@
         // height: 300px !important;
         // max-height: 300px !important;
         z-index: 100 !important;
+
+        @media screen and (max-width: 992px) {
+          width: 97% !important;
+        }
       }
 
       &:nth-child(2) {
@@ -39,6 +43,10 @@
         max-height: 250px !important;
         transform: translateY(40px);
         z-index: 99 !important;
+
+        @media screen and (max-width: 992px) {
+          width: 90% !important;
+        }
       }
 
       &:nth-child(3) {
@@ -48,6 +56,10 @@
         // max-height: 220px !important;
         transform: translateY(70px);
         z-index: 98 !important;
+
+        @media screen and (max-width: 992px) {
+          width: 80% !important;
+        }
       }
 
       &:last-child {
@@ -57,6 +69,10 @@
         // max-height: 180px !important;
         transform: translateY(40px);
         z-index: 97 !important;
+
+        @media screen and (max-width: 992px) {
+          width: 70% !important;
+        }
       }
 
       &:hover {
@@ -165,8 +181,12 @@
           padding: 1.5px 3px;
           color: #fff;
           border-radius: 35px;
-          font-size: 12px;
+          font-size: 12px !important;
           width: fit-content;
+
+          @media screen and (max-width: 992px) {
+            font-size: 10px !important;
+          }
 
           .badgeContent {
             border: 2px solid #000 !important;
@@ -175,6 +195,10 @@
             border-radius: 35px;
             padding: 2px 12px 2px 2px;
 
+            @media screen and (max-width: 640px) {
+              padding: 2px 4px;
+            }
+
             .iconContainer {
               border-radius: 100%;
               background-color: $WHITE;
@@ -182,6 +206,18 @@
               display: flex;
               align-items: center;
               justify-content: center;
+
+              @media screen and (max-width: 640px) {
+                display: none;
+              }
+
+              @media screen and (max-width: 992px) {
+                @include RP(("width": 28, "height": 28), 1);
+
+                svg {
+                  @include RP(("width": 14, "height": 14), 1);
+                }
+              }
 
               svg {
                 @include RP(("width": 16, "height": 16), 1);

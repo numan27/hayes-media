@@ -1,16 +1,21 @@
+"use client";
+
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import CustomButton from "components/common/customButton";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 const VideoSection = () => {
+  const { width } = useWindowDimensions();
+
   return (
     <div className={classNames(styles.sectionWrapper, "")}>
       <div className={classNames(styles.customContainer, "")}>
         <div
           className={classNames(
             styles.contentContainer,
-            "grid grid-cols-2 gap-16"
+            "grid md:grid-cols-2 grid-cols-1 lg:gap-16 gap-8"
           )}
         >
           <div
@@ -24,15 +29,15 @@ const VideoSection = () => {
           <div
             className={classNames(
               styles.content,
-              "flex flex-col items-start gap-5"
+              "flex flex-col xs:items-start items-center gap-5"
             )}
           >
             <CustomSecondaryHeading
               size="large"
               heading={
                 <>
-                  Online Advertising is <br /> No Longer Optional, <br /> It’s
-                  Non-Negotiable
+                  Online Advertising is {width > 768 && <br />} No Longer
+                  Optional, {width > 768 && <br />} It’s Non-Negotiable
                 </>
               }
             />

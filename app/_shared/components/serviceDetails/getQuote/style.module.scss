@@ -1,0 +1,52 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  @include RP(("padding-top": 40,
+      "padding-bottom": 50,
+    ));
+
+  .contentWrapper {
+    @include RP(("padding-top": 30,
+        "padding-bottom": 50,
+        "padding-left": 60,
+        "padding-right": 60,
+      ));
+
+    @media screen and (max-width: 510px) {
+      @include RP(("padding-top": 30,
+          "padding-bottom": 30,
+          "padding-left": 35,
+          "padding-right": 35,
+        ));
+    }
+
+    .gridContainer {
+      @include RP(("padding-top": 40,
+        ));
+
+      .quoteInput {
+        background-color: $DARK !important;
+        border-radius: 6px !important;
+        border-color: #FFFFFF33 !important;
+
+        input {
+          background-color: $DARK !important;
+
+          ::placeholder {
+            color: #FFFFFF99 !important;
+            @include RP(("font-size": 15,
+              ), 1);
+          }
+
+        }
+      }
+    }
+
+    .buttonContainer {
+      @include RP(("margin-top": 40,
+        ), 1);
+    }
+
+  }
+}

@@ -29,6 +29,7 @@
       ));
 
     img {
+      transform: scaleX(-1) !important;
       object-fit: cover;
       width: 100%;
       height: auto;

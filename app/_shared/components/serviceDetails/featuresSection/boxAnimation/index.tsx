@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
-import CustomButton from "components/common/customButton";
 
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -25,8 +24,6 @@ const BoxAnimation = () => {
         { icon: <Icons.CoreValuesIcon1 />, title: "SEO" },
         { icon: <Icons.CoreValuesIcon2 />, title: "SEM/PPC" },
         { icon: <Icons.CoreValuesIcon3 />, title: "BLOGGING" },
-        { icon: <Icons.CoreValuesIcon4 />, title: "MARKETING" },
-        { icon: <Icons.CoreValuesIcon4 />, title: "MARKETING" },
         { icon: <Icons.CoreValuesIcon4 />, title: "MARKETING" },
         { icon: <Icons.CoreValuesIcon4 />, title: "MARKETING" },
       ],
@@ -81,7 +78,7 @@ const BoxAnimation = () => {
               <div
                 className={classNames(
                   styles.hiddenContent,
-                  "flex items-center justify-center flex-wrap gap-2"
+                  "flex items-center justify-center flex-wrap xs:gap-2 gap-1"
                 )}
               >
                 {hoveredIndex === index &&

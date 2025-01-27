@@ -57,7 +57,7 @@ const DynamicActions = () => {
             />
           </CustomAnimatedBorder>
           <CustomButton
-            title="LOG IN"
+            title="Log In"
             containerStyle={classNames(styles.login_btn)}
           />
         </>
@@ -97,7 +97,7 @@ export default dynamic(() => Promise.resolve(DynamicActions), {
               />
             </CustomAnimatedBorder>
             <CustomButton
-              title="LOG IN"
+              title="Log In"
               containerStyle={classNames(styles.login_btn)}
             />
           </>
