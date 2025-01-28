@@ -21,13 +21,17 @@ const CustomSectionHeading = ({
         "flex flex-col",
         centered
           ? "items-center text-center sm:w-8/12 xs:w-10/12 w-full mx-auto"
-          : "sm:items-start text-left"
+          : "md:items-start items-center text-left"
       )}
     >
       <div
-        className={classNames(styles.titleContainer, "flex items-center gap-1")}
+        className={classNames(
+          styles.titleContainer,
+          "flex gap-1",
+          centered ? "items-center" : "items-start"
+        )}
       >
-        <span>
+        <span className={classNames(centered ? "" : "md:mt-3 mt-2")}>
           <Image
             data-aos="fade-right"
             height={36}

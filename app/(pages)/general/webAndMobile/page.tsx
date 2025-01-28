@@ -1,19 +1,17 @@
 import { Images } from "assets";
-import FAQs from "components/home/faqs";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
 import Newsletter from "components/home/newsletter";
 import ServicesDetail from "components/home/services-detail";
 import TeamSection from "components/home/teamReviewSection";
-import Features from "components/serviceDetails/featuresSection";
 import GetQuote from "components/serviceDetails/getQuote";
-import OtherServices from "components/serviceDetails/otherServices";
 import Stats from "components/serviceDetails/stats";
 import VideoSection from "components/serviceDetails/videoSection";
 import InnovationSection from "components/socialMedia/innovationSection";
 import SocialMediaScope from "components/socialMedia/socialMediaScope";
+import TrustedPartners from "components/webAndMobile/trustedPartners";
 
-const SocialMedia = () => {
+const WebMobile = () => {
   const brands = [
     Images.BrandLogo,
     Images.BrandLogo,
@@ -45,17 +43,18 @@ const SocialMedia = () => {
       <HeroBanner
         title={
           <>
-            <span>Become the authority with social media management.</span>
+            <span>
+              Building Smarter Web and Mobile Experiences for Global Impact
+            </span>
           </>
         }
-        desc="Hayes Media, an Austin-based agency, specializes in targeted online ad campaigns that help you reach the right audience at the right time and at the right place. From search to social."
+        desc="HHayes Media is an Austin-based web and mobile app company that specializes in creating custom web and mobile app solutions, blending creativity, innovation, and performance. From sleek websites to powerful apps, let’s build something extraordinary together."
         brandImagesData={brands}
-        btnTitle="Start Growing Today"
+        btnTitle="Get Started Today"
+        brandsHeading="Programs we work with"
       />
-      <SocialMediaScope />
-      <VideoSection />
-      <ServicesDetail servicesData={servicesData} isHaveHeading />
-      <InnovationSection />
+      <VideoSection title="Cutting-Edge Web & App Development Solutions for Your Digital Success" />
+      <TrustedPartners />
       <Stats />
       <GetStartedCall />
       <TeamSection />
@@ -65,4 +64,4 @@ const SocialMedia = () => {
   );
 };
 
-export default SocialMedia;
+export default WebMobile;

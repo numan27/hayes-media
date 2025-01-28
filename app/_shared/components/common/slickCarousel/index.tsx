@@ -37,7 +37,7 @@ const CenteredCarousel = <T,>({
 }: CenteredCarouselProps<T>) => {
   const settings: Settings = {
     focusOnSelect: true,
-    // centerPadding: "100px",
+    centerPadding: "100px",
     slidesToShow: 3,
     infinite: true,
     speed: 500,
@@ -70,9 +70,9 @@ const CenteredCarousel = <T,>({
           <div
             key={index}
             className={classNames(
-              styles.slide,
+              styles.slickSlide,
               "grid grid-cols-12 gap-4",
-              //   "p-4",
+              "px-1.5",
               index === activeSlide ? styles.activeSlide : ""
             )}
           >

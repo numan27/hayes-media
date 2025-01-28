@@ -8,6 +8,8 @@
     h2 {
       margin-bottom: 0;
       text-transform: uppercase !important;
+      @include RP(("line-height": 55,
+        ), 1);
     }
 
     &::before {
@@ -17,7 +19,7 @@
       background-size: 300% 300%;
       width: 50%;
       height: 2px;
-      bottom: 7px;
+      bottom: 2px;
       left: 0;
       z-index: 1;
       animation: gradient-move 4s linear infinite;

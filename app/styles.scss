@@ -73,8 +73,8 @@ h6 {
 }
 
 p {
-  color: rgba($color: #fff, $alpha: 0.8) !important;
-  @include RP(("font-size": 16,
+  color: rgba($color: #fff, $alpha: 0.7) !important;
+  @include RP(("font-size": 15,
     ), 1);
 
   @media screen and (max-width: 640px) {

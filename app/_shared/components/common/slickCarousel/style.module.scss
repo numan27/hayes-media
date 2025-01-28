@@ -5,13 +5,15 @@
   max-width: 1200px;
 
   .activeSlide {
-    transform: scaleX(2);
+    transform: scaleX(2) !important;
     z-index: 2;
     transition: transform 0.3s ease;
   }
 
-  .slick-slide {
+  .slickSlide {
     transition: transform 0.3s ease;
+    transform: scaleX(0.5) !important;
+
   }
 
   .slick-arrow {

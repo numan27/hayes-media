@@ -3,7 +3,7 @@
 
 .sectionContainer {
   @include RP(("padding-top": 50,
-      "padding-bottom": 50,
+      "padding-bottom": 80,
     ));
 }
 
@@ -12,6 +12,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+  @include RP(("margin-top": 50,
+    ));
 }
 
 .gridContainer {

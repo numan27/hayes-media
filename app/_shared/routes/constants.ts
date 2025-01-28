@@ -33,6 +33,10 @@ const routeConstant = {
     path: "general/socialMedia",
     title: "Social Media",
   },
+  webMobile: {
+    path: "general/webAndMobile",
+    title: "Web & Mobile Service",
+  },
 
   // Auth
   login: {

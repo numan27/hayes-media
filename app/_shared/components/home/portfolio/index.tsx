@@ -36,7 +36,7 @@ const testimonials = [
       name: "Ali Khan",
     },
     user_type: "First-time Buyer",
-    image: Images.ReviewSlider3,
+    image: Images.PortfolioSlider1,
     text: "I was skeptical at first, but this turned out to be a great purchase. Very satisfied!",
   },
   {
@@ -44,7 +44,7 @@ const testimonials = [
       name: "John Doe",
     },
     user_type: "Verified Buyer",
-    image: Images.ReviewSlider1,
+    image: Images.PortfolioSlider2,
     text: "This product is absolutely amazing! I've been using it for weeks, and it exceeded my expectations.",
   },
   {
@@ -52,7 +52,7 @@ const testimonials = [
       name: "Jane Smith",
     },
     user_type: "Regular Customer",
-    image: Images.ReviewSlider2,
+    image: Images.PortfolioSlider3,
     text: "Great quality and fantastic customer service. Highly recommend to everyone.",
   },
   {
@@ -60,7 +60,7 @@ const testimonials = [
       name: "Ali Khan",
     },
     user_type: "First-time Buyer",
-    image: Images.ReviewSlider3,
+    image: Images.PortfolioSlider4,
     text: "I was skeptical at first, but this turned out to be a great purchase. Very satisfied!",
   },
 ];
@@ -69,70 +69,65 @@ const Portfolio = () => {
   const [activeSlide, setActiveSlide] = useState(0); // Lifted state
 
   return (
-    <section className={classNames(styles.sectionContainer)}>
+    <section className={classNames(styles.sectionContainer, "w-9/12 mx-auto")}>
       <div className={classNames(styles.customContainer)}>
-        <CustomAnimatedBorder
+        {/* <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
           animationSpeed="5s"
           borderRadius="8px"
-        >
-          <div className={classNames(styles.contentWrapper)}>
-            <CustomSectionHeading
-              centered
-              heading="Testimonials"
-              description="Here's what our customers have to say about our products and services."
-            />
+        > */}
+        <div className={classNames(styles.contentWrapper)}>
+          <CustomSectionHeading
+            centered
+            heading="Testimonials"
+            description="Here's what our customers have to say about our products and services."
+          />
 
-            <div className={classNames(styles.customContainer)}>
-              <CenteredCarousel
-                items={testimonials}
-                // @ts-ignore
-                activeSlide={activeSlide}
-                setActiveSlide={setActiveSlide}
-                renderItem={(testimonial: any, index: number) => (
+          <div className={classNames(styles.customContainer)}>
+            <CenteredCarousel
+              items={testimonials}
+              // @ts-ignore
+              activeSlide={activeSlide}
+              setActiveSlide={setActiveSlide}
+              renderItem={(testimonial: any, index: number) => (
+                <div
+                  className={classNames(
+                    styles.review_section,
+                    "relative col-span-3",
+                    index === activeSlide ? "col-span-6" : ""
+                  )}
+                >
+                  <Image
+                    src={testimonial.image}
+                    alt="customer-img"
+                    className={styles.image}
+                  />
                   <div
                     className={classNames(
-                      styles.review_section,
-                      "relative col-span-3",
-                      index === activeSlide ? "col-span-6" : ""
+                      "absolute inset-0 flex items-center justify-center bg-[#7C002BE5] border border-white rounded-lg transition-opacity",
+                      index === activeSlide ? "opacity-100" : "opacity-0"
                     )}
                   >
-                    <Image
-                      src={testimonial.image}
-                      alt="customer-img"
-                      className={styles.image}
-                    />
-                    <div
-                      className={classNames(
-                        "absolute inset-0 flex items-center justify-center bg-[#7C002BE5] border border-white rounded-lg transition-opacity",
-                        index === activeSlide ? "opacity-100" : "opacity-0"
-                      )}
-                    >
-                      <div className="text-white text-center px-4">
-                        <h4
-                          className={classNames(styles.listing__title, "mb-2")}
-                        >
-                          {testimonial.user.name}
-                        </h4>
-                        <p className="text-sm italic mb-4">
-                          {testimonial.user_type}
-                        </p>
-                        <p
-                          className={classNames(
-                            styles.review_desc,
-                            "text-base"
-                          )}
-                        >
-                          "{testimonial.text}"
-                        </p>
-                      </div>
+                    <div className="text-white text-center px-4">
+                      <h4 className={classNames(styles.listing__title, "mb-2")}>
+                        {testimonial.user.name}
+                      </h4>
+                      <p className="text-sm italic mb-4">
+                        {testimonial.user_type}
+                      </p>
+                      <p
+                        className={classNames(styles.review_desc, "text-base")}
+                      >
+                        "{testimonial.text}"
+                      </p>
                     </div>
                   </div>
-                )}
-              />
-            </div>
+                </div>
+              )}
+            />
           </div>
-        </CustomAnimatedBorder>
+        </div>
+        {/* </CustomAnimatedBorder> */}
       </div>
     </section>
   );

@@ -26,7 +26,7 @@ const Services = () => {
       icon: Images.ServiceIcon3,
       title: "Web Development",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
-      path: routeConstant.serviceDetails.path,
+      path: routeConstant.webMobile.path,
     },
     {
       icon: Images.ServiceIcon4,

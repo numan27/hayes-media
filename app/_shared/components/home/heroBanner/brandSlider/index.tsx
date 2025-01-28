@@ -5,15 +5,19 @@ import Image, { StaticImageData } from "next/image";
 
 interface BrandSliderProps {
   imagesData?: StaticImageData[] | any;
+  brandsHeading?: string | any;
 }
 
-const BrandSlider = ({ imagesData }: BrandSliderProps) => {
+const BrandSlider = ({
+  imagesData,
+  brandsHeading = "Our Brands that work with us",
+}: BrandSliderProps) => {
   return (
     <section className={classNames(styles.brands__section)}>
       <div className={classNames(styles.customContainer)}>
         <div className={classNames(styles.brands__sectionContent)}>
           <h4 data-aos="fade-down">
-            <span>Our Brands that work with us</span>
+            <span>{brandsHeading}</span>
           </h4>
           <div className={classNames(styles.loopSlider)}>
             <div

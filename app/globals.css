@@ -97,3 +97,12 @@ body {
 .newsletterWrapper {
   position: relative;
 }
+
+.slick-slide {
+  /* width: 25% !important; */
+}
+.slick-active {
+  /* width: 50% !important; */
+  /* background-color: #ea5b5b !important; */
+  /* padding: 30px !important; */
+}

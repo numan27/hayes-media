@@ -106,6 +106,8 @@ import RoundedShapedRectangle3 from "./rounded-shape-3.svg";
 import RoundedShapedRectangle4 from "./rounded-shape-4.svg";
 import Speaker from "./speaker.svg";
 import GradientGridBox from "./gradient-grid-shape.svg";
+import CheckBullet from "./check-bullet.svg";
+import Bullet from "./bullet.svg";
 
 const Icons = {
   ArrowRight,
@@ -215,7 +217,9 @@ const Icons = {
   RoundedShapedRectangle3,
   RoundedShapedRectangle4,
   Speaker,
-  GradientGridBox
+  GradientGridBox,
+  CheckBullet,
+  Bullet
 };
 
 export { Icons };

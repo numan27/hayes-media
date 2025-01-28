@@ -13,6 +13,7 @@ import TeamSection from "./teamReviewSection";
 import Blogs from "./blogs";
 import Newsletter from "./newsletter";
 import GetStartedCall from "./getStartedCall";
+import PortfolioSectionRevised from "./portfolioSection";
 
 const LandingPage = () => {
   const brands = [
@@ -33,6 +34,7 @@ const LandingPage = () => {
       <Services />
       <ServicesDetail />
       {/* <Portfolio /> */}
+      {/* <PortfolioSectionRevised /> */}
       <GetStartedCall />
       <CeoMessage />
       <Methodology />

@@ -6,7 +6,18 @@ import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import CustomButton from "components/common/customButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
-const VideoSection = () => {
+interface VideoSectionProps {
+  title?: string | any;
+  desc?: string | any;
+  btnText?: string | any;
+  videoSrc?: string | any;
+}
+
+const VideoSection = ({
+  title,
+  desc = "Online advertising can be complicated. We make it simple. Innovative targeting practices and consistent moderation turn yoursearch engine and social media advertisements into finely tuned money-making machines. Every campaign is treated as if it were our own, backed by a passion for efficiency and quality.",
+  btnText = "Contact Us",
+}: VideoSectionProps) => {
   const { width } = useWindowDimensions();
 
   return (
@@ -35,20 +46,15 @@ const VideoSection = () => {
             <CustomSecondaryHeading
               size="large"
               heading={
+                // title
                 <>
                   Online Advertising is {width > 768 && <br />} No Longer
                   Optional, {width > 768 && <br />} It’s Non-Negotiable
                 </>
               }
             />
-            <p>
-              Online advertising can be complicated. We make it simple.
-              Innovative targeting practices and consistent moderation turn your
-              search engine and social media advertisements into finely tuned
-              money-making machines. Every campaign is treated as if it were our
-              own, backed by a passion for efficiency and quality.
-            </p>
-            <CustomButton title="Contact Us" />
+            <p>{desc}</p>
+            <CustomButton title={btnText} />
           </div>
         </div>
       </div>
