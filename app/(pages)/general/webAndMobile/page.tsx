@@ -2,13 +2,13 @@ import { Images } from "assets";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
 import Newsletter from "components/home/newsletter";
-import ServicesDetail from "components/home/services-detail";
+import Portfolio from "components/home/portfolio";
 import TeamSection from "components/home/teamReviewSection";
 import GetQuote from "components/serviceDetails/getQuote";
 import Stats from "components/serviceDetails/stats";
 import VideoSection from "components/serviceDetails/videoSection";
-import InnovationSection from "components/socialMedia/innovationSection";
-import SocialMediaScope from "components/socialMedia/socialMediaScope";
+import MobileSlider from "components/webAndMobile/mobileSlider";
+import TargetSection from "components/webAndMobile/targetSection";
 import TrustedPartners from "components/webAndMobile/trustedPartners";
 
 const WebMobile = () => {
@@ -55,7 +55,10 @@ const WebMobile = () => {
       />
       <VideoSection title="Cutting-Edge Web & App Development Solutions for Your Digital Success" />
       <TrustedPartners />
+      <MobileSlider />
+      <TargetSection />
       <Stats />
+      <Portfolio />
       <GetStartedCall />
       <TeamSection />
       <Newsletter />

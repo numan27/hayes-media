@@ -20,6 +20,9 @@
         ));
 
       .gridItem {
+        @include RP(("height": 315,
+          ), 1);
+
         .content {
           @include RP(("padding-top": 24,
               "padding-bottom": 24,
@@ -27,6 +30,9 @@
               "padding-right": 24,
             ));
 
+          p {
+            text-align: left !important;
+          }
         }
       }
     }

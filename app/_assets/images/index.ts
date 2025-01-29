@@ -40,6 +40,8 @@ import PortfolioSlider8 from "./portfolio-slider-8.png";
 import CheckBullet from "./check-bullet.png";
 import Hexagon from "./hexagon.png";
 import Bullet from "./bullet.png";
+import MobileSlider from "./mobile-slider.png";
+import TargetSectionImg from "./target-img.png";
 
 
 const Images = {
@@ -84,7 +86,9 @@ const Images = {
   PortfolioSlider8,
   CheckBullet,
   Hexagon,
-  Bullet
+  Bullet,
+  MobileSlider,
+  TargetSectionImg
 };
 
 export { Images };

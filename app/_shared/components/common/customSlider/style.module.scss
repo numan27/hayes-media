@@ -5,12 +5,12 @@
   position: relative;
 
   .slick-slider {
-    margin-bottom: 70px; // Space for the arrows and dots
+    margin-bottom: 50px;
   }
 }
 
 .arrowContainer {
-  @include RP(("padding-top": 60,
+  @include RP(("padding-top": 40,
     ), 1);
 }
 

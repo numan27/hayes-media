@@ -2,96 +2,142 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-  @include RP(("padding-top": 40,
-      "padding-bottom": 50,
+
+  @include RP(("padding-top": 60,
+      "padding-bottom": 60,
     ));
 
-  .contentWrapper {
-    @include RP(("padding-top": 30,
-        "padding-bottom": 30,
-        "padding-left": 60,
-        "padding-right": 60,
+  .sectionHeading {
+    @include RP(("margin-bottom": 30,
       ));
-
-    .review_section {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-
-      .image {
-        width: 100%;
-        height: 474px;
-        transition: transform 0.3s ease;
-      }
-
-      // &:hover .image {
-      //   transform: scale(1.1);
-      // }
-
-      // &.activeSlide {
-      //   .image {
-      //     transform: scale(1.2);
-      //   }
-
-      //   .overlay {
-      //     opacity: 1;
-      //     visibility: visible;
-      //   }
-      // }
-
-      // .overlay {
-      //   position: absolute;
-      //   inset: 0;
-      //   // background: rgba(0, 0, 0, 0.6);
-      //   background: rgba(124, 0, 43, 0.9);
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: center;
-      //   visibility: hidden;
-      //   transition: opacity 0.3s ease, visibility 0.3s ease;
-      // }
-
-      .content {
-        text-align: center;
-        color: #fff;
-        padding: 1rem;
-
-        .title {
-          font-size: 1.5rem;
-          font-weight: bold;
-          margin-bottom: 0.5rem;
-        }
-
-        .userType {
-          font-style: italic;
-          margin-bottom: 1rem;
-        }
-
-        .text {
-          font-size: 1rem;
-        }
-      }
-    }
-
-
-    .activeSlide {
-      .image {
-        transform: scale(1.2);
-      }
-
-      .bg-opacity-60 {
-        transition: opacity 0.3s ease;
-      }
-    }
-
   }
 
 
-  @media screen and (max-width: 510px) {
-    @include RP(("padding-top": 30,
-        "padding-bottom": 30,
-        "padding-left": 35,
-        "padding-right": 35,
+  .sliderWrapper {
+    position: relative;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    @include RP(("padding-top": 40,
+        "padding-bottom": 40,
+        "padding-left": 20,
+        "padding-right": 20,
       ));
+  }
+
+  .swiperButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    // background: white;
+    border: none;
+    // padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    /* Higher z-index to be above Swiper slides */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+    &.prevButton {
+      left: 10px;
+      /* Adjusted from -50px */
+    }
+
+    &.nextButton {
+      right: 10px;
+      /* Adjusted from -50px */
+    }
+
+    img {
+      @include RP(("width": 60,
+        ));
+
+
+      @media screen and (max-width: 640px) {
+        @include RP(("width": 45,
+          ));
+
+      }
+
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+
+  .newsSlider {
+    @include RP(("padding-top": 50,
+        "padding-bottom": 50,
+      ));
+
+
+    .activeSlide {
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #506E78F0;
+        @include RP(("border-radius": 24,
+          ));
+      }
+
+      .reviewItem {
+        @include RP(("height": 474,
+          ));
+
+
+        .content {
+          position: relative;
+
+          h4,
+          p {
+            color: $WHITE;
+          }
+        }
+      }
+    }
+
+    .reviewItem {
+      // box-shadow: 0px 0px 50px 6px #91A1A014;
+      border-radius: 8px;
+      // @include RP(( 
+      //     "border-radius": 24,
+      //   ), 1);
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #7C002BE5;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      img {
+        width: 100% !important;
+        min-width: 100% !important;
+        border-radius: 8px;
+        object-fit: cover;
+        @include RP(("height": 474,
+          ), 1);
+      }
+    }
   }
 }

@@ -37,7 +37,11 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
 
   return (
     <div className={styles.sliderWrapper}>
-      <Slider ref={sliderRef} {...updatedSettings}>
+      <Slider
+        className="flex justify-center mx-auto"
+        ref={sliderRef}
+        {...updatedSettings}
+      >
         {children}
       </Slider>
       <div

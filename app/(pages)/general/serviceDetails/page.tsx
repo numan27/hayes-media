@@ -2,6 +2,7 @@ import { Images } from "assets";
 import FAQs from "components/home/faqs";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
+import Portfolio from "components/home/portfolio";
 import TeamSection from "components/home/teamReviewSection";
 import Features from "components/serviceDetails/featuresSection";
 import GetQuote from "components/serviceDetails/getQuote";
@@ -36,6 +37,7 @@ const ServiceDetails = () => {
       <VideoSection />
       <Features />
       <Stats />
+      <Portfolio />
       <GetStartedCall />
       <TeamSection />
       <OtherServices />

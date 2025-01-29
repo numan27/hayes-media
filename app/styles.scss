@@ -25,19 +25,20 @@ h1 {
   }
 
   @media screen and (max-width: 640px) {
-    @include RP(("font-size": 32,
-        "line-height": 54,
+    @include RP(("font-size": 28,
+        "line-height": 32,
       ), 1);
   }
 }
 
 h2 {
   @include RP(("font-size": 48,
-      // "line-height": 48,
+      "line-height": 48,
     ), 1);
 
   @media screen and (max-width: 640px) {
-    @include RP(("font-size": 28,
+    @include RP(("font-size": 22,
+        "line-height": 26,
       ), 1);
   }
 }
@@ -47,7 +48,7 @@ h3 {
     ));
 
   @media screen and (max-width: 640px) {
-    @include RP(("font-size": 22,
+    @include RP(("font-size": 20,
       ));
   }
 }
@@ -57,7 +58,7 @@ h4 {
     ));
 
   @media screen and (max-width: 640px) {
-    @include RP(("font-size": 20,
+    @include RP(("font-size": 18,
       ));
   }
 }

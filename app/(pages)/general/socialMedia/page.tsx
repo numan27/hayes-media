@@ -1,13 +1,11 @@
 import { Images } from "assets";
-import FAQs from "components/home/faqs";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
 import Newsletter from "components/home/newsletter";
+import Portfolio from "components/home/portfolio";
 import ServicesDetail from "components/home/services-detail";
 import TeamSection from "components/home/teamReviewSection";
-import Features from "components/serviceDetails/featuresSection";
 import GetQuote from "components/serviceDetails/getQuote";
-import OtherServices from "components/serviceDetails/otherServices";
 import Stats from "components/serviceDetails/stats";
 import VideoSection from "components/serviceDetails/videoSection";
 import InnovationSection from "components/socialMedia/innovationSection";
@@ -57,6 +55,7 @@ const SocialMedia = () => {
       <ServicesDetail servicesData={servicesData} isHaveHeading />
       <InnovationSection />
       <Stats />
+      <Portfolio />
       <GetStartedCall />
       <TeamSection />
       <Newsletter />

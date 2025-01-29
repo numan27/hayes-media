@@ -5,7 +5,7 @@ import { Images } from "assets";
 
 interface CustomSectionHeadingProps {
   heading: string;
-  description: string;
+  description?: string;
   centered?: boolean;
 }
 

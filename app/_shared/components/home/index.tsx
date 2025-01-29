@@ -6,14 +6,13 @@ import { Images } from "assets";
 import Mission from "./mission";
 import Services from "./services";
 import ServicesDetail from "./services-detail";
-import Portfolio from "./portfolio";
 import CeoMessage from "./ceoMessage";
 import Methodology from "./methodology";
 import TeamSection from "./teamReviewSection";
 import Blogs from "./blogs";
 import Newsletter from "./newsletter";
 import GetStartedCall from "./getStartedCall";
-import PortfolioSectionRevised from "./portfolioSection";
+import Portfolio from "./portfolio";
 
 const LandingPage = () => {
   const brands = [
@@ -33,8 +32,7 @@ const LandingPage = () => {
       <Mission />
       <Services />
       <ServicesDetail />
-      {/* <Portfolio /> */}
-      {/* <PortfolioSectionRevised /> */}
+      <Portfolio />
       <GetStartedCall />
       <CeoMessage />
       <Methodology />

@@ -16,6 +16,28 @@ const TrustedPartners = () => {
         "Hosting packages that guarantee 99.99% uptime.",
       ],
     },
+    {
+      title: "Make It Look Effortless",
+      data: [
+        "Intuitive interfaces that enhance user engagement.",
+        "Mobile-first designs for seamless multi-device experiences.",
+      ],
+    },
+    {
+      title: "Anywhere, On Any Device.",
+      data: [
+        "Intuitive interfaces that enhance user engagement.",
+        "Mobile-first designs for seamless multi-device experiences.",
+        "Focus on accessibility and smooth user journeys.",
+      ],
+    },
+    {
+      title: "Get Found on Google",
+      data: [
+        "We create perfect sitemaps, wireframes, and drafts based on in-depth research of your industry.",
+        "Our intuitive designs convert leads into sales with minimal clicks.",
+      ],
+    },
   ];
 
   return (
@@ -30,7 +52,7 @@ const TrustedPartners = () => {
           <div
             className={classNames(
               styles.gridContainer,
-              "grid sm:grid-cols-2 grid-cols-1 lg:gap-8 sm:gap-5 xs:gap-4 gap-3"
+              "grid lg:grid-cols-2 grid-cols-1 lg:gap-8 sm:gap-5 xs:gap-4 gap-3"
             )}
           >
             {partnersData.map((items) => (
@@ -40,15 +62,20 @@ const TrustedPartners = () => {
                   animationSpeed="5s"
                   borderRadius="12px"
                 >
-                  <div className={classNames(styles.content)}>
+                  <div
+                    className={classNames(
+                      styles.content,
+                      "flex flex-col items-start justify-between h-full"
+                    )}
+                  >
                     <div>
-                      <h2 className="uppercase">
+                      <h3 className="uppercase mb-3">
                         <span>{items.title}</span>
-                      </h2>
+                      </h3>
                       <ul>
                         {items.data.map((data) => (
-                          <li className="flex items-start gap-2 mb-1.5">
-                            <span className="mt-1.5">
+                          <li className="flex items-start gap-3 mb-1.5">
+                            <span className="mt-1.5 w-12">
                               <Image src={Images.Bullet} alt="dot" />
                             </span>
                             <p>{data}</p>
@@ -59,7 +86,7 @@ const TrustedPartners = () => {
                     <div
                       className={classNames(
                         styles.buttonContainer,
-                        "flex justify-center"
+                        "flex justify-start mb-3"
                       )}
                     >
                       <CustomButton
