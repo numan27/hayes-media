@@ -1,0 +1,33 @@
+import React from "react";
+import styles from "./style.module.scss";
+
+interface CustomAnimatedBorderProps {
+  children: React.ReactNode;
+  gradientColors?: string;
+  animationSpeed?: string;
+  borderRadius?: string;
+}
+
+const CustomAnimatedBorder = ({
+  children,
+  gradientColors = "linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)",
+  animationSpeed = "4s",
+  borderRadius = "6px",
+}: CustomAnimatedBorderProps) => {
+  return (
+    <div
+      className={styles.gradientBorderWrapper}
+      style={
+        {
+          "--gradient-colors": gradientColors,
+          "--animation-speed": animationSpeed,
+          "--border-radius": borderRadius,
+        } as React.CSSProperties
+      }
+    >
+      {children}
+    </div>
+  );
+};
+
+export default CustomAnimatedBorder;

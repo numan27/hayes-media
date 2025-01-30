@@ -38,14 +38,14 @@ const LandingPage = () => {
       <Methodology />
       <TeamSection />
       <Blogs />
-      <div className={classNames(styles.newsletterWrapper, "relative")}>
+      {/* <div className={classNames(styles.newsletterWrapper, "relative")}>
         <div
           className={classNames(styles.bg, "absolute -top-12 left-0 right-0")}
         >
           <Image src={Images.NewsLetterBg} alt="bg-img" />
-        </div>
-        <Newsletter />
-      </div>
+        </div> */}
+      <Newsletter />
+      {/* </div> */}
 
       {/* <div className={classNames(styles.backShadow)}>
         <Image src={Images.BackShadow} alt="" />

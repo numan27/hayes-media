@@ -28,8 +28,6 @@ const Blogs = () => {
     },
     { img: "", category: "Branding", title: "How We Optimized Our SEO" },
     { img: "", category: "DEVELOPMENT", title: "Automation. Advanced Level" },
-    { img: "", category: "SEO", title: "How We Optimized Our SEO" },
-    { img: "", category: "User testing", title: "Automation. Advanced Level" },
   ];
 
   return (
@@ -44,7 +42,7 @@ const Blogs = () => {
           <div
             className={classNames(
               styles.gridContainer,
-              "grid lg:grid-cols-3 xs:grid-cols-2 grid-cols-1 lg:gap-10 sm:gap-7 gap-4"
+              "grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-6 sm:gap-4 gap-3"
             )}
           >
             {blogsData.map((items) => (

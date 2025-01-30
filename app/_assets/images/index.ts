@@ -32,16 +32,12 @@ import OtherServiceImg2 from "./other-service-2.png";
 import PortfolioSlider1 from "./portfolio-slider-1.png";
 import PortfolioSlider2 from "./portfolio-slider-2.png";
 import PortfolioSlider3 from "./portfolio-slider-3.png";
-import PortfolioSlider4 from "./portfolio-slider-4.png";
-import PortfolioSlider5 from "./portfolio-slider-5.png";
-import PortfolioSlider6 from "./portfolio-slider-6.png";
-import PortfolioSlider7 from "./portfolio-slider-7.png";
-import PortfolioSlider8 from "./portfolio-slider-8.png";
 import CheckBullet from "./check-bullet.png";
 import Hexagon from "./hexagon.png";
 import Bullet from "./bullet.png";
 import MobileSlider from "./mobile-slider.png";
 import TargetSectionImg from "./target-img.png";
+import LineXCirle from "./line-x-circle.png";
 
 
 const Images = {
@@ -79,16 +75,12 @@ const Images = {
   PortfolioSlider1,
   PortfolioSlider2,
   PortfolioSlider3,
-  PortfolioSlider4,
-  PortfolioSlider5,
-  PortfolioSlider6,
-  PortfolioSlider7,
-  PortfolioSlider8,
   CheckBullet,
   Hexagon,
   Bullet,
   MobileSlider,
-  TargetSectionImg
+  TargetSectionImg,
+  LineXCirle
 };
 
 export { Images };

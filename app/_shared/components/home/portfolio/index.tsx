@@ -31,7 +31,7 @@ const Portfolio = () => {
       desc: "Building responsive, high-performance websites tailored to your business needs.",
     },
     {
-      image: Images.PortfolioSlider5,
+      image: Images.PortfolioSlider3,
       title: "Social Media Marketing",
       desc: "Creating engaging campaigns to boost brand awareness and audience interaction.",
     },

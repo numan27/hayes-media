@@ -28,7 +28,7 @@ const Mission = () => {
         </div>
         <span
           className={classNames(
-            styles.missonSectionImg,
+            styles.missionSectionImg,
             "absolute xxl:-right-4 xl:-right-6 right-0 lg:bottom-1.5 sm:bottom-6 bottom-8"
           )}
         >

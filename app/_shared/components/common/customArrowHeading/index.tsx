@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import { Images } from "assets";
+import { Icons, Images } from "assets";
 
 interface CustomSecondaryHeadingProps {
   number: number;
@@ -31,10 +31,12 @@ const CustomArrowHeading = ({
             src={Images.LongArrow}
             alt="arrow-icon"
           />
+          {/* <Icons.LongArrow /> */}
         </span>
-        <span data-aos="fade-right" className={classNames(styles.lineX)}>
-          <Image src={Images.GradientLineX} alt="lineX-icon" />
-        </span>
+        <div data-aos="fade-right" className={classNames(styles.lineX)}>
+          {/* <Image src={Images.GradientLineX} alt="lineX-icon" /> */}
+          {/* <Icons.GradientLineX /> */}
+        </div>
       </h3>
     </div>
   </div>

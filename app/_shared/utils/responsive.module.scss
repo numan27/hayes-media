@@ -14,8 +14,11 @@
 
 @mixin hideScrollBar {
   overflow: auto;
-  -ms-overflow-style: none; /* IE 11 */
-  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none;
+  /* IE 11 */
+  scrollbar-width: none;
+
+  /* Firefox 64 */
   &::-webkit-scrollbar {
     display: none !important;
   }
@@ -23,11 +26,16 @@
 
 @function calculateRatio($base-size, $ratio) {
   $result: $base-size * $ratio;
+
   @if ($result < 0) {
     @return $base-size * $ratio;
-  } @else if ($result > 10) {
+  }
+
+  @else if ($result > 10) {
     @return $base-size * $ratio;
-  } @else {
+  }
+
+  @else {
     @return 9;
   }
 }
@@ -59,6 +67,7 @@
     @include spreadProperty($properties, calc(1320 / 1320));
   }
 }
+
 @mixin RP($properties, $isImportant: 0) {
   @include spreadProperty($properties, 1);
 
@@ -122,7 +131,9 @@
       $value: calculateRatio($value, $ratioValue) + px !important;
       #{$key}: $value;
     }
-  } @else {
+  }
+
+  @else {
     @each $name, $value in $myArray {
       $key: $name;
       $value: calculateRatio($value, $ratioValue) + px;
@@ -134,7 +145,7 @@
 @function calculatePixels($screenSize, $value) {
   $ratio: calc($screenSize/1400);
   $result: $value * $ratio;
-  @return $result + px;
+  @return $result +px;
 }
 
 $small: #{84 * 992/1400}px;
@@ -237,12 +248,30 @@ $large: #{84 * 1400/1400}px;
 
 @media screen and (min-width: 1200px) {
   .customContainer {
-    max-width: 1240px;
+    max-width: 1140px;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .customContainer {
     max-width: 1320px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .customContainer {
+    max-width: 85%;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .customContainer {
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 2450px) {
+  .customContainer {
+    max-width: 95%;
   }
 }

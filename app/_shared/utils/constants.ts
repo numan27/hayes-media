@@ -1,4 +1,4 @@
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import { routeConstant } from "routes/constants";
 
 const headerLinks: SideBarItemPathType[] = [
@@ -6,39 +6,39 @@ const headerLinks: SideBarItemPathType[] = [
     path: routeConstant.home.path,
     title: routeConstant.home.title,
   },
-  // {
-  //   path: routeConstant.about.path,
-  //   title: routeConstant.about.title,
-  //   children: [
-  //     {
-  //       path: routeConstant.aboutProgram.path,
-  //       title: routeConstant.aboutProgram.title
-  //     },
-  //     {
-  //       path: routeConstant.aboutApproach.path,
-  //       title: routeConstant.aboutApproach.title
-  //     },
-  //     {
-  //       path: routeConstant.aboutPartners.path,
-  //       title: routeConstant.aboutPartners.title
-  //     },
-  //   ]
-  // },
+  {
+    path: routeConstant.about.path,
+    title: routeConstant.about.title,
+  },
   {
     path: routeConstant.services.path,
     title: routeConstant.services.title,
+    children: [
+      {
+        path: routeConstant.serviceDetails.path,
+        title: routeConstant.serviceDetails.title
+      },
+      {
+        path: routeConstant.socialMedia.path,
+        title: routeConstant.socialMedia.title
+      },
+      {
+        path: routeConstant.webMobile.path,
+        title: routeConstant.webMobile.title
+      },
+    ]
   },
-  {
-    path: routeConstant.portfolio.path,
-    title: routeConstant.portfolio.title,
-  },
+  // {
+  //   path: routeConstant.portfolio.path,
+  //   title: routeConstant.portfolio.title,
+  // },
   {
     path: routeConstant.careers.path,
     title: routeConstant.careers.title,
   },
   {
-    path: routeConstant.team.path,
-    title: routeConstant.team.title,
+    path: routeConstant.contact.path,
+    title: routeConstant.contact.title,
   },
 ];
 

@@ -46,11 +46,11 @@ const VideoSection = ({
             <CustomSecondaryHeading
               size="large"
               heading={
-                // title
-                <>
-                  Online Advertising is {width > 768 && <br />} No Longer
-                  Optional, {width > 768 && <br />} It’s Non-Negotiable
-                </>
+                title
+                // <>
+                //   Online Advertising is {width > 768 && <br />} No Longer
+                //   Optional, {width > 768 && <br />} It’s Non-Negotiable
+                // </>
               }
             />
             <p>{desc}</p>

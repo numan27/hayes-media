@@ -2,12 +2,12 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-  mask-image: url("../../../../_assets/images/landing-background.png");
-  mask-size: cover;
-  mask-repeat: no-repeat;
-  mask-position: center;
+  // mask-image: url("../../../../_assets/images/landing-background.png");
+  // mask-size: cover;
+  // mask-repeat: no-repeat;
+  // mask-position: center;
   width: 100%;
-  background-color: #0C0B12 !important;
+  // background-color: #0C0B12 !important;
   @include RP(("padding-bottom": 50,
       "margin-top": 50,
     ));

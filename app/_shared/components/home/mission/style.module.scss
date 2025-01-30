@@ -11,10 +11,26 @@
     background-image: url("../../../../_assets/images/mission-bg.png");
     background-size: cover;
     background-position: center;
-    height: 100% !important;
-    min-height: 500px;
+    min-height: 100% !important;
+    height: 500px !important;
     width: 100%;
     position: relative;
+
+    @media screen and (min-width:1450px) {
+      height: 600px !important;
+    }
+
+    @media screen and (min-width:1650px) {
+      height: 700px !important;
+    }
+
+    @media screen and (min-width:1800) {
+      height: 750px !important;
+    }
+
+    @media screen and (min-width:2200px) {
+      height: 850px !important;
+    }
 
     &::before {
       content: "";
@@ -38,9 +54,18 @@
 
     }
 
-    .missonSectionImg {
+    .missionSectionImg {
+
+      @media screen and (min-width: 1650px) {
+        bottom: 20% !important;
+      }
 
       img {
+
+        @media screen and (min-width: 2000px) {
+          max-width: 1000px !important;
+        }
+
         @media screen and (max-width: 1200px) {
           max-width: 500px !important;
         }

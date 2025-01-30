@@ -90,7 +90,7 @@ import ServiceIcon3 from "./service-icon-3.svg";
 import ServiceIcon4 from "./service-icon-4.svg";
 import ServiceIcon5 from "./service-icon-5.svg";
 import ServiceIcon6 from "./service-icon-6.svg";
-import LongArrow from "./long-arrow.svg";
+// import LongArrow from "./long-arrow.svg";
 import BigQuote from "./big-quote.svg";
 import MethodologyIcon from "./methodology-icon.svg";
 import SliderArrowLeft from "./slider-left-arrow.svg";
@@ -108,6 +108,8 @@ import Speaker from "./speaker.svg";
 import GradientGridBox from "./gradient-grid-shape.svg";
 import CheckBullet from "./check-bullet.svg";
 import Bullet from "./bullet.svg";
+// import GradientLineX from "./gradient-line-x.svg";
+import GradientLineX from "./line-x.svg";
 
 const Icons = {
   ArrowRight,
@@ -202,7 +204,7 @@ const Icons = {
   ServiceIcon4,
   ServiceIcon5,
   ServiceIcon6,
-  LongArrow,
+  // LongArrow,
   BigQuote,
   MethodologyIcon,
   SliderArrowLeft,
@@ -219,7 +221,8 @@ const Icons = {
   Speaker,
   GradientGridBox,
   CheckBullet,
-  Bullet
+  Bullet,
+  GradientLineX
 };
 
 export { Icons };

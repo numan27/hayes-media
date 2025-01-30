@@ -66,7 +66,12 @@ const HeroBanner = ({
   }, []);
 
   return (
-    <div className="min-h-full sm:h-screen h-[75vh] flex flex-col justify-between">
+    <div
+      className={classNames(
+        styles.heroBannerWrapper,
+        "min-h-full sm:h-screen h-[75vh] flex flex-col justify-between"
+      )}
+    >
       <section
         className={classNames(
           styles.sectionContainer,

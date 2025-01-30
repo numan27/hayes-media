@@ -26,16 +26,20 @@ const routeConstant = {
     title: "Contact",
   },
   serviceDetails: {
-    path: "general/serviceDetails",
+    path: "/general/serviceDetails",
     title: "Service Details",
   },
   socialMedia: {
-    path: "general/socialMedia",
+    path: "/general/socialMedia",
     title: "Social Media",
   },
   webMobile: {
-    path: "general/webAndMobile",
-    title: "Web & Mobile Service",
+    path: "/general/webAndMobile",
+    title: "Web & Mobile",
+  },
+  about: {
+    path: "/general/about",
+    title: "About",
   },
 
   // Auth

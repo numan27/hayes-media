@@ -1,6 +1,7 @@
 @import "utils/responsive.module.scss";
 @import "utils/colors.scss";
 
+
 @keyframes gradient-move {
     0% {
         background-position: 0% 50%;
@@ -35,7 +36,7 @@
         bottom: 0;
         padding: 2px;
         background: var(--gradient-colors, linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%));
-        background-size: 300% 300%;
+        background-size: 400% 400%; // Increased to make the effect smoother
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box,
             linear-gradient(#fff 0 0);
@@ -48,6 +49,6 @@
 
         animation: gradient-move var(--animation-speed, 4s) ease-in-out infinite;
         border-radius: var(--border-radius, 6px);
-        filter: brightness(1.1);
+        filter: brightness(1.2); // Optional: Increases brightness for a more vibrant effect
     }
 }
