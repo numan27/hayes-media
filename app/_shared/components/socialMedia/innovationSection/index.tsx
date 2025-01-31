@@ -28,7 +28,7 @@ const InnovationSection = () => {
               heading="Adaptability & Innovation"
               description="Social media moves fast, and staying ahead is a must. At Hayes Media, we’re all about keeping up with the latest trends, algorithms, and your competitors to make sure your business stays relevant and impactful."
             />
-            <div className="flex md:justify-start justify-center">
+            <div className="flex md:justify-start justify-center mt-2">
               <CustomButton title="Get a Custom Quote" />
             </div>
           </div>

@@ -14,7 +14,7 @@ const Services = () => {
       icon: Images.ServiceIcon1,
       title: "Full-Stack Digital Marketing",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
-      path: routeConstant.serviceDetails.path,
+      path: routeConstant.advertisement.path,
     },
     {
       icon: Images.ServiceIcon2,
@@ -38,7 +38,7 @@ const Services = () => {
       icon: Images.ServiceIcon5,
       title: "SEO",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
-      path: routeConstant.serviceDetails.path,
+      path: routeConstant.advertisement.path,
     },
     {
       icon: Images.ServiceIcon6,

@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { A11y, Navigation, Pagination } from "swiper/modules";
+import { A11y, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import { Images } from "assets";
@@ -72,15 +72,19 @@ const Portfolio = () => {
               )}
               spaceBetween={15}
               slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
-              loop={portfolioData.length > 3}
-              // centeredSlides={width > 992 && true}
+              loop={true}
+              centeredSlides={width > 992 && true}
+              autoplay={{ delay: 3000, disableOnInteraction: true }}
+              effect="fade"
+              speed={800}
+              fadeEffect={{ crossFade: true }}
               breakpoints={{
                 1200: { slidesPerView: 3 },
                 992: { slidesPerView: 3 },
                 768: { slidesPerView: 2 },
-                // 600: { slidesPerView: 1 },
+                0: { slidesPerView: 1 },
               }}
-              modules={[Pagination, Navigation, A11y]}
+              modules={[Pagination, Navigation, A11y, Autoplay]}
               onSwiper={setSwiperInstance}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >

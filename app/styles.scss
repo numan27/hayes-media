@@ -45,7 +45,8 @@ h2 {
 
 h3 {
   @include RP(("font-size": 32,
-    ));
+      "line-height": 36,
+    ), 1);
 
   @media screen and (max-width: 640px) {
     @include RP(("font-size": 20,

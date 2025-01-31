@@ -2,9 +2,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
-import CustomButton from "components/common/customButton";
-import Image from "next/image";
-import { Icons, Images } from "assets";
+import { Icons } from "assets";
 
 const CoreValues = () => {
   const partnersData = [

@@ -27,7 +27,7 @@ const CustomSectionHeading = ({
       <div
         className={classNames(
           styles.titleContainer,
-          "flex gap-1",
+          "flex gap-1 mb-3",
           centered ? "items-center" : "items-start"
         )}
       >

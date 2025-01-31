@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style.module.scss";
+import classNames from "classnames";
 
 interface CustomAnimatedBorderProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const CustomAnimatedBorder = ({
 }: CustomAnimatedBorderProps) => {
   return (
     <div
-      className={styles.gradientBorderWrapper}
+      className={classNames(styles.gradientBorderWrapper, "overflow-y-visible")}
       style={
         {
           "--gradient-colors": gradientColors,

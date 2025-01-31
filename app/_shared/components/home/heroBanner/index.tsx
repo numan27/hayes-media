@@ -5,7 +5,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 import BannerVideo from "./banner-video";
-import BrandSlider from "./brandSlider";
+import BrandSlider from "../brandSlider";
 import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
 // import AOS from "aos";

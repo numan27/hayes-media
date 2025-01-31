@@ -15,8 +15,8 @@ const headerLinks: SideBarItemPathType[] = [
     title: routeConstant.services.title,
     children: [
       {
-        path: routeConstant.serviceDetails.path,
-        title: routeConstant.serviceDetails.title
+        path: routeConstant.advertisement.path,
+        title: routeConstant.advertisement.title
       },
       {
         path: routeConstant.socialMedia.path,

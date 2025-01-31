@@ -1,3 +1,5 @@
+"use client";
+
 import { Images } from "assets";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
@@ -5,13 +7,15 @@ import Newsletter from "components/home/newsletter";
 import Portfolio from "components/home/portfolio";
 import ServicesDetail from "components/home/services-detail";
 import TeamSection from "components/home/teamReviewSection";
-import GetQuote from "components/serviceDetails/getQuote";
-import Stats from "components/serviceDetails/stats";
-import VideoSection from "components/serviceDetails/videoSection";
+import GetQuote from "components/advertisement/getQuote";
+import Stats from "components/advertisement/stats";
+import VideoSection from "components/advertisement/videoSection";
 import InnovationSection from "components/socialMedia/innovationSection";
 import SocialMediaScope from "components/socialMedia/socialMediaScope";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 const SocialMedia = () => {
+  const { width } = useWindowDimensions();
   const brands = [
     Images.BrandLogo,
     Images.BrandLogo,
@@ -51,7 +55,9 @@ const SocialMedia = () => {
         btnTitle="Start Growing Today"
       />
       <SocialMediaScope />
-      <VideoSection />
+      <VideoSection
+        title={<>The Power of Social {width > 992 && <br />} Media Marketing</>}
+      />
       <ServicesDetail servicesData={servicesData} isHaveHeading />
       <InnovationSection />
       <Stats />

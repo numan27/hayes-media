@@ -40,11 +40,11 @@ const VideoSection = ({
           <div
             className={classNames(
               styles.content,
-              "flex flex-col xs:items-start items-center gap-5"
+              "flex flex-col xs:items-start items-center gap-5 justify-center"
             )}
           >
             <CustomSecondaryHeading
-              size="large"
+              size="md"
               heading={
                 title
                 // <>

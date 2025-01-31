@@ -8,26 +8,39 @@
     h2 {
       margin-bottom: 0;
       text-transform: uppercase !important;
-      @include RP(("line-height": 55,
+      @include RP(( // "line-height": 55,
+          "font-size": 42,
         ), 1);
-    }
 
-    &::before {
-      content: "";
-      position: absolute;
-      background: linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%);
-      background-size: 300% 300%;
-      width: 50%;
-      height: 2px;
-      bottom: 2px;
-      left: 0;
-      z-index: 1;
-      animation: gradient-move 4s linear infinite;
+      @media screen and (max-width: 992px) {
+        @include RP(("font-size": 28,
+          ), 1);
+      }
 
-      @media screen and (max-width: 640px) {
-        bottom: 0;
+      @media screen and (max-width: 475px) {
+        @include RP(("font-size": 22,
+          ), 1);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%);
+        background-size: 300% 300%;
+        width: 50%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        z-index: 1;
+        animation: gradient-move 4s linear infinite;
+
+        @media screen and (max-width: 640px) {
+          bottom: 0;
+        }
       }
     }
+
+
   }
 
   img {

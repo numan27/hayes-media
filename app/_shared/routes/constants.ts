@@ -17,29 +17,25 @@ const routeConstant = {
     path: "portfolio",
     title: "Portfolio",
   },
-  team: {
-    path: "/team",
-    title: "Team",
-  },
-  contact: {
-    path: "/contact",
-    title: "Contact",
-  },
-  serviceDetails: {
-    path: "/general/serviceDetails",
-    title: "Service Details",
+  advertisement: {
+    path: "/general/advertisement",
+    title: "Advertisement",
   },
   socialMedia: {
     path: "/general/socialMedia",
-    title: "Social Media",
+    title: "Social Media Management",
   },
   webMobile: {
     path: "/general/webAndMobile",
-    title: "Web & Mobile",
+    title: "Web & Mobile Development",
   },
   about: {
     path: "/general/about",
     title: "About",
+  },
+  contact: {
+    path: "/general/contact",
+    title: "Contact",
   },
 
   // Auth

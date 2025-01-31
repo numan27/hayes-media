@@ -38,6 +38,8 @@ import Bullet from "./bullet.png";
 import MobileSlider from "./mobile-slider.png";
 import TargetSectionImg from "./target-img.png";
 import LineXCirle from "./line-x-circle.png";
+import CeoAbout from "./ceo-about.png";
+import ContactMap from "./map-contact.png";
 
 
 const Images = {
@@ -80,7 +82,9 @@ const Images = {
   Bullet,
   MobileSlider,
   TargetSectionImg,
-  LineXCirle
+  LineXCirle,
+  CeoAbout,
+  ContactMap
 };
 
 export { Images };

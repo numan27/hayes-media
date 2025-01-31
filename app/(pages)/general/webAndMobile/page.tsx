@@ -4,9 +4,9 @@ import HeroBanner from "components/home/heroBanner";
 import Newsletter from "components/home/newsletter";
 import Portfolio from "components/home/portfolio";
 import TeamSection from "components/home/teamReviewSection";
-import GetQuote from "components/serviceDetails/getQuote";
-import Stats from "components/serviceDetails/stats";
-import VideoSection from "components/serviceDetails/videoSection";
+import GetQuote from "components/advertisement/getQuote";
+import Stats from "components/advertisement/stats";
+import VideoSection from "components/advertisement/videoSection";
 import MobileSlider from "components/webAndMobile/mobileSlider";
 import TargetSection from "components/webAndMobile/targetSection";
 import TrustedPartners from "components/webAndMobile/trustedPartners";
@@ -48,7 +48,7 @@ const WebMobile = () => {
             </span>
           </>
         }
-        desc="HHayes Media is an Austin-based web and mobile app company that specializes in creating custom web and mobile app solutions, blending creativity, innovation, and performance. From sleek websites to powerful apps, let’s build something extraordinary together."
+        desc="Hayes Media is an Austin-based web and mobile app company that specializes in creating custom web and mobile app solutions, blending creativity, innovation, and performance. From sleek websites to powerful apps, let’s build something extraordinary together."
         brandImagesData={brands}
         btnTitle="Get Started Today"
         brandsHeading="Programs we work with"

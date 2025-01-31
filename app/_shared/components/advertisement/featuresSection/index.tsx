@@ -69,10 +69,11 @@ const Features = () => {
                   <div className="lg:w-3/5 w-full">
                     <CustomSecondaryHeading
                       size="md"
+                      isHaveTopLine={false}
                       textCase="capitalize"
                       heading={items.title}
                     />
-                    <p>{items.desc}</p>
+                    <p className="mt-3">{items.desc}</p>
                   </div>
                 </div>
               ))}
