@@ -40,6 +40,12 @@ import TargetSectionImg from "./target-img.png";
 import LineXCirle from "./line-x-circle.png";
 import CeoAbout from "./ceo-about.png";
 import ContactMap from "./map-contact.png";
+import MethodologyIcon1 from "./methodology-icon-1.png";
+import MethodologyIcon2 from "./methodology-icon-2.png";
+import MethodologyIcon3 from "./methodology-icon-3.png";
+import MethodologyIcon4 from "./methodology-icon-4.png";
+import MethodologyIcon5 from "./methodology-icon-5.png";
+import LocationPin from "./location.png";
 
 
 const Images = {
@@ -84,7 +90,13 @@ const Images = {
   TargetSectionImg,
   LineXCirle,
   CeoAbout,
-  ContactMap
+  ContactMap,
+  MethodologyIcon1,
+  MethodologyIcon2,
+  MethodologyIcon3,
+  MethodologyIcon4,
+  MethodologyIcon5,
+  LocationPin
 };
 
 export { Images };

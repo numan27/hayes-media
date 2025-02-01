@@ -60,18 +60,34 @@ const Header = ({ userCookie }: HeaderProps) => {
                       href={link.path || ""}
                       className={classNames(
                         styles.navLink,
+                        (pathname === link.path ||
+                          link.children?.some((child) =>
+                            pathname.startsWith(child.path)
+                          )) &&
+                          styles.activeLink,
+                        "flex items-center"
+                      )}
+                    >
+                      {link.title}
+                    </Link>
+
+                    {/* <Link
+                      href={link.path || ""}
+                      className={classNames(
+                        styles.navLink,
                         pathname === link.path && styles.activeLink,
                         "flex items-center "
                       )}
                     >
                       {link.title}
                       {link.children && <Icons.ChevDown />}
-                    </Link>
+                    </Link> */}
+
                     {link.children && (
                       <ul
                         className={classNames(
                           styles.subMenu,
-                          "absolute left-0 hidden group-hover:block bg-white shadow-md"
+                          "absolute left-0 hidden group-hover:block"
                         )}
                       >
                         {link.children.map((child, childIndex) => (
@@ -81,7 +97,11 @@ const Header = ({ userCookie }: HeaderProps) => {
                           >
                             <Link
                               href={child.path}
-                              className={classNames(styles.subMenuLink)}
+                              className={classNames(
+                                styles.subMenuLink,
+                                pathname === child.path &&
+                                  styles.activeSubMenuLink
+                              )}
                             >
                               {child.title}
                             </Link>

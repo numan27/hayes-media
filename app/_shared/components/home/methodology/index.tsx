@@ -3,9 +3,10 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
-import { Icons } from "assets";
+import { Icons, Images } from "assets";
 import { useEffect } from "react";
 import AOS from "aos";
+import Image from "next/image";
 
 const Methodology = () => {
   useEffect(() => {
@@ -20,27 +21,27 @@ const Methodology = () => {
 
   const methodologyData = [
     {
-      icon: <Icons.MethodologyIcon />,
+      icon: Images.MethodologyIcon1,
       title: "Brand & Audience Analysis",
       desc: "Your vision, our deep dive. Let’s uncover your audience's emotional triggers.",
     },
     {
-      icon: <Icons.MethodologyIcon />,
+      icon: Images.MethodologyIcon2,
       title: "Infrastructure & Automation",
       desc: "Let’s get your look at your intake process and get you ready to take in even more leads in the most efficient way possible.",
     },
     {
-      icon: <Icons.MethodologyIcon />,
+      icon: Images.MethodologyIcon3,
       title: "Customized Funnel",
       desc: "This step involves designing the flow of leads and your services fitted to your business and industry.",
     },
     {
-      icon: <Icons.MethodologyIcon />,
+      icon: Images.MethodologyIcon4,
       title: "AI Integration",
       desc: "In this step, machine models look at data and save money on dollar cost averages.",
     },
     {
-      icon: <Icons.MethodologyIcon />,
+      icon: Images.MethodologyIcon5,
       title: "Review & Launch",
       desc: "After a review of processes, content, and systems and any last minute touches, we launch your systems!",
     },
@@ -72,7 +73,7 @@ const Methodology = () => {
                 )}
               >
                 <span className={classNames(styles.iconContainer)}>
-                  {items.icon}
+                  <Image width={70} height={70} src={items.icon} alt="icon" />
                 </span>
                 {/* <div className={styles.timelineContainer}>
                   <div className={styles.animatedLine}>

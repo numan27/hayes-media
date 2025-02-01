@@ -30,7 +30,7 @@ import CalendarBlank from "./calendar-blank.svg";
 import Calendar2 from "./calendar-2.svg";
 import Email from "./email.svg";
 import EmailBold from "./email-bold.svg";
-import LocationPin from "./location-pin.svg";
+import LocationPin from "./location.svg";
 import LocationPinBold from "./location-pin-bold.svg";
 import BulletIcon from "./bullet-icon.svg";
 import BulletArrowsIcon from "./bullet-arrows-icon.svg";
@@ -93,6 +93,7 @@ import ServiceIcon6 from "./service-icon-6.svg";
 // import LongArrow from "./long-arrow.svg";
 import BigQuote from "./big-quote.svg";
 import MethodologyIcon from "./methodology-icon.svg";
+import MethodologyIcon1 from "./methodology-icon-1.svg";
 import SliderArrowLeft from "./slider-left-arrow.svg";
 import RoundedArrowRight from "./rounded-right-arrow.svg";
 import QuestionMark from "./question-mark.svg";
@@ -207,6 +208,7 @@ const Icons = {
   // LongArrow,
   BigQuote,
   MethodologyIcon,
+  MethodologyIcon1,
   SliderArrowLeft,
   RoundedArrowRight,
   QuestionMark,
@@ -222,7 +224,7 @@ const Icons = {
   GradientGridBox,
   CheckBullet,
   Bullet,
-  GradientLineX
+  GradientLineX,
 };
 
 export { Icons };

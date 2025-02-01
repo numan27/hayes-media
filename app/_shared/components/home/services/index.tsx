@@ -11,6 +11,7 @@ import { routeConstant } from "routes/constants";
 const Services = () => {
   const servicesData = [
     {
+      // icon: <Icons.ServiceIcon1 />,
       icon: Images.ServiceIcon1,
       title: "Full-Stack Digital Marketing",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
@@ -18,30 +19,35 @@ const Services = () => {
     },
     {
       icon: Images.ServiceIcon2,
+      // icon: <Icons.ServiceIcon2 />,
       title: "Social Media",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
       path: routeConstant.socialMedia.path,
     },
     {
       icon: Images.ServiceIcon3,
+      // icon: <Icons.ServiceIcon3 />,
       title: "Web Development",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
       path: routeConstant.webMobile.path,
     },
     {
       icon: Images.ServiceIcon4,
+      // icon: <Icons.ServiceIcon4 />,
       title: "Mobile App Development",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
       path: routeConstant.socialMedia.path,
     },
     {
       icon: Images.ServiceIcon5,
+      // icon: <Icons.ServiceIcon5 />,
       title: "SEO",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
       path: routeConstant.advertisement.path,
     },
     {
       icon: Images.ServiceIcon6,
+      // icon: <Icons.ServiceIcon6 />,
       title: "Intake Consultation",
       desc: "Lorem ipsum is a simply dummy text.Lorem ipsum is a simply dummy text.",
       path: routeConstant.socialMedia.path,
@@ -77,6 +83,7 @@ const Services = () => {
                   <div key={index} className={classNames(styles.gridItem)}>
                     <div className="flex flex-col gap-3 items-start">
                       <span className={classNames(styles.iconContainer)}>
+                        {/* {items.icon} */}
                         <Image
                           height={48}
                           width={48}
