@@ -12,9 +12,9 @@ interface CustomBadgeProps {
 
 const CustomBadge = ({
   title,
-  bg = "#DFF4FD",
-  textColor = "#0092D6",
-  borderColor = "#DFF4FD",
+  bg = "#E7EBF1",
+  textColor = "#4F5665",
+  borderColor = "#E7EBF1",
   textUppercase = "capitalize",
 }: CustomBadgeProps) => {
   return (

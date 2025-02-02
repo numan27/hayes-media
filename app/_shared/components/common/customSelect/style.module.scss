@@ -2,26 +2,21 @@
 @import "utils/colors.scss";
 
 .selectWrapper {
-  border: 1px solid $BORDER;
-  background-color: $WHITE;
-  border-radius: 50px;
-  @include RP(
-    (
-      "height": 48,
-    )
-  );
+  border: 1px solid #FFFFFF99;
+  background-color: transparent;
+  border-radius: 6px;
+  @include RP(("height": 40,
+    ));
+
   .inputLabel {
     font-weight: 500;
-    @include RP(
-      (
-        "font-size": 16,
+    @include RP(("font-size": 16,
         "line-height": 21,
-        "padding-left": 20,
-        "padding-right": 10,
+        "padding-left": 24,
+        "padding-right": 14,
         "padding-top": 12,
         "padding-bottom": 12,
-      )
-    );
+      ));
     color: $PRIMARY;
     text-align: center;
 
@@ -38,37 +33,31 @@
     position: relative;
     width: 100%;
 
-    @include RP(
-      (
-        "height": 49,
-      )
-    );
+    @include RP(("height": 49,
+      ));
+
     .activeItem {
       color: $PRIMARY !important;
-      @include RP(
-        (
-          "font-size": 14,
-        )
-      );
+      @include RP(("font-size": 14,
+        ));
     }
-    svg {
-      path {
-        stroke: $PRIMARY !important;
-      }
-    }
+
+    // svg {
+    //   path {
+    //     stroke: $PRIMARY !important;
+    //   }
+    // }
   }
 
   .sortLabel {
     color: $LIGHT_GRAY2 !important;
-    @include RP(
-      (
-        "font-size": 15,
-      )
-    );
+    @include RP(("font-size": 15,
+      ));
     cursor: pointer;
     padding: 0.5rem 1rem;
     width: 100%;
     border-radius: 50px;
+
     .triggerIcon {
       svg {
         path {
@@ -76,6 +65,7 @@
         }
       }
     }
+
     .chevDownFilled {
       svg {
         path {
@@ -108,18 +98,18 @@
   .optionItem {
     padding: 0.5rem 1rem;
     text-wrap: nowrap;
-    @include RP(
-      (
-        "font-size": 16,
-      )
-    );
+    @include RP(("font-size": 16,
+      ));
     cursor: pointer;
+
     &:hover {
       background-color: $LIGHT_BLUE;
+
       &:first-child {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
       }
+
       &:last-child {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
@@ -129,10 +119,12 @@
 
   .active {
     background-color: $LIGHT_BLUE;
+
     &:first-child {
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
     }
+
     &:last-child {
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;

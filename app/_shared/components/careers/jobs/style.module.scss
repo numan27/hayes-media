@@ -1,0 +1,85 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  @include RP(("padding-top": 40,
+      "padding-bottom": 50,
+    ));
+
+  .filtersContainer {
+    background-color: #FFFFFF0F;
+    border-radius: 6px;
+    @include RP(("padding-top": 20,
+        "padding-bottom": 20,
+        "padding-left": 20,
+        "padding-right": 20,
+      ));
+
+    .searchContainer {
+      // @include RP(("margin-bottom": 50,
+      //   ));
+
+      .quoteInput {
+        background-color: $DARK !important;
+        border-radius: 6px !important;
+        border: none !important;
+        height: 40px !important;
+
+        input {
+          background-color: $DARK !important;
+          height: 100%;
+          border-radius: 6px !important;
+
+          ::placeholder {
+            color: #FFFFFF99 !important;
+            @include RP(("font-size": 15,
+              ), 1);
+          }
+
+        }
+      }
+    }
+
+    .filters {
+      .item {
+        label {
+          font-weight: 400;
+          font-size: 12px;
+          @include RP(("margin-bottom": 15,
+            ), 1);
+        }
+
+        .filterButton {
+          max-height: 40px !important;
+          @include RP(("height": 40,
+            ), 1);
+        }
+      }
+    }
+  }
+
+  .contentWrapper {
+    @include RP(("padding-top": 40,
+        "padding-bottom": 50,
+      ));
+
+    .jobsListContainer {
+      .jobListItem {
+        background-color: #FFFFFF0F;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        @include RP(("padding-top": 20,
+            "padding-bottom": 20,
+            "padding-left": 20,
+            "padding-right": 20,
+          ));
+
+        .active {
+          border-color: $PRIMARY !important;
+        }
+      }
+    }
+
+  }
+}

@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import styles from "./style.module.scss";
-import { Icons } from "assets";
+import { Icons, Images } from "assets";
 import classNames from "classnames";
+import Image from "next/image";
 
 interface OptionProps {
   title: string;
@@ -116,7 +117,7 @@ const CustomSelect = ({
                   <Icons.VerticalDots />
                 </div>
               ) : (
-                <div className="flex items-center justify-between w-full gap-2">
+                <div className="flex items-center justify-between w-full gap-3">
                   <span className={classNames(styles.activeItem)}>
                     {activeItem}
                   </span>
@@ -125,7 +126,13 @@ const CustomSelect = ({
                       <Icons.ChevDownFilled />
                     </span>
                   ) : (
-                    <Icons.ChevDown />
+                    // <Icons.ChevDown />
+                    <Image
+                      width={15}
+                      height={12}
+                      src={Images.ChevDown}
+                      alt="icon"
+                    />
                   )}
                 </div>
               )}

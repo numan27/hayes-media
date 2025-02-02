@@ -46,6 +46,11 @@ import MethodologyIcon3 from "./methodology-icon-3.png";
 import MethodologyIcon4 from "./methodology-icon-4.png";
 import MethodologyIcon5 from "./methodology-icon-5.png";
 import LocationPin from "./location.png";
+import ChevDown from "./chev-down.png";
+import Team1 from "./team-1.png";
+import Team2 from "./team-2.png";
+import Team3 from "./team-3.png";
+import Team4 from "./team-4.png";
 
 
 const Images = {
@@ -96,7 +101,12 @@ const Images = {
   MethodologyIcon3,
   MethodologyIcon4,
   MethodologyIcon5,
-  LocationPin
+  LocationPin,
+  ChevDown,
+  Team1,
+  Team2,
+  Team3,
+  Team4,
 };
 
 export { Images };

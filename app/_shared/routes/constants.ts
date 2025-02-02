@@ -10,7 +10,7 @@ const routeConstant = {
     title: "Services",
   },
   careers: {
-    path: "/careers",
+    path: "/general/careers",
     title: "Careers",
   },
   portfolio: {
