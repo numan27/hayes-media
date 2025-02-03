@@ -26,7 +26,7 @@ h1 {
 
   @media screen and (max-width: 640px) {
     @include RP(("font-size": 28,
-        "line-height": 32,
+        "line-height": 28,
       ), 1);
   }
 }
@@ -275,4 +275,39 @@ p {
 .full-height-button {
   height: 100% !important;
   max-height: 100% !important;
+}
+
+.md-height-button {
+  @include RP(("height": 40,
+      "max-height": 40,
+    ), 1);
+}
+
+.listingSlider {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center;
+  align-items: center;
+
+  .swiper-slide {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .swiper-slide.swiper-slide-active {
+    background-color: $PRIMARY;
+    flex: 5;
+    z-index: 2;
+    min-width: 574px;
+
+    .hiddenDesc,
+    .hiddenRole {
+      display: block;
+    }
+  }
+}
+
+.hiddenDesc,
+.hiddenRole {
+  display: none;
 }

@@ -36,11 +36,13 @@ const Features = () => {
           borderRadius="8px"
         >
           <div className={classNames(styles.contentWrapper)}>
-            <CustomSectionHeading
-              centered
-              heading="OUR FEATURES & FUNNEL"
-              description="Your business deserves more than a cookie-cutter approach. This is where our marketing consultants in Austin craft unforgettable digital experiences that inspire conversions, spark loyalty and leave your customers satisfied."
-            />
+            <div className="sm:px-0 px-3">
+              <CustomSectionHeading
+                centered
+                heading="OUR FEATURES & FUNNEL"
+                description="Your business deserves more than a cookie-cutter approach. This is where our marketing consultants in Austin craft unforgettable digital experiences that inspire conversions, spark loyalty and leave your customers satisfied."
+              />
+            </div>
             <div
               className={classNames(
                 styles.gridContainer,
@@ -52,7 +54,7 @@ const Features = () => {
                   key={index}
                   className={classNames(
                     styles.gridItem,
-                    "flex lg:flex-row flex-col justify-center lg:items-center items-start sm:gap-10 gap-6"
+                    "flex lg:flex-row flex-col justify-center lg:items-center xs:items-start items-center sm:gap-10 gap-6"
                   )}
                 >
                   <div
@@ -73,7 +75,9 @@ const Features = () => {
                       textCase="capitalize"
                       heading={items.title}
                     />
-                    <p className="mt-3">{items.desc}</p>
+                    <p className="mt-3 xs:text-left text-center">
+                      {items.desc}
+                    </p>
                   </div>
                 </div>
               ))}

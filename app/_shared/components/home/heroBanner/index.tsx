@@ -8,6 +8,7 @@ import BannerVideo from "./banner-video";
 import BrandSlider from "../brandSlider";
 import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
+import useWindowDimensions from "hooks/useWindowDimensions";
 // import AOS from "aos";
 
 const changingTexts = [
@@ -40,6 +41,7 @@ const HeroBanner = ({
 }: HeroBannerProps) => {
   const [currentText, setCurrentText] = useState(changingTexts[0]);
   const [isAnimating, setIsAnimating] = useState(false);
+  const { width } = useWindowDimensions();
 
   // useEffect(() => {
   //   AOS.init({
@@ -112,7 +114,7 @@ const HeroBanner = ({
               >
                 {title || (
                   <>
-                    HAYES MEDIA IS A <br />
+                    HAYES MEDIA IS A {width < 640 && <br />}
                     <span
                       className={classNames(
                         styles.animatedText,
@@ -122,7 +124,8 @@ const HeroBanner = ({
                     >
                       {currentText}
                     </span>{" "}
-                    <br /> WITH AN EMOTIONALLY <br /> INTELLIGENT APPROACH
+                    {width < 640 && <br />} WITH AN EMOTIONALLY <br />{" "}
+                    INTELLIGENT APPROACH
                   </>
                 )}
               </h1>

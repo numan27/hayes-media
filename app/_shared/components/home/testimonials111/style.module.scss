@@ -1,0 +1,96 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionContainer {
+  // background-image: url("../../../../_assets/images/testimonial-bg.png");
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  // .customContainer {
+  //   @include RP(("padding-top": 60,
+  //       "padding-bottom": 40,
+  //     ));
+  // }
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.4);
+  }
+
+  @include RP(("padding-top": 60,
+      "padding-bottom": 60,
+    ));
+
+  .sectionHeading {
+    @include RP(("margin-bottom": 30,
+      ));
+  }
+
+  .cardsContainer {
+
+    .listingSlider {
+
+      .testimonialSlide {
+        transition: transform 0.3s ease, width 0.3s ease;
+        // box-shadow: 0px 0px 48.9px 0px #D1D1D142;
+        @include RP(("min-height": 374,
+            "max-height": 374,
+            "border-radius": 20,
+            "padding-left": 20,
+            "padding-right": 20,
+            "padding-top": 20,
+            "padding-bottom": 20,
+          ));
+
+        .swiper-slide.swiper-slide-active {
+          background-color: $PRIMARY !important;
+        }
+
+        svg {
+          @include RP(("width": 40,
+              "height": 40,
+            ));
+
+        }
+
+        .imgContainer {
+          border-radius: 100px;
+          @include RP(("width": 48,
+              "height": 48,
+            ));
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100px;
+          }
+        }
+
+        p {
+          font-weight: 600;
+          margin-top: 5px;
+        }
+
+        span {
+          @include RP(("font-size": 12,
+            ));
+        }
+      }
+
+    }
+
+  }
+
+
+  .buttonContainer {
+    @include RP(("margin-top": 50,
+        "margin-bottom": 5,
+      ))
+  }
+}

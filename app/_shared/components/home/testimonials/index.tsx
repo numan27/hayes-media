@@ -18,7 +18,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomSectionHeading from "components/common/customSectionHeading";
 
-const Portfolio = () => {
+const Testimonials = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
     null
   );
@@ -100,34 +100,33 @@ const Portfolio = () => {
               onSwiper={setSwiperInstance}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
-              {portfolioData.map((item, index) => (
-                <SwiperSlide
-                  key={index}
-                  className={classNames("swiper-slide", {
-                    [styles.activeSlide]: index === activeIndex,
-                  })}
-                >
-                  <div className={classNames(styles.reviewItem, "relative")}>
-                    <Image
-                      className="absolute inset-0"
-                      src={item.image}
-                      alt="slider-img"
-                    />
-                    {index === activeIndex && (
-                      <div
-                        className={classNames(
-                          styles.overlay,
-                          "flex flex-col gap-4 items-center"
-                        )}
-                      >
-                        <h4>{item.title}</h4>
-                        <p>{item.desc}</p>
-                        <CustomButton title="View More" />
-                      </div>
-                    )}
-                  </div>
-                </SwiperSlide>
-              ))}
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+              </SwiperSlide>
             </Swiper>
 
             {/* Right Navigation Button */}
@@ -144,4 +143,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default Testimonials;

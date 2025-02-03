@@ -9,6 +9,7 @@ import localFont from "next/font/local";
 import classNames from "classnames";
 import "./globals.css";
 import "./styles.scss";
+import "swiper/css/effect-coverflow";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

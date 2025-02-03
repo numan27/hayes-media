@@ -68,17 +68,17 @@
       h1 {
         margin-bottom: 0 !important;
 
-        span {
-          @include RP(("line-height": 50), 1);
-        }
+        // span {
+        //   @include RP(("line-height": 50), 1);
+        // }
       }
 
       .title {
         color: $WHITE;
 
-        @media screen and (max-width: 426px) {
-          @include RP(("font-size": 32, "line-height": 48));
-        }
+        // @media screen and (max-width: 426px) {
+        //   @include RP(("font-size": 32, "line-height": 48));
+        // }
       }
 
       button {

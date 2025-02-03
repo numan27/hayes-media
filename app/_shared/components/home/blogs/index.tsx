@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import AOS from "aos";
+import CustomButton from "components/common/customButton";
 
 const Blogs = () => {
   useEffect(() => {
@@ -20,7 +21,11 @@ const Blogs = () => {
   }, []);
 
   const blogsData = [
-    { img: "", category: "Website", title: "Creative landing page" },
+    {
+      img: "",
+      category: "Website",
+      title: "Creative landing page Development",
+    },
     {
       img: "",
       category: "Digital marketing",
@@ -59,15 +64,10 @@ const Blogs = () => {
                   </div>
                   <h5>{items.title}</h5>
                   <div className={classNames(styles.linkContainer)}>
-                    <Link className="flex items-center gap-1.5" href="">
-                      Read more{" "}
-                      <Image
-                        width={16}
-                        height={16}
-                        src={Images.RoundedArrowRight}
-                        alt="icon"
-                      />
-                    </Link>
+                    <CustomButton
+                      title="Read More"
+                      containerStyle="md-height-button"
+                    />
                   </div>
                 </div>
               </div>

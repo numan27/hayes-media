@@ -62,7 +62,7 @@ const FAQs = () => {
             heading="Frequently Asked Questions"
             description="Questions and Answers, are listed questions and answers, all supposed to be commonly asked in some context. Questions and Answers, are listed questions and answers, all supposed to be commonly asked in some context."
           />
-          <div className="lg:w-9/12 sm:w-10/12 w-full mx-auto mt-10">
+          <div className="mx-auto mt-10">
             <CustomAnimatedBorder
               gradientColors="linear-gradient(270deg, #EC1E24 0%, #141212 50%, #902880 100%)"
               animationSpeed="6s"

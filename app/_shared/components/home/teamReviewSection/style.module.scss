@@ -86,10 +86,18 @@
   text-transform: uppercase;
   @include RP(("font-size": 20,
     ));
+
+  @media screen and (max-width: 510px) {
+    text-align: center !important;
+  }
 }
 
 .review {
   text-align: justify !important;
+
+  @media screen and (max-width: 510px) {
+    text-align: center !important;
+  }
 }
 
 @media screen and (max-width: 630px) {

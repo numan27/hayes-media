@@ -62,7 +62,12 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
                       <div className="flex justify-between xs:mt-0 mt-3">
                         <div className="flex flex-col xs:items-start items-center">
                           <label className={styles.name}>{item?.name}</label>
-                          <p className={(styles.review, "xl:w-9/12 w-full")}>
+                          <p
+                            className={classNames(
+                              styles.review,
+                              "xl:w-9/12 w-full"
+                            )}
+                          >
                             {item?.review}
                           </p>
                         </div>

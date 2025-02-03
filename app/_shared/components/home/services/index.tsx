@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomButton from "components/common/customButton";
@@ -81,7 +81,7 @@ const Services = () => {
                   borderRadius="8px"
                 >
                   <div key={index} className={classNames(styles.gridItem)}>
-                    <div className="flex flex-col gap-3 items-start">
+                    <div className="flex flex-col gap-3 xs:items-start items-center">
                       <span className={classNames(styles.iconContainer)}>
                         {/* {items.icon} */}
                         <Image
