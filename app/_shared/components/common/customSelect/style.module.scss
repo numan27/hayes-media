@@ -51,7 +51,7 @@
 
   .sortLabel {
     color: $LIGHT_GRAY2 !important;
-    @include RP(("font-size": 15,
+    @include RP(("font-size": 14,
       ));
     cursor: pointer;
     padding: 0.5rem 1rem;
@@ -80,7 +80,7 @@
     top: 100%;
     left: 0;
     // transform: translateX(-50%);
-    background-color: $WHITE;
+    background-color: $DARK;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 0.5rem;
@@ -97,13 +97,18 @@
 
   .optionItem {
     padding: 0.5rem 1rem;
+    border-bottom: 0.5px solid #f5f6f68e;
     text-wrap: nowrap;
-    @include RP(("font-size": 16,
-      ));
+    @include RP(("font-size": 14,
+      ), 1);
     cursor: pointer;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     &:hover {
-      background-color: $LIGHT_BLUE;
+      // background-color: $LIGHT_BLUE;
 
       &:first-child {
         border-top-left-radius: 8px;
@@ -118,7 +123,7 @@
   }
 
   .active {
-    background-color: $LIGHT_BLUE;
+    background: $PRIMARY;
 
     &:first-child {
       border-top-left-radius: 8px;
@@ -129,5 +134,11 @@
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
+  }
+
+  img {
+    height: 8px !important;
+    @include RP(("width": 15,
+      ), 1);
   }
 }

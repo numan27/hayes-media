@@ -81,5 +81,19 @@
       }
     }
 
+    .jobsPreviewContainer {
+      .jobPreview {
+        background-color: #FFFFFF0F;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        @include RP(("padding-top": 20,
+            "padding-bottom": 20,
+            "padding-left": 20,
+            "padding-right": 20,
+          ));
+      }
+    }
+
   }
 }

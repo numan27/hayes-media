@@ -86,7 +86,7 @@ const Jobs = () => {
         <div
           className={classNames(
             styles.filtersContainer,
-            "flex flex-col gap-10 h-56"
+            "flex flex-col lg:gap-10 gap-8 h-56"
           )}
         >
           <div
@@ -113,10 +113,12 @@ const Jobs = () => {
           <div
             className={classNames(
               styles.filters,
-              "grid grid-cols-12 gap-8 w-8/12 mx-auto"
+              "grid grid-cols-12 lg:gap-6 gap-3 xl:w-9/12 lg:10/12 mx-auto"
             )}
           >
-            <div className={classNames(styles.item, "col-span-4")}>
+            <div
+              className={classNames(styles.item, "lg:col-span-4 col-span-6")}
+            >
               <label htmlFor="">Experience Level</label>
               <CustomSelect
                 defaultActiveItem="All Experience Level"
@@ -125,7 +127,9 @@ const Jobs = () => {
                 // label="Experience Level"
               />
             </div>{" "}
-            <div className={classNames(styles.item, "col-span-3")}>
+            <div
+              className={classNames(styles.item, "lg:col-span-3 col-span-6")}
+            >
               <label htmlFor="">Location</label>
               <CustomSelect
                 // @ts-ignore
@@ -134,7 +138,9 @@ const Jobs = () => {
                 // label="Experience Level"
               />
             </div>{" "}
-            <div className={classNames(styles.item, "col-span-3")}>
+            <div
+              className={classNames(styles.item, "lg:col-span-3 col-span-6")}
+            >
               <label htmlFor="">Categories</label>
               <CustomSelect
                 // @ts-ignore
@@ -144,10 +150,13 @@ const Jobs = () => {
               />
             </div>{" "}
             <div
-              className={classNames(styles.item, "col-span-2 flex items-end")}
+              className={classNames(
+                styles.item,
+                "lg:col-span-2 col-span-6 flex items-end"
+              )}
             >
               <CustomButton
-                containerStyle={classNames(styles.filterButton)}
+                containerStyle={classNames(styles.filterButton, "w-full")}
                 title="Available Jobs"
               />
             </div>
@@ -156,7 +165,7 @@ const Jobs = () => {
         <div
           className={classNames(
             styles.contentWrapper,
-            "grid grid-cols-2 gap-6 mt-12"
+            "grid sm:grid-cols-2 grid-cols-1 gap-6 mt-12"
           )}
         >
           <div
@@ -185,14 +194,23 @@ const Jobs = () => {
           </div>
           <div className={classNames(styles.jobsPreviewContainer)}>
             {selectedJob ? (
-              <div className={classNames(styles.jobPreview, "rounded-lg")}>
-                <h4>{selectedJob.title}</h4>
-                <CustomBadge title={selectedJob.level} />
-                <p className="mt-4">{selectedJob.description}</p>{" "}
-                {/* Fix details */}
+              <div
+                className={classNames(
+                  styles.jobPreview,
+                  "flex flex-col items-start gap-6"
+                )}
+              >
+                <div>
+                  <h4 className="mb-3">{selectedJob.title}</h4>
+                  <CustomBadge title={selectedJob.level} />
+                </div>
+                <p className="">{selectedJob.description}</p>{" "}
                 <CustomButton
                   title="Apply Now"
-                  containerStyle={classNames(styles.applyButton)}
+                  containerStyle={classNames(
+                    styles.applyButton,
+                    "md-height-button"
+                  )}
                 />
               </div>
             ) : (

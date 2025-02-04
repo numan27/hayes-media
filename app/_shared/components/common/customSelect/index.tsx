@@ -129,7 +129,7 @@ const CustomSelect = ({
                     // <Icons.ChevDown />
                     <Image
                       width={15}
-                      height={12}
+                      height={8}
                       src={Images.ChevDown}
                       alt="icon"
                     />
