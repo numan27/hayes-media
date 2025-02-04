@@ -2,12 +2,18 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-
   position: relative;
   @include RP(("padding-top": 150,
       "padding-bottom": 210,
       "margin-top": 50,
     ), 1);
+
+  @media screen and (max-width: 510px) {
+    margin-bottom: 0 !important;
+    @include RP(("margin-top": 100,
+        "padding-bottom": 100,
+      ), 1);
+  }
 
   &::before {
     position: absolute;

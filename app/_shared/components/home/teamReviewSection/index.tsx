@@ -32,7 +32,7 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
           <div
             className={classNames(
               styles.customContainer,
-              "flex flex-col gap-4"
+              "flex flex-col sm:gap-4"
             )}
           >
             <CustomSectionHeading
@@ -58,14 +58,14 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
                     />
                   </div>
                   <div className={styles.reviewOutSection}>
-                    <div className={styles.reviewSection}>
+                    <div className={classNames(styles.reviewSection)}>
                       <div className="flex justify-between xs:mt-0 mt-3">
                         <div className="flex flex-col xs:items-start items-center">
                           <label className={styles.name}>{item?.name}</label>
                           <p
                             className={classNames(
                               styles.review,
-                              "xl:w-9/12 w-full"
+                              "xl:w-9/12 w-full sm:mt-0 mt-3"
                             )}
                           >
                             {item?.review}
@@ -73,7 +73,12 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
                         </div>
                       </div>
                       <div className="border-l-2 h-full border-white w-2 my-2"></div>
-                      <div className="flex flex-col xs:items-start items-center">
+                      <div
+                        className={classNames(
+                          styles.number,
+                          "flex flex-col xs:items-start items-center"
+                        )}
+                      >
                         <label className={styles.review}>Learn More</label>
                         <h1>{index + 1}</h1>
                       </div>

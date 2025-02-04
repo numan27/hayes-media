@@ -26,19 +26,22 @@
         ));
 
       .quoteInput {
-        background-color: $DARK !important;
+        background-color: $DARK2 !important;
+        // background-color: $BLACK;
         border-radius: 6px !important;
         border-color: #FFFFFF33 !important;
+        // border-color: $BORDER !important;
 
         input {
-          background-color: $DARK !important;
+          background-color: $DARK2 !important;
+        }
 
+        textarea {
           ::placeholder {
-            color: #FFFFFF99 !important;
-            @include RP(("font-size": 15,
+            color: $LIGHT_GRAY2 !important;
+            @include RP(("font-size": 14,
               ), 1);
           }
-
         }
       }
     }

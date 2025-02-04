@@ -102,7 +102,7 @@ const HeroBanner = ({
               "grid md:grid-cols-2 grid-cols-1 sm:gap-16 gap-8 h-full"
             )}
           >
-            <div className="flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
+            <div className="flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4 sm:w-11/12 w-full">
               {contentIcon && (
                 <div className={classNames(styles.heroContentIcon)}>
                   <Image src={Images.Speaker} alt="icon" />
@@ -129,7 +129,9 @@ const HeroBanner = ({
                   </>
                 )}
               </h1>
-              {desc && <p>{desc}</p>}
+              {desc && (
+                <p className="sm:text-justify text-center mb-2">{desc}</p>
+              )}
 
               <CustomButton data-aos="fade-up" title={btnTitle} />
             </div>

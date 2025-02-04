@@ -1,17 +1,14 @@
 "use client";
 
 import classNames from "classnames";
-import useWindowDimensions from "hooks/useWindowDimensions";
 import React, { forwardRef, ForwardedRef } from "react";
 import Image from "next/image";
-import CustomSectionHeading from "components/common/customSectionHeading";
 import styles from "./style.module.scss";
 import { sliderData } from "./constant";
 import CustomSlider from "components/common/customSlider";
 
 const MobileSlider = forwardRef<HTMLDivElement, {}>(
   (props, ref: ForwardedRef<HTMLDivElement>) => {
-    const { width } = useWindowDimensions();
     // const itemsPerPage = width > 990 ? 2 : 1;
 
     const sliderSettings = {

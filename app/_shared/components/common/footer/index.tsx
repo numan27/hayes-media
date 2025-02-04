@@ -53,7 +53,7 @@ const Footer = () => {
               "md:col-span-4 order-2 md:order-1 col-span-12"
             )}
           >
-            <div className="flex flex-col md:items-start items-center gap-3">
+            <div className="flex flex-col md:items-start items-center gap-6">
               <Image
                 data-aos="flip-right"
                 className={classNames(styles.logo)}
@@ -62,21 +62,28 @@ const Footer = () => {
                 src={Images.Logo}
                 alt="logo"
               />
-              <div
-                className={classNames(
-                  styles.socialContainer,
-                  "flex items-center gap-2 justify-start"
-                )}
-              >
-                {socialLink.map((item, index) => (
-                  <span key={index} className={classNames(styles.socialItem)}>
-                    {item}
-                  </span>
-                ))}
+              <div>
+                <div
+                  className={classNames(
+                    styles.socialContainer,
+                    "flex items-center gap-2 justify-start"
+                  )}
+                >
+                  {socialLink.map((item, index) => (
+                    <Link href="">
+                      <span
+                        key={index}
+                        className={classNames(styles.socialItem)}
+                      >
+                        {item}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+                <p className={classNames(styles.copyright, "mt-3")}>
+                  © 2025 Hayes Media Inc. All rights reserved.
+                </p>
               </div>
-              <p className={classNames(styles.copyright)}>
-                © 2025 Hayes Media Inc. All rights reserved.
-              </p>
             </div>
           </div>
 

@@ -42,10 +42,21 @@
         }
       }
 
-      svg {
-        @include RP(("width": 60,
-            "height": 60,
+      .bulletContainer {
+        @include RP(("width": 56,
+            "height": 56,
           ), 1);
+        background: $PRIMARY !important;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          @include RP(("width": 30,
+              "height": 30,
+            ), 1);
+        }
       }
     }
   }

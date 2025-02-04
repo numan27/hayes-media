@@ -3,11 +3,8 @@
 
 .inputLabel {
   font-weight: 500;
-  @include RP(
-    (
-      "font-size": 14,
-    )
-  );
+  @include RP(("font-size": 14,
+    ));
   color: $DARK;
 }
 
@@ -18,16 +15,12 @@
 .inputContainer {
   height: fit-content !important;
   // border-radius: 50px;
-  @include RP(
-    (
-      // "height": 128,
+  @include RP(( // "height": 128,
       "padding-left": 20,
       "padding-right": 10,
       "padding-top": 15,
       "padding-bottom": 15,
-      "border-radius": 16
-    )
-  );
+      "border-radius": 16));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,13 +35,11 @@
   border: 0px;
   outline: 0;
   color: $WHITE !important;
-  @include RP(
-    (
-      "font-size": 16,
-    )
-  );
+  @include RP(("font-size": 16,
+    ));
   background: transparent;
   resize: none;
+
   &::-webkit-scrollbar-track {
     border: 7px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
@@ -82,7 +73,7 @@
   color: $LIGHT_GRAY2 !important;
 }
 
-.iinputStyle::-ms-input-placeholder {
+.inputStyle::-ms-input-placeholder {
   /* Microsoft Edge */
   font-size: 12px !important;
   color: $LIGHT_GRAY2 !important;

@@ -49,8 +49,8 @@ const About = () => {
       <Portfolio />
       <GetStartedCall />
       <TeamSection />
-      <Newsletter />
       <GetQuote />
+      <Newsletter />
     </div>
   );
 };

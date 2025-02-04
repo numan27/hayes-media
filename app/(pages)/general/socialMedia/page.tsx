@@ -64,8 +64,8 @@ const SocialMedia = () => {
       <Portfolio />
       <GetStartedCall />
       <TeamSection />
-      <Newsletter />
       <GetQuote />
+      <Newsletter />
     </div>
   );
 };

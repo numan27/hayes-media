@@ -4,7 +4,7 @@
 .brands__section {
   overflow: hidden;
   position: relative;
-  @include RP(("margin-top": 50,
+  @include RP(("margin-top": -150,
       "margin-bottom": 50,
       "padding-bottom": 50,
     ), 1);

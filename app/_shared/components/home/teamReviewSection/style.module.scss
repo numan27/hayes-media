@@ -49,8 +49,10 @@
   // }
 
   @media screen and (max-width: 510px) {
-    @include RP(("height": 300,
-        "width": 300), 1);
+    @include RP(( // "height": 300,
+        // "width": 300
+      ), 1);
+    width: 100% !important;
     border-radius: 100%;
     object-fit: contain !important;
     margin: 0 auto;
@@ -70,7 +72,13 @@
 
 .reviewOutSection {
   @include RP(("padding-right": 24,
-    ));
+    ), 1);
+
+  @media screen and (max-width: 510px) {
+    @include RP(("padding-right": 30,
+        "padding-left": 30,
+      ), 1);
+  }
 }
 
 .reviewSection {
@@ -97,6 +105,12 @@
 
   @media screen and (max-width: 510px) {
     text-align: center !important;
+  }
+}
+
+.number {
+  @media screen and (max-width: 640px) {
+    display: none !important;
   }
 }
 

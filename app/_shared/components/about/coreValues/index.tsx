@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import { Icons } from "assets";
+import { LuCheck } from "react-icons/lu";
 
 const CoreValues = () => {
   const partnersData = [
@@ -48,8 +49,9 @@ const CoreValues = () => {
                       "flex items-center gap-3"
                     )}
                   >
-                    <span>
-                      <Icons.CheckBullet />
+                    <span className={classNames(styles.bulletContainer)}>
+                      <LuCheck />
+                      {/* <Icons.CheckBullet /> */}
                     </span>
                     <div>
                       <h3 className="">

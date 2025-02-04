@@ -23,6 +23,7 @@ const Portfolio = () => {
     null
   );
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { width } = useWindowDimensions();
 
   const portfolioData = [
@@ -103,9 +104,17 @@ const Portfolio = () => {
               {portfolioData.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className={classNames("swiper-slide", {
-                    [styles.activeSlide]: index === activeIndex,
-                  })}
+                  className={classNames(
+                    "swiper-slide",
+                    "transition-all duration-200 ease-in-out",
+                    {
+                      [styles.activeSlide]: index === activeIndex,
+                      [styles.hoveredSlide]:
+                        index === hoveredIndex && index !== activeIndex,
+                    }
+                  )}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className={classNames(styles.reviewItem, "relative")}>
                     <Image
@@ -113,10 +122,13 @@ const Portfolio = () => {
                       src={item.image}
                       alt="slider-img"
                     />
-                    {index === activeIndex && (
+                    {(index === activeIndex || index === hoveredIndex) && (
                       <div
                         className={classNames(
                           styles.overlay,
+                          index === hoveredIndex &&
+                            index !== activeIndex &&
+                            styles.hoverOverlay,
                           "flex flex-col gap-4 items-center"
                         )}
                       >

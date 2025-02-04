@@ -59,23 +59,23 @@
   }
 }
 
-.input-style::placeholder {
+.inputStyle::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  font-size: 15px !important;
+  font-size: 12px !important;
   color: $LIGHT_GRAY2 !important;
   opacity: 1;
   /* Firefox */
 }
 
-.input-style:-ms-input-placeholder {
+.inputStyle:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  font-size: 15px !important;
+  font-size: 12px !important;
   color: $LIGHT_GRAY2 !important;
 }
 
-.input-style::-ms-input-placeholder {
+.inputStyle::-ms-input-placeholder {
   /* Microsoft Edge */
-  font-size: 15px !important;
+  font-size: 12px !important;
   color: $LIGHT_GRAY2 !important;
 }
 

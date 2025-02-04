@@ -41,10 +41,12 @@
       }
     }
 
+    h5 {
+      font-weight: 600;
+      @include PRIMARY_TEXT;
+    }
+
     .menus {
-      h5 {
-        font-weight: 600;
-      }
 
       li {
         transition: all 0.2s ease-in-out !important;
@@ -66,7 +68,7 @@
     &__copyright {
 
       .socialContainer {
-        span {
+        .socialItem {
           cursor: pointer;
 
           svg {

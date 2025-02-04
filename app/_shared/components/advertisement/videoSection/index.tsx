@@ -44,6 +44,7 @@ const VideoSection = ({
             )}
           >
             <CustomSecondaryHeading
+              isHaveTopLine={false}
               size="md"
               heading={
                 title

@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import Image from "next/image";
 import { Icons, Images } from "assets";
+import { LuCheck } from "react-icons/lu";
 
 const SocialMediaScope = () => {
   const { width } = useWindowDimensions();
@@ -56,8 +57,13 @@ const SocialMediaScope = () => {
             <div className="container">
               {scopeData.map((items, index) => (
                 <div key={index} className="item flex items-start gap-4 mb-3">
-                  <span className="mt-1">
-                    <Icons.CheckBullet />
+                  <span>
+                    <span
+                      className={classNames(styles.bulletContainer, "mt-1")}
+                    >
+                      <LuCheck />
+                      {/* <Icons.CheckBullet /> */}
+                    </span>
                   </span>
                   <div>
                     <h4>{items.title}</h4>

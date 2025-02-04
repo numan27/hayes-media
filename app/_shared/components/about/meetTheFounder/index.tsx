@@ -27,7 +27,7 @@ const MeetTheFounder = () => {
                   width={583}
                   src={Images.CeoAbout}
                   alt="ceo-img"
-                  className="absolute bottom-[1px] -right-[15%]"
+                  className="absolute bottom-[2px] -right-[15%]"
                 />
                 <h2 className={classNames(styles.title)}>James Hayes</h2>
               </div>

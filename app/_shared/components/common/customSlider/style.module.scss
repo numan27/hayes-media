@@ -52,7 +52,7 @@
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    border: 2px solid transparent;
+    // border: 2px solid transparent;
 
     span {
       @include RP(("font-size": 20, ), 1);
@@ -65,12 +65,14 @@
 
     &:hover {
       transform: scale(1.1);
-      border-color: #000;
+      // border-color: #fff;
     }
 
     &.active {
-      background-color: #000 !important;
-      border-color: #000;
+      background: $PRIMARY !important;
+      // border-color: #fff;
+      color: #fff !important;
+      // color: #000 !important;
     }
   }
 }

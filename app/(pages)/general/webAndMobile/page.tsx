@@ -61,8 +61,8 @@ const WebMobile = () => {
       <Portfolio />
       <GetStartedCall />
       <TeamSection />
-      <Newsletter />
       <GetQuote />
+      <Newsletter />
     </div>
   );
 };
