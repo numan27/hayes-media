@@ -16,8 +16,6 @@
       ));
 
     .searchContainer {
-      // @include RP(("margin-bottom": 50,
-      //   ));
 
       .quoteInput {
         background-color: $DARK !important;
@@ -65,9 +63,9 @@
 
     .jobsListContainer {
       .jobListItem {
-        background-color: #FFFFFF0F;
+        background-color: $DARK2;
         border-radius: 6px;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         cursor: pointer;
         @include RP(("padding-top": 20,
             "padding-bottom": 20,
@@ -75,9 +73,24 @@
             "padding-right": 20,
           ));
 
-        .active {
-          border-color: $PRIMARY !important;
+        &.active {
+          position: relative;
+          background-clip: padding-box;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: 6px;
+            background: $PRIMARY;
+            -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+          }
         }
+
       }
     }
 
