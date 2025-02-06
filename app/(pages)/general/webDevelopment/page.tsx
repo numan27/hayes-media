@@ -11,27 +11,14 @@ import MobileSlider from "components/webAndMobile/mobileSlider";
 import TargetSection from "components/webAndMobile/targetSection";
 import TrustedPartners from "components/webAndMobile/trustedPartners";
 
-const WebMobile = () => {
+const WebDevelopment = () => {
   const brands = [
-    Images.ClientReview1,
-    Images.ClientReview2,
-    Images.ClientReview3,
-    Images.BrandLogo3,
-    Images.BrandLogo,
-  ];
-  const servicesData = [
-    {
-      title: "Tailored Social Media Management Strategy",
-      desc: "Our team of experts in Austin, Texas will create a custom plan to fit your business and industry. With a fully developed website ready for online advertisements and social media content to support, this is the full package for every business.",
-    },
-    {
-      title: "Engaging Content Creation and Posting",
-      desc: "Your website isn’t just a page, it’s your stage. We are among the top marketing agencies in Austin that craft designs that don’t just tell your story but sing it. We design websites that charm, inform, and convert. With cutting-edge designs and effortless navigation, your customers won’t just visit, they’ll stay.",
-    },
-    {
-      title: "Community Driven Optimization",
-      desc: "Directly invest in your sales without breaking the bank. We are Austin’s PPC experts for Facebook, Instagram, Google, LinkedIn, and more. Expertly crafted funnels, online campaigns, re-targeting campaigns, and landing pages that cost a fraction of what other agencies can buy.",
-    },
+    Images.WebBrand1,
+    Images.WebBrand2,
+    Images.WebBrand3,
+    Images.WebBrand4,
+    Images.WebBrand5,
+    Images.WebBrand6,
   ];
 
   return (
@@ -63,4 +50,4 @@ const WebMobile = () => {
   );
 };
 
-export default WebMobile;
+export default WebDevelopment;

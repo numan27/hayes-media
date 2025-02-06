@@ -17,11 +17,12 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 const SocialMedia = () => {
   const { width } = useWindowDimensions();
   const brands = [
-    Images.ClientReview1,
-    Images.ClientReview2,
-    Images.ClientReview3,
-    Images.BrandLogo3,
-    Images.BrandLogo,
+    Images.SocialBrand1,
+    Images.SocialBrand2,
+    Images.SocialBrand3,
+    Images.SocialBrand4,
+    Images.SocialBrand5,
+    Images.SocialBrand6,
   ];
 
   const servicesData = [
@@ -47,12 +48,13 @@ const SocialMedia = () => {
       <HeroBanner
         title={
           <>
-            <span>Become the authority with social media management.</span>
+            <span>Become the authority with social media management</span>
           </>
         }
         desc="Hayes Media, an Austin-based agency, specializes in targeted online ad campaigns that help you reach the right audience at the right time and at the right place. From search to social."
         brandImagesData={brands}
         btnTitle="Start Growing Today"
+        brandsHeading="Brands that work with us"
       />
       <SocialMediaScope />
       <VideoSection

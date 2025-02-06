@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import CustomButton from "components/common/customButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import BannerVideo from "components/home/heroBanner/banner-video";
 
 interface VideoSectionProps {
   title?: string | any;
@@ -31,11 +32,15 @@ const VideoSection = ({
         >
           <div
             className={classNames(
-              styles.videoSection,
+              styles.videoBox,
               "flex items-center justify-center"
             )}
           >
-            <h1 className="">Video</h1>
+            <BannerVideo
+              videoSrc="/SocialMediaCube1.mp4"
+              thumbnailSrc="/hero-banner.png"
+              alt="Sample Video Thumbnail"
+            />
           </div>{" "}
           <div
             className={classNames(

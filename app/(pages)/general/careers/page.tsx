@@ -39,7 +39,6 @@ const Careers = () => {
       <Jobs />
       <OurTeam />
       <CareersCTA />
-      <GetQuote />
       <Newsletter />
     </div>
   );

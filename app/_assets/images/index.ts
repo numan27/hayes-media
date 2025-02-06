@@ -55,6 +55,27 @@ import ClientReview1 from "./client-review-1.png";
 import ClientReview2 from "./client-review-2.png";
 import ClientReview3 from "./client-review-3.png";
 import BrandLogo3 from "./brand-logo-3.png";
+import AdvertisementBrand1 from "./advertisement-brand-1.png";
+import AdvertisementBrand2 from "./advertisement-brand-2.png";
+import AdvertisementBrand3 from "./advertisement-brand-3.png";
+import AdvertisementBrand4 from "./advertisement-brand-4.png";
+import AdvertisementBrand5 from "./advertisement-brand-5.png";
+import AdvertisementBrand6 from "./advertisement-brand-6.png";
+import AdvertisementBrand7 from "./advertisement-brand-7.png";
+import AdvertisementBrand8 from "./advertisement-brand-8.png";
+import SocialBrand1 from "./social-brand-1.png";
+import SocialBrand2 from "./social-brand-2.png";
+import SocialBrand3 from "./social-brand-3.png";
+import SocialBrand4 from "./social-brand-4.png";
+import SocialBrand5 from "./social-brand-5.png";
+import SocialBrand6 from "./social-brand-6.png";
+import SocialBrand7 from "./social-brand-7.png";
+import WebBrand1 from "./web-brand-1.png";
+import WebBrand2 from "./web-brand-2.png";
+import WebBrand3 from "./web-brand-3.png";
+import WebBrand4 from "./web-brand-4.png";
+import WebBrand5 from "./web-brand-5.png";
+import WebBrand6 from "./web-brand-6.png";
 
 
 const Images = {
@@ -115,6 +136,27 @@ const Images = {
   ClientReview2,
   ClientReview3,
   BrandLogo3,
+  AdvertisementBrand1,
+  AdvertisementBrand2,
+  AdvertisementBrand3,
+  AdvertisementBrand4,
+  AdvertisementBrand5,
+  AdvertisementBrand6,
+  AdvertisementBrand7,
+  AdvertisementBrand8,
+  SocialBrand1,
+  SocialBrand2,
+  SocialBrand3,
+  SocialBrand4,
+  SocialBrand5,
+  SocialBrand6,
+  SocialBrand7,
+  WebBrand1,
+  WebBrand2,
+  WebBrand3,
+  WebBrand4,
+  WebBrand5,
+  WebBrand6,
 };
 
 export { Images };

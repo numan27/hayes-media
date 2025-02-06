@@ -112,6 +112,7 @@ import Bullet from "./bullet.svg";
 // import GradientLineX from "./gradient-line-x.svg";
 import GradientLineX from "./line-x.svg";
 import BackQuoteMark from "./back-quote-mark.svg";
+import WebBrand1 from "./web-brand-1.svg";
 
 const Icons = {
   ArrowRight,
@@ -227,6 +228,7 @@ const Icons = {
   Bullet,
   GradientLineX,
   BackQuoteMark,
+  WebBrand1,
 };
 
 export { Icons };

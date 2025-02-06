@@ -15,11 +15,14 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 const ServiceDetails = () => {
   const { width } = useWindowDimensions();
   const brands = [
-    Images.ClientReview1,
-    Images.ClientReview2,
-    Images.ClientReview3,
-    Images.BrandLogo3,
-    Images.BrandLogo,
+    Images.AdvertisementBrand1,
+    Images.AdvertisementBrand2,
+    Images.AdvertisementBrand3,
+    Images.AdvertisementBrand4,
+    Images.AdvertisementBrand5,
+    Images.AdvertisementBrand6,
+    Images.AdvertisementBrand7,
+    Images.AdvertisementBrand8,
   ];
 
   return (
@@ -28,11 +31,12 @@ const ServiceDetails = () => {
         contentIcon
         title={
           <>
-            <span>more leads at a lower price with online ads.</span>
+            <span>more leads at a lower price with online ads</span>
           </>
         }
         desc="Hayes Media, an Austin-based agency, specializes in targeted online ad campaigns that help you reach the right audience at the right time and at the right place. From search to social."
         brandImagesData={brands}
+        brandsHeading="Platforms we work with"
       />
       <VideoSection
         title={
