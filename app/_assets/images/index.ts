@@ -54,6 +54,7 @@ import Team4 from "./team-4.png";
 import ClientReview1 from "./client-review-1.png";
 import ClientReview2 from "./client-review-2.png";
 import ClientReview3 from "./client-review-3.png";
+import BrandLogo3 from "./brand-logo-3.png";
 
 
 const Images = {
@@ -113,6 +114,7 @@ const Images = {
   ClientReview1,
   ClientReview2,
   ClientReview3,
+  BrandLogo3,
 };
 
 export { Images };

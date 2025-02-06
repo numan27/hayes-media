@@ -14,13 +14,10 @@ import MeetTheFounder from "components/about/meetTheFounder";
 
 const About = () => {
   const brands = [
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
+    Images.ClientReview1,
+    Images.ClientReview2,
+    Images.ClientReview3,
+    Images.BrandLogo3,
     Images.BrandLogo,
   ];
 

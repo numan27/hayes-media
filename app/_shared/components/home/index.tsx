@@ -16,13 +16,10 @@ import Testimonials from "./testimonials111";
 
 const LandingPage = () => {
   const brands = [
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
-    Images.BrandLogo,
+    Images.ClientReview1,
+    Images.ClientReview2,
+    Images.ClientReview3,
+    Images.BrandLogo3,
     Images.BrandLogo,
   ];
 

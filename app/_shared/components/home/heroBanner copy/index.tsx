@@ -71,23 +71,43 @@ const HeroBanner = ({
     <div
       className={classNames(
         styles.heroBannerWrapper,
-        "md:min-h-screen h-full flex flex-col justify-between"
+        "min-h-full sm:h-screen h-[85vh] flex flex-col justify-between"
       )}
     >
-      <div className={classNames(styles.customContainer, "h-full")}>
-        <section
+      <section
+        className={classNames(
+          styles.sectionContainer,
+          "relative flex items-center h-full"
+        )}
+      >
+        {/* Background Video */}
+        <div
           className={classNames(
-            styles.sectionContainer,
-            "flex items-center h-full"
+            styles.videoWrapper,
+            "absolute sm:right-20 right-32 left-0 top-0 bottom-8 z-0"
           )}
+        >
+          <div className={classNames(styles.customContainer, "h-full")}>
+            <BannerVideo
+              // videoSrc="/HomePageHeader1.webm"
+              videoSrc={videoSrc}
+              thumbnailSrc="/hero-banner.png"
+              alt="Sample Video Thumbnail"
+            />
+          </div>
+        </div>
+
+        {/* Foreground Content */}
+        <div
+          className={classNames(styles.customContainer, "relative z-10 h-full")}
         >
           <div
             className={classNames(
               styles.content,
-              "grid md:grid-cols-2 grid-cols-1 gap-16 h-full "
+              "grid md:grid-cols-2 grid-cols-1 sm:gap-16 gap-8 h-full "
             )}
           >
-            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
+            <div className="flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4 sm:w-11/12 w-full">
               {contentIcon && (
                 <div className={classNames(styles.heroContentIcon)}>
                   <Image src={Images.Speaker} alt="icon" />
@@ -120,23 +140,11 @@ const HeroBanner = ({
 
               <CustomButton data-aos="fade-up" title={btnTitle} />
             </div>
-
-            <div
-              className={classNames(
-                styles.videoWrapper,
-                "flex items-center justify-center md:order-2 order-1 "
-              )}
-            >
-              <BannerVideo
-                // videoSrc="/HomePageHeader1.webm"
-                videoSrc={videoSrc}
-                thumbnailSrc="/hero-banner.png"
-                alt="Sample Video Thumbnail"
-              />
-            </div>
+            {/* 
+            <div className="hidden md:block" /> */}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       <div
         className={classNames(
           styles.sliderContainer,

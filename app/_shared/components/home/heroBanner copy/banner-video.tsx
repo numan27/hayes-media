@@ -27,12 +27,7 @@ const BannerVideo = ({ videoSrc, thumbnailSrc, alt }: BannerVideoProps) => {
   };
 
   return (
-    <div
-      className={classNames(
-        styles.videoContainer,
-        "flex items-center justify-center"
-      )}
-    >
+    <div className={classNames(styles.videoContainer, "sm:h-full")}>
       <video
         ref={videoRef}
         className="lg:h-auto h-full object-contain"
