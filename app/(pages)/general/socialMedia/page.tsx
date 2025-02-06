@@ -28,14 +28,17 @@ const SocialMedia = () => {
     {
       title: "Tailored Social Media Management Strategy",
       desc: "We begin by understanding your unique business goals and audience to create a custom social media plan that aligns with your vision so that things work as per your set strategies.",
+      buttonText: "Schedule A Discovery Call",
     },
     {
       title: "Engaging Content Creation and Posting",
-      desc: "Your website isn’t just a page, it’s your stage. We are among the top marketing agencies in Austin that craft designs that don’t just tell your story but sing it. We design websites that charm, inform, and convert. With cutting-edge designs and effortless navigation, your customers won’t just visit, they’ll stay.",
+      desc: "Our team crafts visually compelling and engaging content that resonates with your target audience and schedules posts for optimal reach. With us, targeting your audience and engaging with them on a regular basis is a breeze.",
+      buttonText: "See Our Work",
     },
     {
       title: "Community Driven Optimization",
-      desc: "Directly invest in your sales without breaking the bank. We are Austin’s PPC experts for Facebook, Instagram, Google, LinkedIn, and more. Expertly crafted funnels, online campaigns, re-targeting campaigns, and landing pages that cost a fraction of what other agencies can buy.",
+      desc: "We regularly analyze performance data to tweak and improve your social media marketing strategy, ensuring maximum reach and engagement. This leads to better conversion rates and improved results.",
+      buttonText: "Get A Custom Quote",
     },
   ];
 

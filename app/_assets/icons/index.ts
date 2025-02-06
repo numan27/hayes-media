@@ -111,6 +111,7 @@ import CheckBullet from "./check-bullet.svg";
 import Bullet from "./bullet.svg";
 // import GradientLineX from "./gradient-line-x.svg";
 import GradientLineX from "./line-x.svg";
+import BackQuoteMark from "./back-quote-mark.svg";
 
 const Icons = {
   ArrowRight,
@@ -225,6 +226,7 @@ const Icons = {
   CheckBullet,
   Bullet,
   GradientLineX,
+  BackQuoteMark,
 };
 
 export { Icons };
