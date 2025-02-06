@@ -5,7 +5,7 @@ import styles from "./style.module.scss";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import CustomButton from "components/common/customButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import BannerVideo from "components/home/heroBanner/banner-video";
+import BannerVideo from "./banner-video";
 
 interface VideoSectionProps {
   title?: string | any;
@@ -18,6 +18,7 @@ const VideoSection = ({
   title,
   desc = "Online advertising can be complicated. We make it simple. Innovative targeting practices and consistent moderation turn yoursearch engine and social media advertisements into finely tuned money-making machines. Every campaign is treated as if it were our own, backed by a passion for efficiency and quality.",
   btnText = "Contact Us",
+  videoSrc = "/SocialMediaCube1.mp4",
 }: VideoSectionProps) => {
   const { width } = useWindowDimensions();
 
@@ -30,18 +31,13 @@ const VideoSection = ({
             "grid md:grid-cols-2 grid-cols-1 lg:gap-16 gap-8"
           )}
         >
-          <div
-            className={classNames(
-              styles.videoBox,
-              "flex items-center justify-center"
-            )}
-          >
-            <BannerVideo
-              // videoSrc="/SocialMediaCube1.mp4"
-              thumbnailSrc="/hero-banner.png"
-              alt="Sample Video Thumbnail"
-            />
-          </div>{" "}
+          {/* <div className="h-full w-full"> */}
+          <BannerVideo
+            videoSrc={videoSrc}
+            thumbnailSrc="/hero-banner.png"
+            alt="Sample Video Thumbnail"
+          />
+          {/* </div>{" "} */}
           <div
             className={classNames(
               styles.content,

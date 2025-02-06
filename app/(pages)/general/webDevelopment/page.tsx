@@ -36,7 +36,10 @@ const WebDevelopment = () => {
         btnTitle="Get Started Today"
         brandsHeading="Programs we work with"
       />
-      <VideoSection title="Cutting-Edge Web & App Development Solutions for Your Digital Success" />
+      <VideoSection
+        videoSrc="/WebsiteAnimation2.mp4"
+        title="Cutting-Edge Web & App Development Solutions for Your Digital Success"
+      />
       <TrustedPartners />
       <MobileSlider />
       <TargetSection />

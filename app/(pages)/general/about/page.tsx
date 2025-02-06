@@ -37,6 +37,7 @@ const About = () => {
         title="Our Vision"
         desc="At Hayes Media, we’re reshaping how marketing is done. We believe marketing can be both entertaining and impactful. Why settle for dull, forgettable ads when every campaign could feel like a Super Bowl commercial? We’re building a culture where every piece of content engages, inspires, and delivers results. Businesses embracing this philosophy will thrive in the long run, and we’re here to make that happen"
         btnText="Get Started Today"
+        videoSrc="/SocialMediaAnimation2.mp4"
       />
       <CoreValues />
       <EmotionalIntelligence />
