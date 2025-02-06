@@ -103,7 +103,7 @@ const HeroBanner = ({
                     <span
                       className={classNames(
                         styles.animatedText,
-                        "xs:w-10/12 w-full",
+                        "xs:w-10/12 w-full mr-auto",
                         { "opacity-0": isAnimating },
                         "transition-all"
                       )}
