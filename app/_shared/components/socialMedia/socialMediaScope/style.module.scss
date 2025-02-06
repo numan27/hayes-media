@@ -23,6 +23,11 @@
         // @include RP(("max-width": 700), 1);
 
 
+        @media screen and (min-width: 1800px) {
+          width: 800px !important;
+          top: 10%;
+        }
+
         @media screen and (min-width: 2000px) {
           width: 800px !important;
           top: 10%;

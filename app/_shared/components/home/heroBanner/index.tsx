@@ -87,7 +87,7 @@ const HeroBanner = ({
               "grid md:grid-cols-2 grid-cols-1 gap-16 h-full "
             )}
           >
-            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
+            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4 mr-auto">
               {contentIcon && (
                 <div className={classNames(styles.heroContentIcon)}>
                   <Image src={Images.Speaker} alt="icon" />
@@ -103,7 +103,7 @@ const HeroBanner = ({
                     <span
                       className={classNames(
                         styles.animatedText,
-                        "xs:w-10/12 w-full mr-auto",
+                        "xs:w-10/12 w-full",
                         { "opacity-0": isAnimating },
                         "transition-all"
                       )}
