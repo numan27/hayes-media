@@ -13,6 +13,23 @@
     ));
   z-index: -1 !important;
 
+  @media screen and (min-width: 1800px) {
+    @include RP(("padding-top": 150), 1);
+  }
+
+  @media screen and (min-width: 2100px) {
+    @include RP(("padding-top": 200), 1);
+  }
+
+  @media screen and (min-width: 2300px) {
+    @include RP(("padding-top": 250), 1);
+  }
+
+  @media screen and (min-width: 2400px) {
+    @include RP(("padding-top": 300), 1);
+  }
+
+
   .customContainer {
     @include RP(("padding-left": 100,
         "padding-right": 100,

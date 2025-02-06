@@ -61,7 +61,7 @@
         }
 
         .iconContainer {
-          @include RP(("width": 70, "height": 70, "margin-bottom": 20));
+          @include RP(("width": 70, "height": 70, "margin-bottom": 20), 1);
           background-color: $BLACK;
           display: flex;
           align-items: center;
@@ -71,7 +71,7 @@
           img {
             @include RP(("width": 70,
                 "height": 70,
-              ), 1)
+              ), 1);
           }
         }
 
@@ -79,39 +79,17 @@
           @include PRIMARY_TEXT;
         }
       }
+
+      .gridItem:nth-child(2) {
+        .iconContainer {
+          @include RP(("width": 92, "height": 73), 1);
+
+          img {
+            @include RP(("width": 92, "height": 73), 1);
+          }
+        }
+      }
+
     }
-  }
-}
-
-/* Animations */
-@keyframes moveArrow {
-  0% {
-    left: 0;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes zigzag {
-  0% {
-    transform: translateY(0);
-  }
-
-  25% {
-    transform: translateY(-5px);
-  }
-
-  50% {
-    transform: translateY(0);
-  }
-
-  75% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }

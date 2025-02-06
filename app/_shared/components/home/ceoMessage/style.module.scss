@@ -2,8 +2,8 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-  @include RP(( // "padding-top":50,
-      "margin-top": -100,
+  @include RP(("padding-top": 50,
+      // "margin-top": -100,
     ), 1);
 
   .heading {

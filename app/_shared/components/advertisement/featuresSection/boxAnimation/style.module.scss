@@ -20,7 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+      transition: transform 0.1s ease-in-out;
       // overflow: visible;
       // margin: 0 auto !important;
 
@@ -83,17 +83,17 @@
         }
 
         &:nth-child(2) {
-          transform: translateY(15px);
+          transform: translateY(70px);
           z-index: 100 !important;
         }
 
         &:nth-child(3) {
-          transform: translateY(50px);
+          transform: translateY(120px);
           z-index: 100 !important;
         }
 
         &:last-child {
-          transform: translateY(30px);
+          transform: translateY(70px);
           z-index: 100 !important;
         }
 

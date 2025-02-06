@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import { useEffect } from "react";
 import AOS from "aos";
 import Image from "next/image";
@@ -54,7 +54,7 @@ const Methodology = () => {
           <CustomSectionHeading
             centered
             heading="METHODOLOGY"
-            description="Lorem ipsum is a simply dummy text.lorem ipsum is a simply dummy text."
+            description="Our methodology is a streamlined process designed to maximize efficiency and impact. We start with Brand & Audience Analysis to understand emotional triggers, optimize Infrastructure & Automation for seamless lead intake, craft a Customized Funnel tailored to your industry, enhance efficiency with AI Integration, and finalize with a comprehensive Review & Launch to ensure everything runs flawlessly."
           />
           <div
             className={classNames(
@@ -75,14 +75,6 @@ const Methodology = () => {
                 <span className={classNames(styles.iconContainer)}>
                   <Image width={70} height={70} src={items.icon} alt="icon" />
                 </span>
-                {/* <div className={styles.timelineContainer}>
-                  <div className={styles.animatedLine}>
-                    <span className={styles.arrow}>
-                      <Icons.ChevRight />
-                    </span>
-                    <div className={styles.dots}></div>
-                  </div>
-                </div> */}
                 <span className={classNames(styles.step)}>
                   Step {index + 1}
                 </span>

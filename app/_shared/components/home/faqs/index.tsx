@@ -17,33 +17,33 @@ const FAQs = () => {
   const accordionData: AccordionItem[] = [
     {
       id: 1,
-      title: "Cardio Combat Bootcamp",
+      title: "What’s your secret sauce for success?",
       content:
         "It’s simple: data meets creativity and emotional intelligence while maximizing efficiency with artificial intelligence.",
     },
     {
       id: 2,
-      title: "Mind & Muscle Session",
+      title: "Can you help businesses outside Austin?",
       content:
-        "It’s simple: data meets creativity and emotional intelligence while maximizing efficiency with artificial intelligence.",
+        "Of course! We’re proudly Austin-based but make magic happen for businesses across the U.S.",
     },
     {
       id: 3,
-      title: "Functional Fitness Foundations Class",
+      title: "How soon will I see the results?",
       content:
-        "It’s simple: data meets creativity and emotional intelligence while maximizing efficiency with artificial intelligence.",
+        "While some results show in a couple of weeks, our strategies are designed for long-term growth. Real impact takes time but it’s worth it.",
     },
     {
       id: 4,
-      title: "Endurance Builder Workout",
+      title: "Do you only work with established businesses?",
       content:
-        "It’s simple: data meets creativity and emotional intelligence while maximizing efficiency with artificial intelligence.",
+        "No way! Whether you’re a startup or a household name, we tailor our approach to meet your unique needs.",
     },
     {
       id: 5,
-      title: "Endurance Builder Workout",
+      title: "Why choose Hayes Media over other agencies?",
       content:
-        "It’s simple: data meets creativity and emotional intelligence while maximizing efficiency with artificial intelligence.",
+        "We take an innovative approach to spending your money, and treat your project as if it was our own. We’re not your outsourced agency, we’re you’re partners for a long-term future.",
     },
   ];
 
@@ -60,7 +60,7 @@ const FAQs = () => {
           <CustomSectionHeading
             centered
             heading="Frequently Asked Questions"
-            description="Questions and Answers, are listed questions and answers, all supposed to be commonly asked in some context. Questions and Answers, are listed questions and answers, all supposed to be commonly asked in some context."
+            description="Got questions? We’ve got answers! Explore our FAQs to learn more about our services, process, and how we streamline media and IT solutions to help your business grow. Whether it's branding, automation, AI integration, or launch strategies, we’re here to clarify every step."
           />
           <div className="mx-auto mt-10">
             <CustomAnimatedBorder

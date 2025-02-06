@@ -8,6 +8,7 @@ import CustomSectionHeading from "components/common/customSectionHeading";
 import styles from "./style.module.scss";
 import { reviews } from "./constant";
 import CustomSlider from "components/common/customSlider";
+import { Icons } from "assets";
 
 const TeamSection = forwardRef<HTMLDivElement, {}>(
   (props, ref: ForwardedRef<HTMLDivElement>) => {
@@ -18,9 +19,9 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: itemsPerPage,
-      slidesToScroll: itemsPerPage,
-      autoplay: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      // autoplay: true,
       // centerMode: true,
       autoplaySpeed: 3000,
       arrows: false,
@@ -32,7 +33,7 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
           <div
             className={classNames(
               styles.customContainer,
-              "flex flex-col sm:gap-4"
+              "flex flex-col sm:gap-5"
             )}
           >
             <CustomSectionHeading
@@ -46,41 +47,32 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
                   key={index}
                   className={classNames(
                     styles.cardContainer,
-                    "grid xs:grid-cols-2 grid-cols-1 gap-4"
+                    "flex flex-col items-center justify-center gap-7 h-fit mx-auto"
                   )}
                 >
-                  <div>
-                    <Image
-                      data-aos="zoom-out"
-                      src={item?.image}
-                      alt="team-review"
-                      className={styles.reviewImage}
-                    />
+                  <div
+                    className={classNames(
+                      styles.imgContainer,
+                      "flex items-center justify-center mx-auto"
+                    )}
+                  >
+                    <Image src={item?.image} alt="team-review" />
                   </div>
+
                   <div className={styles.reviewOutSection}>
-                    <div className={classNames(styles.reviewSection)}>
-                      <div className="flex justify-between xs:mt-0 mt-3">
-                        <div className="flex flex-col xs:items-start items-center">
-                          <label className={styles.name}>{item?.name}</label>
-                          <p
-                            className={classNames(
-                              styles.review,
-                              "xl:w-9/12 w-full sm:mt-0 mt-3"
-                            )}
+                    <div className={styles.reviewSection}>
+                      <label className={styles?.review}>{item?.review}</label>
+                      <div className="">
+                        <div className="flex items-center justify-center pt-3">
+                          <label
+                            className={classNames(styles.name, "text-center")}
                           >
-                            {item?.review}
-                          </p>
+                            {item?.name}
+                          </label>
                         </div>
-                      </div>
-                      <div className="border-l-2 h-full border-white w-2 my-2"></div>
-                      <div
-                        className={classNames(
-                          styles.number,
-                          "flex flex-col xs:items-start items-center"
-                        )}
-                      >
-                        <label className={styles.review}>Learn More</label>
-                        <h1>{index + 1}</h1>
+                        <div className="flex justify-end">
+                          <Icons.BigQuote />
+                        </div>
                       </div>
                     </div>
                   </div>

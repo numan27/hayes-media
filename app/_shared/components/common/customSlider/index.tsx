@@ -47,7 +47,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
       <div
         className={classNames(
           styles.arrowContainer,
-          "flex items-center justify-center sm:gap-3 gap-2"
+          "xs:flex items-center justify-center sm:gap-3 gap-2 hidden"
         )}
       >
         {/* Left Arrow */}

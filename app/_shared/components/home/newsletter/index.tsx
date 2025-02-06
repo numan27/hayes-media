@@ -12,7 +12,7 @@ const Newsletter = () => {
           <CustomSectionHeading
             centered
             heading="Subscribe to our newsletter"
-            description="Lorem ipsum is a simply dummy text.lorem ipsum is a simply dummy text. Lorem ipsum is a simply dummy text.lorem ipsum is a simply dummy text. Lorem ipsum is a simply dummy text.lorem ipsum is a simply dummy text."
+            description="Subscribe to our newsletter for the latest trends, expert tips, and updates on media and IT solutions delivered straight to your inbox"
           />
           <div
             className={classNames(

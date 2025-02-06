@@ -71,7 +71,7 @@ const HeroBanner = ({
     <div
       className={classNames(
         styles.heroBannerWrapper,
-        "min-h-full sm:h-screen h-[75vh] flex flex-col justify-between"
+        "min-h-full sm:h-screen h-[90vh] flex flex-col justify-between"
       )}
     >
       <section
@@ -99,7 +99,7 @@ const HeroBanner = ({
           <div
             className={classNames(
               styles.content,
-              "grid md:grid-cols-2 grid-cols-1 sm:gap-16 gap-8 h-full"
+              "grid md:grid-cols-2 grid-cols-1 sm:gap-16 gap-8 h-full "
             )}
           >
             <div className="flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4 sm:w-11/12 w-full">
@@ -114,10 +114,11 @@ const HeroBanner = ({
               >
                 {title || (
                   <>
-                    HAYES MEDIA IS A {width < 640 && <br />}
+                    HAYES MEDIA IS A {width > 640 && <br />}
                     <span
                       className={classNames(
                         styles.animatedText,
+                        "xs:w-10/12 w-full",
                         { "opacity-0": isAnimating },
                         "transition-all"
                       )}
@@ -135,8 +136,8 @@ const HeroBanner = ({
 
               <CustomButton data-aos="fade-up" title={btnTitle} />
             </div>
-
-            <div className="hidden md:block" />
+            {/* 
+            <div className="hidden md:block" /> */}
           </div>
         </div>
       </section>

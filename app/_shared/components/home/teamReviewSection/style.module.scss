@@ -4,14 +4,20 @@
 .mainContainer {
   background-image: url("../../../../_assets/images/testimonial-bg.png");
   background-size: cover;
-  height: 100%;
+  height: 100% !important;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 
+  @media screen and (max-width: 510px) {
+    max-height: fit-content !important;
+    height: 100vh;
+  }
+
   .customContainer {
     @include RP(("padding-top": 60,
         "padding-bottom": 40,
+        "margin-top": 40,
       ));
   }
 
@@ -37,86 +43,116 @@
   }
 }
 
-.reviewImage {
-  border-radius: 6px !important;
-  object-fit: cover !important;
-  min-width: 311px;
-  @include RP(("height": 460,
-    ));
-
-  // @media screen and (max-width: 1200px) {
-  //   object-fit: contain !important;
-  // }
+.imgContainer {
+  @include RP(("width": 250,
+      "height": 250,
+    ), 1);
+  // height: fit-content;
 
   @media screen and (max-width: 510px) {
-    @include RP(( // "height": 300,
-        // "width": 300
+    @include RP(("width": 180,
+        "height": 180,
       ), 1);
-    width: 100% !important;
-    border-radius: 100%;
-    object-fit: contain !important;
-    margin: 0 auto;
   }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  // .reviewImage {
+  //   border-radius: 16px;
+  //   object-fit: cover;
+  //   @include RP(("width": 294,
+  //       "height": 396,
+  //     ));
+  // }
 }
 
 .cardContainer {
-  display: flex !important;
+  // background: $DARK2;
   border-radius: 16px;
-  @include RP(("margin-top": 24,
-    ));
-
-  @media screen and (max-width: 510px) {
-    display: block !important;
-  }
+  // width: 95% !important;
 }
 
 .reviewOutSection {
-  @include RP(("padding-right": 24,
+  @include RP(("padding-right": 50,
+      "padding-top": 24,
+      // "padding-bottom": 24,
+      "padding-left": 50,
     ), 1);
 
   @media screen and (max-width: 510px) {
-    @include RP(("padding-right": 30,
-        "padding-left": 30,
-      ), 1);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
 .reviewSection {
   height: 100%;
+  // background: white;
+  padding: 20px 24px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
 
-.name {
-  color: $WHITE;
-  font-weight: 700;
-  text-transform: uppercase;
-  @include RP(("font-size": 20,
-    ));
+  // @include RP(("margin-left": -24,
+  //   ));
 
-  @media screen and (max-width: 510px) {
-    text-align: center !important;
+  svg {
+    @include RP(("width": 60,
+        "height": 60,
+      ));
   }
 }
 
 .review {
-  text-align: justify !important;
+  color: $WHITE;
+  font-weight: 467;
+  text-align: center;
 
-  @media screen and (max-width: 510px) {
-    text-align: center !important;
-  }
+  @include RP(("font-size": 16,
+      "line-height": 32,
+    ), 1);
 }
 
-.number {
-  @media screen and (max-width: 640px) {
-    display: none !important;
-  }
+.name {
+  @include PRIMARY_TEXT;
+  font-weight: 500;
+  text-align: center !important;
+
+  @include RP(("font-size": 20,
+      "line-height": 26.46,
+    ));
+}
+
+.jobTitle {
+  font-family: var(--font-red-hat-display);
+  color: $DARK2;
+  font-weight: 500;
+
+  @include RP(("font-size": 17,
+      "line-height": 22.49,
+    ));
 }
 
 @media screen and (max-width: 630px) {
+  .review {
+    @include RP(("font-size": 15,
+        "line-height": 21,
+      ));
+  }
+
   .name {
     @include RP(("font-size": 16,
+        "line-height": 18,
+      ));
+  }
+
+  .jobTitle {
+    @include RP(("font-size": 14,
         "line-height": 18,
       ));
   }
