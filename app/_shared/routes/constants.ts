@@ -19,15 +19,15 @@ const routeConstant = {
   },
   advertisement: {
     path: "/general/advertisement",
-    title: "Advertisement",
+    title: "Full-Stack Digital Marketing",
   },
   socialMedia: {
     path: "/general/socialMedia",
     title: "Social Media Management",
   },
   webMobile: {
-    path: "/general/webAndMobile",
-    title: "Web & Mobile Development",
+    path: "/general/webDevelopment",
+    title: "Mobile Development",
   },
   about: {
     path: "/general/about",

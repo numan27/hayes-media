@@ -18,8 +18,8 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
 
   const updatedSettings = {
     ...settings,
-    arrows: false, // Disable default arrows from slick
-    dots: false, // Disable default dots
+    arrows: false,
+    dots: false,
     beforeChange: (current: number, next: number) => setActiveSlide(next),
   };
 
@@ -38,7 +38,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
   return (
     <div className={styles.sliderWrapper}>
       <Slider
-        className="flex justify-center mx-auto"
+        className="flex justify-center mx-auto h-fit"
         ref={sliderRef}
         {...updatedSettings}
       >

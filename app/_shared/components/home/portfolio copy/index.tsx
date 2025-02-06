@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import {
@@ -10,7 +9,8 @@ import {
   Autoplay,
   EffectCoverflow,
 } from "swiper/modules";
-import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 import { Images } from "assets";
 import Image from "next/image";
 import CustomButton from "components/common/customButton";
@@ -22,63 +22,37 @@ const Portfolio = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
     null
   );
-  const [activeIndex, setActiveIndex] = useState<number>(0); // Track active slide index
+  const [activeIndex, setActiveIndex] = useState<number>(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state for autoplay
-
   const { width } = useWindowDimensions();
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const portfolioData = [
     {
-      video: "/sample-video.mp4",
+      image: Images.PortfolioSlider1,
       title: "Brand Identity Design",
       desc: "Crafting unique logos, typography, and color palettes to establish strong brand presence.",
     },
     {
-      video: "/sample-video.mp4",
+      image: Images.PortfolioSlider2,
       title: "Website Development",
       desc: "Building responsive, high-performance websites tailored to your business needs.",
     },
     {
-      video: "/sample-video.mp4",
+      image: Images.PortfolioSlider3,
       title: "Social Media Marketing",
       desc: "Creating engaging campaigns to boost brand awareness and audience interaction.",
     },
     {
-      video: "/sample-video.mp4",
+      image: Images.PortfolioSlider1,
       title: "Video Production",
       desc: "Producing high-quality promotional videos, ads, and animations for digital platforms.",
     },
     {
-      video: "/sample-video.mp4",
+      image: Images.PortfolioSlider2,
       title: "SEO & Digital Advertising",
       desc: "Optimizing websites and running targeted ad campaigns for maximum online visibility.",
     },
   ];
-
-  useEffect(() => {
-    // Ensure only the active video is played
-    videoRefs.current.forEach((video, index) => {
-      if (video) {
-        if (index === activeIndex) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      }
-    });
-  }, [activeIndex]);
-
-  useEffect(() => {
-    if (swiperInstance) {
-      if (isHovered) {
-        swiperInstance.autoplay.start(); // Start autoplay on hover
-      } else {
-        swiperInstance.autoplay.stop(); // Stop autoplay on mouse leave
-      }
-    }
-  }, [isHovered, swiperInstance]);
 
   return (
     <section className={classNames(styles.sectionContainer)}>
@@ -88,13 +62,8 @@ const Portfolio = () => {
           animationSpeed="5s"
           borderRadius="8px"
         >
-          <div
-            className={classNames(styles.sliderWrapper)}
-            onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
-          >
+          <div className={classNames(styles.sliderWrapper)}>
             <CustomSectionHeading centered heading="OUR PREVIOUS WORK" />
-
             {/* Left Navigation Button */}
             <button
               className={classNames(styles.swiperButton, styles.prevButton)}
@@ -108,33 +77,38 @@ const Portfolio = () => {
                 styles.newsSlider,
                 "newsSlider w-10/12 mx-auto"
               )}
+              spaceBetween={15}
               slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
               loop={true}
-              spaceBetween={15}
               centeredSlides={width > 992 && true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false, // Disable autoplay pause on interaction
-              }}
+              autoplay={{ delay: 3000, disableOnInteraction: true }}
+              effect="fade"
               speed={800}
+              fadeEffect={{ crossFade: true }}
               breakpoints={{
                 1200: { slidesPerView: 3 },
                 992: { slidesPerView: 3 },
                 768: { slidesPerView: 2 },
                 0: { slidesPerView: 1 },
               }}
-              modules={[Pagination, Navigation, A11y, Autoplay]}
+              modules={[
+                Pagination,
+                Navigation,
+                A11y,
+                Autoplay,
+                EffectCoverflow,
+              ]}
               onSwiper={setSwiperInstance}
-              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active index
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
               {portfolioData.map((item, index) => (
                 <SwiperSlide
                   key={index}
                   className={classNames(
                     "swiper-slide",
-                    "transition-all duration-200 ease-in-out h-full",
+                    "transition-all duration-200 ease-in-out",
                     {
-                      [styles.activeSlide]: index === activeIndex, // Apply active state styles
+                      [styles.activeSlide]: index === activeIndex,
                       [styles.hoveredSlide]:
                         index === hoveredIndex && index !== activeIndex,
                     }
@@ -142,26 +116,12 @@ const Portfolio = () => {
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div
-                    className={classNames(styles.reviewItem, "relative h-full")}
-                  >
-                    {item.video ? (
-                      <video
-                        // @ts-ignore
-                        ref={(el) => (videoRefs.current[index] = el)}
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                        src={item.video}
-                        loop
-                        muted
-                      />
-                    ) : (
-                      <Image
-                        className="absolute inset-0"
-                        // @ts-ignore
-                        src={item?.image}
-                        alt="slider-img"
-                      />
-                    )}
+                  <div className={classNames(styles.reviewItem, "relative")}>
+                    <Image
+                      className="absolute inset-0"
+                      src={item.image}
+                      alt="slider-img"
+                    />
                     {(index === activeIndex || index === hoveredIndex) && (
                       <div
                         className={classNames(

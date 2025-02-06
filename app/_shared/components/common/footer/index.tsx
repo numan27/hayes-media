@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { headerLinks } from "utils/constants";
 import Image from "next/image";
 import { Icons, Images } from "assets";
+import { routeConstant } from "routes/constants";
 
 const Footer = () => {
   const socialLink = [
@@ -17,8 +18,8 @@ const Footer = () => {
     {
       heading: "About Us",
       links: [
-        { title: "About", path: "" },
-        { title: "Careers", path: "" },
+        { title: "About Us", path: routeConstant.about.path },
+        { title: "Careers", path: routeConstant.careers.path },
         { title: "Privacy Policy", path: "" },
         { title: "Terms of Services", path: "" },
       ],
@@ -26,10 +27,18 @@ const Footer = () => {
     {
       heading: "Services",
       links: [
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
+        {
+          title: "Full-Stack Digital Marketing",
+          path: routeConstant.advertisement.path,
+        },
+        { title: "Web Development", path: routeConstant.webMobile.path },
+        {
+          title: "Social Media Management",
+          path: routeConstant.socialMedia.path,
+        },
+        { title: "Branding", path: "" },
+        // { title: "SEO", path: "" },
+        // { title: "Intake Consultation", path: "" },
       ],
     },
     {

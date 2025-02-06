@@ -8,7 +8,7 @@ import { Icons } from "assets";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomSelect from "components/common/customSelect";
 import CustomBadge from "components/common/customBadge";
-
+import { GoDotFill } from "react-icons/go";
 interface Job {
   title: string;
   level: string;
@@ -48,7 +48,7 @@ const jobsData: Job[] = [
     title: "Social Media Manager (All Platforms)",
     level: "Mid-Level",
     description:
-      "Primary Responsibility:Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases....",
+      "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases and APIs using technologies such as Node.js, Python, Ruby, or Java.Designing, implementing, and managing databases (SQL or NoSQL) to ensure data integrity and efficient retrieval.Using version control systems like Git to manage code changes and collaborate with other developers.Implementing security best practices to protect applications from vulnerabilities and threats.Automating deployment processes and managing CI/CD pipelines to streamline development and release cycles.Working with cross-functional teams, including designers, product managers, and other developers, to deliver high-quality software.",
     responsibilities: [
       "Develop and implement social media strategies.",
       "Analyze and report social media performance.",
@@ -188,7 +188,10 @@ const Jobs = () => {
                   <span>{job.title}</span>
                 </h5>
                 <CustomBadge title={job.level} />
-                <p>{job.description}</p>
+                <p>
+                  <span className="font-medium">Primary Responsibility: </span>
+                  {job.description}
+                </p>
               </div>
             ))}
           </div>
@@ -204,7 +207,23 @@ const Jobs = () => {
                   <h4 className="mb-3">{selectedJob.title}</h4>
                   <CustomBadge title={selectedJob.level} />
                 </div>
-                <p className="">{selectedJob.description}</p>{" "}
+                <div>
+                  <span>Primary Responsibility:</span>
+                  <p className="">{selectedJob.description}</p>{" "}
+                </div>
+                <div>
+                  <span>Job Specification:</span>
+                  <ul>
+                    {selectedJob.specifications.map((items) => (
+                      <li className="flex items-center gap-1.5">
+                        <span>
+                          <GoDotFill />
+                        </span>
+                        {items}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <CustomButton
                   title="Apply Now"
                   containerStyle={classNames(

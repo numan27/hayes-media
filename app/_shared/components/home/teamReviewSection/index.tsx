@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import React, { forwardRef, ForwardedRef } from "react";
+import React, { useState, forwardRef, ForwardedRef } from "react";
 import Image from "next/image";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import styles from "./style.module.scss";
@@ -21,8 +21,7 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      // autoplay: true,
-      // centerMode: true,
+      // autoPlay: true,
       autoplaySpeed: 3000,
       arrows: false,
     };
@@ -43,40 +42,8 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
             />
             <CustomSlider settings={sliderSettings}>
               {reviews.map((item, index) => (
-                <div
-                  key={index}
-                  className={classNames(
-                    styles.cardContainer,
-                    "flex flex-col items-center justify-center gap-7 h-fit mx-auto"
-                  )}
-                >
-                  <div
-                    className={classNames(
-                      styles.imgContainer,
-                      "flex items-center justify-center mx-auto"
-                    )}
-                  >
-                    <Image src={item?.image} alt="team-review" />
-                  </div>
-
-                  <div className={styles.reviewOutSection}>
-                    <div className={styles.reviewSection}>
-                      <label className={styles?.review}>{item?.review}</label>
-                      <div className="">
-                        <div className="flex items-center justify-center pt-3">
-                          <label
-                            className={classNames(styles.name, "text-center")}
-                          >
-                            {item?.name}
-                          </label>
-                        </div>
-                        <div className="flex justify-end">
-                          <Icons.BigQuote />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                // @ts-ignore
+                <ReviewCard key={index} item={item} />
               ))}
             </CustomSlider>
           </div>
@@ -85,5 +52,69 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
     );
   }
 );
+
+const ReviewCard = ({
+  item,
+}: {
+  item: { image: string; review: string; name: string };
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  const [height, setHeight] = useState("auto");
+
+  return (
+    <div
+      className={classNames(
+        styles.cardContainer,
+        "flex flex-col items-center justify-center gap-7 mx-auto relative"
+      )}
+      style={{ minHeight: height }} // Ensure dynamic height
+    >
+      <div
+        className={classNames(
+          styles.imgContainer,
+          "flex items-center justify-center mx-auto"
+        )}
+      >
+        <Image src={item?.image} alt="team-review" />
+      </div>
+
+      <div className={styles.reviewOutSection}>
+        <div className={styles.reviewSection}>
+          <p
+            className={classNames(styles.review, {
+              [styles.expanded]: expanded,
+            })}
+          >
+            {item?.review}
+          </p>
+          <button
+            className={styles.seeMoreButton}
+            onClick={() => {
+              setExpanded((prev) => !prev);
+              setTimeout(() => {
+                setHeight("auto"); // Force reflow for height adjustment
+              }, 100);
+            }}
+          >
+            <span>{expanded ? "See Less" : "See More"}</span>
+          </button>
+          <div className="flex items-center justify-center mt-3 pt-8">
+            <label className={classNames(styles.name, "text-center")}>
+              {item?.name}
+            </label>
+          </div>
+          <div
+            className={classNames(
+              styles.quoteIcon,
+              "flex justify-end absolute right-0 bottom-0"
+            )}
+          >
+            <Icons.BigQuote />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default TeamSection;

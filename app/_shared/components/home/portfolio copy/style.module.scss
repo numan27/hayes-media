@@ -91,23 +91,9 @@
       }
 
       .reviewItem {
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          background: #506E78F0;
-          @include RP(("border-radius": 24,
-            ));
-        }
-
         @include RP(("height": 474,
-          ), 1);
-        min-height: 474px !important;
+          ));
 
-        video {
-          height: 100% !important;
-        }
 
         .content {
           position: relative;
@@ -135,7 +121,7 @@
 
       .reviewItem {
         @include RP(("height": 474,
-          ), 1);
+          ));
 
 
         .content {
@@ -159,8 +145,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        // background: #7C002BE5;
-        background: #7c002b77;
+        background: #7C002BE5;
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -171,7 +156,7 @@
         border-radius: 8px;
       }
 
-      video {
+      img {
         width: 100% !important;
         min-width: 100% !important;
         border-radius: 8px;
@@ -179,7 +164,6 @@
         @include RP(("height": 474,
           ), 1);
       }
-
 
     }
   }
