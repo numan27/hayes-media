@@ -37,7 +37,7 @@ const VideoSection = ({
             )}
           >
             <BannerVideo
-              videoSrc="/SocialMediaCube1.mp4"
+              // videoSrc="/SocialMediaCube1.mp4"
               thumbnailSrc="/hero-banner.png"
               alt="Sample Video Thumbnail"
             />
