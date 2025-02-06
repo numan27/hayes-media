@@ -29,7 +29,7 @@ const Careers = () => {
       <HeroBanner
         title={
           <>
-            <span>Join the most incredible & creative team.</span>
+            <span>Join the most incredible & creative team</span>
           </>
         }
         desc="Hayes Media was founded by James Hayes in 2019. With a passion for entrepreneurialism and creative content. James honed his talents in content creation, social media marketing, and, most importantly, getting things done. Through his endeavors, he gathered a team of talented entrepreneurs and directed their brilliance towards a single mission: create viral content that sells. And so, Hayes Media was born."

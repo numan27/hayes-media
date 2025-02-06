@@ -9,61 +9,151 @@ import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomSelect from "components/common/customSelect";
 import CustomBadge from "components/common/customBadge";
 import { GoDotFill } from "react-icons/go";
+
+interface Details {
+  label: string;
+  value: string;
+}
 interface Job {
   title: string;
   level: string;
   description: string;
-  responsibilities: string[];
   specifications: string[];
-  employmentType: string;
-  workType: string;
-  salary: string;
-  experienceRequired: string;
-  location: string;
+  details: Details[];
 }
 
 const jobsData: Job[] = [
   {
-    title: "Media Buyer (Meta, Google, Linkedin, TikTok, X)",
+    title: "Media Buyer (Meta, Google, LinkedIn, TikTok, X)",
     level: "Mid-Level",
     description:
-      "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases.",
-    responsibilities: [
-      "Design and implement user interfaces.",
-      "Maintain server-side logic and APIs.",
-      "Optimize application performance.",
-    ],
+      "Develop and execute paid media strategies across multiple platforms, including Meta, Google, LinkedIn, TikTok, and X. Monitor campaign performance and optimize ads to maximize ROI. Analyze data trends to refine targeting and audience segmentation. Collaborate with creative teams to design compelling ad creatives and messaging. Stay updated with industry trends and platform changes to maintain campaign effectiveness.",
     specifications: [
-      "Proficiency in HTML, CSS, JavaScript (React/Angular).",
-      "Experience with Node.js, Python, or Ruby.",
-      "Knowledge of security best practices.",
+      "Proven experience in media buying on digital platforms.",
+      "Strong analytical skills and proficiency in Google Analytics, Meta Ads Manager, and similar tools.",
+      "Understanding of PPC, CPM, and CPA bidding strategies.",
+      "Ability to create and optimize ad creatives based on performance data.",
+      "Experience with audience segmentation and A/B testing.",
+      "Strong knowledge of tracking pixels and conversion tracking.",
+      "Excellent communication and reporting skills.",
     ],
-    employmentType: "Full-time",
-    workType: "Hybrid",
-    salary: "Commensurate with experience and skills",
-    experienceRequired: "Minimum 3 Years",
-    location: "Chennai, Madurai, Coimbatore",
+    details: [
+      { label: "Employment Type", value: "Full-time" },
+      { label: "Work Type", value: "Remote" },
+      { label: "Salary", value: "$70,000 - $90,000 per year" },
+      { label: "Experience Required", value: "Minimum 3 Years" },
+      { label: "Location", value: "Texas, Louisiana, Oklahoma" },
+    ],
   },
   {
     title: "Social Media Manager (All Platforms)",
     level: "Mid-Level",
     description:
-      "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases and APIs using technologies such as Node.js, Python, Ruby, or Java.Designing, implementing, and managing databases (SQL or NoSQL) to ensure data integrity and efficient retrieval.Using version control systems like Git to manage code changes and collaborate with other developers.Implementing security best practices to protect applications from vulnerabilities and threats.Automating deployment processes and managing CI/CD pipelines to streamline development and release cycles.Working with cross-functional teams, including designers, product managers, and other developers, to deliver high-quality software.",
-    responsibilities: [
-      "Develop and implement social media strategies.",
-      "Analyze and report social media performance.",
-      "Collaborate with content creators.",
-    ],
+      "Manage and grow social media presence across all major platforms. Develop engaging content strategies to increase brand awareness and engagement. Monitor trends, analyze performance metrics, and adjust strategies accordingly. Work closely with content creators, designers, and marketing teams to maintain a consistent brand voice. Stay updated with social media trends and algorithm updates to ensure optimal engagement.",
     specifications: [
-      "Strong understanding of social media platforms.",
-      "Experience with analytics tools.",
-      "Excellent communication skills.",
+      "Proficiency in managing Facebook, Instagram, LinkedIn, TikTok, and Twitter.",
+      "Strong content planning and execution skills.",
+      "Experience with social media analytics tools.",
+      "Ability to run and optimize paid social media campaigns.",
+      "Knowledge of influencer marketing strategies.",
+      "Excellent communication and storytelling skills.",
+      "Familiarity with community management best practices.",
     ],
-    employmentType: "Full-time",
-    workType: "Remote",
-    salary: "Based on experience",
-    experienceRequired: "2+ Years",
-    location: "Remote",
+    details: [
+      { label: "Employment Type", value: "Part-time" },
+      { label: "Work Type", value: "Hybrid" },
+      { label: "Salary", value: "$50,000 - $75,000 per year" },
+      { label: "Experience Required", value: "Minimum 2 Years" },
+      { label: "Location", value: "Houston, Austin, Dallas" },
+    ],
+  },
+  {
+    title: "Video Editor/Motion Graphics Manager/Graphics Designer (Adobe)",
+    level: "Mid-Level",
+    description:
+      "Create high-quality video content and motion graphics for marketing campaigns. Edit videos using Adobe Premiere Pro, After Effects, and other Adobe tools. Design eye-catching graphics for social media, ads, and branding materials. Work closely with marketing teams to ensure visuals align with brand identity. Stay updated with the latest design and animation trends.",
+    specifications: [
+      "Proficiency in Adobe Premiere Pro, After Effects, and Photoshop.",
+      "Experience in motion graphics, video editing, and post-production.",
+      "Strong understanding of color grading and video transitions.",
+      "Ability to create engaging social media content.",
+      "Knowledge of typography, composition, and visual storytelling.",
+      "Experience in 2D/3D animation is a plus.",
+      "Excellent attention to detail and creativity.",
+    ],
+    details: [
+      { label: "Employment Type", value: "Freelance" },
+      { label: "Work Type", value: "Remote" },
+      { label: "Salary", value: "$60,000 - $80,000 per year" },
+      { label: "Experience Required", value: "Minimum 2 Years" },
+      { label: "Location", value: "Texas, Remote" },
+    ],
+  },
+  {
+    title: "UX/UI Designer (Figma, WordPress)",
+    level: "Mid-Level",
+    description:
+      "Design intuitive user experiences and modern UI elements for web and mobile applications. Create wireframes, prototypes, and design systems using Figma. Collaborate with developers to ensure seamless implementation of designs. Optimize WordPress website designs for usability and performance. Conduct user research to improve engagement and conversion rates.",
+    specifications: [
+      "Proficiency in Figma and Adobe XD for UI/UX design.",
+      "Experience with WordPress theme customization and design.",
+      "Strong understanding of usability and accessibility principles.",
+      "Ability to create wireframes, prototypes, and design systems.",
+      "Knowledge of CSS and front-end frameworks is a plus.",
+      "Experience conducting user research and usability testing.",
+      "Attention to detail and ability to work with developers effectively.",
+    ],
+    details: [
+      { label: "Employment Type", value: "Full-time" },
+      { label: "Work Type", value: "On-site" },
+      { label: "Salary", value: "$75,000 - $95,000 per year" },
+      { label: "Experience Required", value: "Minimum 4 Years" },
+      { label: "Location", value: "Houston, Dallas, San Antonio" },
+    ],
+  },
+  {
+    title: "Next.js Developer",
+    level: "Mid-Level",
+    description:
+      "Develop scalable and high-performance applications using Next.js. Optimize web applications for speed, SEO, and responsiveness. Integrate APIs and third-party services to enhance functionality. Collaborate with designers and backend developers to build seamless user experiences. Stay updated with the latest trends in React and Next.js development.",
+    specifications: [
+      "Strong experience with Next.js and React.js.",
+      "Proficiency in JavaScript, TypeScript, and modern ES6+ features.",
+      "Understanding of SEO optimization in Next.js applications.",
+      "Experience with SSR (Server-Side Rendering) and ISR (Incremental Static Regeneration).",
+      "Knowledge of RESTful APIs and GraphQL.",
+      "Familiarity with CI/CD and deployment strategies.",
+      "Excellent debugging and performance optimization skills.",
+    ],
+    details: [
+      { label: "Employment Type", value: "Full-time" },
+      { label: "Work Type", value: "Hybrid" },
+      { label: "Salary", value: "$85,000 - $110,000 per year" },
+      { label: "Experience Required", value: "Minimum 3 Years" },
+      { label: "Location", value: "Austin, Dallas, Remote" },
+    ],
+  },
+  {
+    title: "Brand & Brand Voice Marketer",
+    level: "Mid-Level",
+    description:
+      "Develop and maintain a consistent brand voice across all marketing channels. Craft compelling messaging that resonates with the target audience. Work closely with content strategists and designers to align brand communication. Analyze market trends to refine brand positioning and messaging strategies. Ensure brand consistency across digital, print, and social media platforms.",
+    specifications: [
+      "Experience in brand marketing and voice development.",
+      "Strong writing and storytelling skills.",
+      "Ability to craft compelling messaging across various channels.",
+      "Knowledge of audience segmentation and brand positioning.",
+      "Experience with content strategy and digital marketing.",
+      "Understanding of brand identity and visual communication.",
+      "Proficiency in analyzing brand performance metrics.",
+    ],
+    details: [
+      { label: "Employment Type", value: "Full-time" },
+      { label: "Work Type", value: "Hybrid" },
+      { label: "Salary", value: "$70,000 - $90,000 per year" },
+      { label: "Experience Required", value: "Minimum 3 Years" },
+      { label: "Location", value: "Houston, Austin, Dallas" },
+    ],
   },
 ];
 
@@ -188,7 +278,7 @@ const Jobs = () => {
                   <span>{job.title}</span>
                 </h5>
                 <CustomBadge title={job.level} />
-                <p>
+                <p className={classNames(styles.jobListItemDesc)}>
                   <span className="font-medium">Primary Responsibility: </span>
                   {job.description}
                 </p>
@@ -204,7 +294,7 @@ const Jobs = () => {
                 )}
               >
                 <div>
-                  <h4 className="mb-3">{selectedJob.title}</h4>
+                  <h5 className="mb-3">{selectedJob.title}</h5>
                   <CustomBadge title={selectedJob.level} />
                 </div>
                 <div>
@@ -213,7 +303,7 @@ const Jobs = () => {
                 </div>
                 <div>
                   <span>Job Specification:</span>
-                  <ul>
+                  <ul className="flex flex-col items-start gap-1.5 mt-2">
                     {selectedJob.specifications.map((items) => (
                       <li className="flex items-center gap-1.5">
                         <span>
@@ -223,6 +313,19 @@ const Jobs = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div
+                  className={classNames(
+                    styles.details,
+                    "flex flex-col items-start gap-3"
+                  )}
+                >
+                  {selectedJob.details.map((data) => (
+                    <div>
+                      <span>{data.label}</span>
+                      <p>{data.value}</p>
+                    </div>
+                  ))}
                 </div>
                 <CustomButton
                   title="Apply Now"

@@ -27,7 +27,7 @@ const SocialMedia = () => {
   const servicesData = [
     {
       title: "Tailored Social Media Management Strategy",
-      desc: "Our team of experts in Austin, Texas will create a custom plan to fit your business and industry. With a fully developed website ready for online advertisements and social media content to support, this is the full package for every business.",
+      desc: "We begin by understanding your unique business goals and audience to create a custom social media plan that aligns with your vision so that things work as per your set strategies.",
     },
     {
       title: "Engaging Content Creation and Posting",
@@ -54,6 +54,18 @@ const SocialMedia = () => {
       <SocialMediaScope />
       <VideoSection
         title={<>The Power of Social {width > 992 && <br />} Media Marketing</>}
+        desc={
+          <>
+            When using our social media marketing services, there may be moments
+            when you want to grow even faster. So we constantly test aspects of
+            our strategy to expand on what your audience engages and responds
+            to.
+            <br />
+            Our proven strategy lays the foundation for growth while optimizing
+            audience trust to drive purchases. We refine even the smallest
+            details to build strong relationships with your clients.
+          </>
+        }
       />
       <ServicesDetail servicesData={servicesData} isHaveHeading />
       <InnovationSection />
