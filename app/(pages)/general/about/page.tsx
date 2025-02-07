@@ -9,7 +9,7 @@ import GetQuote from "components/advertisement/getQuote";
 import Stats from "components/advertisement/stats";
 import VideoSection from "components/advertisement/videoSection";
 import EmotionalIntelligence from "components/about/emotionalIntelligence";
-import ClientsSlider from "components/about/clientsSlider";
+// import ClientsSlider from "components/about/clientsSlider";
 import MeetTheFounder from "components/about/meetTheFounder";
 
 const About = () => {
@@ -41,7 +41,7 @@ const About = () => {
       />
       <CoreValues />
       <EmotionalIntelligence />
-      <ClientsSlider imagesData={brands} />
+      {/* <ClientsSlider imagesData={brands} /> */}
       <MeetTheFounder />
       <Stats />
       <Portfolio />
