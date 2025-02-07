@@ -1,12 +1,13 @@
 import Link from "next/link";
 import styles from "./style.module.scss";
 import classNames from "classnames";
-import { headerLinks } from "utils/constants";
 import Image from "next/image";
 import { Icons, Images } from "assets";
 import { routeConstant } from "routes/constants";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 const Footer = () => {
+  const { width } = useWindowDimensions();
   const socialLink = [
     <Icons.Instagram />,
     <Icons.Facebook />,
@@ -64,7 +65,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:items-start items-center gap-6">
               <Image
-                data-aos="flip-right"
+                data-aos={width > 768 && "flip-right"}
                 className={classNames(styles.logo)}
                 width={125}
                 height={125}
@@ -75,7 +76,7 @@ const Footer = () => {
                 <div
                   className={classNames(
                     styles.socialContainer,
-                    "flex items-center gap-2 justify-start"
+                    "flex items-center gap-2 md:justify-start justify-center"
                   )}
                 >
                   {socialLink.map((item, index) => (

@@ -1,46 +1,15 @@
-import { Images } from "assets";
-import { routeConstant } from "routes/constants";
+"use client";
+import { useState } from "react";
+import classNames from "classnames";
+import styles from "./style.module.scss";
+import CustomButton from "components/common/customButton";
+import CustomInput from "components/common/customInput";
+import { Icons } from "assets";
+import CustomAnimatedBorder from "components/common/customAnimatedBorder";
+import CustomSelect from "components/common/customSelect";
+import CustomBadge from "components/common/customBadge";
+import { GoDotFill } from "react-icons/go";
 
-const headerLinks: SideBarItemPathType[] = [
-  {
-    path: routeConstant.home.path,
-    title: routeConstant.home.title,
-  },
-  {
-    path: routeConstant.about.path,
-    title: routeConstant.about.title,
-  },
-  {
-    path: "",
-    title: routeConstant.services.title,
-    children: [
-      {
-        path: routeConstant.advertisement.path,
-        title: routeConstant.advertisement.title
-      },
-      {
-        path: routeConstant.socialMedia.path,
-        title: routeConstant.socialMedia.title
-      },
-      {
-        path: routeConstant.webMobile.path,
-        title: routeConstant.webMobile.title
-      },
-    ]
-  },
-  // {
-  //   path: routeConstant.portfolio.path,
-  //   title: routeConstant.portfolio.title,
-  // },
-  {
-    path: routeConstant.careers.path,
-    title: routeConstant.careers.title,
-  },
-  {
-    path: routeConstant.contact.path,
-    title: routeConstant.contact.title,
-  },
-];
 interface Details {
   label: string;
   value: string;
@@ -187,222 +156,217 @@ const jobsData: Job[] = [
     ],
   },
 ];
-const portfolioData = [
-  {
-    id: 101,
-    date: "06 November, 2024",
-    title: "Brochure Pamphlet Design 2024",
-    desc: "Redesigned a retail app to improve navigation and user retention. Conducted research and usability testing, resulting in a 30% increase in user engagement.",
-    img: Images.LongArrow,
-    type: "picture",
-  },
-  {
-    id: 102,
-    date: "17 November, 2024",
-    title: "Website Prototype",
-    desc: "Created a responsive, accessible e-learning platform with features for screen readers and high-contrast themes, ensuring inclusivity for all users.",
-    img: Images.LongArrow,
-    type: "video",
-  },
-  {
-    id: 103,
-    date: "06 November, 2024",
-    title: "Website Project",
-    desc: "Designed a simple and interactive healthcare analytics dashboard. Focused on clarity and industry compliance, improving data accessibility for professionals.",
-    img: Images.LongArrow,
-    type: "pdf",
-  },
-  {
-    id: 104,
-    date: "29 October, 2024",
-    title: "Mobile App Design",
-    desc: "Designed a fitness app with gamified features like badges and leaderboards, boosting user engagement and satisfaction through interactive elements.",
-    img: Images.LongArrow,
-    type: "picture",
-  },
-  {
-    id: 105,
-    date: "24 October, 2024",
-    title: "Business Card Design",
-    desc: "Redesigned a nonprofit’s website for a younger audience, optimizing layouts, mobile usability, and messaging, resulting in better user engagement.",
-    img: Images.LongArrow,
-    type: "picture",
-  },
-  {
-    id: 106,
-    date: "03 October, 2024",
-    title: "Logo Design",
-    desc: "Optimized a travel booking app with dynamic pricing alerts and multi-destination planning, increasing user interaction and engagement.",
-    img: Images.LongArrow,
-    type: "video",
-  },
-];
 
-// const chatsData = [
-//   {
-//     id: 101,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Arlene McCoy",
-//     pendingMessageCount: 2,
-//     messages: [
-//       {
-//         sender: "me",
-//         text: "Hi, How are you?",
-//         timestamp: "4:32 AM",
-//       },
-//       {
-//         sender: "me",
-//         text: "How was your session yesterday? Were you able to attend it?",
-//         timestamp: "4:35 AM",
-//       },
-//       {
-//         sender: "other",
-//         text: "I’m good, What about you?",
-//         timestamp: "4:35 AM",
-//       },
-//       {
-//         sender: "other",
-//         text: "Yes, I was there, It was Awesome!!!",
-//         timestamp: "4:36 AM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 102,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Cody Fisher",
-//     pendingMessageCount: 0,
-//     messages: [
-//       {
-//         sender: "other",
-//         text: "Hi Hanna, thank you for your support!",
-//         timestamp: "4:32 AM",
-//       },
-//       {
-//         sender: "me",
-//         text: "I’m glad to help. How can I assist further?",
-//         timestamp: "4:33 AM",
-//       },
-//       {
-//         sender: "other",
-//         text: "Just wanted to clarify something from yesterday’s session.",
-//         timestamp: "4:34 AM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 103,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Savannah Nguyen",
-//     pendingMessageCount: 1,
-//     messages: [
-//       {
-//         sender: "me",
-//         text: "Hello Savannah, have you checked the new schedule?",
-//         timestamp: "3:00 PM",
-//       },
-//       {
-//         sender: "other",
-//         text: "Not yet. Let me check and get back to you.",
-//         timestamp: "3:15 PM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 104,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Darlene Robertson",
-//     pendingMessageCount: 0,
-//     messages: [
-//       {
-//         sender: "me",
-//         text: "Did you try the exercises we discussed last week?",
-//         timestamp: "5:00 PM",
-//       },
-//       {
-//         sender: "other",
-//         text: "Yes, I’ve been practicing them every day.",
-//         timestamp: "5:10 PM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 105,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Jacob Jones",
-//     pendingMessageCount: 4,
-//     messages: [
-//       {
-//         sender: "other",
-//         text: "Hey, I have some doubts about the technique.",
-//         timestamp: "10:00 AM",
-//       },
-//       {
-//         sender: "me",
-//         text: "Sure, I can explain it to you. Can we discuss now?",
-//         timestamp: "10:10 AM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 106,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Jane Cooper",
-//     pendingMessageCount: 0,
-//     messages: [
-//       {
-//         sender: "other",
-//         text: "Thank you for the detailed guidance!",
-//         timestamp: "1:45 PM",
-//       },
-//       {
-//         sender: "me",
-//         text: "You’re welcome. Keep me updated on your progress.",
-//         timestamp: "1:50 PM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 107,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Esther Howard",
-//     pendingMessageCount: 2,
-//     messages: [
-//       {
-//         sender: "me",
-//         text: "How are the preparations going for the event?",
-//         timestamp: "8:00 AM",
-//       },
-//       {
-//         sender: "other",
-//         text: "They’re going well. Thanks for checking!",
-//         timestamp: "8:15 AM",
-//       },
-//     ],
-//   },
-//   {
-//     id: 108,
-//     coachImg: Images.CoachProfile,
-//     coachName: "Albert Flores",
-//     pendingMessageCount: 0,
-//     messages: [
-//       {
-//         sender: "other",
-//         text: "Can we have a quick call tomorrow to discuss further?",
-//         timestamp: "9:00 PM",
-//       },
-//       {
-//         sender: "me",
-//         text: "Sure, what time works best for you?",
-//         timestamp: "9:05 PM",
-//       },
-//     ],
-//   },
-// ];
+const Jobs = () => {
+  const [selectedJob, setSelectedJob] = useState<Job | null>(jobsData[0]);
 
-export {
-  headerLinks,
-  jobsData,
-  portfolioData,
-  // chatsData,
+  const handleJobSelect = (job: Job) => {
+    setSelectedJob(job);
+  };
+
+  const categoryOptions = [
+    { title: "All Categories", value: "all" },
+    { title: "IT & Software", value: "it_software" },
+    { title: "Social Media Management", value: "social_media" },
+    { title: "UI/UX Designer", value: "ui_ux" },
+    { title: "Graphic Design", value: "graphic_design" },
+    { title: "Content Writing", value: "content_writing" },
+    { title: "Marketing & Advertising", value: "marketing_advertising" },
+    { title: "Photography & Videography", value: "photography_videography" },
+  ];
+
+  const experienceOptions = [
+    { title: "All Experience Levels", value: "all" },
+    { title: "Entry Level (0-1 years)", value: "entry" },
+    { title: "Mid Level (2-5 years)", value: "mid" },
+    { title: "Senior Level (6+ years)", value: "senior" },
+  ];
+
+  const locationOptions = [
+    { title: "All Locations", value: "all" },
+    { title: "Austin, TX", value: "austin_tx" },
+    { title: "Dallas, TX", value: "dallas_tx" },
+    { title: "Houston, TX", value: "houston_tx" },
+    { title: "San Antonio, TX", value: "san_antonio_tx" },
+    { title: "Fort Worth, TX", value: "fort_worth_tx" },
+    { title: "El Paso, TX", value: "el_paso_tx" },
+    { title: "Plano, TX", value: "plano_tx" },
+    { title: "Arlington, TX", value: "arlington_tx" },
+  ];
+
+  return (
+    <section className={classNames(styles.sectionContainer)}>
+      <div className={classNames(styles.customContainer)}>
+        <div
+          className={classNames(
+            styles.filtersContainer,
+            "flex flex-col lg:gap-10 gap-8 h-56"
+          )}
+        >
+          <div
+            className={classNames(
+              "lg:w-6/12 md:w-7/12 sm:w-8/12 xs:w-9/12 w-full mx-auto relative my-auto"
+            )}
+          >
+            <CustomAnimatedBorder
+              gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
+              animationSpeed="5s"
+              borderRadius="6px"
+            >
+              <div className={classNames(styles.searchContainer, "m-1")}>
+                <CustomInput
+                  placeholder="Search for jobs.."
+                  customInputContainer={classNames(styles.quoteInput)}
+                />
+                <span className="absolute right-3 top-4">
+                  <Icons.Search />
+                </span>
+              </div>
+            </CustomAnimatedBorder>
+          </div>
+          <div
+            className={classNames(
+              styles.filters,
+              "grid grid-cols-12 lg:gap-6 gap-3 xl:w-9/12 lg:10/12 mx-auto"
+            )}
+          >
+            <div
+              className={classNames(styles.item, "lg:col-span-4 col-span-6")}
+            >
+              <label htmlFor="">Experience Level</label>
+              <CustomSelect
+                defaultActiveItem="All Experience Level"
+                // @ts-ignore
+                options={experienceOptions}
+                // label="Experience Level"
+              />
+            </div>{" "}
+            <div
+              className={classNames(styles.item, "lg:col-span-3 col-span-6")}
+            >
+              <label htmlFor="">Location</label>
+              <CustomSelect
+                // @ts-ignore
+                options={locationOptions}
+                defaultActiveItem="All Location"
+                // label="Experience Level"
+              />
+            </div>{" "}
+            <div
+              className={classNames(styles.item, "lg:col-span-3 col-span-6")}
+            >
+              <label htmlFor="">Categories</label>
+              <CustomSelect
+                // @ts-ignore
+                options={categoryOptions}
+                defaultActiveItem="All Categories"
+                // label="Experience Level"
+              />
+            </div>{" "}
+            <div
+              className={classNames(
+                styles.item,
+                "lg:col-span-2 col-span-6 flex items-end"
+              )}
+            >
+              <CustomButton
+                containerStyle={classNames(styles.filterButton, "w-full")}
+                title="Available Jobs"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className={classNames(
+            styles.contentWrapper,
+            "grid sm:grid-cols-2 grid-cols-1 gap-6 mt-12"
+          )}
+        >
+          <div
+            className={classNames(
+              styles.jobsListContainer,
+              "flex flex-col gap-5"
+            )}
+          >
+            {jobsData.map((job, index) => (
+              <div
+                key={index}
+                onClick={() => handleJobSelect(job)}
+                className={classNames(
+                  styles.jobListItem,
+                  "flex flex-col items-start gap-5",
+                  { [styles.active]: selectedJob?.title === job.title }
+                )}
+              >
+                <h5>
+                  <span>{job.title}</span>
+                </h5>
+                <CustomBadge title={job.level} />
+                <p className={classNames(styles.jobListItemDesc)}>
+                  <span className="font-medium">Primary Responsibility: </span>
+                  {job.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className={classNames(styles.jobsPreviewContainer)}>
+            {selectedJob ? (
+              <div
+                className={classNames(
+                  styles.jobPreview,
+                  "flex flex-col items-start gap-6"
+                )}
+              >
+                <div>
+                  <h5 className="mb-3">{selectedJob.title}</h5>
+                  <CustomBadge title={selectedJob.level} />
+                </div>
+                <div>
+                  <span>Primary Responsibility:</span>
+                  <p className="">{selectedJob.description}</p>{" "}
+                </div>
+                <div>
+                  <span>Job Specification:</span>
+                  <ul className="flex flex-col items-start gap-1.5 mt-2">
+                    {selectedJob.specifications.map((items) => (
+                      <li className="flex items-center gap-1.5">
+                        <span>
+                          <GoDotFill />
+                        </span>
+                        {items}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div
+                  className={classNames(
+                    styles.details,
+                    "flex flex-col items-start gap-3"
+                  )}
+                >
+                  {selectedJob.details.map((data) => (
+                    <div>
+                      <span>{data.label}</span>
+                      <p>{data.value}</p>
+                    </div>
+                  ))}
+                </div>
+                <CustomButton
+                  title="Apply Now"
+                  containerStyle={classNames(
+                    styles.applyButton,
+                    "md-height-button"
+                  )}
+                />
+              </div>
+            ) : (
+              <p>Select a job to see details.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
+
+export default Jobs;

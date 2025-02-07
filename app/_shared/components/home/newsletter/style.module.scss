@@ -2,45 +2,38 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-  background-image: url("../../../../_assets/images/newsletter-bg.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
-  // opacity: 0.65;
+  position: relative;
   width: 100%;
   height: 100%;
-  z-index: 2 !important;
-  position: relative;
-  @include RP(("padding-top": 60,
-      "padding-bottom": 30,
-    ));
+  @include RP(("padding-top": 60, "padding-bottom": 30), 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../_assets/images/newsletter-bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    opacity: 0.3;
+    z-index: 1;
+  }
 
   .contentWrapper {
     position: relative;
-    @include RP(("padding-top": 30,
-        "padding-bottom": 80,
-      ));
+    z-index: 2;
+    @include RP(("padding-top": 30, "padding-bottom": 80));
 
     @media screen and (max-width: 510px) {
-      @include RP(("padding-top": 30,
-          "padding-bottom": 30,
-        ));
+      @include RP(("padding-top": 30, "padding-bottom": 30));
     }
 
     .formContainer {
       z-index: 10 !important;
-      @include RP(("padding-top": 50,
-          "margin-top": 20));
-    }
-  }
-
-  .faqsContainer {
-    @media screen and (min-with: 1800px) {
-      @include RP(("margin-top": 150), 1);
-    }
-
-    @media screen and (min-with: 1900px) {
-      @include RP(("margin-top": 200), 1);
+      @include RP(("padding-top": 50, "margin-top": 20));
     }
   }
 }

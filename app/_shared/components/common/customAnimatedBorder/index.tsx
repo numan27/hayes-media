@@ -17,7 +17,10 @@ const CustomAnimatedBorder = ({
 }: CustomAnimatedBorderProps) => {
   return (
     <div
-      className={classNames(styles.gradientBorderWrapper, "overflow-y-visible")}
+      className={classNames(
+        styles.gradientBorderWrapper,
+        "overflow-y-visible flex justify-center items-center"
+      )}
       style={
         {
           "--gradient-colors": gradientColors,

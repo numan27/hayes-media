@@ -28,9 +28,13 @@ const Header = ({ userCookie }: HeaderProps) => {
           <div
             className={classNames(" flex justify-between items-center gap-4")}
           >
-            <div className={classNames("flex items-center gap-3")}>
+            <div
+              className={classNames(
+                "flex items-center md:justify-start justify-between gap-3 md:w-fit w-full"
+              )}
+            >
               <Icons.Hamburger
-                className={classNames(styles.hamIcon, "flex lg:hidden")}
+                className={classNames(styles.hamIcon, "flex md:hidden")}
                 onClick={() => {
                   setOpenSideBar(true);
                 }}
@@ -51,7 +55,7 @@ const Header = ({ userCookie }: HeaderProps) => {
               <ul
                 className={classNames(
                   styles.main__menu,
-                  "lg:flex items-center gap-5 hidden ms-2"
+                  "md:flex items-center gap-5 hidden ms-2"
                 )}
               >
                 {headerLinks.map((link, index) => (
@@ -116,7 +120,7 @@ const Header = ({ userCookie }: HeaderProps) => {
             <div
               className={classNames(
                 styles.header__right,
-                "flex items-center gap-4"
+                "md:flex items-center gap-4 hidden"
               )}
             >
               <MyContext.Provider value={{ user: userCookie }}>

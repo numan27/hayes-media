@@ -49,6 +49,11 @@
     }
 
     .content {
+      h4 {
+        @include PRIMARY_TEXT;
+        text-transform: capitalize !important;
+      }
+
       p {
         margin-bottom: 10px;
         text-align: left !important;

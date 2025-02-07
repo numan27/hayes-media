@@ -3,12 +3,8 @@
 
 .footer {
   background-color: #000;
-  mask-image: url("../../../../_assets/images/landing-background.png");
-  mask-position: center;
-  mask-size: cover;
   width: 100%;
   height: 100%;
-  // height: 50vh !important;
   @include RP(( // "height": 80,
       "padding-top": 50,
       "padding-bottom": 50,
@@ -35,8 +31,9 @@
         ), 1);
 
       @media screen and (max-width: 767px) {
-        @include RP(("width": 85,
-            "height": 85,
+        max-width: 100px !important;
+        @include RP(("width": 80,
+            "height": 80,
           ), 1);
       }
     }

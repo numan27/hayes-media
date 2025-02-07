@@ -28,11 +28,11 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
 
     return (
       <div className={classNames(styles.mainContainer)} ref={ref}>
-        <div className="md:pt-0 pt-6">
+        <div className="md:pt-0 pt-6 flex flex-col justify-center h-full">
           <div
             className={classNames(
               styles.customContainer,
-              "flex flex-col sm:gap-5"
+              "flex flex-col justify-center sm:gap-5 h-full"
             )}
           >
             <CustomSectionHeading
@@ -40,12 +40,14 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
               heading="TESTIMONIAL"
               description=""
             />
-            <CustomSlider settings={sliderSettings}>
-              {reviews.map((item, index) => (
-                // @ts-ignore
-                <ReviewCard key={index} item={item} />
-              ))}
-            </CustomSlider>
+            <div className="flex flex-col justify-center h-full">
+              <CustomSlider settings={sliderSettings}>
+                {reviews.map((item, index) => (
+                  // @ts-ignore
+                  <ReviewCard key={index} item={item} />
+                ))}
+              </CustomSlider>
+            </div>
           </div>
         </div>
       </div>
@@ -65,9 +67,9 @@ const ReviewCard = ({
     <div
       className={classNames(
         styles.cardContainer,
-        "flex flex-col items-center justify-center gap-7 mx-auto relative"
+        "flex flex-col items-center justify-center gap-7 mx-auto relative h-full"
       )}
-      style={{ minHeight: height }} // Ensure dynamic height
+      style={{ minHeight: "100%" }}
     >
       <div
         className={classNames(
@@ -92,7 +94,7 @@ const ReviewCard = ({
             onClick={() => {
               setExpanded((prev) => !prev);
               setTimeout(() => {
-                setHeight("auto"); // Force reflow for height adjustment
+                setHeight("auto");
               }, 100);
             }}
           >

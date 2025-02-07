@@ -18,17 +18,17 @@
     ));
 
   .hamIcon {
-    @include RP(("height": 40,
-        "width": 40,
-      ));
+    @include RP(("height": 66,
+        "width": 66,
+      ), 1);
     cursor: pointer;
   }
 
   .logo {
 
-    @include RP(("height": 29,
-        "width": 29,
-      ));
+    @include RP(("height": 36,
+        "width": 36,
+      ), 1);
     width: 100%;
   }
 

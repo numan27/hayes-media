@@ -8,6 +8,10 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { routeConstant } from "routes/constants";
 import Image from "next/image";
+import { MyContext } from "utils/myContext";
+import DynamicActions from "../header/dynamicActions";
+import CustomAnimatedBorder from "../customAnimatedBorder";
+import CustomButton from "../customButton";
 
 interface SideCanvasProps {
   setIsOpen: (val: boolean) => void;
@@ -77,21 +81,24 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
           {headerLinks?.map((link, index) => (
             <div key={index}>
               {link.children ? (
-                // Dropdown for Links with Children
                 <div className={classNames(styles.nestedToggle)}>
                   <button
                     className={classNames(
                       styles.dropdownToggle,
                       pathname === link.path && styles.activeLink,
-                      "flex items-center justify-between w-full"
+                      "flex items-center gap-2"
                     )}
                     onClick={() =>
                       setOpenDropdown(openDropdown === index ? null : index)
                     }
                   >
                     {link.title}
-                    <Icons.ChevDownFilled
-                      className={openDropdown === index ? styles.rotated : ""}
+                    <Icons.ChevDown
+                      className={
+                        openDropdown === index
+                          ? styles.rotated
+                          : styles.defaultRotate
+                      }
                     />
                   </button>
 
@@ -133,6 +140,22 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
               )}
             </div>
           ))}
+          <div className="flex flex-col items-start gap-4 w-[116px]">
+            <CustomAnimatedBorder
+              gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
+              animationSpeed="4s"
+              borderRadius="8px"
+            >
+              <CustomButton
+                title="Get A Quote"
+                containerStyle="transparent-button"
+              />
+            </CustomAnimatedBorder>
+            <CustomButton
+              title="Log In"
+              containerStyle={classNames(styles.login_btn, "w-full")}
+            />
+          </div>
         </div>
       </div>
     </div>

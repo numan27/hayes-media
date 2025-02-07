@@ -19,20 +19,33 @@
 .gridContainer {
   display: grid;
   gap: 4rem;
+
+  @media screen and (max-width: 767px) {
+    gap: 2rem;
+  }
 }
 
 .gridItem {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  gap: 4rem !important;
   align-items: center;
 
   @media screen and (max-width: 992px) {
-    gap: 2rem;
+    gap: 2rem !important;
   }
 
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(1, 1fr);
+    gap: 1rem !important;
+
+    .imgContainer {
+      order: 2 !important;
+    }
+
+    .content {
+      order: 1 !important;
+    }
   }
 
 
@@ -75,5 +88,17 @@
 
   p {
     text-align: left !important;
+  }
+
+  svg {
+    @include RP(("width": 140,
+      ), 1);
+  }
+
+  @media screen and (max-width: 576px) {
+    svg {
+      @include RP(("width": 90,
+        ), 1);
+    }
   }
 }

@@ -13,7 +13,7 @@ const Services = () => {
     {
       // icon: <Icons.ServiceIcon1 />,
       icon: Images.ServiceIcon1,
-      title: "Full-Stack Digital Marketing",
+      title: "Online Advertising",
       desc: "Our white-glove premium service, customized to each client that includes all of our services.",
       path: routeConstant.advertisement.path,
     },
@@ -27,7 +27,7 @@ const Services = () => {
     {
       icon: Images.ServiceIcon3,
       // icon: <Icons.ServiceIcon3 />,
-      title: "Web Development",
+      title: "Web & Mobile Development",
       desc: "It’s not just a website. It’s a digital storefront that looks great, runs fast, and is optimized for your audience's experience",
       path: routeConstant.webMobile.path,
     },

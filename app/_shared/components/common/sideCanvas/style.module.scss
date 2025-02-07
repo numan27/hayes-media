@@ -68,6 +68,22 @@
     //   @include PRIMARY_TEXT;
     //   ;
     // }
+    .dropdownToggle {
+      svg {
+        height: 10px;
+        @include RP(("width": 18), 1);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .defaultRotate {
+        transform: rotate(0deg) !important;
+      }
+
+      .rotated {
+        transform: rotate(180deg) !important;
+      }
+    }
+
   }
 }
 
