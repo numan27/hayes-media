@@ -16,9 +16,7 @@ interface SideCanvasProps {
 
 const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
   const pathname = usePathname();
-  // const [dropdownOpenState, setDropdownOpenState] = useState<number | null>(
-  //   null
-  // );
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   function handleClick(e: any) {
     const elem: any = document.getElementById("sideCanvas");
@@ -32,7 +30,6 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
     elem.addEventListener("click", (event: any) => {
       handleClick(event);
     });
-    // @ts-ignore
   }, [pathname]);
 
   return (
@@ -48,6 +45,7 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
         )}
         id="sideCanvas"
       >
+        {/* Logo and Close Button */}
         <div
           className={classNames(
             "flex justify-between items-center px-4 gap-4",
@@ -68,29 +66,72 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
           </Link>
           <div
             className={classNames(styles.crossContainer)}
-            onClick={() => {
-              setIsOpen(false);
-            }}
+            onClick={() => setIsOpen(false)}
           >
             <Icons.Cross />
           </div>
         </div>
 
+        {/* Navigation Links */}
         <div className="flex flex-col gap-4 px-4 mt-7">
-          {headerLinks?.map((link, inx) => (
-            <Link
-              href={link.path ? link.path : ""}
-              key={inx}
-              className={classNames(
-                styles.navLink,
-                pathname === link.path && styles.activeLink
+          {headerLinks?.map((link, index) => (
+            <div key={index}>
+              {link.children ? (
+                // Dropdown for Links with Children
+                <div className={classNames(styles.nestedToggle)}>
+                  <button
+                    className={classNames(
+                      styles.dropdownToggle,
+                      pathname === link.path && styles.activeLink,
+                      "flex items-center justify-between w-full"
+                    )}
+                    onClick={() =>
+                      setOpenDropdown(openDropdown === index ? null : index)
+                    }
+                  >
+                    {link.title}
+                    <Icons.ChevDownFilled
+                      className={openDropdown === index ? styles.rotated : ""}
+                    />
+                  </button>
+
+                  {openDropdown === index && (
+                    <div
+                      className={classNames(
+                        styles.dropdownMenu,
+                        "flex flex-col items-start gap-1.5 mt-2 pl-3"
+                      )}
+                    >
+                      {link.children.map((child, childIndex) => (
+                        <Link
+                          href={child.path}
+                          key={childIndex}
+                          className={classNames(
+                            styles.navLink,
+                            pathname === child.path && styles.activeLink
+                          )}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Regular Links
+                <Link
+                  href={link.path}
+                  className={classNames(
+                    styles.navLink,
+                    pathname === link.path && styles.activeLink
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.title}
+                </Link>
               )}
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              {link.title}
-            </Link>
+            </div>
           ))}
         </div>
       </div>

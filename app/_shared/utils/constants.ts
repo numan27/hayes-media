@@ -42,7 +42,6 @@ const headerLinks: SideBarItemPathType[] = [
   },
 ];
 
-
 const jobsData = [
   {
     id: 1001,
