@@ -19,7 +19,7 @@ const GetQuote = () => {
             <CustomSectionHeading
               centered
               heading="Get A Quote"
-              description="Lorem Ipsum is simply dummy text of the printing ."
+              description=""
             />
             <div className="md:w-9/12 xs:w-10/12 w-full mx-auto">
               <div

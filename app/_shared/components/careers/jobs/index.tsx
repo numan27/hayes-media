@@ -165,9 +165,33 @@ const Jobs = () => {
   };
 
   const categoryOptions = [
-    { title: "All Experience Level", value: "session1" },
-    { title: "45 Min Session", value: "session2" },
-    { title: "60 Min Session", value: "session3" },
+    { title: "All Categories", value: "all" },
+    { title: "IT & Software", value: "it_software" },
+    { title: "Social Media Management", value: "social_media" },
+    { title: "UI/UX Designer", value: "ui_ux" },
+    { title: "Graphic Design", value: "graphic_design" },
+    { title: "Content Writing", value: "content_writing" },
+    { title: "Marketing & Advertising", value: "marketing_advertising" },
+    { title: "Photography & Videography", value: "photography_videography" },
+  ];
+
+  const experienceOptions = [
+    { title: "All Experience Levels", value: "all" },
+    { title: "Entry Level (0-1 years)", value: "entry" },
+    { title: "Mid Level (2-5 years)", value: "mid" },
+    { title: "Senior Level (6+ years)", value: "senior" },
+  ];
+
+  const locationOptions = [
+    { title: "All Locations", value: "all" },
+    { title: "Austin, TX", value: "austin_tx" },
+    { title: "Dallas, TX", value: "dallas_tx" },
+    { title: "Houston, TX", value: "houston_tx" },
+    { title: "San Antonio, TX", value: "san_antonio_tx" },
+    { title: "Fort Worth, TX", value: "fort_worth_tx" },
+    { title: "El Paso, TX", value: "el_paso_tx" },
+    { title: "Plano, TX", value: "plano_tx" },
+    { title: "Arlington, TX", value: "arlington_tx" },
   ];
 
   return (
@@ -213,7 +237,7 @@ const Jobs = () => {
               <CustomSelect
                 defaultActiveItem="All Experience Level"
                 // @ts-ignore
-                options={categoryOptions}
+                options={experienceOptions}
                 // label="Experience Level"
               />
             </div>{" "}
@@ -223,7 +247,7 @@ const Jobs = () => {
               <label htmlFor="">Location</label>
               <CustomSelect
                 // @ts-ignore
-                options={categoryOptions}
+                options={locationOptions}
                 defaultActiveItem="All Location"
                 // label="Experience Level"
               />
