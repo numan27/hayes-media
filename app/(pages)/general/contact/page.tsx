@@ -22,7 +22,7 @@ const Contact = () => {
         <section
           className={classNames(
             styles.heroSection,
-            "flex flex-col justify-center h-full z-50 md:gap-24 sm:gap-16 xs:gap-8 gap-4"
+            "flex flex-col justify-center h-full z-50 md:gap-10 sm:gap-16 xs:gap-8 gap-4"
           )}
         >
           <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-16 xs:gap-8 gap-4">
@@ -38,24 +38,24 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="sm:w-10/12 w-full mx-auto">
-            <h6 className="lg:text-left text-center">Follow us on</h6>
+          <div className="">
+            <h6 className="text-left">Follow us on</h6>
             <div
               className={classNames(
                 styles.contactDetailsContainer,
-                "grid grid-cols-12 z-40"
+                "flex items-center flex-wrap lg:gap-8 sm:gap-5 gap-3 z-40"
               )}
             >
               <div
                 className={classNames(
                   styles.socialIconsContainer,
-                  "lg:col-span-5 col-span-12 lg:border-r border-[#C2C2C2] h-20 flex justify-center lg:pr-10"
+                  "md:border-r border-[#C2C2C2] md:h-20 flex"
                 )}
               >
                 <div
                   className={classNames(
                     styles.socialIcons,
-                    "flex items-center xs:gap-4 gap-3"
+                    "flex items-center xs:gap-4 gap-3 lg:pr-8 pr-5"
                   )}
                 >
                   {socialIcons.map((items, index) => (
@@ -70,7 +70,7 @@ const Contact = () => {
               <div
                 className={classNames(
                   styles.contactIconContainer,
-                  "lg:col-span-3 xs:col-span-6 col-span-12 flex items-center justify-center gap-4 xs:border-r border-[#C2C2C2] lg:h-20 h-16"
+                  "flex items-center justify-center gap-4 md:border-r lg:pr-8 pr-5 border-[#C2C2C2] lg:h-20 h-16"
                 )}
               >
                 <span>
@@ -81,7 +81,7 @@ const Contact = () => {
               <div
                 className={classNames(
                   styles.contactIconContainer,
-                  "lg:col-span-4 xs:col-span-6 col-span-12 flex items-center justify-center gap-4"
+                  "flex items-center justify-center gap-4"
                 )}
               >
                 <span>

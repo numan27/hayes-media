@@ -76,6 +76,7 @@ import WebBrand3 from "./web-brand-3.png";
 import WebBrand4 from "./web-brand-4.png";
 import WebBrand5 from "./web-brand-5.png";
 import WebBrand6 from "./web-brand-6.png";
+import HFOBrandLogo from "./hfo-brand-logo.png";
 
 
 const Images = {
@@ -157,6 +158,7 @@ const Images = {
   WebBrand4,
   WebBrand5,
   WebBrand6,
+  HFOBrandLogo,
 };
 
 export { Images };

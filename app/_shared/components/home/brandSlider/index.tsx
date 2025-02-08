@@ -2,7 +2,6 @@ import { memo } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import Image, { StaticImageData } from "next/image";
-import { Icons } from "assets";
 
 interface BrandSliderProps {
   imagesData?: StaticImageData[] | any;

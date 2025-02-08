@@ -19,6 +19,7 @@ const About = () => {
     Images.ClientReview3,
     Images.BrandLogo3,
     Images.BrandLogo,
+    Images.HFOBrandLogo,
   ];
 
   return (

@@ -1,9 +1,8 @@
 "use client";
 
-// import { useSpring, animated } from "@react-spring/web";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Icons } from "assets";
 
 const Stats = () => {
   const stats = [
@@ -13,15 +12,30 @@ const Stats = () => {
     { number: "6000 +", details: "Customers" },
   ];
 
-  const animateNumber = (endValue: string) => {
-    const formattedValue = endValue.replace(/[^0-9]/g, "");
-    // const startValue = 0;
-    // return useSpring({
-    //   from: { number: startValue },
-    //   to: { number: Number(formattedValue) },
-    //   config: { tension: 100, friction: 10 },
-    // });
-  };
+  const [counts, setCounts] = useState(stats.map(() => 0));
+
+  useEffect(() => {
+    const intervals = stats.map((stat, index) => {
+      const formattedNumber = parseInt(stat.number.replace(/[^0-9]/g, ""));
+      let count = 0;
+      const step = Math.ceil(formattedNumber / 100);
+
+      return setInterval(() => {
+        count += step;
+        if (count >= formattedNumber) {
+          count = formattedNumber;
+          clearInterval(intervals[index]);
+        }
+        setCounts((prevCounts) => {
+          const newCounts = [...prevCounts];
+          newCounts[index] = count;
+          return newCounts;
+        });
+      }, 20);
+    });
+
+    return () => intervals.forEach(clearInterval);
+  }, []);
 
   return (
     <div className={classNames(styles.sectionWrapper, "")}>
@@ -32,24 +46,22 @@ const Stats = () => {
             "grid xs:grid-cols-4 grid-cols-2 xs:gap-10 gap-6"
           )}
         >
-          {stats.map((items, index) => {
-            const animationProps = animateNumber(items.number);
-            return (
-              <div
-                key={index}
-                className={classNames(
-                  styles.statItem,
-                  "flex flex-col items-center"
-                )}
-              >
-                <h1>{items.number}</h1>
-                {/* <animated.h1>
-                  {animationProps.number.to((n: number) => n.toFixed(0))}
-                </animated.h1> */}
-                <p>{items.details}</p>
-              </div>
-            );
-          })}
+          {stats.map((item, index) => (
+            <div
+              key={index}
+              className={classNames(
+                styles.statItem,
+                "flex flex-col items-center"
+              )}
+            >
+              <h1>
+                {counts[index]}
+                {item.number.includes("M") && "M"}
+                {item.number.includes("+") && "+"}
+              </h1>
+              <p>{item.details}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

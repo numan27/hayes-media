@@ -7,8 +7,8 @@ import { LuCirclePause, LuCirclePlay } from "react-icons/lu";
 
 interface BannerVideoProps {
   videoSrc?: string;
-  thumbnailSrc: string;
-  alt: string;
+  thumbnailSrc?: string;
+  alt?: string;
 }
 
 const BannerVideo = ({ videoSrc, thumbnailSrc, alt }: BannerVideoProps) => {

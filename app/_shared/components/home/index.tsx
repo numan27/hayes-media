@@ -12,7 +12,6 @@ import Blogs from "./blogs";
 import Newsletter from "./newsletter";
 import GetStartedCall from "./getStartedCall";
 import Portfolio from "./portfolio";
-import Testimonials from "./testimonials111";
 
 const LandingPage = () => {
   const brands = [
@@ -21,6 +20,7 @@ const LandingPage = () => {
     Images.ClientReview3,
     Images.BrandLogo3,
     Images.BrandLogo,
+    Images.HFOBrandLogo,
   ];
 
   return (

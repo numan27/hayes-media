@@ -32,11 +32,13 @@ const SocialMedia = () => {
       buttonText: "Schedule A Discovery Call",
     },
     {
+      videoSrc: "/SocialMediaCube1.mp4",
       title: "Engaging Content Creation and Posting",
       desc: "Our team crafts visually compelling and engaging content that resonates with your target audience and schedules posts for optimal reach. With us, targeting your audience and engaging with them on a regular basis is a breeze.",
       buttonText: "See Our Work",
     },
     {
+      videoSrc: "/SocialMediaAnimation2.mp4",
       title: "Community Driven Optimization",
       desc: "We regularly analyze performance data to tweak and improve your social media marketing strategy, ensuring maximum reach and engagement. This leads to better conversion rates and improved results.",
       buttonText: "Get A Custom Quote",

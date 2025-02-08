@@ -14,8 +14,8 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 const changingTexts = [
   "INNOVATIVE CREATIVE SOLUTIONS",
   "RESULTS-DRIVEN STRATEGIES",
-  "DATA-POWERED MARKETING",
-  "VISIONARY BRAND BUILDING",
+  // "DATA-POWERED MARKETING",
+  // "VISIONARY BRAND BUILDING",
   "IMPACTFUL DIGITAL CAMPAIGNS",
   "CREATIVE BUSINESS GROWTH",
 ];
@@ -84,10 +84,10 @@ const HeroBanner = ({
           <div
             className={classNames(
               styles.content,
-              "grid md:grid-cols-2 grid-cols-1 gap-16 h-full "
+              "grid md:grid-cols-2 grid-cols-1 gap-16 h-full"
             )}
           >
-            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4 mr-auto">
+            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
               {contentIcon && (
                 <div className={classNames(styles.heroContentIcon)}>
                   <Image src={Images.Speaker} alt="icon" />
@@ -98,12 +98,12 @@ const HeroBanner = ({
                 className="text-white md:text-left text-center uppercase mb-0"
               >
                 {title || (
-                  <>
+                  <div className="w-10/12">
                     HAYES MEDIA IS A {width > 640 && <br />}
                     <span
                       className={classNames(
                         styles.animatedText,
-                        "xs:w-10/12 w-full",
+                        // "xs:w-10/12 w-full",
                         { "opacity-0": isAnimating },
                         "transition-all"
                       )}
@@ -111,7 +111,7 @@ const HeroBanner = ({
                       {currentText}
                     </span>{" "}
                     <br /> WITH AN EMOTIONALLY <br /> INTELLIGENT APPROACH
-                  </>
+                  </div>
                 )}
               </h1>
               {desc && (

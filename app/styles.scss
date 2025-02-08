@@ -267,9 +267,19 @@ p {
 
 .newsletter-input {
   border: none !important;
-  background-color: transparent !important;
   color: #1a1a1a !important;
   padding: 0 16px !important;
+  border-radius: 8px !important;
+  background-color: $WHITE !important;
+
+  input {
+    background-color: $WHITE !important;
+
+    &:focus {
+      background-color: $WHITE !important;
+    }
+
+  }
 }
 
 .full-height-button {

@@ -3,8 +3,8 @@
 
 .newsLetter {
   background-color: $WHITE;
-  @include RP(("border-radius": 14,
-      "height": 68,
+  border-radius: 8px !important;
+  @include RP(("height": 68,
       "padding-left": 12,
       "padding-right": 12,
     ), 1);

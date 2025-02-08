@@ -7,9 +7,9 @@ import TeamSection from "components/home/teamReviewSection";
 import GetQuote from "components/advertisement/getQuote";
 import Stats from "components/advertisement/stats";
 import VideoSection from "components/advertisement/videoSection";
-import MobileSlider from "components/webAndMobile/mobileSlider";
 import TargetSection from "components/webAndMobile/targetSection";
 import TrustedPartners from "components/webAndMobile/trustedPartners";
+import FullWidthVideo from "components/webAndMobile/fullWidthVideo";
 
 const WebDevelopment = () => {
   const brands = [
@@ -35,13 +35,15 @@ const WebDevelopment = () => {
         brandImagesData={brands}
         btnTitle="Get Started Today"
         brandsHeading="Programs we work with"
+        videoSrc="/WebsitePageH1.mp4"
       />
       <VideoSection
         videoSrc="/WebsiteAnimation2.mp4"
         title="Cutting-Edge Web & App Development Solutions for Your Digital Success"
       />
       <TrustedPartners />
-      <MobileSlider />
+      {/* <MobileSlider /> */}
+      <FullWidthVideo />
       <TargetSection />
       <Stats />
       <Portfolio />
