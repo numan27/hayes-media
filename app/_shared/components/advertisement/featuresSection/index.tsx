@@ -7,7 +7,6 @@ import { Images } from "assets";
 import Image from "next/image";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import CustomButton from "components/common/customButton";
-import FunnelAnimation from "./funnel";
 
 const Features = () => {
   const sectionData = [

@@ -9,18 +9,26 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    // justify-content: center;
     align-items: center;
 
     .contentItem {
+      // width: 100% !important;
       height: 100%;
       position: relative;
       border-radius: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform 0.1s ease-in-out;
+      // overflow: visible;
+      // margin: 0 auto !important;
 
       &:first-child {
         width: 80% !important;
+        // width: 1300px !important;
+        // height: 300px !important;
+        // max-height: 300px !important;
         z-index: 100 !important;
 
         @media screen and (max-width: 992px) {
@@ -30,6 +38,7 @@
 
       &:nth-child(2) {
         width: 70% !important;
+        // width: 1200px !important;
         height: 250px !important;
         max-height: 250px !important;
         transform: translateY(40px);
@@ -42,6 +51,9 @@
 
       &:nth-child(3) {
         width: 60%;
+        // width: 1050px !important;
+        // height: 220px !important;
+        // max-height: 220px !important;
         transform: translateY(70px);
         z-index: 98 !important;
 
@@ -52,6 +64,9 @@
 
       &:last-child {
         width: 50%;
+        // width: 950px !important;
+        // height: 180px !important;
+        // max-height: 180px !important;
         transform: translateY(40px);
         z-index: 97 !important;
 
@@ -84,8 +99,6 @@
 
         .heading {
           @include PRIMARY_TEXT;
-          @include RP(("font-size": 44,
-            ), 1);
         }
       }
 
@@ -96,10 +109,40 @@
         justify-content: center;
         left: 0;
         right: 0;
+        // width: 100% !important;
+        // height: 100% !important;
 
         svg {
           width: 100% !important;
           height: 100% !important;
+
+          // &:first-child {
+          //   width: 1300px !important;
+          //   height: 100% !important;
+          //   max-height: 380px !important;
+          // }
+
+          // &:nth-child(2) {
+          //   width: 1200px !important;
+          //   height: 100% !important;
+          //   max-height: 300px !important;
+          // }
+
+          // &:nth-child(3) {
+          //   width: 1050px !important;
+          //   height: 100% !important;
+          //   max-height: 220 !important;
+          // }
+
+          // &:nth-child(4) {
+          //   width: 950px !important;
+          //   height: 100% !important;
+          //   max-height: 180px !important;
+          // }
+
+          // path {
+          //   fill: transparent;
+          // }
 
           svg {
             path {
@@ -125,9 +168,9 @@
         gap: 10px;
         z-index: 2;
         opacity: 0;
+        transform: scale(0.9);
         visibility: hidden;
-        transform: translateY(10px);
-        transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0.3s;
         max-width: 70% !important;
 
         .customBadge {
@@ -186,8 +229,9 @@
 
       &:hover .hiddenContent {
         opacity: 1;
+        transform: scale(1);
         visibility: visible;
-        transform: translateY(0);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s;
       }
     }
   }

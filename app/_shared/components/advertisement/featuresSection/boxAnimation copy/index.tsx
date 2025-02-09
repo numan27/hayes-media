@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
@@ -65,7 +65,7 @@ const BoxAnimation = () => {
   ];
 
   return (
-    <div className={classNames(styles.sectionWrapper, " min-h-screen")}>
+    <div className={classNames(styles.sectionWrapper, "min-h-screen")}>
       <div className={classNames(styles.customContainer, "h-full")}>
         <div className={classNames(styles.contentContainer, "h-[90vh]")}>
           {featuresData.map((feature, index) => (
@@ -90,13 +90,7 @@ const BoxAnimation = () => {
               >
                 {hoveredIndex === index &&
                   feature.featureItems.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className={classNames(
-                        styles.customBadge,
-                        "cursor-pointer"
-                      )}
-                    >
+                    <div key={idx} className={classNames(styles.customBadge)}>
                       <div
                         className={classNames(
                           styles.badgeContent,
