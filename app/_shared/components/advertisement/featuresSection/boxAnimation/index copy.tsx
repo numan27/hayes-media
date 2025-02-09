@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
-import CustomButton from "components/common/customButton";
 
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -72,11 +71,11 @@ const BoxAnimation = () => {
         { icon: <Icons.CoreValuesIcon2 />, title: "Email Opt-in" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Form" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Subscribe" },
-        // {
-        //   icon: <Icons.CoreValuesIcon3 />,
-        //   title: "Re-targeting",
-        //   onClick: handleRetargetingClick,
-        // },
+        {
+          icon: <Icons.CoreValuesIcon3 />,
+          title: "Re-targeting",
+          onClick: handleRetargetingClick,
+        },
       ],
     },
     {
@@ -142,10 +141,10 @@ const BoxAnimation = () => {
                     className={classNames(
                       styles.customBadge,
                       item.title === "Re-targeting"
-                        ? "absolute -right-28 -top-3 cursor-pointer"
+                        ? "absolute -right-12 -top-12 cursor-pointer"
                         : ""
                     )}
-                    // onClick={item.onClick}
+                    onClick={item.onClick}
                   >
                     <div
                       className={classNames(
@@ -161,52 +160,41 @@ const BoxAnimation = () => {
               </div>
 
               {hoveredIndex === 2 && index === 2 && (
-                <>
-                  <svg
-                    className={classNames(styles.curvedLine)}
-                    width="400"
-                    height="250"
-                    viewBox="0 0 400 250"
-                  >
-                    <defs>
-                      <linearGradient
-                        id="lineGradient"
-                        x1="0%"
-                        y1="0%"
-                        x2="100%"
-                        y2="100%"
-                      >
-                        <stop
-                          offset="0%"
-                          style={{ stopColor: "#EC1E24", stopOpacity: 1 }}
-                        />
-                        <stop
-                          offset="100%"
-                          style={{ stopColor: "#902880", stopOpacity: 1 }}
-                        />
-                      </linearGradient>
-                    </defs>
+                <svg
+                  className={styles.curvedLine}
+                  width="400"
+                  height="250"
+                  viewBox="0 0 400 250"
+                >
+                  <defs>
+                    <linearGradient
+                      id="lineGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        style={{ stopColor: "#EC1E24", stopOpacity: 1 }}
+                      />
+                      <stop
+                        offset="100%"
+                        style={{ stopColor: "#902880", stopOpacity: 1 }}
+                      />
+                    </linearGradient>
+                  </defs>
 
-                    <path
-                      d="M 10 240 C 50 -50, 350 -50, 390 240"
-                      stroke="url(#lineGradient)"
-                      strokeWidth="3"
-                      fill="none"
-                      vectorEffect="non-scaling-stroke"
-                    />
-
-                    <circle cx="10" cy="240" r="5" fill="#EC1E24" />
-                  </svg>
-
-                  <CustomButton
-                    containerStyle={classNames(
-                      styles.targetButton,
-                      "absolute top-10 right-0"
-                    )}
-                    onClick={handleRetargetingClick}
-                    title="Re-target"
+                  <path
+                    d="M 10 240 C 50 -50, 350 -50, 390 240"
+                    stroke="url(#lineGradient)"
+                    strokeWidth="3"
+                    fill="none"
+                    vectorEffect="non-scaling-stroke"
                   />
-                </>
+
+                  <circle cx="10" cy="240" r="5" fill="#EC1E24" />
+                </svg>
               )}
             </div>
           ))}

@@ -18,6 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      // z-index: 2 !important;
 
       &:first-child {
         width: 80% !important;
@@ -61,11 +62,11 @@
       }
 
       &:hover {
-        svg {
-          path {
-            fill: #000 !important;
-          }
-        }
+        // svg {
+        //   path {
+        //     fill: #000 !important;
+        //   }
+        // }
 
         &:nth-child(2) {
           transform: translateY(70px);
@@ -182,6 +183,32 @@
             }
           }
         }
+      }
+
+      .curvedLine {
+        position: absolute;
+        right: -273px;
+        top: -98px;
+        transform: translateY(-50%) rotate(102deg);
+        pointer-events: none;
+        fill: transparent !important;
+
+        path {
+          fill: none !important;
+          stroke: url(#lineGradient) !important;
+          stroke-width: 3;
+        }
+
+        circle {
+          pointer-events: all;
+        }
+      }
+
+      .targetButton {
+        &:hover {
+          opacity: 1 !important;
+        }
+
       }
 
       &:hover .hiddenContent {

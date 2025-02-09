@@ -106,9 +106,9 @@ const Services = () => {
               ))}
             </div>
 
-            <div className={classNames(styles.linkContainer)}>
+            {/* <div className={classNames(styles.linkContainer)}>
               <Link href="">See All</Link>
-            </div>
+            </div> */}
           </div>
         </CustomAnimatedBorder>
       </div>
