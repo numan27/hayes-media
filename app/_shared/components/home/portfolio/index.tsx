@@ -31,27 +31,27 @@ const Portfolio = () => {
 
   const portfolioData = [
     {
-      video: "/sample-video.mp4",
+      video: "/portfolio/CampVideo1.mp4",
       title: "Brand Identity Design",
       desc: "Crafting unique logos, typography, and color palettes to establish strong brand presence.",
     },
     {
-      video: "/sample-video.mp4",
+      video: "/portfolio/BogStreet1.mp4",
       title: "Website Development",
       desc: "Building responsive, high-performance websites tailored to your business needs.",
     },
     {
-      video: "/sample-video.mp4",
+      video: "/portfolio/Comp7.mp4",
       title: "Social Media Marketing",
       desc: "Creating engaging campaigns to boost brand awareness and audience interaction.",
     },
     {
-      video: "/sample-video.mp4",
+      video: "/portfolio/GlitchfestCommercial.mp4",
       title: "Video Production",
       desc: "Producing high-quality promotional videos, ads, and animations for digital platforms.",
     },
     {
-      video: "/sample-video.mp4",
+      video: "/portfolio/CampVideo1.mp4",
       title: "SEO & Digital Advertising",
       desc: "Optimizing websites and running targeted ad campaigns for maximum online visibility.",
     },
@@ -152,7 +152,7 @@ const Portfolio = () => {
                         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                         src={item.video}
                         loop
-                        muted
+                        // muted
                       />
                     ) : (
                       <Image
