@@ -114,7 +114,7 @@ const Portfolio = () => {
               centeredSlides={width > 992 && true}
               autoplay={{
                 delay: 3000,
-                disableOnInteraction: false, // Disable autoplay pause on interaction
+                disableOnInteraction: true,
               }}
               speed={800}
               breakpoints={{
@@ -132,9 +132,9 @@ const Portfolio = () => {
                   key={index}
                   className={classNames(
                     "swiper-slide",
-                    "transition-all duration-200 ease-in-out h-full",
+                    "transition-all duration-200 ease-in-out",
                     {
-                      [styles.activeSlide]: index === activeIndex, // Apply active state styles
+                      [styles.activeSlide]: index === activeIndex,
                       [styles.hoveredSlide]:
                         index === hoveredIndex && index !== activeIndex,
                     }
@@ -168,7 +168,7 @@ const Portfolio = () => {
                           styles.overlay,
                           index === hoveredIndex &&
                             index !== activeIndex &&
-                            styles.hoverOverlay,
+                            styles.overlay,
                           "flex flex-col gap-4 items-center"
                         )}
                       >
