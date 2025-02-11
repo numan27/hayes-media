@@ -3,13 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import {
-  A11y,
-  Navigation,
-  Pagination,
-  Autoplay,
-  EffectCoverflow,
-} from "swiper/modules";
+import { A11y, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Images } from "assets";
 import Image from "next/image";
@@ -17,6 +11,8 @@ import CustomButton from "components/common/customButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomSectionHeading from "components/common/customSectionHeading";
+import VideoModal from "modals/videoModal";
+import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 const Portfolio = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
@@ -25,9 +21,14 @@ const Portfolio = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0); // Track active slide index
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false); // Track hover state for autoplay
-
+  const [selectedVideo, setSelectedVideo] = useState<{
+    video: string;
+    title: string;
+  } | null>(null);
+  const [muted, setMuted] = useState<boolean>(true);
   const { width } = useWindowDimensions();
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [portfolioModal, setPortfolioModal] = useState(false);
 
   const portfolioData = [
     {
@@ -51,11 +52,57 @@ const Portfolio = () => {
       desc: "Producing high-quality promotional videos, ads, and animations for digital platforms.",
     },
     {
-      video: "/portfolio/CampVideo1.mp4",
-      title: "SEO & Digital Advertising",
-      desc: "Optimizing websites and running targeted ad campaigns for maximum online visibility.",
+      video: "/portfolio/LineUpRelease.webm",
+      title: "Brand Identity Design",
+      desc: "Crafting unique logos, typography, and color palettes to establish strong brand presence.",
+    },
+    {
+      video: "/portfolio/OpenerComp.webm",
+      title: "Website Development",
+      desc: "Building responsive, high-performance websites tailored to your business needs.",
+    },
+    {
+      video: "/portfolio/PatelHomeReel1.webm",
+      title: "Social Media Marketing",
+      desc: "Creating engaging campaigns to boost brand awareness and audience interaction.",
+    },
+    {
+      video: "/portfolio/Reel1.webm",
+      title: "Video Production",
+      desc: "Producing high-quality promotional videos, ads, and animations for digital platforms.",
+    },
+    {
+      video: "/portfolio/TheGoldenClip.webm",
+      title: "Brand Identity Design",
+      desc: "Crafting unique logos, typography, and color palettes to establish strong brand presence.",
+    },
+    {
+      video: "/portfolio/Video1.webm",
+      title: "Website Development",
+      desc: "Building responsive, high-performance websites tailored to your business needs.",
+    },
+    {
+      video: "/portfolio/Video20.webm",
+      title: "Social Media Marketing",
+      desc: "Creating engaging campaigns to boost brand awareness and audience interaction.",
     },
   ];
+  const [mutedVideos, setMutedVideos] = useState<boolean[]>(
+    portfolioData.map(() => true)
+  );
+
+  const toggleMute = (index: number) => {
+    setMutedVideos((prev) => {
+      const newMutedStates = [...prev];
+      newMutedStates[index] = !newMutedStates[index];
+
+      if (videoRefs.current[index]) {
+        videoRefs.current[index]!.muted = newMutedStates[index];
+      }
+
+      return newMutedStates;
+    });
+  };
 
   useEffect(() => {
     // Ensure only the active video is played
@@ -80,6 +127,14 @@ const Portfolio = () => {
     }
   }, [isHovered, swiperInstance]);
 
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     isHovered
+  //       ? swiperInstance.autoplay.start()
+  //       : swiperInstance.autoplay.stop();
+  //   }
+  // }, [isHovered, swiperInstance]);
+
   return (
     <section className={classNames(styles.sectionContainer)}>
       <div className={classNames(styles.customContainer)}>
@@ -94,7 +149,6 @@ const Portfolio = () => {
             onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
           >
             <CustomSectionHeading centered heading="OUR PREVIOUS WORK" />
-
             {/* Left Navigation Button */}
             <button
               className={classNames(styles.swiperButton, styles.prevButton)}
@@ -125,7 +179,7 @@ const Portfolio = () => {
               }}
               modules={[Pagination, Navigation, A11y, Autoplay]}
               onSwiper={setSwiperInstance}
-              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Track active index
+              onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             >
               {portfolioData.map((item, index) => (
                 <SwiperSlide
@@ -139,6 +193,10 @@ const Portfolio = () => {
                         index === hoveredIndex && index !== activeIndex,
                     }
                   )}
+                  onClick={() => {
+                    setSelectedVideo(item);
+                    setPortfolioModal(true);
+                  }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
@@ -146,14 +204,31 @@ const Portfolio = () => {
                     className={classNames(styles.reviewItem, "relative h-full")}
                   >
                     {item.video ? (
-                      <video
-                        // @ts-ignore
-                        ref={(el) => (videoRefs.current[index] = el)}
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                        src={item.video}
-                        loop
-                        // muted
-                      />
+                      <>
+                        <video
+                          // @ts-ignore
+                          ref={(el) => (videoRefs.current[index] = el)}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          src={item.video}
+                          loop
+                          muted={mutedVideos[index]}
+                        />
+                        <span>
+                          <button
+                            className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleMute(index);
+                            }}
+                          >
+                            {mutedVideos[index] ? (
+                              <MdVolumeOff size={20} color="#fff" />
+                            ) : (
+                              <MdVolumeUp size={20} color="#fff" />
+                            )}
+                          </button>
+                        </span>
+                      </>
                     ) : (
                       <Image
                         className="absolute inset-0"
@@ -192,6 +267,12 @@ const Portfolio = () => {
           </div>
         </CustomAnimatedBorder>
       </div>
+      <VideoModal
+        isOpen={portfolioModal}
+        onClose={() => setPortfolioModal(false)}
+        title={selectedVideo?.title}
+        videoSrc={selectedVideo?.video}
+      />
     </section>
   );
 };

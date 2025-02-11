@@ -13,7 +13,7 @@ interface CustomModalProps {
   title: string;
   showBackButton?: boolean;
   onBack?: () => void;
-  size?: "sm" | "md" | "lg" | "xl" | "xxl";
+  // size?: "sm" | "md" | "lg" | "xl" | "xxl";
   customContentContainer?: any;
   showModalFooter?: boolean;
   showModalHeader?: boolean;
@@ -29,7 +29,7 @@ const CustomModal = ({
   showBackButton = false,
   showModalHeader = true,
   onBack,
-  size = "md",
+  // size = "md",
   customContentContainer,
   showModalFooter = true,
   actionButtonText = "Submit Now",
@@ -41,7 +41,7 @@ const CustomModal = ({
       <div
         className={classNames(
           styles.contentContainer,
-          styles[size],
+          // styles[size],
           customContentContainer
         )}
       >

@@ -13,14 +13,14 @@
       ));
   }
 
+  button {
+    z-index: 9999 !important;
+  }
 
   .sliderWrapper {
     height: 100% !important;
     min-height: 100% !important;
     position: relative;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     @include RP(("padding-top": 40,
         "padding-bottom": 40,
         "padding-left": 20,
@@ -94,6 +94,7 @@
       }
 
       .reviewItem {
+
         &::before {
           content: "";
           width: 100%;
@@ -104,14 +105,10 @@
             ));
         }
 
-        // @include RP(("height": 474,
-        //   ), 1);
         min-height: 474px !important;
 
         video {
           height: 100% !important;
-          // @include RP(("min-height": 474,
-          //   ), 1);
         }
 
         .content {

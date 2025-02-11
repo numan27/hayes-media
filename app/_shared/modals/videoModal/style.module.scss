@@ -1,0 +1,15 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.modalContentContainer {
+  width: 100%;
+  @include RP(("max-height": 500,
+    ), 1);
+  max-height: 500px !important;
+
+  video {
+    height: 100% !important;
+    max-height: 500px !important;
+    object-fit: cover;
+  }
+}

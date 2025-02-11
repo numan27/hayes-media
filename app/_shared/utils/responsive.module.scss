@@ -260,18 +260,18 @@ $large: #{84 * 1400/1400}px;
 
 @media screen and (min-width: 1800px) {
   .customContainer {
-    max-width: 85%;
+    max-width: 75%;
   }
 }
 
-@media screen and (min-width: 2200px) {
-  .customContainer {
-    max-width: 90%;
-  }
-}
+// @media screen and (min-width: 2200px) {
+//   .customContainer {
+//     max-width: 90%;
+//   }
+// }
 
-@media screen and (min-width: 2450px) {
-  .customContainer {
-    max-width: 95%;
-  }
-}
+// @media screen and (min-width: 2450px) {
+//   .customContainer {
+//     max-width: 95%;
+//   }
+// }

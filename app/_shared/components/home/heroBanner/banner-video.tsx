@@ -3,17 +3,31 @@
 import { useRef, useState } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { LuCirclePause, LuCirclePlay } from "react-icons/lu";
+import { MdPause, MdPlayArrow, MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 interface BannerVideoProps {
   videoSrc?: string;
   thumbnailSrc?: string;
   alt?: string;
+  isHaveAudioControl?: boolean;
 }
 
-const BannerVideo = ({ videoSrc, thumbnailSrc, alt }: BannerVideoProps) => {
+const BannerVideo = ({
+  videoSrc,
+  thumbnailSrc,
+  alt,
+  isHaveAudioControl,
+}: BannerVideoProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   const handlePlayPause = () => {
     if (videoRef.current) {
@@ -46,26 +60,35 @@ const BannerVideo = ({ videoSrc, thumbnailSrc, alt }: BannerVideoProps) => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Play/Pause Button */}
-      <span
-        className={classNames(
-          styles.playButtonWrapper,
-          "absolute hidden sm:top-4 xs:top-0 -top-2 sm:-right-2 -right-4 z-50"
-        )}
-      >
-        <div
-          className={(styles.playButton, "cursor-pointer")}
-          onClick={handlePlayPause}
-        >
-          <div className={styles.playIcon}>
-            {isPlaying ? (
-              <LuCirclePause fontSize={40} color="#EC1E24" />
-            ) : (
-              <LuCirclePlay fontSize={40} color="#EC1E24" />
-            )}
-          </div>
-        </div>
-      </span>
+      {isHaveAudioControl && (
+        <span className="absolute lg:top-16 top-12 left-2 flex items-center gap-1.5">
+          <button
+            className="bg-black bg-opacity-50 p-2 rounded-full w-10 h-10"
+            onClick={toggleMute}
+            // className={styles.muteButton}
+          >
+            {isMuted ? <MdVolumeOff size={24} /> : <MdVolumeUp size={24} />}
+          </button>
+
+          <span className={classNames(styles.playButtonWrapper, "z-50")}>
+            <button
+              className={
+                // styles.playButton,
+                "cursor-pointer bg-black bg-opacity-50 p-2 rounded-full w-10 h-10 flex items-center justify-center"
+              }
+              onClick={handlePlayPause}
+            >
+              {/* <div className={styles.playIcon}> */}
+              {isPlaying ? (
+                <MdPause size={32} color="#fff" />
+              ) : (
+                <MdPlayArrow size={32} color="#fff" />
+              )}
+              {/* </div> */}
+            </button>
+          </span>
+        </span>
+      )}
     </div>
   );
 };
