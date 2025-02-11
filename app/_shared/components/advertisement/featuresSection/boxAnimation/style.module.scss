@@ -8,8 +8,12 @@
     padding: 100px 0 50px 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    // gap: 20px;
     align-items: center;
+
+    @media screen and (max-width: 1900px) {
+      gap: 20px !important;
+    }
 
     .contentItem {
       height: 100%;
@@ -33,8 +37,11 @@
         width: 70% !important;
         height: 250px !important;
         max-height: 250px !important;
-        transform: translateY(40px);
         z-index: 99 !important;
+
+        @media screen and (max-width: 1900px) {
+          transform: translateY(-10%);
+        }
 
         @media screen and (max-width: 992px) {
           width: 90% !important;
@@ -43,7 +50,7 @@
 
       &:nth-child(3) {
         width: 60%;
-        transform: translateY(70px);
+        transform: translateY(-20%);
         z-index: 98 !important;
 
         @media screen and (max-width: 992px) {
@@ -51,9 +58,9 @@
         }
       }
 
-      &:last-child {
+      &:nth-child(4) {
         width: 50%;
-        transform: translateY(40px);
+        transform: translateY(-50%) !important;
         z-index: 97 !important;
 
         @media screen and (max-width: 992px) {
@@ -69,17 +76,17 @@
         // }
 
         &:nth-child(2) {
-          transform: translateY(70px);
+          transform: translateY(22%);
           z-index: 100 !important;
         }
 
         &:nth-child(3) {
-          transform: translateY(120px);
+          transform: translateY(0);
           z-index: 100 !important;
         }
 
-        &:last-child {
-          transform: translateY(70px);
+        &:nth-child(4) {
+          transform: translateY(-40%) !important;
           z-index: 100 !important;
         }
 
@@ -131,58 +138,6 @@
         transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
         max-width: 70% !important;
 
-        .customBadge {
-          background: $PRIMARY;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 1.5px 3px;
-          color: #fff;
-          border-radius: 35px;
-          font-size: 12px !important;
-          width: fit-content;
-
-          @media screen and (max-width: 992px) {
-            font-size: 10px !important;
-          }
-
-          .badgeContent {
-            border: 2px solid #000 !important;
-            width: 100%;
-            height: 100%;
-            border-radius: 35px;
-            padding: 2px 12px 2px 2px;
-
-            @media screen and (max-width: 640px) {
-              padding: 2px 4px;
-            }
-
-            .iconContainer {
-              border-radius: 100%;
-              background-color: $WHITE;
-              @include RP(("width": 36, "height": 36), 1);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              @media screen and (max-width: 640px) {
-                display: none;
-              }
-
-              @media screen and (max-width: 992px) {
-                @include RP(("width": 28, "height": 28), 1);
-
-                svg {
-                  @include RP(("width": 14, "height": 14), 1);
-                }
-              }
-
-              svg {
-                @include RP(("width": 16, "height": 16), 1);
-              }
-            }
-          }
-        }
       }
 
       .curvedLine {
@@ -205,16 +160,85 @@
       }
 
       .targetButton {
-        &:hover {
-          opacity: 1 !important;
+        cursor: pointer !important;
+
+      }
+
+      .animatedPath {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        animation: drawLine 2.5s linear infinite;
+      }
+
+      @keyframes drawLine {
+        from {
+          stroke-dashoffset: -600;
+          opacity: 1;
         }
 
+        to {
+          stroke-dashoffset: 0;
+          opacity: 0.8;
+        }
       }
 
       &:hover .hiddenContent {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
+      }
+    }
+  }
+
+  .customBadge {
+    background: $PRIMARY;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5px 3px;
+    color: #fff;
+    border-radius: 35px;
+    font-size: 12px !important;
+    width: fit-content;
+
+    @media screen and (max-width: 992px) {
+      font-size: 10px !important;
+    }
+
+    .badgeContent {
+      border: 2px solid #000 !important;
+      width: 100%;
+      height: 100%;
+      border-radius: 35px;
+      padding: 2px 12px 2px 2px;
+
+      @media screen and (max-width: 640px) {
+        padding: 2px 4px;
+      }
+
+      .iconContainer {
+        border-radius: 100%;
+        background-color: $WHITE;
+        @include RP(("width": 36, "height": 36), 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: 640px) {
+          display: none;
+        }
+
+        @media screen and (max-width: 992px) {
+          @include RP(("width": 28, "height": 28), 1);
+
+          svg {
+            @include RP(("width": 14, "height": 14), 1);
+          }
+        }
+
+        svg {
+          @include RP(("width": 16, "height": 16), 1);
+        }
       }
     }
   }

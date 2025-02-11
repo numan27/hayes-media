@@ -2,45 +2,34 @@
 @import "utils/colors.scss";
 
 .header {
-  border: 1px solid $BORDER;
-  background-color: #f8f8f8;
-  @include RP(
-    (
-      "border-top-left-radius": 24,
-      "border-top-right-radius": 24,
+  background: $PRIMARY;
+  @include RP(("border-top-left-radius": 10,
+      "border-top-right-radius": 10,
       "height": 60,
     ),
-    1
-  );
+    1);
+
   .title {
     font-weight: 600;
-    color: #303030;
-    @include RP(
-      (
-        "font-size": 16,
-      )
-    );
+    color: $WHITE;
+    @include RP(("font-size": 18,
+      ), 1);
   }
 
   label {
-    @include MRP(
-      (
-        "font-size": 18,
+    @include MRP(("font-size": 18,
         "line-height": 21,
-      )
-    );
+      ));
   }
 
   svg {
     path {
       stroke: $BLUE;
     }
-    @include MRP(
-      (
-        "height": 24,
+
+    @include MRP(("height": 24,
         "width": 24,
-      )
-    );
+      ));
 
     &:hover {
       cursor: pointer;
@@ -55,24 +44,22 @@
     border-radius: 50%;
     right: 10px;
     top: 10px;
-    border: 1.5px solid $BORDER;
+    border: 2px solid $WHITE;
     cursor: pointer;
-    @include MRP(
-      (
-        "height": 30,
-        "width": 30,
-      )
-    );
+    @include MRP(("height": 36,
+        "width": 36,
+      ));
+
     svg {
-      @include MRP(
-        (
-          "height": 15,
-          "width": 15,
-        )
-      );
+      @include MRP(("height": 18,
+          "width": 18,
+        ));
+
       path {
-        fill: $PRIMARY;
+        stroke: $WHITE;
+        fill: $WHITE;
       }
+
       &:hover {
         cursor: pointer;
       }
@@ -87,23 +74,20 @@
     left: 10px;
     top: 10px;
     cursor: pointer;
-    @include MRP(
-      (
-        "height": 30,
+    @include MRP(("height": 30,
         "width": 30,
-      )
-    );
+      ));
+
     svg {
-      @include MRP(
-        (
-          "height": 15,
+      @include MRP(("height": 15,
           "width": 15,
-        )
-      );
+        ));
+
       path {
         stroke: #303030 !important;
         fill: #303030 !important;
       }
+
       &:hover {
         cursor: pointer;
       }

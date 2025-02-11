@@ -30,7 +30,7 @@ const ModalHeader = ({
         {isBack ? <Icons.ArrowLeft /> : null}
       </div>
       <div className="flex justify-center">
-        <p className={classNames(styles.title)}>{title}</p>
+        <h5 className={classNames(styles.title)}>{title}</h5>
       </div>
       <div className={classNames(styles.crossContainer)} onClick={handleClose}>
         <Icons.Cross />

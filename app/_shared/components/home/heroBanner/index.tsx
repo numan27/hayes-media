@@ -12,12 +12,9 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 // import AOS from "aos";
 
 const changingTexts = [
-  "INNOVATIVE CREATIVE SOLUTIONS",
-  "RESULTS-DRIVEN STRATEGIES",
-  // "DATA-POWERED MARKETING",
-  // "VISIONARY BRAND BUILDING",
-  "IMPACTFUL DIGITAL CAMPAIGNS",
-  "CREATIVE BUSINESS GROWTH",
+  "Marketing Agency",
+  "Creative Agency",
+  "Advertising Agency",
 ];
 
 interface HeroBannerProps {
@@ -34,7 +31,7 @@ const HeroBanner = ({
   contentIcon,
   title,
   desc,
-  videoSrc = "/HomePageHeader1.webm",
+  videoSrc = "/HomePageHeaderFinal.mp4",
   brandImagesData,
   brandsHeading,
   btnTitle = "Get Started",
@@ -68,26 +65,16 @@ const HeroBanner = ({
   }, []);
 
   return (
-    <div
-      className={classNames(
-        styles.heroBannerWrapper,
-        "md:min-h-screen h-full flex flex-col justify-between"
-      )}
-    >
+    <section className={classNames(styles.sectionContainer, "w-full")}>
       <div className={classNames(styles.customContainer, "h-full")}>
-        <section
-          className={classNames(
-            styles.sectionContainer,
-            "flex items-center h-full"
-          )}
-        >
+        <div className="h-full relative flex items-center">
           <div
             className={classNames(
               styles.content,
-              "grid md:grid-cols-2 grid-cols-1 gap-16 h-full"
+              "grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-8 h-full w-full pb-20"
             )}
           >
-            <div className="md:order-1 order-2 flex flex-col md:items-start items-center sm:justify-center justify-end h-full xs:gap-8 gap-4">
+            <div className="md:order-1 order-2 flex flex-col md:items-start items-center md:justify-center justify-start h-full xs:gap-8 gap-4">
               {contentIcon && (
                 <div className={classNames(styles.heroContentIcon)}>
                   <Image src={Images.Speaker} alt="icon" />
@@ -98,12 +85,11 @@ const HeroBanner = ({
                 className="text-white md:text-left text-center uppercase mb-0"
               >
                 {title || (
-                  <div className="w-10/12">
-                    HAYES MEDIA IS A {width > 640 && <br />}
+                  <div className="md:w-10/12 w-full md:text-nowrap">
+                    HAYES MEDIA IS A <br />
                     <span
                       className={classNames(
                         styles.animatedText,
-                        // "xs:w-10/12 w-full",
                         { "opacity-0": isAnimating },
                         "transition-all"
                       )}
@@ -135,21 +121,23 @@ const HeroBanner = ({
               />
             </div>
           </div>
-        </section>
+
+          <span
+            className={classNames(
+              styles.sliderContainer,
+              "absolute bottom-0 left-0 right-0"
+              // "sm:mt-0 pt-6 sm:mb-20 mb-0"
+            )}
+          >
+            <BrandSlider
+              brandsHeading={brandsHeading}
+              data-aos="fade-up"
+              imagesData={brandImagesData}
+            />
+          </span>
+        </div>
       </div>
-      <div
-        className={classNames(
-          styles.sliderContainer,
-          "sm:mt-0 pt-6 sm:mb-20 mb-0"
-        )}
-      >
-        <BrandSlider
-          brandsHeading={brandsHeading}
-          data-aos="fade-up"
-          imagesData={brandImagesData}
-        />
-      </div>
-    </div>
+    </section>
   );
 };
 

@@ -2,7 +2,8 @@
 @import "utils/colors.scss";
 
 .sectionContainer {
-
+  height: 100% !important;
+  min-height: 100% !important;
   @include RP(("padding-top": 60,
       "padding-bottom": 60,
     ));
@@ -12,12 +13,14 @@
       ));
   }
 
+  button {
+    z-index: 9999 !important;
+  }
 
   .sliderWrapper {
+    height: 100% !important;
+    min-height: 100% !important;
     position: relative;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     @include RP(("padding-top": 40,
         "padding-bottom": 40,
         "padding-left": 20,
@@ -91,6 +94,7 @@
       }
 
       .reviewItem {
+
         &::before {
           content: "";
           width: 100%;
@@ -101,8 +105,6 @@
             ));
         }
 
-        @include RP(("height": 474,
-          ), 1);
         min-height: 474px !important;
 
         video {
@@ -134,8 +136,15 @@
       }
 
       .reviewItem {
-        @include RP(("height": 474,
-          ), 1);
+        height: 474px !important;
+        min-height: 474px !important;
+        // @include RP(("height": 474,
+        //     "min-height": 474,
+        //   ), 1);
+
+        video {
+          height: 100% !important;
+        }
 
 
         .content {
@@ -152,6 +161,13 @@
     .reviewItem {
       // box-shadow: 0px 0px 50px 6px #91A1A014;
       border-radius: 8px;
+      height: 474px !important;
+      min-height: 474px !important;
+
+      video {
+        height: 100% !important;
+      }
+
 
       .overlay {
         position: absolute;
@@ -169,6 +185,10 @@
         text-align: center;
         padding: 20px;
         border-radius: 8px;
+
+        &:hover .overlay {
+          opacity: 1; // Show on hover
+        }
       }
 
       video {
@@ -176,8 +196,11 @@
         min-width: 100% !important;
         border-radius: 8px;
         object-fit: cover;
-        @include RP(("height": 474,
-          ), 1);
+        // @include RP(("height": 474,
+        //     "min-height": 474,
+        //   ), 1);
+        height: 474px !important;
+        min-height: 474px !important;
       }
 
 

@@ -34,8 +34,6 @@ const LandingPage = () => {
       <CeoMessage />
       <Methodology />
       <TeamSection />
-      {/* <Testimonials /> */}
-      {/* <Testimonials /> */}
       <Blogs />
       <Newsletter />
 

@@ -1,181 +1,183 @@
 @import "utils/responsive.module.scss";
 @import "utils/colors.scss";
 
-.heroBannerWrapper {
+.sectionContainer {
+  background-color: #000;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 99 !important;
+  height: calc(100vh - 100px) !important;
 
-  @media screen and (min-width: 2350px) {
-    height: 90vh !important;
+  @media screen and (max-width: 576px) {
+    height: calc(90vh - 100px) !important;
   }
 
-  .sectionContainer {
-    background-color: #000;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    z-index: 99 !important;
+  @media screen and (max-width: 400) {
+    height: calc(80vh - 100px) !important;
+  }
 
-    .content {
+  .content {
 
-      .videoWrapper {
-        .videoContainer {
+    .videoWrapper {
+      .videoContainer {
+
+        @media screen and (max-width: 767px) {
+          width: 50% !important;
+        }
+
+
+        video {
+          width: 100%;
+
+          @media screen and (max-width: 510px) {
+            width: 100% !important;
+          }
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          max-width: 150px;
+          max-height: 100px;
+          object-fit: cover;
+        }
+
+        .playButtonWrapper {
+          position: absolute;
+          bottom: 16px;
+          left: 16px;
+          width: 86px !important;
+          height: 86px !important;
 
           @media screen and (max-width: 767px) {
-            width: 50% !important;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
           }
 
-
-          video {
-            width: 100%;
-
-            @media screen and (max-width: 510px) {
-              width: 100% !important;
-            }
-          }
-
-          img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            max-width: 150px;
-            max-height: 100px;
-            object-fit: cover;
-          }
-
-          .playButtonWrapper {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
+          .playButton {
+            position: relative;
             width: 86px !important;
             height: 86px !important;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
 
-            @media screen and (max-width: 767px) {
-              bottom: 8px;
-              left: 50%;
-              transform: translateX(-50%);
+            @media screen and (max-width: 992px) {
+              width: 66px;
+              height: 66px;
             }
 
-            .playButton {
-              position: relative;
-              width: 86px !important;
-              height: 86px !important;
+            &::before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(18, 17, 17, 0.4);
               border-radius: 50%;
-              background-color: rgba(255, 255, 255, 0.4);
-              cursor: pointer;
 
-              @media screen and (max-width: 992px) {
-                width: 66px;
-                height: 66px;
+              @media screen and (max-width: 575px) {
+                display: none;
               }
+            }
 
-              &::before {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(18, 17, 17, 0.4);
-                border-radius: 50%;
+            .playIcon {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              z-index: 10;
 
-                @media screen and (max-width: 575px) {
-                  display: none;
-                }
-              }
+              svg {
+                width: 50px !important;
+                height: 50px !important;
 
-              .playIcon {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 10;
-
-                svg {
-                  width: 50px !important;
-                  height: 50px !important;
-
-                  @media screen and (max-width: 992px) {
-                    width: 24px;
-                    height: 24px;
-                  }
+                @media screen and (max-width: 992px) {
+                  width: 24px;
+                  height: 24px;
                 }
               }
             }
           }
         }
       }
+    }
 
-      z-index: 1;
+    z-index: 1;
 
-      @include RP(("padding-top": 50,
-          // "padding-bottom": 50
+    @include RP(( // "padding-top": 50,
+        // "padding-bottom": 50
+      ));
+
+    @media screen and (max-width: 576px) {
+      text-align: center;
+      padding-left: 0 !important;
+      grid-template-columns: 1fr;
+    }
+
+    .heroContentIcon {
+      border-radius: 100%;
+      background-color: $WHITE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include RP(("width": 75,
+          "height": 75,
         ));
+
+      img {
+        @include RP(("width": 40,
+            "height": 40,
+          ));
+      }
+    }
+
+    h1 {
+      margin-bottom: 0 !important;
+
+      // span {
+      //   @include RP(("line-height": 50), 1);
+      // }
+    }
+
+    .title {
+      color: $WHITE;
+    }
+
+    button {
+      @include RP(("padding-left": 60, "padding-right": 60));
+    }
+
+    p {
+      color: #d1d0d0;
+
+      @include RP(("font-size": 17.5, "padding-top": 10, "margin-right": 35));
 
       @media screen and (max-width: 576px) {
         text-align: center;
-        padding-left: 0 !important;
-        grid-template-columns: 1fr;
+        margin: 0;
+      }
+    }
+
+    .animatedText {
+      display: inline-block;
+      opacity: 0;
+      // transform: translateY(20px) !important;
+      animation: fadeInUp 1s forwards !important;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out !important;
+      line-height: default;
+      // max-width: 500px !important;
+      text-align: left !important;
+
+      @media screen and (max-width: 768px) {
+        text-align: center !important;
+        max-width: auto !important;
       }
 
-      .heroContentIcon {
-        border-radius: 100%;
-        background-color: $WHITE;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include RP(("width": 75,
-            "height": 75,
-          ));
-
-        img {
-          @include RP(("width": 40,
-              "height": 40,
-            ));
-        }
-      }
-
-      h1 {
-        margin-bottom: 0 !important;
-
-        // span {
-        //   @include RP(("line-height": 50), 1);
-        // }
-      }
-
-      .title {
-        color: $WHITE;
-      }
-
-      button {
-        @include RP(("padding-left": 60, "padding-right": 60));
-      }
-
-      p {
-        color: #d1d0d0;
-
-        @include RP(("font-size": 17.5, "padding-top": 10, "margin-right": 35));
-
-        @media screen and (max-width: 576px) {
-          text-align: center;
-          margin: 0;
-        }
-      }
-
-      .animatedText {
-        display: inline-block;
+      &.opacity-0 {
         opacity: 0;
-        // transform: translateY(20px) !important;
-        animation: fadeInUp 1s forwards !important;
-        transition: opacity 1s ease-in-out, transform 1s ease-in-out !important;
-        line-height: default;
-        // max-width: 500px !important;
-        text-align: left !important;
-
-        @media screen and (max-width: 768px) {
-          text-align: center !important;
-          max-width: auto !important;
-        }
-
-        &.opacity-0 {
-          opacity: 0;
-        }
       }
     }
   }

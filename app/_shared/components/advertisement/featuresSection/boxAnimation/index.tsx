@@ -4,11 +4,12 @@ import { useState, useRef } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
+import { motion } from "framer-motion";
 import CustomButton from "components/common/customButton";
 
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [clickedRetargeting, setClickedRetargeting] = useState<boolean>(false); // Track if Re-targeting was clicked
+  const [clickedRetargeting, setClickedRetargeting] = useState<boolean>(false);
   const firstContentRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (index: number) => {
@@ -113,7 +114,10 @@ const BoxAnimation = () => {
                 </span>
               </span>
 
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className={classNames(
                   styles.hiddenContent,
                   "flex items-center justify-center flex-wrap xs:gap-2 gap-1 relative w-full"
@@ -137,7 +141,14 @@ const BoxAnimation = () => {
                 }}
               >
                 {feature.featureItems.map((item, idx) => (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: "easeOut",
+                      staggerChildren: 0.1,
+                    }}
                     key={idx}
                     className={classNames(
                       styles.customBadge,
@@ -156,9 +167,9 @@ const BoxAnimation = () => {
                       <span className={styles.iconContainer}>{item.icon}</span>
                       <p>{item.title}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {hoveredIndex === 2 && index === 2 && (
                 <>
@@ -190,22 +201,37 @@ const BoxAnimation = () => {
                     <path
                       d="M 10 240 C 50 -50, 350 -50, 390 240"
                       stroke="url(#lineGradient)"
-                      strokeWidth="3"
+                      strokeWidth="1"
                       fill="none"
-                      vectorEffect="non-scaling-stroke"
+                      // vectorEffect="non-scaling-stroke"
+                      strokeDasharray="10,5" // Dashed Line
+                      strokeLinecap="round" // Makes dashed line rounded
+                      className={styles.animatedPath}
                     />
-
-                    <circle cx="10" cy="240" r="5" fill="#EC1E24" />
                   </svg>
 
-                  <CustomButton
-                    containerStyle={classNames(
-                      styles.targetButton,
-                      "absolute top-10 right-0"
-                    )}
-                    onClick={handleRetargetingClick}
-                    title="Re-target"
-                  />
+                  <span className="absolute top-10 right-0 cursor-pointer">
+                    <div
+                      style={{ cursor: "pointer" }}
+                      className={classNames(
+                        styles.customBadge,
+                        styles.targetButton
+                      )}
+                      onClick={handleRetargetingClick}
+                    >
+                      <div
+                        className={classNames(
+                          styles.badgeContent,
+                          "flex items-center gap-3"
+                        )}
+                      >
+                        <span className={styles.iconContainer}>
+                          <Icons.ArrowUp />
+                        </span>
+                        Re-targeting Ads
+                      </div>
+                    </div>
+                  </span>
                 </>
               )}
             </div>
