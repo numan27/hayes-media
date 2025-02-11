@@ -39,7 +39,7 @@ const ConfirmationModal = ({
 }: ConfirmationModalProps) => {
   return (
     <CustomModal
-      size="sm"
+      // size="sm"
       isOpen={isOpen}
       onClose={onClose}
       title={title}

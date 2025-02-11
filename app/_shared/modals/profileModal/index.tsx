@@ -41,7 +41,7 @@ const ProfileModal = ({ isOpen, onClose, title }: ProfileModalProps) => {
 
   return (
     <CustomModal
-      size="md"
+      // size="md"
       isOpen={isOpen}
       onClose={onClose}
       title={title}
