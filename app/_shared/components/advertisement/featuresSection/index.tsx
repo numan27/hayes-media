@@ -6,7 +6,6 @@ import BoxAnimation from "./boxAnimation";
 import { Images } from "assets";
 import Image from "next/image";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
-import CustomButton from "components/common/customButton";
 
 const Features = () => {
   const sectionData = [
@@ -85,11 +84,10 @@ const Features = () => {
 
             <div>
               <BoxAnimation />
-              {/* <FunnelAnimation /> */}
             </div>
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <CustomButton title="Learn more" />
-            </div>
+            </div> */}
           </div>
         </CustomAnimatedBorder>
       </div>

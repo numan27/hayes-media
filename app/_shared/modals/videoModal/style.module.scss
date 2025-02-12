@@ -2,14 +2,18 @@
 @import "utils/colors.scss";
 
 .modalContentContainer {
-  width: 100%;
-  @include RP(("max-height": 500,
-    ), 1);
-  max-height: 500px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; // Allows width to be flexible
+  height: calc(100vh - 60px); // Ensures it fits the full screen height
+  background: #000;
 
   video {
-    height: 100% !important;
-    max-height: 500px !important;
-    object-fit: cover;
+    height: calc(100vh - 60px); // Ensures the video fills the screen height
+    max-height: 100vh; // Prevents overflow
+    width: auto; // Allows width to adjust dynamically
+    max-width: 100%; // Ensures it doesn't exceed the container
+    object-fit: contain; // Ensures full visibility without cropping
   }
 }

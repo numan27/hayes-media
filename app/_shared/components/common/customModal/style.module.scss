@@ -11,11 +11,11 @@
   //   )
   // );
   // width: 95%;
-  width: auto !important;
+  width: 100% !important;
   // min-width: 300px !important;
-  max-width: 95% !important;
+  max-width: 100% !important;
   height: auto;
-  margin: auto;
+  margin: 0 !important;
   background-color: $WHITE;
   border-radius: 24px;
   position: relative;
@@ -31,13 +31,13 @@
     //     "padding-right": 48,
     //   )
     // );
-    @media screen and (max-width: 425px) {
-      @include MRP(("padding-top": 20,
-          "padding-bottom": 20,
-          "padding-left": 28,
-          "padding-right": 28,
-        ));
-    }
+    // @media screen and (max-width: 425px) {
+    //   @include MRP(("padding-top": 20,
+    //       "padding-bottom": 20,
+    //       "padding-left": 28,
+    //       "padding-right": 28,
+    //     ));
+    // }
   }
 
   .modalFooter {

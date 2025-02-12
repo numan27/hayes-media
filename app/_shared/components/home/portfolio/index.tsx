@@ -237,7 +237,7 @@ const Portfolio = () => {
                         alt="slider-img"
                       />
                     )}
-                    {(index === activeIndex || index === hoveredIndex) && (
+                    {/* {(index === activeIndex || index === hoveredIndex) && (
                       <div
                         className={classNames(
                           styles.overlay,
@@ -251,7 +251,7 @@ const Portfolio = () => {
                         <p>{item.desc}</p>
                         <CustomButton title="View More" />
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </SwiperSlide>
               ))}

@@ -13,10 +13,9 @@ interface ModalProps {
 const VideoModal = ({ isOpen, onClose, title, videoSrc }: ModalProps) => {
   return (
     <CustomModal
-      // size="lg"
       isOpen={isOpen}
       onClose={onClose}
-      title={title}
+      title=""
       showBackButton={false}
       customContentContainer="noSidePadding"
       showModalFooter={false}

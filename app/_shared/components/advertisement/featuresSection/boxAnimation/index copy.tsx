@@ -5,6 +5,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
 import { motion } from "framer-motion";
+import CustomButton from "components/common/customButton";
 
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -113,11 +114,31 @@ const BoxAnimation = () => {
                 </span>
               </div>
 
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className={classNames(
                   styles.hiddenContent,
-                  "flex items-center justify-center flex-wrap xs:gap-2 gap-0.5 relative w-full"
+                  "flex items-center justify-center flex-wrap xs:gap-2 gap-1 relative w-full"
                 )}
+                style={{
+                  opacity:
+                    (index === 0 && clickedRetargeting) ||
+                    hoveredIndex === index
+                      ? 1
+                      : 0,
+                  visibility:
+                    (index === 0 && clickedRetargeting) ||
+                    hoveredIndex === index
+                      ? "visible"
+                      : "hidden",
+                  transform:
+                    (index === 0 && clickedRetargeting) ||
+                    hoveredIndex === index
+                      ? "translateY(0)"
+                      : "translateY(10px)",
+                }}
               >
                 {feature.featureItems.map((item, idx) => (
                   <motion.div
@@ -148,7 +169,7 @@ const BoxAnimation = () => {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
 
               {hoveredIndex === 2 && index === 2 && (
                 <>
@@ -189,7 +210,7 @@ const BoxAnimation = () => {
                     />
                   </svg>
 
-                  <span className="absolute xl:top-10 top-14 xl:right-0 sm:-right-12 -right-14 cursor-pointer">
+                  <span className="absolute top-10 right-0 cursor-pointer">
                     <div
                       style={{ cursor: "pointer" }}
                       className={classNames(

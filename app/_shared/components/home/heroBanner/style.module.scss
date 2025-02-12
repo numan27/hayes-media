@@ -107,10 +107,6 @@
 
     z-index: 1;
 
-    @include RP(( // "padding-top": 50,
-        // "padding-bottom": 50
-      ));
-
     @media screen and (max-width: 576px) {
       text-align: center;
       padding-left: 0 !important;
@@ -136,10 +132,6 @@
 
     h1 {
       margin-bottom: 0 !important;
-
-      // span {
-      //   @include RP(("line-height": 50), 1);
-      // }
     }
 
     .title {
@@ -163,22 +155,74 @@
 
     .animatedText {
       display: inline-block;
-      opacity: 0;
-      // transform: translateY(20px) !important;
-      animation: fadeInUp 1s forwards !important;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out !important;
-      line-height: default;
-      // max-width: 500px !important;
-      text-align: left !important;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      /* Cursor effect */
+      padding-right: 5px;
+      font-weight: bold;
+      animation: typing 0.5s steps(10, end) forwards;
+    }
 
-      @media screen and (max-width: 768px) {
-        text-align: center !important;
-        max-width: auto !important;
+    @keyframes typing {
+      from {
+        width: 0;
       }
 
-      &.opacity-0 {
+      to {
+        width: 100%;
+      }
+    }
+
+    .slideIn {
+      transform: translateX(-100%);
+      opacity: 0;
+      animation: slideIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
         opacity: 0;
       }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .slideIn {
+      transform: translateX(-100%);
+      opacity: 0;
+      animation: slideIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .animatedText.opacity-0 {
+      opacity: 0;
+      transform: translateX(-100%);
     }
   }
 }

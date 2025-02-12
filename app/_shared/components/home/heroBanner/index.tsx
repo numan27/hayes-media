@@ -9,7 +9,6 @@ import BrandSlider from "../brandSlider";
 import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
 import useWindowDimensions from "hooks/useWindowDimensions";
-// import AOS from "aos";
 
 const changingTexts = [
   "Marketing Agency",
@@ -36,32 +35,53 @@ const HeroBanner = ({
   brandsHeading,
   btnTitle = "Get Started",
 }: HeroBannerProps) => {
-  const [currentText, setCurrentText] = useState(changingTexts[0]);
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const { width } = useWindowDimensions();
 
-  // useEffect(() => {
-  //   AOS.init({
-  //     duration: 1000,
-  //     offset: 200,
-  //     easing: "ease-in-out",
-  //     once: true,
-  //   });
-  // }, []);
-
   useEffect(() => {
-    const interval = setInterval(() => {
+    let wordIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+    let timeout: NodeJS.Timeout;
+
+    const typeEffect = () => {
       setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentText((prevText) => {
-          const currentIndex = changingTexts.indexOf(prevText);
-          const nextIndex = (currentIndex + 1) % changingTexts.length;
-          return changingTexts[nextIndex];
-        });
-        setIsAnimating(false);
-      }, 1000);
-    }, 3000);
-    return () => clearInterval(interval);
+
+      if (!isDeleting) {
+        // Typing
+        if (letterIndex < changingTexts[wordIndex].length) {
+          setCurrentText(
+            changingTexts[wordIndex].substring(0, letterIndex + 1)
+          );
+          letterIndex++;
+          timeout = setTimeout(typeEffect, 100);
+        } else {
+          // Wait before deleting
+          isDeleting = true;
+          timeout = setTimeout(typeEffect, 1000);
+        }
+      } else {
+        // Deleting
+        if (letterIndex > 0) {
+          setCurrentText(
+            changingTexts[wordIndex].substring(0, letterIndex - 1)
+          );
+          letterIndex--;
+          timeout = setTimeout(typeEffect, 50);
+        } else {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % changingTexts.length;
+          setCurrentIndex(wordIndex);
+          timeout = setTimeout(typeEffect, 500);
+        }
+      }
+    };
+
+    timeout = setTimeout(typeEffect, 1000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -88,10 +108,10 @@ const HeroBanner = ({
                   <div className="md:w-10/12 w-full md:text-nowrap">
                     HAYES MEDIA IS A <br />
                     <span
+                      data-aos="fade-right"
                       className={classNames(
                         styles.animatedText,
-                        { "opacity-0": isAnimating },
-                        "transition-all"
+                        isAnimating && styles.slideIn
                       )}
                     >
                       {currentText}
@@ -114,7 +134,6 @@ const HeroBanner = ({
               )}
             >
               <BannerVideo
-                // videoSrc="/HomePageHeader1.webm"
                 videoSrc={videoSrc}
                 thumbnailSrc="/hero-banner.png"
                 alt="Sample Video Thumbnail"
@@ -126,7 +145,6 @@ const HeroBanner = ({
             className={classNames(
               styles.sliderContainer,
               "absolute bottom-0 left-0 right-0"
-              // "sm:mt-0 pt-6 sm:mb-20 mb-0"
             )}
           >
             <BrandSlider
