@@ -2,15 +2,15 @@ import CustomModal from "components/common/customModal";
 import styles from "./style.module.scss";
 import classNames from "classnames";
 import BannerVideo from "components/home/heroBanner/banner-video";
+import Image from "next/image";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string | any;
-  videoSrc?: string | any;
+  item?: { type: "video" | "image" | "pdf"; src: string } | null;
 }
 
-const VideoModal = ({ isOpen, onClose, title, videoSrc }: ModalProps) => {
+const VideoModal = ({ isOpen, onClose, item }: ModalProps) => {
   return (
     <CustomModal
       isOpen={isOpen}
@@ -21,7 +21,25 @@ const VideoModal = ({ isOpen, onClose, title, videoSrc }: ModalProps) => {
       showModalFooter={false}
     >
       <div className={classNames(styles.modalContentContainer)}>
-        <BannerVideo isHaveAudioControl videoSrc={videoSrc} />
+        {item ? (
+          item.type === "video" ? (
+            <BannerVideo isHaveAudioControl videoSrc={item.src} />
+          ) : item.type === "image" ? (
+            <Image
+              className="w-full h-auto"
+              src={item.src}
+              alt="Portfolio Image"
+            />
+          ) : (
+            <embed
+              className="w-full h-[80vh]"
+              src={item.src}
+              type="application/pdf"
+            />
+          )
+        ) : (
+          <p>No content available</p>
+        )}
       </div>
     </CustomModal>
   );

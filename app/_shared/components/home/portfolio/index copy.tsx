@@ -20,36 +20,53 @@ const Portfolio = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<{
-    type: "video" | "image" | "pdf";
-    src: string;
+  const [selectedVideo, setSelectedVideo] = useState<{
+    video: string;
   } | null>(null);
-
   const [muted, setMuted] = useState<boolean>(true);
   const { width } = useWindowDimensions();
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [portfolioModal, setPortfolioModal] = useState(false);
 
   const portfolioData = [
-    { type: "video", src: "/portfolio/CampVideo1.mp4" },
-    { type: "video", src: "/portfolio/BogStreet1.mp4" },
-    { type: "video", src: "/portfolio/Comp7.mp4" },
-    { type: "video", src: "/portfolio/GlitchfestCommercial.mp4" },
-    { type: "video", src: "/portfolio/LineUpRelease.webm" },
-    { type: "video", src: "/portfolio/OpenerComp.webm" },
-    { type: "video", src: "/portfolio/Reel1.webm" },
-    { type: "video", src: "/portfolio/TheGoldenClip.webm" },
-    { type: "video", src: "/portfolio/Video1.webm" },
-    { type: "video", src: "/portfolio/Video20.webm" },
-    { type: "pdf", src: "/portfolio/portfolio-doc-1.pdf" },
-    { type: "pdf", src: "/portfolio/portfolio-doc-2.pdf" },
-    { type: "image", src: Images.PortfolioImgHayes1 },
-    { type: "image", src: Images.PortfolioImgHayes2 },
-    { type: "image", src: Images.PortfolioImgHayes3 },
-    { type: "image", src: Images.PortfolioImgHayes4 },
-    { type: "image", src: Images.PortfolioImgHayes5 },
+    {
+      video: "/portfolio/CampVideo1.mp4",
+    },
+    {
+      video: "/portfolio/BogStreet1.mp4",
+    },
+    {
+      video: "/portfolio/Comp7.mp4",
+    },
+    {
+      video: "/portfolio/GlitchfestCommercial.mp4",
+    },
+    {
+      video: "/portfolio/LineUpRelease.webm",
+    },
+    {
+      video: "/portfolio/OpenerComp.webm",
+    },
+    {
+      video: "/portfolio/Reel1.webm",
+    },
+    {
+      video: "/portfolio/TheGoldenClip.webm",
+    },
+    {
+      video: "/portfolio/Video1.webm",
+    },
+    {
+      video: "/portfolio/Video20.webm",
+    },
+    { doc: "/public/portfolio/portfolio-doc-1.pdf" },
+    { doc: "/public/portfolio/portfolio-doc-2.pdf" },
+    { img: Images.PortfolioImgHayes1 },
+    { img: Images.PortfolioImgHayes2 },
+    { img: Images.PortfolioImgHayes3 },
+    { img: Images.PortfolioImgHayes4 },
+    { img: Images.PortfolioImgHayes5 },
   ];
-
   const [mutedVideos, setMutedVideos] = useState<boolean[]>(
     portfolioData.map(() => true)
   );
@@ -83,12 +100,20 @@ const Portfolio = () => {
   useEffect(() => {
     if (swiperInstance) {
       if (isHovered) {
-        swiperInstance.autoplay.start();
+        swiperInstance.autoplay.start(); // Start autoplay on hover
       } else {
-        swiperInstance.autoplay.stop();
+        swiperInstance.autoplay.stop(); // Stop autoplay on mouse leave
       }
     }
   }, [isHovered, swiperInstance]);
+
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     isHovered
+  //       ? swiperInstance.autoplay.start()
+  //       : swiperInstance.autoplay.stop();
+  //   }
+  // }, [isHovered, swiperInstance]);
 
   return (
     <section className={classNames(styles.sectionContainer)}>
@@ -100,8 +125,8 @@ const Portfolio = () => {
         >
           <div
             className={classNames(styles.sliderWrapper)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
+            onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
           >
             <CustomSectionHeading centered heading="OUR PREVIOUS WORK" />
             {/* Left Navigation Button */}
@@ -150,7 +175,7 @@ const Portfolio = () => {
                   )}
                   onClick={() => {
                     // @ts-ignore
-                    setSelectedItem(item);
+                    setSelectedVideo(item);
                     setPortfolioModal(true);
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -159,14 +184,13 @@ const Portfolio = () => {
                   <div
                     className={classNames(styles.reviewItem, "relative h-full")}
                   >
-                    {item.type === "video" ? (
+                    {item.video ? (
                       <>
                         <video
                           // @ts-ignore
                           ref={(el) => (videoRefs.current[index] = el)}
                           className="absolute inset-0 w-full h-full object-contain"
-                          // @ts-ignore
-                          src={item.src}
+                          src={item.video}
                           loop
                           muted={mutedVideos[index]}
                         />
@@ -187,18 +211,12 @@ const Portfolio = () => {
                           </button>
                         </span>
                       </>
-                    ) : item.type === "image" ? (
-                      <Image
-                        className="w-full h-full object-cover rounded-md"
-                        src={item.src}
-                        alt="Portfolio Image"
-                      />
                     ) : (
-                      <embed
-                        className="w-full h-full object-cover"
+                      <Image
+                        className="absolute inset-0"
                         // @ts-ignore
-                        src={item.src}
-                        type="application/pdf"
+                        src={item?.image}
+                        alt="slider-img"
                       />
                     )}
                   </div>
@@ -220,7 +238,7 @@ const Portfolio = () => {
         isOpen={portfolioModal}
         onClose={() => setPortfolioModal(false)}
         // @ts-ignore
-        item={selectedItem}
+        videoSrc={selectedVideo?.video}
       />
     </section>
   );

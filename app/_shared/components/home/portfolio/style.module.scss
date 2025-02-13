@@ -37,7 +37,6 @@
     // padding: 10px;
     cursor: pointer;
     z-index: 1000;
-    /* Higher z-index to be above Swiper slides */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,83 +82,37 @@
     .activeSlide {
       position: relative;
 
-      &::before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        background: #506E78F0;
-        @include RP(("border-radius": 24,
-          ));
-      }
-
       .reviewItem {
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          background: #506E78F0;
-          @include RP(("border-radius": 24,
-            ));
-        }
-
         min-height: 474px !important;
 
         video {
           height: 100% !important;
         }
 
-        .content {
-          position: relative;
-
-          h4,
-          p {
-            color: $WHITE;
-          }
-        }
       }
     }
 
     .hoveredSlide {
       position: relative;
 
-      &::before {
-        content: "";
+      .reviewItem {
+        max-height: 474px !important;
+        position: relative;
         width: 100%;
         height: 100%;
-        position: absolute;
-        background: #506E78F0;
-        @include RP(("border-radius": 24,
-          ));
-      }
-
-      .reviewItem {
-        height: 474px !important;
-        min-height: 474px !important;
-        // @include RP(("height": 474,
-        //     "min-height": 474,
-        //   ), 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
 
         video {
           height: 100% !important;
         }
 
-
-        .content {
-          position: relative;
-
-          h4,
-          p {
-            color: $WHITE;
-          }
-        }
       }
     }
 
     .reviewItem {
-      // box-shadow: 0px 0px 50px 6px #91A1A014;
       border-radius: 8px;
       height: 474px !important;
       min-height: 474px !important;
@@ -168,42 +121,14 @@
         height: 100% !important;
       }
 
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        // background: #7C002BE5;
-        background: #7c002b77;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        border-radius: 8px;
-
-        &:hover .overlay {
-          opacity: 1; // Show on hover
-        }
-      }
-
       video {
         width: 100% !important;
         min-width: 100% !important;
         border-radius: 8px;
         object-fit: cover;
-        // @include RP(("height": 474,
-        //     "min-height": 474,
-        //   ), 1);
         height: 474px !important;
         min-height: 474px !important;
       }
-
-
     }
   }
 }

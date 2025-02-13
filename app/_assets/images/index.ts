@@ -77,6 +77,11 @@ import WebBrand4 from "./web-brand-4.png";
 import WebBrand5 from "./web-brand-5.png";
 import WebBrand6 from "./web-brand-6.png";
 import HFOBrandLogo from "./hfo-brand-logo.png";
+import PortfolioImgHayes1 from "./portfolio-hayes-1.jpg";
+import PortfolioImgHayes2 from "./portfolio-hayes-2.jpg";
+import PortfolioImgHayes3 from "./portfolio-hayes-3.jpg";
+import PortfolioImgHayes4 from "./portfolio-hayes-4.jpg";
+import PortfolioImgHayes5 from "./portfolio-hayes-5.jpg";
 
 
 const Images = {
@@ -159,6 +164,11 @@ const Images = {
   WebBrand5,
   WebBrand6,
   HFOBrandLogo,
+  PortfolioImgHayes1,
+  PortfolioImgHayes2,
+  PortfolioImgHayes3,
+  PortfolioImgHayes4,
+  PortfolioImgHayes5,
 };
 
 export { Images };

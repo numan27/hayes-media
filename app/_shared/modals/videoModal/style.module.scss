@@ -5,15 +5,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto; // Allows width to be flexible
-  height: calc(100vh - 60px); // Ensures it fits the full screen height
+  width: auto;
+  height: calc(100vh - 60px);
   background: #000;
 
-  video {
-    height: calc(100vh - 60px); // Ensures the video fills the screen height
-    max-height: 100vh; // Prevents overflow
-    width: auto; // Allows width to adjust dynamically
-    max-width: 100%; // Ensures it doesn't exceed the container
-    object-fit: contain; // Ensures full visibility without cropping
+  video,
+  img {
+    height: calc(100vh - 60px);
+    max-height: 100vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
   }
 }

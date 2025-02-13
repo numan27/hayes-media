@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import AOS from "aos";
 import CustomButton from "components/common/customButton";
+import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 
 const Blogs = () => {
   useEffect(() => {
@@ -51,26 +52,32 @@ const Blogs = () => {
             )}
           >
             {blogsData.map((items) => (
-              <div data-aos="zoom-in" className={classNames(styles.gridItem)}>
-                <div className={classNames(styles.imgContainer)}></div>
-                <div
-                  className={classNames(
-                    styles.content,
-                    "flex flex-col items-start sm:gap-5 gap-3"
-                  )}
-                >
-                  <div className={classNames(styles.category)}>
-                    <span>{items.category}</span>
-                  </div>
-                  <h5>{items.title}</h5>
-                  <div className={classNames(styles.linkContainer)}>
-                    <CustomButton
-                      title="Read More"
-                      containerStyle="md-height-button"
-                    />
+              <CustomAnimatedBorder
+                gradientColors="linear-gradient(270deg, #EC1E24 0%, #141212 50%, #902880 100%)"
+                animationSpeed="6s"
+                borderRadius="8px"
+              >
+                <div data-aos="zoom-in" className={classNames(styles.gridItem)}>
+                  <div className={classNames(styles.imgContainer)}></div>
+                  <div
+                    className={classNames(
+                      styles.content,
+                      "flex flex-col items-start sm:gap-5 gap-3"
+                    )}
+                  >
+                    <div className={classNames(styles.category)}>
+                      <span>{items.category}</span>
+                    </div>
+                    <h5>{items.title}</h5>
+                    <div className={classNames(styles.linkContainer)}>
+                      <CustomButton
+                        title="Read More"
+                        containerStyle="md-height-button"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </CustomAnimatedBorder>
             ))}
           </div>
         </div>
