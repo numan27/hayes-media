@@ -31,10 +31,11 @@ const VideoModal = ({ isOpen, onClose, item }: ModalProps) => {
               alt="Portfolio Image"
             />
           ) : (
-            <embed
+            <iframe
               className="w-full h-[80vh]"
               src={item.src}
-              type="application/pdf"
+              title="PDF Viewer"
+              allowFullScreen
             />
           )
         ) : (

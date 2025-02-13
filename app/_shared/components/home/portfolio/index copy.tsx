@@ -20,53 +20,36 @@ const Portfolio = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [selectedVideo, setSelectedVideo] = useState<{
-    video: string;
+  const [selectedItem, setSelectedItem] = useState<{
+    type: "video" | "image" | "pdf";
+    src: string;
   } | null>(null);
+
   const [muted, setMuted] = useState<boolean>(true);
   const { width } = useWindowDimensions();
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [portfolioModal, setPortfolioModal] = useState(false);
 
   const portfolioData = [
-    {
-      video: "/portfolio/CampVideo1.mp4",
-    },
-    {
-      video: "/portfolio/BogStreet1.mp4",
-    },
-    {
-      video: "/portfolio/Comp7.mp4",
-    },
-    {
-      video: "/portfolio/GlitchfestCommercial.mp4",
-    },
-    {
-      video: "/portfolio/LineUpRelease.webm",
-    },
-    {
-      video: "/portfolio/OpenerComp.webm",
-    },
-    {
-      video: "/portfolio/Reel1.webm",
-    },
-    {
-      video: "/portfolio/TheGoldenClip.webm",
-    },
-    {
-      video: "/portfolio/Video1.webm",
-    },
-    {
-      video: "/portfolio/Video20.webm",
-    },
-    { doc: "/public/portfolio/portfolio-doc-1.pdf" },
-    { doc: "/public/portfolio/portfolio-doc-2.pdf" },
-    { img: Images.PortfolioImgHayes1 },
-    { img: Images.PortfolioImgHayes2 },
-    { img: Images.PortfolioImgHayes3 },
-    { img: Images.PortfolioImgHayes4 },
-    { img: Images.PortfolioImgHayes5 },
+    { type: "video", src: "/portfolio/CampVideo1.mp4" },
+    { type: "video", src: "/portfolio/BogStreet1.mp4" },
+    { type: "video", src: "/portfolio/Comp7.mp4" },
+    { type: "video", src: "/portfolio/GlitchfestCommercial.mp4" },
+    { type: "video", src: "/portfolio/LineUpRelease.webm" },
+    { type: "video", src: "/portfolio/OpenerComp.webm" },
+    { type: "video", src: "/portfolio/Reel1.webm" },
+    { type: "video", src: "/portfolio/TheGoldenClip.webm" },
+    { type: "video", src: "/portfolio/Video1.webm" },
+    { type: "video", src: "/portfolio/Video20.webm" },
+    { type: "pdf", src: "/portfolio/portfolio-doc-1.pdf" },
+    { type: "pdf", src: "/portfolio/portfolio-doc-2.pdf" },
+    { type: "image", src: Images.PortfolioImgHayes1 },
+    { type: "image", src: Images.PortfolioImgHayes2 },
+    { type: "image", src: Images.PortfolioImgHayes3 },
+    { type: "image", src: Images.PortfolioImgHayes4 },
+    { type: "image", src: Images.PortfolioImgHayes5 },
   ];
+
   const [mutedVideos, setMutedVideos] = useState<boolean[]>(
     portfolioData.map(() => true)
   );
@@ -88,7 +71,7 @@ const Portfolio = () => {
     // Ensure only the active video is played
     videoRefs.current.forEach((video, index) => {
       if (video) {
-        if (index === activeIndex) {
+        if (index === activeIndex && selectedItem?.type === "video") {
           video.play();
         } else {
           video.pause();
@@ -100,20 +83,12 @@ const Portfolio = () => {
   useEffect(() => {
     if (swiperInstance) {
       if (isHovered) {
-        swiperInstance.autoplay.start(); // Start autoplay on hover
+        swiperInstance.autoplay.start();
       } else {
-        swiperInstance.autoplay.stop(); // Stop autoplay on mouse leave
+        swiperInstance.autoplay.stop();
       }
     }
   }, [isHovered, swiperInstance]);
-
-  // useEffect(() => {
-  //   if (swiperInstance) {
-  //     isHovered
-  //       ? swiperInstance.autoplay.start()
-  //       : swiperInstance.autoplay.stop();
-  //   }
-  // }, [isHovered, swiperInstance]);
 
   return (
     <section className={classNames(styles.sectionContainer)}>
@@ -125,8 +100,8 @@ const Portfolio = () => {
         >
           <div
             className={classNames(styles.sliderWrapper)}
-            onMouseEnter={() => setIsHovered(true)} // Set hover state on mouse enter
-            onMouseLeave={() => setIsHovered(false)} // Reset hover state on mouse leave
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <CustomSectionHeading centered heading="OUR PREVIOUS WORK" />
             {/* Left Navigation Button */}
@@ -175,7 +150,7 @@ const Portfolio = () => {
                   )}
                   onClick={() => {
                     // @ts-ignore
-                    setSelectedVideo(item);
+                    setSelectedItem(item);
                     setPortfolioModal(true);
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -184,13 +159,14 @@ const Portfolio = () => {
                   <div
                     className={classNames(styles.reviewItem, "relative h-full")}
                   >
-                    {item.video ? (
+                    {item.type === "video" ? (
                       <>
                         <video
                           // @ts-ignore
                           ref={(el) => (videoRefs.current[index] = el)}
                           className="absolute inset-0 w-full h-full object-contain"
-                          src={item.video}
+                          // @ts-ignore
+                          src={item.src}
                           loop
                           muted={mutedVideos[index]}
                         />
@@ -211,12 +187,18 @@ const Portfolio = () => {
                           </button>
                         </span>
                       </>
-                    ) : (
+                    ) : item.type === "image" ? (
                       <Image
-                        className="absolute inset-0"
+                        className="w-full h-full object-cover rounded-md"
+                        src={item.src}
+                        alt="Portfolio Image"
+                      />
+                    ) : (
+                      <embed
+                        className="w-full h-full object-cover"
                         // @ts-ignore
-                        src={item?.image}
-                        alt="slider-img"
+                        src={item.src}
+                        type="application/pdf"
                       />
                     )}
                   </div>
@@ -238,7 +220,7 @@ const Portfolio = () => {
         isOpen={portfolioModal}
         onClose={() => setPortfolioModal(false)}
         // @ts-ignore
-        videoSrc={selectedVideo?.video}
+        item={selectedItem}
       />
     </section>
   );

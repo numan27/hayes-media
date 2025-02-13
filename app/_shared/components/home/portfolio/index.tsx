@@ -25,10 +25,10 @@ const Portfolio = () => {
     src: string;
   } | null>(null);
 
-  const [muted, setMuted] = useState<boolean>(true);
-  const { width } = useWindowDimensions();
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [mutedVideos, setMutedVideos] = useState<boolean[]>([]);
   const [portfolioModal, setPortfolioModal] = useState(false);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const { width } = useWindowDimensions();
 
   const portfolioData = [
     { type: "video", src: "/portfolio/CampVideo1.mp4" },
@@ -50,31 +50,16 @@ const Portfolio = () => {
     { type: "image", src: Images.PortfolioImgHayes5 },
   ];
 
-  const [mutedVideos, setMutedVideos] = useState<boolean[]>(
-    portfolioData.map(() => true)
-  );
-
-  const toggleMute = (index: number) => {
-    setMutedVideos((prev) => {
-      const newMutedStates = [...prev];
-      newMutedStates[index] = !newMutedStates[index];
-
-      if (videoRefs.current[index]) {
-        videoRefs.current[index]!.muted = newMutedStates[index];
-      }
-
-      return newMutedStates;
-    });
-  };
-
   useEffect(() => {
-    // Ensure only the active video is played
     videoRefs.current.forEach((video, index) => {
       if (video) {
         if (index === activeIndex) {
-          video.play();
+          video
+            .play()
+            .catch((error) => console.error("Video play failed", error));
         } else {
           video.pause();
+          video.currentTime = 0;
         }
       }
     });
@@ -104,6 +89,7 @@ const Portfolio = () => {
             onMouseLeave={() => setIsHovered(false)}
           >
             <CustomSectionHeading centered heading="OUR PREVIOUS WORK" />
+
             {/* Left Navigation Button */}
             <button
               className={classNames(styles.swiperButton, styles.prevButton)}
@@ -120,7 +106,7 @@ const Portfolio = () => {
               slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
               loop={true}
               spaceBetween={15}
-              centeredSlides={width > 992 && true}
+              centeredSlides={width > 992}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: true,
@@ -139,15 +125,11 @@ const Portfolio = () => {
               {portfolioData.map((item, index) => (
                 <SwiperSlide
                   key={index}
-                  className={classNames(
-                    "swiper-slide",
-                    "transition-all duration-200 ease-in-out",
-                    {
-                      [styles.activeSlide]: index === activeIndex,
-                      [styles.hoveredSlide]:
-                        index === hoveredIndex && index !== activeIndex,
-                    }
-                  )}
+                  className={classNames({
+                    [styles.activeSlide]: index === activeIndex,
+                    [styles.hoveredSlide]:
+                      index === hoveredIndex && index !== activeIndex,
+                  })}
                   onClick={() => {
                     // @ts-ignore
                     setSelectedItem(item);
@@ -169,23 +151,29 @@ const Portfolio = () => {
                           src={item.src}
                           loop
                           muted={mutedVideos[index]}
+                          autoPlay={index === activeIndex}
                         />
-
-                        <span>
-                          <button
-                            className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleMute(index);
-                            }}
-                          >
-                            {mutedVideos[index] ? (
-                              <MdVolumeOff size={20} color="#fff" />
-                            ) : (
-                              <MdVolumeUp size={20} color="#fff" />
-                            )}
-                          </button>
-                        </span>
+                        <button
+                          className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setMutedVideos((prev) => {
+                              const newMuted = [...prev];
+                              newMuted[index] = !newMuted[index];
+                              if (videoRefs.current[index]) {
+                                videoRefs.current[index]!.muted =
+                                  newMuted[index];
+                              }
+                              return newMuted;
+                            });
+                          }}
+                        >
+                          {mutedVideos[index] ? (
+                            <MdVolumeOff size={20} color="#fff" />
+                          ) : (
+                            <MdVolumeUp size={20} color="#fff" />
+                          )}
+                        </button>
                       </>
                     ) : item.type === "image" ? (
                       <Image
@@ -194,12 +182,22 @@ const Portfolio = () => {
                         alt="Portfolio Image"
                       />
                     ) : (
-                      <embed
-                        className="w-full h-full object-cover"
-                        // @ts-ignore
-                        src={item.src}
-                        type="application/pdf"
-                      />
+                      <div
+                        className="w-full h-full cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // @ts-ignore
+                          setSelectedItem(item);
+                          setPortfolioModal(true);
+                        }}
+                      >
+                        <embed
+                          className="w-full h-full object-cover"
+                          // @ts-ignore
+                          src={item.src}
+                          type="application/pdf"
+                        />
+                      </div>
                     )}
                   </div>
                 </SwiperSlide>
@@ -219,7 +217,6 @@ const Portfolio = () => {
       <VideoModal
         isOpen={portfolioModal}
         onClose={() => setPortfolioModal(false)}
-        // @ts-ignore
         item={selectedItem}
       />
     </section>
