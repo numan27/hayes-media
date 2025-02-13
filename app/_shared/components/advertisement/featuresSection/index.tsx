@@ -2,10 +2,10 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
-import BoxAnimation from "./boxAnimation";
 import { Images } from "assets";
 import Image from "next/image";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
+import BoxAnimation from "./boxAnimation";
 
 const Features = () => {
   const sectionData = [
