@@ -3,9 +3,9 @@
 
 .sectionWrapper {
 
-  @include RP(("padding-top": 10,
+  @include RP(("padding-top": 80,
       "padding-bottom": 80,
-    ));
+    ), 1);
   position: relative;
 
   .contentContainer {

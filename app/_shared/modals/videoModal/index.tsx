@@ -30,13 +30,17 @@ const VideoModal = ({ isOpen, onClose, item }: ModalProps) => {
               src={item.src}
               alt="Portfolio Image"
             />
-          ) : (
+          ) : item.type === "pdf" ? (
             <iframe
               className="w-full h-[80vh]"
-              src={item.src}
+              src={`https://docs.google.com/viewer?url=${encodeURIComponent(
+                item.src
+              )}&embedded=true`}
               title="PDF Viewer"
               allowFullScreen
             />
+          ) : (
+            <p>Unsupported content type</p>
           )
         ) : (
           <p>No content available</p>

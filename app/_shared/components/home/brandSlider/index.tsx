@@ -10,7 +10,7 @@ interface BrandSliderProps {
 
 const BrandSlider = ({
   imagesData,
-  brandsHeading = "Our Brands that work with us",
+  brandsHeading = "Brands that work with us",
 }: BrandSliderProps) => {
   return (
     <section className={classNames(styles.brands__section)}>

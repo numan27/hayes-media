@@ -7,11 +7,19 @@ import Link from "next/link";
 
 const Contact = () => {
   const socialIcons = [
-    { icon: <Icons.Instagram />, link: "" },
-    { icon: <Icons.Facebook />, link: "" },
-    { icon: <Icons.LinkedIn />, link: "" },
-    { icon: <Icons.Twitter />, link: "" },
-    { icon: <Icons.Youtube />, link: "" },
+    {
+      icon: <Icons.Facebook />,
+      link: "https://www.facebook.com/hayesmediahtx",
+    },
+    {
+      icon: <Icons.LinkedIn />,
+      link: "https://www.linkedin.com/company/hayesmedia/",
+    },
+    { icon: <Icons.Twitter />, link: "https://x.com/HayesMediaHTX" },
+    {
+      icon: <Icons.Youtube />,
+      link: "https://www.youtube.com/@hayesmedia5639",
+    },
   ];
 
   return (
@@ -30,7 +38,12 @@ const Contact = () => {
               <h2>
                 <span>CONTACT US</span>
               </h2>
-              <p>Lorem ipsum is a simply dummy text</p>
+              <p>
+                Got an idea that’s ready to take flight? Need a digital spark to
+                ignite your brand? Whether it’s a quick chat or a deep dive into
+                your next big project, we’re all ears. Reach out, and let’s turn
+                creativity into reality!
+              </p>
             </div>
 
             <div>
@@ -59,7 +72,7 @@ const Contact = () => {
                   )}
                 >
                   {socialIcons.map((items, index) => (
-                    <Link key={index} href="">
+                    <Link key={index} href={items.link}>
                       <div className={classNames(styles.iconContainer)}>
                         {items.icon}
                       </div>

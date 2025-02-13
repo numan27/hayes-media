@@ -13,6 +13,27 @@ import CustomSectionHeading from "components/common/customSectionHeading";
 import VideoModal from "modals/videoModal";
 import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
+// Declare portfolioData before using it
+const portfolioData = [
+  { type: "video", src: "/portfolio/CampVideo1.mp4" },
+  { type: "video", src: "/portfolio/BogStreet1.mp4" },
+  { type: "video", src: "/portfolio/Comp7.mp4" },
+  { type: "video", src: "/portfolio/GlitchfestCommercial.mp4" },
+  { type: "video", src: "/portfolio/LineUpRelease.webm" },
+  { type: "video", src: "/portfolio/OpenerComp.webm" },
+  { type: "video", src: "/portfolio/Reel1.webm" },
+  { type: "video", src: "/portfolio/TheGoldenClip.webm" },
+  { type: "video", src: "/portfolio/Video1.webm" },
+  { type: "video", src: "/portfolio/Video20.webm" },
+  { type: "pdf", src: "/portfolio/portfolio-doc-1.pdf" },
+  { type: "pdf", src: "/portfolio/portfolio-doc-2.pdf" },
+  { type: "image", src: Images.PortfolioImgHayes1 },
+  { type: "image", src: Images.PortfolioImgHayes2 },
+  { type: "image", src: Images.PortfolioImgHayes3 },
+  { type: "image", src: Images.PortfolioImgHayes4 },
+  { type: "image", src: Images.PortfolioImgHayes5 },
+];
+
 const Portfolio = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
     null
@@ -20,50 +41,72 @@ const Portfolio = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [slidesPerGroup, setSlidesPerGroup] = useState(1);
   const [selectedItem, setSelectedItem] = useState<{
     type: "video" | "image" | "pdf";
     src: string;
   } | null>(null);
+  const [isSectionVisible, setIsSectionVisible] = useState<boolean>(false); // Track section visibility
 
-  const [mutedVideos, setMutedVideos] = useState<boolean[]>([]);
+  // Initialize mutedVideos with the correct length
+  const [mutedVideos, setMutedVideos] = useState<boolean[]>(
+    Array(portfolioData.filter((item) => item.type === "video").length).fill(
+      true
+    )
+  );
   const [portfolioModal, setPortfolioModal] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement | null>(null); // Ref for the portfolio section
   const { width } = useWindowDimensions();
 
-  const portfolioData = [
-    { type: "video", src: "/portfolio/CampVideo1.mp4" },
-    { type: "video", src: "/portfolio/BogStreet1.mp4" },
-    { type: "video", src: "/portfolio/Comp7.mp4" },
-    { type: "video", src: "/portfolio/GlitchfestCommercial.mp4" },
-    { type: "video", src: "/portfolio/LineUpRelease.webm" },
-    { type: "video", src: "/portfolio/OpenerComp.webm" },
-    { type: "video", src: "/portfolio/Reel1.webm" },
-    { type: "video", src: "/portfolio/TheGoldenClip.webm" },
-    { type: "video", src: "/portfolio/Video1.webm" },
-    { type: "video", src: "/portfolio/Video20.webm" },
-    { type: "pdf", src: "/portfolio/portfolio-doc-1.pdf" },
-    { type: "pdf", src: "/portfolio/portfolio-doc-2.pdf" },
-    { type: "image", src: Images.PortfolioImgHayes1 },
-    { type: "image", src: Images.PortfolioImgHayes2 },
-    { type: "image", src: Images.PortfolioImgHayes3 },
-    { type: "image", src: Images.PortfolioImgHayes4 },
-    { type: "image", src: Images.PortfolioImgHayes5 },
-  ];
+  const handleDoubleClick = () => {
+    setSlidesPerGroup(3); // Move 3 slides on double-click
+    setTimeout(() => setSlidesPerGroup(1), 1000); // Reset after 1 second
+  };
 
+  // Intersection Observer to detect when the section is visible
   useEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (video) {
-        if (index === activeIndex) {
-          video
-            .play()
-            .catch((error) => console.error("Video play failed", error));
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsSectionVisible(true); // Section is visible
+            observer.unobserve(entry.target); // Stop observing once visible
+          }
+        });
+      },
+      { threshold: 0.01 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
-    });
-  }, [activeIndex]);
+    };
+  }, []);
+
+  // Play the active video only when the section is visible
+  useEffect(() => {
+    if (isSectionVisible && portfolioData[activeIndex]?.type === "video") {
+      videoRefs.current.forEach((video, index) => {
+        if (video) {
+          if (index === activeIndex) {
+            video.muted = true; // Ensure the video is muted
+            video
+              .play()
+              .catch((error) => console.error("Video play failed", error));
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        }
+      });
+    }
+  }, [activeIndex, isSectionVisible]);
 
   useEffect(() => {
     if (swiperInstance) {
@@ -76,7 +119,10 @@ const Portfolio = () => {
   }, [isHovered, swiperInstance]);
 
   return (
-    <section className={classNames(styles.sectionContainer)}>
+    <section
+      className={classNames(styles.sectionContainer)}
+      ref={sectionRef} // Attach the ref to the section
+    >
       <div className={classNames(styles.customContainer)}>
         <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
@@ -104,6 +150,7 @@ const Portfolio = () => {
                 "newsSlider w-10/12 mx-auto"
               )}
               slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
+              slidesPerGroup={slidesPerGroup}
               loop={true}
               spaceBetween={15}
               centeredSlides={width > 992}
@@ -121,6 +168,7 @@ const Portfolio = () => {
               modules={[Pagination, Navigation, A11y, Autoplay]}
               onSwiper={setSwiperInstance}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+              onDoubleClick={handleDoubleClick}
             >
               {portfolioData.map((item, index) => (
                 <SwiperSlide
@@ -132,8 +180,8 @@ const Portfolio = () => {
                   })}
                   onClick={() => {
                     // @ts-ignore
-                    setSelectedItem(item);
-                    setPortfolioModal(true);
+                    setSelectedItem(item); // Set the selected item
+                    setPortfolioModal(true); // Open the modal
                   }}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
@@ -150,8 +198,8 @@ const Portfolio = () => {
                           // @ts-ignore
                           src={item.src}
                           loop
-                          muted={mutedVideos[index]}
-                          autoPlay={index === activeIndex}
+                          muted={true} // Muted by default
+                          autoPlay={false} // Disable autoplay on load
                         />
                         <button
                           className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
@@ -187,8 +235,8 @@ const Portfolio = () => {
                         onClick={(e) => {
                           e.stopPropagation();
                           // @ts-ignore
-                          setSelectedItem(item);
-                          setPortfolioModal(true);
+                          setSelectedItem(item); // Set the selected PDF
+                          setPortfolioModal(true); // Open the modal
                         }}
                       >
                         <embed

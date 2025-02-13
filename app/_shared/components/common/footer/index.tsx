@@ -9,10 +9,19 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 const Footer = () => {
   const { width } = useWindowDimensions();
   const socialLink = [
-    <Icons.Instagram />,
-    <Icons.Facebook />,
-    <Icons.Twitter />,
-    <Icons.Youtube />,
+    {
+      icon: <Icons.Facebook />,
+      link: "https://www.facebook.com/hayesmediahtx",
+    },
+    {
+      icon: <Icons.LinkedIn />,
+      link: "https://www.linkedin.com/company/hayesmedia/",
+    },
+    { icon: <Icons.Twitter />, link: "https://x.com/HayesMediaHTX" },
+    {
+      icon: <Icons.Youtube />,
+      link: "https://www.youtube.com/@hayesmedia5639",
+    },
   ];
 
   const footerLinks = [
@@ -42,15 +51,6 @@ const Footer = () => {
         // { title: "Intake Consultation", path: "" },
       ],
     },
-    {
-      heading: "Learn",
-      links: [
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
-        { title: "Lorem Ipsum", path: "" },
-      ],
-    },
   ];
 
   return (
@@ -60,7 +60,7 @@ const Footer = () => {
           <div
             className={classNames(
               styles.footer__copyright,
-              "md:col-span-4 order-2 md:order-1 col-span-12"
+              "lg:col-span-3 md:col-span-2 order-3 md:order-1 col-span-12"
             )}
           >
             <div className="flex flex-col md:items-start items-center gap-6">
@@ -73,23 +73,6 @@ const Footer = () => {
                 alt="logo"
               />
               <div>
-                <div
-                  className={classNames(
-                    styles.socialContainer,
-                    "flex items-center gap-2 md:justify-start justify-center"
-                  )}
-                >
-                  {socialLink.map((item, index) => (
-                    <Link href="">
-                      <span
-                        key={index}
-                        className={classNames(styles.socialItem)}
-                      >
-                        {item}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
                 <p className={classNames(styles.copyright, "mt-3")}>
                   © 2025 Hayes Media Inc. All rights reserved.
                 </p>
@@ -98,8 +81,8 @@ const Footer = () => {
           </div>
 
           {/* Footer Links */}
-          <div className="md:col-span-8 md:order-2 order-1 col-span-12">
-            <div className="grid grid-cols-3 gap-3">
+          <div className="md:col-span-6 md:order-2 order-2 col-span-12 flex justify-around">
+            <div className="grid grid-cols-2 gap-16">
               {footerLinks.map((items, index) => (
                 <div className="flex md:justify-end justify-center">
                   <div key={index} className="flex flex-col lg:gap-4 gap-2">
@@ -119,6 +102,28 @@ const Footer = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-3 md:col-span-4 col-span-12 md:order-3 order-1 flex md:justify-end justify-center items-center md:mb-0 mb-5">
+            <div className="flex flex-col gap-4">
+              <h4 className="text-white md:text-left text-center">
+                Follow us on:
+              </h4>
+              <div
+                className={classNames(
+                  styles.socialContainer,
+                  "flex items-center gap-2 md:justify-start justify-center"
+                )}
+              >
+                {socialLink.map((item, index) => (
+                  <Link href={item.link}>
+                    <span key={index} className={classNames(styles.socialItem)}>
+                      {item.icon}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

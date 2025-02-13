@@ -16,7 +16,7 @@ const OtherServices = () => {
           <CustomSectionHeading
             centered
             heading="OUR OTHER SERVICES"
-            description="Lorem Ipsum is simply dummy text of the printing ."
+            description=""
           />
           <div
             className={classNames(
@@ -24,8 +24,8 @@ const OtherServices = () => {
               "grid sm:grid-cols-2 grid-cols-1 lg:gap-8 sm:gap-5 xs:gap-4 gap-3"
             )}
           >
-            {otherServicesData.map((items: any) => (
-              <div className={classNames(styles.gridItem)}>
+            {otherServicesData.map((items: any, index) => (
+              <div key={index} className={classNames(styles.gridItem)}>
                 <CustomAnimatedBorder
                   gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
                   animationSpeed="5s"
