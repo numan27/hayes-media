@@ -89,30 +89,6 @@ const BoxAnimation = () => {
       ],
     },
   ];
-  const containerVariants = {
-    hidden: { opacity: 0, visibility: "hidden" },
-    visible: {
-      opacity: 1,
-      visibility: "visible",
-      transition: { staggerChildren: 0.01, delayChildren: 0.01 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: [10, -5, 0],
-      scale: [0.8, 1.1, 1],
-      transition: { duration: 0.01, ease: "easeInOut" },
-    },
-    exit: {
-      opacity: 0,
-      y: 10,
-      scale: 0.8,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-  };
 
   return (
     <div className={classNames(styles.sectionWrapper, "min-h-screen")}>
@@ -135,18 +111,21 @@ const BoxAnimation = () => {
               </span>
             </div>
 
-            <motion.div
+            <div
               className={classNames(
                 styles.hiddenContent,
                 "flex items-center justify-center flex-wrap xs:gap-2 gap-0.5 relative w-full"
               )}
-              // @ts-ignore
-              variants={containerVariants}
-              initial="hidden"
-              animate={hoveredIndex === index ? "visible" : "hidden"}
             >
               {feature.featureItems.map((item, idx) => (
                 <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 1,
+                    ease: "easeOut",
+                    staggerChildren: 0.1,
+                  }}
                   key={idx}
                   className={classNames(
                     styles.customBadge,
@@ -154,7 +133,7 @@ const BoxAnimation = () => {
                       ? "absolute -right-28 -top-3 cursor-pointer"
                       : ""
                   )}
-                  variants={itemVariants}
+                  // onClick={item.onClick}
                 >
                   <div
                     className={classNames(
@@ -167,7 +146,7 @@ const BoxAnimation = () => {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             {hoveredIndex === 2 && index === 2 && (
               <>
