@@ -115,7 +115,12 @@ const BoxAnimation = () => {
   };
 
   return (
-    <div className={classNames(styles.sectionWrapper, "min-h-screen")}>
+    <div
+      className={classNames(
+        styles.sectionWrapper,
+        "flex items-center justify-center h-full"
+      )}
+    >
       {/* <div className={classNames(styles.customContainer, "h-full")}> */}
       <div className={classNames(styles.contentContainer, "h-[90vh] relative")}>
         {featuresData.map((feature, index) => (

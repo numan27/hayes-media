@@ -8,14 +8,13 @@
 
   .contentWrapper {
     @include RP(("padding-top":50,
-        "padding-bottom":50,
       ));
 
     .gridContainer {
       @include RP(("padding-left":100,
           "padding-right":100,
           "padding-top":60,
-          "padding-bottom":60,
+          // "padding-bottom":60,
         ));
 
       @media screen and (max-width: 640px) {
