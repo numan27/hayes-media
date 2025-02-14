@@ -65,29 +65,29 @@ const Portfolio = () => {
   };
 
   // Intersection Observer to detect when the section is visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsSectionVisible(true); // Section is visible
-            observer.unobserve(entry.target); // Stop observing once visible
-          }
-        });
-      },
-      { threshold: 0.01 }
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsSectionVisible(true); // Section is visible
+  //           observer.unobserve(entry.target); // Stop observing once visible
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.01 }
+  //   );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+  //   if (sectionRef.current) {
+  //     observer.observe(sectionRef.current);
+  //   }
 
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (sectionRef.current) {
+  //       observer.unobserve(sectionRef.current);
+  //     }
+  //   };
+  // }, []);
 
   // Play the active video only when the section is visible
   useEffect(() => {
