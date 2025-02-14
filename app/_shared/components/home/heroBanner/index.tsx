@@ -130,7 +130,7 @@ const HeroBanner = ({
             <div
               className={classNames(
                 styles.videoWrapper,
-                "flex items-center justify-end md:order-2 order-1"
+                "flex items-center md:justify-end justify-center md:order-2 order-1"
               )}
             >
               <BannerVideo
