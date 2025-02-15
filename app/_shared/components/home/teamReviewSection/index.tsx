@@ -13,7 +13,6 @@ import { Icons } from "assets";
 const TeamSection = forwardRef<HTMLDivElement, {}>(
   (props, ref: ForwardedRef<HTMLDivElement>) => {
     const { width } = useWindowDimensions();
-    const itemsPerPage = width > 990 ? 2 : 1;
 
     const sliderSettings = {
       dots: true,
@@ -21,9 +20,11 @@ const TeamSection = forwardRef<HTMLDivElement, {}>(
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      // autoPlay: true,
-      autoplaySpeed: 3000,
+      autoplay: true, // Ensure autoplay is enabled
+      autoplaySpeed: 3000, // Set autoplay speed to 3 seconds
       arrows: false,
+      pauseOnHover: false, // Disable pausing on hover
+      pauseOnFocus: true,
     };
 
     return (

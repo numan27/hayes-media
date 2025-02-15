@@ -121,7 +121,12 @@ const BoxAnimation = () => {
         "flex items-center justify-center h-full"
       )}
     >
-      <div className={classNames(styles.contentContainer, "h-[90vh] relative")}>
+      <div
+        className={classNames(
+          styles.contentContainer,
+          "xs:h-[90vh] h-[50vh] max-h-full relative"
+        )}
+      >
         {featuresData.map((feature, index) => (
           <div
             key={index}

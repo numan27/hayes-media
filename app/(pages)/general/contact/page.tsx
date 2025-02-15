@@ -110,8 +110,8 @@ const Contact = () => {
             </div>
           </div>
         </section>
-        <GetQuote />
       </div>
+      <GetQuote />
       {/* <span className="absolute -left-48 top-12 z-10">
         <Image width={200} src={Images.BackShadow} alt="back-shadow" />
       </span> */}

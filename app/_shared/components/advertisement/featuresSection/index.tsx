@@ -83,7 +83,7 @@ const Features = () => {
               ))}
             </div>
 
-            <div className="mt-16 pt-20">
+            <div className="md:mt-16 mt-3 md:pt-20 pt-8">
               <BoxAnimation />
             </div>
             {/* <div className="flex justify-center -pt-16 pb-4">

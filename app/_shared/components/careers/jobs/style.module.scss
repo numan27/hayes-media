@@ -78,6 +78,10 @@
               "padding-left": 20,
               "padding-right": 20,
             ));
+
+          h5 {
+            @include PRIMARY_TEXT;
+          }
         }
 
         p {

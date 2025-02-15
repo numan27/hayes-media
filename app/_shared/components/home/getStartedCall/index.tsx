@@ -31,7 +31,7 @@ const GetStartedCall = () => {
               alt="icon"
             />
           </span>
-          <CustomButton title="Sign up" />
+          <CustomButton title="Sign up" containerStyle="md:mt-6 sm:mt-5 mt-4" />
         </div>
       </div>
     </section>
