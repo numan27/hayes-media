@@ -59,35 +59,54 @@ const Portfolio = () => {
   const sectionRef = useRef<HTMLElement | null>(null); // Ref for the portfolio section
   const { width } = useWindowDimensions();
 
-  // Handle double-click functionality for fast navigation
-  const handleDoubleClick = (direction: "prev" | "next") => {
-    if (!swiperInstance) return;
-
-    // Move 3 slides on double-click
-    setSlidesPerGroup(3);
-
-    if (direction === "prev") {
-      swiperInstance.slidePrev();
-    } else if (direction === "next") {
-      swiperInstance.slideNext();
-    }
-
-    // Reset slidesPerGroup after a short delay
+  const handleDoubleClick = () => {
+    setSlidesPerGroup(3); // Move 3 slides on double-click
     setTimeout(() => setSlidesPerGroup(1), 1000); // Reset after 1 second
   };
 
-  // Play the active video when the component mounts or when the active slide changes
+  // Intersection Observer to detect when the section is visible
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsSectionVisible(true); // Section is visible
+  //           observer.unobserve(entry.target); // Stop observing once visible
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.01 }
+  //   );
+
+  //   if (sectionRef.current) {
+  //     observer.observe(sectionRef.current);
+  //   }
+
+  //   return () => {
+  //     if (sectionRef.current) {
+  //       observer.unobserve(sectionRef.current);
+  //     }
+  //   };
+  // }, []);
+
+  // Play the active video only when the section is visible
   useEffect(() => {
-    if (portfolioData[activeIndex]?.type === "video") {
-      const activeVideo = videoRefs.current[activeIndex];
-      if (activeVideo) {
-        activeVideo.muted = true; // Ensure the video is muted
-        activeVideo
-          .play()
-          .catch((error) => console.error("Video play failed", error));
-      }
+    if (isSectionVisible && portfolioData[activeIndex]?.type === "video") {
+      videoRefs.current.forEach((video, index) => {
+        if (video) {
+          if (index === activeIndex) {
+            video.muted = true; // Ensure the video is muted
+            video
+              .play()
+              .catch((error) => console.error("Video play failed", error));
+          } else {
+            video.pause();
+            video.currentTime = 0;
+          }
+        }
+      });
     }
-  }, [activeIndex]);
+  }, [activeIndex, isSectionVisible]);
 
   useEffect(() => {
     if (swiperInstance) {
@@ -121,7 +140,6 @@ const Portfolio = () => {
             <button
               className={classNames(styles.swiperButton, styles.prevButton)}
               onClick={() => swiperInstance?.slidePrev()}
-              onDoubleClick={() => handleDoubleClick("prev")} // Double-click for fast navigation
             >
               <Image src={Images.SliderArrowLeft} alt="icon" />
             </button>
@@ -150,7 +168,7 @@ const Portfolio = () => {
               modules={[Pagination, Navigation, A11y, Autoplay]}
               onSwiper={setSwiperInstance}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              onDoubleClick={() => handleDoubleClick("next")} // Double-click on slides for fast navigation
+              onDoubleClick={handleDoubleClick}
             >
               {portfolioData.map((item, index) => (
                 <SwiperSlide
@@ -181,7 +199,7 @@ const Portfolio = () => {
                           src={item.src}
                           loop
                           muted={true} // Muted by default
-                          autoPlay={index === activeIndex} // Autoplay only the active video
+                          autoPlay={false} // Disable autoplay on load
                         />
                         <button
                           className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
@@ -238,7 +256,6 @@ const Portfolio = () => {
             <button
               className={classNames(styles.swiperButton, styles.nextButton)}
               onClick={() => swiperInstance?.slideNext()}
-              onDoubleClick={() => handleDoubleClick("next")} // Double-click for fast navigation
             >
               <Image src={Images.SliderArrowRight} alt="icon" />
             </button>
