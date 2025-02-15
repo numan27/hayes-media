@@ -32,7 +32,7 @@
           @include RP(("width": 70,
               "height": 70,
               "border-radius": 20,
-            ));
+            ), 1);
 
           &::before {
             content: "";

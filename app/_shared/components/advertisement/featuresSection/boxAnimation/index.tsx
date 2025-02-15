@@ -121,13 +121,15 @@ const BoxAnimation = () => {
         "flex items-center justify-center h-full"
       )}
     >
-      {/* <div className={classNames(styles.customContainer, "h-full")}> */}
       <div className={classNames(styles.contentContainer, "h-[90vh] relative")}>
         {featuresData.map((feature, index) => (
           <div
             key={index}
             ref={index === 0 ? firstContentRef : null}
-            className={classNames(styles.contentItem, "relative w-full")}
+            className={classNames(
+              styles.contentItem,
+              "relative w-full my-auto"
+            )}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={
               index === 0 ? handleMouseLeaveFirstItem : handleMouseLeave
@@ -240,7 +242,6 @@ const BoxAnimation = () => {
           </div>
         ))}
       </div>
-      {/* </div> */}
     </div>
   );
 };

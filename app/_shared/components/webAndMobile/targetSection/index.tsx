@@ -12,8 +12,8 @@ const TargetSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setLaunch(true);
-      setTimeout(() => setLaunch(false), 2000); // Reset after animation ends
-    }, 5000); // Repeat every 5 seconds
+      setTimeout(() => setLaunch(false), 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -50,7 +50,7 @@ const TargetSection = () => {
             <div
               className={classNames(
                 styles.rocketContainer,
-                "flex lg:justify-end justify-center"
+                "flex lg:justify-end items-end justify-center"
               )}
             >
               <Image

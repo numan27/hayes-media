@@ -51,6 +51,7 @@
 
       .title {
         position: absolute;
+        text-wrap: nowrap !important;
         left: 50%;
         transform: translateX(-50%);
         bottom: 3%;

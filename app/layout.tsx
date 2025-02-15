@@ -18,6 +18,7 @@ import "slick-carousel/slick/slick.css";
 // import CustomProvider from "redux/provider";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import CustomProvider from "_shared/provider";
 
 export const metadata: Metadata = {
   title: "Hayes Media",
@@ -94,9 +95,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo-icon.png" />
       </head>
       <body>
-        {/* <CustomProvider> */}
-        {children}
-        {/* </CustomProvider> */}
+        <CustomProvider>{children}</CustomProvider>
       </body>
     </html>
   );

@@ -18,10 +18,6 @@
       width: 95% !important;
     }
 
-    // @media screen and (min-width: 2000px) {
-    //   height: 70vh !important;
-    // }
-
     .contentItem {
       height: 100%;
       width: 100% !important;
@@ -307,7 +303,7 @@
       .animatedPath {
         stroke-dasharray: 600;
         stroke-dashoffset: 600;
-        animation: drawLine 2.5s linear infinite;
+        animation: drawLine 2.5s linear;
       }
 
       @keyframes drawLine {

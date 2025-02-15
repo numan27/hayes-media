@@ -56,32 +56,25 @@ const Footer = () => {
   return (
     <footer className={classNames(styles.footer)}>
       <div className={classNames(styles.customContainer, "h-full")}>
-        <div className="grid grid-cols-12 lg:gap-6 gap-4 h-full">
+        <div className="grid grid-cols-12 lg:gap-6 md:gap-4 gap-8 h-full">
           <div
             className={classNames(
-              styles.footer__copyright,
-              "lg:col-span-3 md:col-span-2 order-3 md:order-1 col-span-12"
+              styles.logoContainer,
+              "lg:col-span-3 md:col-span-2 col-span-12 flex items-center md:justify-start justify-center"
             )}
           >
-            <div className="flex flex-col md:items-start items-center gap-6">
-              <Image
-                data-aos={width > 768 && "flip-right"}
-                className={classNames(styles.logo)}
-                width={125}
-                height={125}
-                src={Images.Logo}
-                alt="logo"
-              />
-              <div>
-                <p className={classNames(styles.copyright, "mt-3")}>
-                  © 2025 Hayes Media Inc. All rights reserved.
-                </p>
-              </div>
-            </div>
+            <Image
+              data-aos={width > 768 && "flip-right"}
+              className={classNames(styles.logo)}
+              width={150}
+              height={150}
+              src={Images.Logo}
+              alt="logo"
+            />
           </div>
 
           {/* Footer Links */}
-          <div className="md:col-span-6 md:order-2 order-2 col-span-12 flex justify-around">
+          <div className="md:col-span-6 col-span-12 flex justify-around">
             <div className="grid grid-cols-2 gap-16">
               {footerLinks.map((items, index) => (
                 <div className="flex md:justify-end justify-center">
@@ -105,10 +98,15 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-3 md:col-span-4 col-span-12 md:order-3 order-1 flex md:justify-end justify-center items-center md:mb-0 mb-5">
+          <div className="lg:col-span-3 md:col-span-4 col-span-12 flex md:justify-end justify-center items-center md:mb-0 mb-5">
             <div className="flex flex-col gap-4">
-              <h4 className="text-white md:text-left text-center">
-                Follow us on:
+              <h4
+                className={classNames(
+                  styles.socialHeading,
+                  "text-white md:text-left text-center"
+                )}
+              >
+                Follow us on
               </h4>
               <div
                 className={classNames(
@@ -126,6 +124,15 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div
+          className={classNames(
+            styles.copyright,
+            "mt-3 flex items-center justify-center"
+          )}
+        >
+          <p>© 2025 Hayes Media Inc. All rights reserved.</p>
         </div>
       </div>
     </footer>
