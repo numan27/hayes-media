@@ -12,6 +12,7 @@ import Blogs from "./blogs";
 import Newsletter from "./newsletter";
 import GetStartedCall from "./getStartedCall";
 import Portfolio from "./portfolio";
+import GetQuote from "components/advertisement/getQuote";
 
 const LandingPage = () => {
   const brands = [
@@ -35,6 +36,7 @@ const LandingPage = () => {
       <Methodology />
       <TeamSection />
       <Blogs />
+      <GetQuote />
       <Newsletter />
 
       {/* <div className={classNames(styles.backShadow)}>

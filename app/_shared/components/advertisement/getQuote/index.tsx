@@ -8,7 +8,7 @@ import CustomTextArea from "components/common/customTextArea";
 
 const GetQuote = () => {
   return (
-    <section className={classNames(styles.sectionContainer)}>
+    <section id="get-a-quote" className={classNames(styles.sectionContainer)}>
       <div className={classNames(styles.customContainer)}>
         <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
@@ -30,21 +30,24 @@ const GetQuote = () => {
               >
                 <div className="xs:col-span-6 col-span-12">
                   <CustomInput
-                    label=""
+                    required
+                    label="First Name"
                     placeholder="Enter First Name"
                     customInputContainer={classNames(styles.quoteInput)}
                   />
                 </div>{" "}
                 <div className="xs:col-span-6 col-span-12">
                   <CustomInput
-                    label=""
+                    required
+                    label="Last Name"
                     placeholder="Enter Last Name"
                     customInputContainer={classNames(styles.quoteInput)}
                   />
                 </div>{" "}
                 <div className="col-span-12">
                   <CustomInput
-                    label=""
+                    required
+                    label="Phone"
                     type="number"
                     placeholder="Enter Phone Number"
                     customInputContainer={classNames(styles.quoteInput)}
@@ -52,7 +55,8 @@ const GetQuote = () => {
                 </div>{" "}
                 <div className="col-span-12">
                   <CustomInput
-                    label=""
+                    required
+                    label="Email"
                     type="email"
                     placeholder="Enter Email"
                     customInputContainer={classNames(styles.quoteInput)}
@@ -60,7 +64,8 @@ const GetQuote = () => {
                 </div>
                 <div className="col-span-12">
                   <CustomTextArea
-                    label=""
+                    required
+                    label="Message"
                     placeholder="Write Message"
                     rows={4}
                     customInputContainer={classNames(styles.quoteInput)}

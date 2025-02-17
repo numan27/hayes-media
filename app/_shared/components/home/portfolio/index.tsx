@@ -13,7 +13,6 @@ import CustomSectionHeading from "components/common/customSectionHeading";
 import VideoModal from "modals/videoModal";
 import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
-// Declare portfolioData before using it
 const portfolioData = [
   { type: "video", src: "/portfolio/CampVideo1.mp4" },
   { type: "video", src: "/portfolio/BogStreet1.mp4" },
@@ -46,9 +45,8 @@ const Portfolio = () => {
     type: "video" | "image" | "pdf";
     src: string;
   } | null>(null);
-  const [isSectionVisible, setIsSectionVisible] = useState<boolean>(false); // Track section visibility
+  const [isSectionVisible, setIsSectionVisible] = useState<boolean>(false);
 
-  // Initialize mutedVideos with the correct length
   const [mutedVideos, setMutedVideos] = useState<boolean[]>(
     Array(portfolioData.filter((item) => item.type === "video").length).fill(
       true
@@ -59,11 +57,9 @@ const Portfolio = () => {
   const sectionRef = useRef<HTMLElement | null>(null); // Ref for the portfolio section
   const { width } = useWindowDimensions();
 
-  // Handle double-click functionality for fast navigation
   const handleDoubleClick = (direction: "prev" | "next") => {
     if (!swiperInstance) return;
 
-    // Move 3 slides on double-click
     setSlidesPerGroup(3);
 
     if (direction === "prev") {
@@ -72,16 +68,14 @@ const Portfolio = () => {
       swiperInstance.slideNext();
     }
 
-    // Reset slidesPerGroup after a short delay
-    setTimeout(() => setSlidesPerGroup(1), 1000); // Reset after 1 second
+    setTimeout(() => setSlidesPerGroup(1), 1000);
   };
 
-  // Play the active video when the component mounts or when the active slide changes
   useEffect(() => {
     if (portfolioData[activeIndex]?.type === "video") {
       const activeVideo = videoRefs.current[activeIndex];
       if (activeVideo) {
-        activeVideo.muted = true; // Ensure the video is muted
+        activeVideo.muted = true;
         activeVideo
           .play()
           .catch((error) => console.error("Video play failed", error));
@@ -100,10 +94,7 @@ const Portfolio = () => {
   }, [isHovered, swiperInstance]);
 
   return (
-    <section
-      className={classNames(styles.sectionContainer)}
-      ref={sectionRef} // Attach the ref to the section
-    >
+    <section className={classNames(styles.sectionContainer)} ref={sectionRef}>
       <div className={classNames(styles.customContainer)}>
         <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
@@ -121,7 +112,7 @@ const Portfolio = () => {
             <button
               className={classNames(styles.swiperButton, styles.prevButton)}
               onClick={() => swiperInstance?.slidePrev()}
-              onDoubleClick={() => handleDoubleClick("prev")} // Double-click for fast navigation
+              onDoubleClick={() => handleDoubleClick("prev")}
             >
               <Image src={Images.SliderArrowLeft} alt="icon" />
             </button>
@@ -129,9 +120,11 @@ const Portfolio = () => {
             <Swiper
               className={classNames(
                 styles.newsSlider,
-                "newsSlider w-10/12 mx-auto"
+                "newsSlider xs:w-10/12 w-full mx-auto"
               )}
-              slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
+              slidesPerView={
+                width > 1800 ? 4 : width > 992 ? 3 : width > 768 ? 2 : 1
+              }
               slidesPerGroup={slidesPerGroup}
               loop={true}
               spaceBetween={15}
@@ -142,7 +135,7 @@ const Portfolio = () => {
               }}
               speed={800}
               breakpoints={{
-                1200: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 },
                 992: { slidesPerView: 3 },
                 768: { slidesPerView: 2 },
                 0: { slidesPerView: 1 },
@@ -150,7 +143,7 @@ const Portfolio = () => {
               modules={[Pagination, Navigation, A11y, Autoplay]}
               onSwiper={setSwiperInstance}
               onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-              onDoubleClick={() => handleDoubleClick("next")} // Double-click on slides for fast navigation
+              onDoubleClick={() => handleDoubleClick("next")}
             >
               {portfolioData.map((item, index) => (
                 <SwiperSlide
@@ -180,8 +173,8 @@ const Portfolio = () => {
                           // @ts-ignore
                           src={item.src}
                           loop
-                          muted={true} // Muted by default
-                          autoPlay={index === activeIndex} // Autoplay only the active video
+                          muted={true}
+                          autoPlay={index === activeIndex}
                         />
                         <button
                           className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
@@ -238,7 +231,7 @@ const Portfolio = () => {
             <button
               className={classNames(styles.swiperButton, styles.nextButton)}
               onClick={() => swiperInstance?.slideNext()}
-              onDoubleClick={() => handleDoubleClick("next")} // Double-click for fast navigation
+              onDoubleClick={() => handleDoubleClick("next")}
             >
               <Image src={Images.SliderArrowRight} alt="icon" />
             </button>

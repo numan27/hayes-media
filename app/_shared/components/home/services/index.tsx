@@ -13,7 +13,7 @@ const Services = () => {
     {
       // icon: <Icons.ServiceIcon1 />,
       icon: Images.ServiceIcon1,
-      title: "Online Advertising",
+      title: "Full-Stack Digital Marketing",
       desc: "Our white-glove premium service, customized to each client that includes all of our services.",
       path: routeConstant.advertisement.path,
     },

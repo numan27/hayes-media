@@ -84,6 +84,22 @@ const HeroBanner = ({
     return () => clearTimeout(timeout);
   }, []);
 
+  const handleScrollToQuote = () => {
+    const quoteSection = document.getElementById("get-a-quote");
+
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      // Add highlight effect
+      quoteSection.classList.add("soft-glow");
+
+      // Remove highlight after animation duration
+      setTimeout(() => {
+        quoteSection.classList.remove("soft-glow");
+      }, 2000);
+    }
+  };
+
   return (
     <section className={classNames(styles.sectionContainer, "w-full")}>
       <div className={classNames(styles.customContainer, "h-full")}>
@@ -124,7 +140,11 @@ const HeroBanner = ({
                 <p className="sm:text-justify text-center mb-2">{desc}</p>
               )}
 
-              <CustomButton data-aos="fade-up" title={btnTitle} />
+              <CustomButton
+                data-aos="fade-up"
+                onClick={handleScrollToQuote}
+                title={btnTitle}
+              />
             </div>
 
             <div

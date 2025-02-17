@@ -43,6 +43,10 @@
     // border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
+    @media screen and (max-width: 576px) {
+      display: none !important;
+    }
+
     &.prevButton {
       left: 10px;
       /* Adjusted from -50px */
@@ -117,8 +121,16 @@
       height: 474px !important;
       min-height: 474px !important;
 
+      @media screen and (max-width: 576px) {
+        width: 100% !important;
+      }
+
       video {
         height: 100% !important;
+
+        @media screen and (max-width: 576px) {
+          width: 100% !important;
+        }
       }
 
       video {

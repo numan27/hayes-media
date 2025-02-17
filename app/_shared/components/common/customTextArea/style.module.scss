@@ -5,11 +5,11 @@
   font-weight: 500;
   @include RP(("font-size": 14,
     ));
-  color: $DARK;
+  color: $WHITE !important;
 }
 
 .asterik {
-  color: $BLUE;
+  @include PRIMARY_TEXT;
 }
 
 .inputContainer {
