@@ -1,16 +1,6 @@
 import { Images } from "assets";
-import CoreValues from "components/about/coreValues";
-import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
 import Newsletter from "components/home/newsletter";
-import Portfolio from "components/home/portfolio";
-import TeamSection from "components/home/teamReviewSection";
-import GetQuote from "components/advertisement/getQuote";
-import Stats from "components/advertisement/stats";
-import VideoSection from "components/advertisement/videoSection";
-import EmotionalIntelligence from "components/about/emotionalIntelligence";
-import ClientsSlider from "components/about/clientsSlider";
-import MeetTheFounder from "components/about/meetTheFounder";
 import Jobs from "components/careers/jobs";
 import OurTeam from "components/careers/ourTeam";
 import CareersCTA from "components/careers/careersCta";

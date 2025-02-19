@@ -9,6 +9,7 @@ import BrandSlider from "../brandSlider";
 import { Images } from "assets";
 import Image, { StaticImageData } from "next/image";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { usePathname } from "next/navigation";
 
 const changingTexts = [
   "Marketing Agency",
@@ -39,6 +40,7 @@ const HeroBanner = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const { width } = useWindowDimensions();
+  const pathname = usePathname();
 
   useEffect(() => {
     let wordIndex = 0;
@@ -90,15 +92,24 @@ const HeroBanner = ({
     if (quoteSection) {
       quoteSection.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      // Add highlight effect
       quoteSection.classList.add("soft-glow");
 
-      // Remove highlight after animation duration
       setTimeout(() => {
         quoteSection.classList.remove("soft-glow");
       }, 2000);
     }
   };
+
+  const handleScrollToJobs = () => {
+    const jobsSection = document.getElementById("jobs");
+
+    if (jobsSection) {
+      jobsSection.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  const handleButtonClick =
+    pathname === "/general/careers" ? handleScrollToJobs : handleScrollToQuote;
 
   return (
     <section className={classNames(styles.sectionContainer, "w-full")}>
@@ -142,7 +153,7 @@ const HeroBanner = ({
 
               <CustomButton
                 data-aos="fade-up"
-                onClick={handleScrollToQuote}
+                onClick={handleButtonClick}
                 title={btnTitle}
               />
             </div>

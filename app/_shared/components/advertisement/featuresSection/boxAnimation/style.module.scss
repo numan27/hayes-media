@@ -5,14 +5,10 @@
   .contentContainer {
     width: 85% !important;
     margin: auto !important;
-    // padding: 100px 0 50px 0;
     display: flex;
     flex-direction: column;
     // gap: 20px;
     align-items: center;
-
-    // @include RP(("margin-top": 60,
-    //   ), 1);
 
     @media screen and (max-width: 576px) {
       width: 95% !important;
@@ -236,8 +232,6 @@
             @media screen and (max-width: 576px) {
               height: 400px !important;
             }
-
-            fill: #000 !important;
           }
         }
 

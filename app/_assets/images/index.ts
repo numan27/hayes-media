@@ -82,6 +82,7 @@ import PortfolioImgHayes2 from "./portfolio-hayes-2.jpg";
 import PortfolioImgHayes3 from "./portfolio-hayes-3.jpg";
 import PortfolioImgHayes4 from "./portfolio-hayes-4.jpg";
 import PortfolioImgHayes5 from "./portfolio-hayes-5.jpg";
+import BackQuote from "./back-quote.png";
 
 
 const Images = {
@@ -169,6 +170,7 @@ const Images = {
   PortfolioImgHayes3,
   PortfolioImgHayes4,
   PortfolioImgHayes5,
+  BackQuote
 };
 
 export { Images };

@@ -102,7 +102,13 @@ const ServicesDetail = ({
                         : "bottom-0 right-2 scale-x-[-1]"
                     )}
                   >
-                    <Icons.BackQuoteMark />
+                    <Image
+                      // width={120}
+                      // height={42}
+                      src={Images.BackQuote}
+                      alt="quote-icon"
+                    />
+                    {/* <Icons.BackQuoteMark /> */}
                   </span>
 
                   <div className="mb-12">

@@ -56,7 +56,12 @@ const Footer = () => {
   return (
     <footer className={classNames(styles.footer)}>
       <div className={classNames(styles.customContainer, "h-full")}>
-        <div className="grid grid-cols-12 lg:gap-6 md:gap-4 gap-8 h-full">
+        <div
+          className={classNames(
+            styles.contentContainer,
+            "grid grid-cols-12 lg:gap-6 md:gap-4 gap-8 h-full"
+          )}
+        >
           <div
             className={classNames(
               styles.logoContainer,
@@ -74,10 +79,15 @@ const Footer = () => {
           </div>
 
           {/* Footer Links */}
-          <div className="md:col-span-6 col-span-12 flex justify-around">
+          <div
+            className={classNames(
+              styles.menuContainer,
+              "md:col-span-6 col-span-12 flex justify-around"
+            )}
+          >
             <div className="grid grid-cols-2 gap-16">
               {footerLinks.map((items, index) => (
-                <div className="flex md:justify-end justify-center">
+                <div key={index} className="flex md:justify-end justify-center">
                   <div key={index} className="flex flex-col lg:gap-4 gap-2">
                     <h5 className="font-semibold">{items.heading}</h5>
                     <ul
@@ -98,7 +108,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-3 md:col-span-4 col-span-12 flex md:justify-end justify-center items-center md:mb-0 mb-5">
+          <div
+            className={classNames(
+              styles.socialContainer,
+              "lg:col-span-3 md:col-span-4 col-span-12 flex md:justify-end justify-center items-center md:mb-0 mb-5"
+            )}
+          >
             <div className="flex flex-col gap-4">
               <h4
                 className={classNames(
@@ -110,12 +125,12 @@ const Footer = () => {
               </h4>
               <div
                 className={classNames(
-                  styles.socialContainer,
+                  styles.socialContent,
                   "flex items-center gap-2 md:justify-start justify-center"
                 )}
               >
                 {socialLink.map((item, index) => (
-                  <Link href={item.link}>
+                  <Link key={index} href={item.link}>
                     <span key={index} className={classNames(styles.socialItem)}>
                       {item.icon}
                     </span>

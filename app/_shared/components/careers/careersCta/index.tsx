@@ -3,6 +3,14 @@ import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 
 const CareersCTA = () => {
+  // const handleScrollToJobs = () => {
+  //   const jobsSection = document.getElementById("jobs");
+
+  //   if (jobsSection) {
+  //     jobsSection.scrollIntoView({ behavior: "smooth", block: "center" });
+  //   }
+  // };
+
   return (
     <section className={classNames(styles.sectionContainer)}>
       <div className={classNames(styles.customContainer)}>
@@ -18,7 +26,10 @@ const CareersCTA = () => {
             Pinnacle Infotech careers for opportunities to grow, learn, and
             lead.
           </p>
-          <CustomButton title="Apply Now" />
+          <CustomButton
+            // onClick={handleScrollToJobs}
+            title="Apply Now"
+          />
         </div>
       </div>
     </section>

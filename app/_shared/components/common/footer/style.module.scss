@@ -3,13 +3,14 @@
 
 .footer {
   background-color: #000;
+  z-index: 999 !important;
   width: 100%;
   height: 100%;
   @include RP(("padding-top": 50,
       // "padding-bottom": 50,
     ));
 
-  .customContainer {
+  .contentContainer {
     @include RP(("padding-left": 100,
         "padding-right": 100,
       ));
@@ -18,6 +19,7 @@
       padding-left: 0;
       padding-right: 0;
     }
+
 
     .logoContainer {
       .logo {
@@ -34,114 +36,121 @@
       }
     }
 
+    .menuContainer {
+      h5 {
+        font-weight: 600;
+        @include PRIMARY_TEXT;
+      }
 
-    h5 {
-      font-weight: 600;
-      @include PRIMARY_TEXT;
-    }
+      .menus {
 
-    .menus {
+        li {
+          transition: all 0.2s ease-in-out !important;
+          color: #B6B6B6;
 
-      li {
-        transition: all 0.2s ease-in-out !important;
-        color: #B6B6B6;
+          a {
+            font-weight: 400;
+            @include RP(("font-size": 14,
+              ));
+          }
 
-        a {
-          font-weight: 400;
-          @include RP(("font-size": 14,
-            ));
-        }
-
-        &:hover {
-          @include PRIMARY_TEXT;
-          transform: translateX(3px) !important;
+          &:hover {
+            @include PRIMARY_TEXT;
+            transform: translateX(3px) !important;
+          }
         }
       }
-    }
-
-    .socialHeading {
-      color: $WHITE !important;
-      @include RP(("font-size": 24,
-        ), 1);
     }
 
     .socialContainer {
-
-      .socialItem {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        @include RP(("width": 50,
-            "height": 50,
+      .socialHeading {
+        color: $WHITE !important;
+        @include RP(("font-size": 24,
           ), 1);
+      }
 
-        &::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, #EC1E24 0%, #902880 100%);
-          opacity: 0.2;
-          border-radius: inherit;
-          transition: opacity 0.3s ease-in-out;
-        }
-
-        svg {
+      .socialContent {
+        .socialItem {
           position: relative;
-          color: inherit;
-          transition: color 0.3s ease-in-out;
-        }
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          @include RP(("width": 50,
+              "height": 50,
+            ), 1);
 
-        &:hover {
           &::before {
-            opacity: 1;
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #EC1E24 0%, #902880 100%);
+            opacity: 0.2;
+            border-radius: inherit;
+            transition: opacity 0.3s ease-in-out;
           }
 
           svg {
+            transition: color 0.3s ease-in-out;
+            z-index: 999 !important;
+
             path {
-              stroke: $WHITE;
-              fill: $WHITE;
+              mix-blend-mode: multiply;
+            }
+          }
+
+          &:hover {
+            &::before {
+              opacity: 1;
+            }
+
+            svg {
+              fill: $WHITE !important;
+
+              path {
+                stroke: $WHITE !important;
+                fill: $WHITE !important;
+              }
+            }
+          }
+
+          @media screen and (max-width: 576px) {
+            svg {
+              @include RP(("width": 24,
+                  "height": 24,
+                ), 1);
             }
           }
         }
-
-        @media screen and (max-width: 576px) {
-          svg {
-            @include RP(("width": 24,
-                "height": 24,
-              ), 1);
-          }
-        }
-      }
-    }
-
-    .copyright {
-      color: $WHITE !important;
-      font-weight: 400 !important;
-      border-top: 0.5px solid $LIGHT_GRAY2;
-      @include RP(("font-size": 14,
-          "padding-top": 25,
-          "padding-bottom": 25,
-          "margin-top": 80,
-        ), 1);
-
-      @media screen and (max-width: 576px) {
-        @include RP(("margin-top": 45,
-          ), 1);
-      }
-    }
-
-    a {
-      color: rgba(208, 208, 209, 1) !important;
-      position: relative;
-      transition: all 0.3s ease-in-out;
-      @include RP(("font-size": 16,
-        ));
-
-      &:hover {
-        color: $PRIMARY !important;
       }
     }
   }
+
+  .copyright {
+    color: $WHITE !important;
+    font-weight: 400 !important;
+    border-top: 0.5px solid $LIGHT_GRAY2;
+    @include RP(("font-size": 14,
+        "padding-top": 25,
+        "padding-bottom": 25,
+        "margin-top": 80,
+      ), 1);
+
+    @media screen and (max-width: 576px) {
+      @include RP(("margin-top": 45,
+        ), 1);
+    }
+  }
+
+  // a {
+  //   color: rgba(208, 208, 209, 1) !important;
+  //   position: relative;
+  //   transition: all 0.3s ease-in-out;
+  //   @include RP(("font-size": 16,
+  //     ));
+
+  //   &:hover {
+  //     color: $PRIMARY !important;
+  //   }
+  // }
 }

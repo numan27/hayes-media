@@ -91,7 +91,7 @@ const Jobs = () => {
   };
 
   return (
-    <section className={classNames(styles.sectionContainer)}>
+    <section id="jobs" className={classNames(styles.sectionContainer)}>
       <div className={classNames(styles.customContainer)}>
         <div
           className={classNames(
@@ -244,8 +244,11 @@ const Jobs = () => {
                       <div>
                         <span>Job Specification:</span>
                         <ul className="flex flex-col items-start gap-1.5 mt-2">
-                          {job.specifications.map((items) => (
-                            <li className="flex items-center gap-1.5">
+                          {job.specifications.map((items, index) => (
+                            <li
+                              key={index}
+                              className="flex items-center gap-1.5"
+                            >
                               <span>
                                 <GoDotFill />
                               </span>
@@ -260,8 +263,8 @@ const Jobs = () => {
                           "flex flex-col items-start gap-3"
                         )}
                       >
-                        {job.details.map((data) => (
-                          <div>
+                        {job.details.map((data, index) => (
+                          <div key={index}>
                             <span>{data.label}</span>
                             <p>{data.value}</p>
                           </div>
@@ -306,8 +309,8 @@ const Jobs = () => {
                 <div>
                   <span>Job Specification:</span>
                   <ul className="flex flex-col items-start gap-1.5 mt-2">
-                    {selectedJob.specifications.map((items) => (
-                      <li className="flex items-center gap-1.5">
+                    {selectedJob.specifications.map((items, index) => (
+                      <li key={index} className="flex items-center gap-1.5">
                         <span>
                           <GoDotFill />
                         </span>
@@ -322,8 +325,8 @@ const Jobs = () => {
                     "flex flex-col items-start gap-3"
                   )}
                 >
-                  {selectedJob.details.map((data) => (
-                    <div>
+                  {selectedJob.details.map((data, index) => (
+                    <div key={index}>
                       <span>{data.label}</span>
                       <p>{data.value}</p>
                     </div>
