@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
@@ -9,10 +9,12 @@ import { motion } from "framer-motion";
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clickedRetargeting, setClickedRetargeting] = useState<boolean>(false);
+  const [isLineVisible, setIsLineVisible] = useState<boolean>(false);
   const firstContentRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
+    if (index === 2) setIsLineVisible(true); // Keep line visible
   };
 
   const handleMouseLeave = () => {
@@ -36,6 +38,22 @@ const BoxAnimation = () => {
       setHoveredIndex(null);
     }
   };
+
+  useEffect(() => {
+    const hideLineOnScrollOrMouseMove = () => {
+      if (isLineVisible) {
+        setIsLineVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", hideLineOnScrollOrMouseMove);
+    window.addEventListener("mousemove", hideLineOnScrollOrMouseMove);
+
+    return () => {
+      window.removeEventListener("scroll", hideLineOnScrollOrMouseMove);
+      window.removeEventListener("mousemove", hideLineOnScrollOrMouseMove);
+    };
+  }, [isLineVisible]);
 
   const featuresData = [
     {

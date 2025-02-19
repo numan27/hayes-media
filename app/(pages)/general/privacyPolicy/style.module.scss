@@ -1,0 +1,41 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.pageWrapper {
+  @include RP(("padding-top": 40,
+      "padding-bottom": 50,
+    ));
+
+  .heroSection {
+    h2 {
+      text-transform: uppercase;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    @media screen and (max-width: 640px) {
+      text-align: center !important;
+    }
+
+    @include RP(("padding-top": 50,
+        "padding-bottom": 50,
+      ));
+
+    h6 {
+      font-weight: 400 !important;
+      @include RP(("font-size": 18,
+          "margin-bottom": 15));
+    }
+
+  }
+
+  .contentWrapper {
+    @include RP(("padding-top": 40,
+        "padding-bottom": 50,
+      ));
+
+
+  }
+}

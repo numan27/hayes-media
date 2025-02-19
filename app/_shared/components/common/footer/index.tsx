@@ -30,7 +30,7 @@ const Footer = () => {
       links: [
         { title: "About Us", path: routeConstant.about.path },
         { title: "Careers", path: routeConstant.careers.path },
-        { title: "Privacy Policy", path: "" },
+        { title: "Privacy Policy", path: routeConstant.privacyPolicy.path },
         { title: "Terms of Services", path: "" },
       ],
     },

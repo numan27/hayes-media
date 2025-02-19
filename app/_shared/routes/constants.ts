@@ -37,6 +37,10 @@ const routeConstant = {
     path: "/general/contact",
     title: "Contact",
   },
+  privacyPolicy: {
+    path: "/general/privacyPolicy",
+    title: "Privacy Policy",
+  },
 
   // Auth
   login: {
