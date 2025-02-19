@@ -30,7 +30,7 @@ const ServicesDetail = ({
       buttonText: "Get A quote",
     },
     {
-      videoSrc: "/WebsiteAnimation2.mp4",
+      videoSrc: "/WebsiteAnimation2Updated.webm",
       title: "Website Design & Development",
       desc: "Your website isn’t just a page, it’s your stage. We are among the top marketing agencies in Austin that craft designs that don’t just tell your story but sing it. We design websites that charm, inform, and convert. With cutting-edge designs and effortless navigation, your customers won’t just visit, they’ll stay.",
       buttonText: "Get A quote",

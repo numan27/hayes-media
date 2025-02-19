@@ -7,7 +7,7 @@ const FullWidthVideo = () => {
     <section className={classNames(styles.sectionContainer)}>
       <div className={classNames(styles.customContainer)}>
         <div className={classNames(styles.contentWrapper)}>
-          <BannerVideo videoSrc="/WebsiteAnimation2.mp4" />
+          <BannerVideo videoSrc="/WebsiteAnimation2Updated.webm" />
         </div>
       </div>
     </section>

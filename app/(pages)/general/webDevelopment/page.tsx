@@ -35,10 +35,10 @@ const WebDevelopment = () => {
         brandImagesData={brands}
         btnTitle="Get Started Today"
         brandsHeading="Programs we work with"
-        videoSrc="/WebsitePageH1.mp4"
+        videoSrc="/WebsitePageH1Updated.webm"
       />
       <VideoSection
-        videoSrc="/WebsiteAnimation2.mp4"
+        videoSrc="/WebsiteAnimation2Updated.webm"
         title="Cutting-Edge Web & App Development Solutions for Your Digital Success"
       />
       <TrustedPartners />
