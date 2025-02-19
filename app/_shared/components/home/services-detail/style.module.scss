@@ -90,13 +90,13 @@
     text-align: left !important;
   }
 
-  img {
+  .backQuote {
     @include RP(("width": 140,
       ), 1);
   }
 
   @media screen and (max-width: 576px) {
-    img {
+    .backQuote {
       @include RP(("width": 90,
         ), 1);
     }

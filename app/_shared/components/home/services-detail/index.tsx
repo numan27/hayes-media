@@ -107,6 +107,7 @@ const ServicesDetail = ({
                       // height={42}
                       src={Images.BackQuote}
                       alt="quote-icon"
+                      className={styles.backQuote}
                     />
                     {/* <Icons.BackQuoteMark /> */}
                   </span>
