@@ -67,5 +67,15 @@
         }
       }
     }
+
+    .buttonContainer {
+      @media screen and (min-width: 2000px) {
+        margin-top: -130px !important;
+      }
+
+      @media screen and (min-width: 1600px) and (max-width: 1999px) {
+        margin-top: -100px !important;
+      }
+    }
   }
 }

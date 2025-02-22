@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
@@ -9,14 +9,28 @@ import { motion } from "framer-motion";
 const BoxAnimation = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [clickedRetargeting, setClickedRetargeting] = useState<boolean>(false);
+  const [isLineVisible, setIsLineVisible] = useState<boolean>(false);
   const firstContentRef = useRef<HTMLDivElement>(null);
+  const hideLineTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
+    if (index === 2) {
+      setIsLineVisible(true);
+      // Clear any existing timeout to prevent hiding the line
+      if (hideLineTimeout.current) {
+        clearTimeout(hideLineTimeout.current);
+        hideLineTimeout.current = null;
+      }
+    }
   };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null);
+    // Delay hiding the line by 500ms (adjust as needed)
+    hideLineTimeout.current = setTimeout(() => {
+      setHoveredIndex(null);
+      setIsLineVisible(false);
+    }, 500); // Adjust the delay duration as needed
   };
 
   const handleRetargetingClick = () => {
@@ -34,8 +48,34 @@ const BoxAnimation = () => {
       setClickedRetargeting(false);
     } else {
       setHoveredIndex(null);
+      setIsLineVisible(false);
     }
   };
+
+  useEffect(() => {
+    const hideLineOnScrollOrMouseMove = () => {
+      if (isLineVisible && hoveredIndex !== 2) {
+        setIsLineVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", hideLineOnScrollOrMouseMove);
+    window.addEventListener("mousemove", hideLineOnScrollOrMouseMove);
+
+    return () => {
+      window.removeEventListener("scroll", hideLineOnScrollOrMouseMove);
+      window.removeEventListener("mousemove", hideLineOnScrollOrMouseMove);
+    };
+  }, [isLineVisible, hoveredIndex]);
+
+  // Clear the timeout when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (hideLineTimeout.current) {
+        clearTimeout(hideLineTimeout.current);
+      }
+    };
+  }, []);
 
   const featuresData = [
     {
@@ -72,11 +112,6 @@ const BoxAnimation = () => {
         { icon: <Icons.CoreValuesIcon2 />, title: "Email Opt-in" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Form" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Subscribe" },
-        // {
-        //   icon: <Icons.CoreValuesIcon3 />,
-        //   title: "Re-targeting",
-        //   onClick: handleRetargetingClick,
-        // },
       ],
     },
     {
@@ -90,15 +125,52 @@ const BoxAnimation = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, visibility: "hidden" },
+    visible: {
+      opacity: 1,
+      visibility: "visible",
+      transition: { staggerChildren: 0.01, delayChildren: 0.01 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      y: [10, -5, 0],
+      scale: [0.8, 1.1, 1],
+      transition: { duration: 0.01, ease: "easeInOut" },
+    },
+    exit: {
+      opacity: 0,
+      y: 10,
+      scale: 0.8,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+  };
+
   return (
-    <div className={classNames(styles.sectionWrapper, "min-h-screen")}>
-      {/* <div className={classNames(styles.customContainer, "h-full")}> */}
-      <div className={classNames(styles.contentContainer, "h-[90vh] relative")}>
+    <div
+      className={classNames(
+        styles.sectionWrapper,
+        "flex items-center justify-center h-full"
+      )}
+    >
+      <div
+        className={classNames(
+          styles.contentContainer,
+          "xs:h-[90vh] h-[50vh] max-h-full relative"
+        )}
+      >
         {featuresData.map((feature, index) => (
           <div
             key={index}
             ref={index === 0 ? firstContentRef : null}
-            className={classNames(styles.contentItem, "relative w-full")}
+            className={classNames(
+              styles.contentItem,
+              "relative w-full my-auto"
+            )}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={
               index === 0 ? handleMouseLeaveFirstItem : handleMouseLeave
@@ -111,21 +183,18 @@ const BoxAnimation = () => {
               </span>
             </div>
 
-            <div
+            <motion.div
               className={classNames(
                 styles.hiddenContent,
                 "flex items-center justify-center flex-wrap xs:gap-2 gap-0.5 relative w-full"
               )}
+              // @ts-ignore
+              variants={containerVariants}
+              initial="hidden"
+              animate={hoveredIndex === index ? "visible" : "hidden"}
             >
               {feature.featureItems.map((item, idx) => (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 1,
-                    ease: "easeOut",
-                    staggerChildren: 0.1,
-                  }}
                   key={idx}
                   className={classNames(
                     styles.customBadge,
@@ -133,7 +202,7 @@ const BoxAnimation = () => {
                       ? "absolute -right-28 -top-3 cursor-pointer"
                       : ""
                   )}
-                  // onClick={item.onClick}
+                  variants={itemVariants}
                 >
                   <div
                     className={classNames(
@@ -146,7 +215,7 @@ const BoxAnimation = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {hoveredIndex === 2 && index === 2 && (
               <>
@@ -180,9 +249,8 @@ const BoxAnimation = () => {
                     stroke="url(#lineGradient)"
                     strokeWidth="1"
                     fill="none"
-                    // vectorEffect="non-scaling-stroke"
-                    strokeDasharray="10,5" // Dashed Line
-                    strokeLinecap="round" // Makes dashed line rounded
+                    strokeDasharray="10,5"
+                    strokeLinecap="round"
                     className={styles.animatedPath}
                   />
                 </svg>
@@ -214,7 +282,6 @@ const BoxAnimation = () => {
           </div>
         ))}
       </div>
-      {/* </div> */}
     </div>
   );
 };

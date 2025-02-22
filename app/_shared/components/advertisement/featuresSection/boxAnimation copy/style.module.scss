@@ -3,20 +3,15 @@
 
 .sectionWrapper {
   .contentContainer {
-    width: 100% !important;
-    margin: 0 auto;
-    padding: 100px 0 50px 0;
+    width: 85% !important;
+    margin: auto !important;
     display: flex;
     flex-direction: column;
     // gap: 20px;
     align-items: center;
 
-    // @media screen and (max-width: 1900px) {
-    //   gap: 20px !important;
-    // }
-
-    @media screen and (max-width: 1600px) {
-      max-width: 90% !important;
+    @media screen and (max-width: 576px) {
+      width: 95% !important;
     }
 
     .contentItem {
@@ -27,10 +22,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      // z-index: 2 !important;
+      transition: all 0.1s ease-in-out;
 
+      // z-index: 2 !important;
       &:first-child {
         width: 100% !important;
+        min-width: 100% !important;
         z-index: 100 !important;
 
         // @media screen and (max-width: 992px) {
@@ -40,37 +37,44 @@
 
       &:nth-child(2) {
         width: 85% !important;
-        // height: 250px !important;
-        // max-height: 250px !important;
         z-index: 99 !important;
 
         @media screen and (min-width: 2000px) {
+          transform: translateY(-12%) !important;
+        }
+
+        @media screen and (min-width: 1600px) and (max-width: 1999px) {
           transform: translateY(-8%) !important;
         }
 
         @media screen and (max-width: 1600px) {
-          transform: translateY(8%) !important;
+          transform: translateY(-2%) !important;
         }
 
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1440px) {
           transform: translateY(-5%) !important;
         }
 
         @media screen and (max-width: 576px) {
-          transform: translateY(-20%) !important;
+          transform: translateY(-40%) !important;
         }
+
       }
 
       &:nth-child(3) {
-        width: 75% !important;
+        width: 70% !important;
         z-index: 98 !important;
 
         @media screen and (min-width: 2000px) {
-          transform: translateY(-25%) !important;
+          transform: translateY(-35%) !important;
+        }
+
+        @media screen and (min-width: 1600px) and (max-width: 1999px) {
+          transform: translateY(-30%) !important;
         }
 
         @media screen and (max-width: 1600px) {
-          transform: translateY(20%) !important;
+          transform: translateY(-15%) !important;
         }
 
         @media screen and (max-width: 992px) {
@@ -78,24 +82,25 @@
         }
 
         @media screen and (max-width: 576px) {
-          transform: translateY(-45%) !important;
+          transform: translateY(-90%) !important;
         }
       }
 
+
       &:nth-child(4) {
-        width: 60% !important;
+        width: 55% !important;
         z-index: 97 !important;
 
         @media screen and (min-width: 2000px) {
-          transform: translateY(-45%) !important;
+          transform: translateY(-75%) !important;
         }
 
-        @media screen and (min-width: 1600px) {
-          transform: translateY(-20%) !important;
+        @media screen and (min-width: 1600px) and (max-width: 1999px) {
+          transform: translateY(-65%) !important;
         }
 
         @media screen and (max-width: 1600px) {
-          transform: translateY(36%) !important;
+          transform: translateY(-45%) !important;
         }
 
         @media screen and (max-width: 992px) {
@@ -103,30 +108,34 @@
         }
 
         @media screen and (max-width: 576px) {
-          transform: translateY(-85%) !important;
+          transform: translateY(-147%) !important;
         }
       }
 
+
       &:hover {
-        // svg {
-        //   path {
-        //     fill: #000 !important;
-        //   }
-        // }
+        .svgWrapper {
+          .heading {
+            @include RP(("font-size": 52), 1);
+            left: 60px;
+          }
+        }
 
         &:nth-child(2) {
-          // z-index: 100 !important;
-
           @media screen and (min-width: 2000px) {
-            transform: translateY(31%) !important;
+            transform: translateY(10%) !important;
           }
 
-          @media screen and (min-width: 1800px) {
-            transform: translateY(35%) !important;
+          @media screen and (min-width: 1600px) and (max-width: 1999px) {
+            transform: translateY(15%) !important;
           }
 
-          @media screen and (max-width: 1800px) {
-            transform: translateY(70%) !important;
+          @media screen and (max-width: 1600px) {
+            transform: translateY(10%) !important;
+          }
+
+          @media screen and (max-width: 1440px) {
+            transform: translateY(25%) !important;
           }
 
           @media screen and (max-width: 992px) {
@@ -134,19 +143,27 @@
             z-index: 100 !important;
           }
 
+          @media screen and (max-width: 576px) {
+            transform: translateY(-30%) !important;
+          }
         }
+
 
         &:nth-child(3) {
           @media screen and (min-width: 2000px) {
-            transform: translateY(8%) !important;
+            transform: translateY(-20%) !important;
           }
 
-          @media screen and (min-width: 1800px) {
-            transform: translateY(17%) !important;
+          @media screen and (min-width: 1600px) and (max-width: 1999px) {
+            transform: translateY(-12%) !important;
           }
 
           @media screen and (max-width: 1600px) {
-            transform: translateY(50%) !important;
+            transform: translateY(-8%) !important;
+          }
+
+          @media screen and (max-width: 1440px) {
+            transform: translateY(10%) !important;
           }
 
           @media screen and (max-width: 992px) {
@@ -155,23 +172,27 @@
           }
 
           @media screen and (max-width: 576px) {
-            transform: translateY(-35%) !important;
-            z-index: 100 !important;
+            transform: translateY(-80%) !important;
           }
-
         }
 
+
         &:nth-child(4) {
+
           @media screen and (min-width: 2000px) {
-            transform: translateY(-28%) !important;
+            transform: translateY(-60%) !important;
           }
 
-          @media screen and (min-width: 1800px) {
-            transform: translateY(0) !important;
+          @media screen and (min-width: 1600px) and (max-width: 1999px) {
+            transform: translateY(-50%) !important;
           }
 
           @media screen and (max-width: 1600px) {
-            transform: translateY(60%) !important;
+            transform: translateY(-32%) !important;
+          }
+
+          @media screen and (max-width: 1440px) {
+            transform: translateY(-20%) !important;
           }
 
           @media screen and (max-width: 992px) {
@@ -180,10 +201,10 @@
           }
 
           @media screen and (max-width: 576px) {
-            transform: translateY(-80%) !important;
-            z-index: 100 !important;
+            transform: translateY(-137%) !important;
           }
         }
+
 
         .heading {
           @include PRIMARY_TEXT;
@@ -202,11 +223,14 @@
 
         svg {
           width: 100% !important;
-          // height: 100% !important;
 
-          svg {
-            path {
-              fill: #000 !important;
+          @media screen and (max-width: 576px) {
+            height: 400px !important;
+          }
+
+          path {
+            @media screen and (max-width: 576px) {
+              height: 400px !important;
             }
           }
         }
@@ -214,14 +238,15 @@
         .heading {
           position: absolute;
           top: 50%;
-          left: 45px;
+          left: 50px;
+          transition: all 0.2s ease-in-out;
           transform: translate(-50%, -50%);
           @include RP(("font-size": 32), 1);
           font-weight: bold;
           color: #fff;
 
           @media screen and (max-width: 576px) {
-            @include RP(("font-size": 18), 1);
+            @include RP(("font-size": 16), 1);
           }
         }
       }
@@ -231,12 +256,11 @@
         flex-wrap: wrap;
         gap: 10px;
         z-index: 2;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+        // opacity: 0;
+        // visibility: hidden;
+        // transform: translateY(10px);
+        // transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
         max-width: 70% !important;
-
       }
 
       .curvedLine {
@@ -246,6 +270,7 @@
         transform: translateY(-50%) rotate(102deg);
         pointer-events: none;
         fill: transparent !important;
+        transition: opacity 0.3s ease-in-out;
 
         @media screen and (max-width: 576px) {
           height: 140px;
@@ -273,7 +298,7 @@
       .animatedPath {
         stroke-dasharray: 600;
         stroke-dashoffset: 600;
-        animation: drawLine 2.5s linear infinite;
+        animation: drawLine 2.5s linear forwards;
       }
 
       @keyframes drawLine {
@@ -284,14 +309,14 @@
 
         to {
           stroke-dashoffset: 0;
-          opacity: 0.8;
+          opacity: 1;
         }
       }
 
       &:hover .hiddenContent {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+        // opacity: 1;
+        // visibility: visible;
+        // transform: translateY(0);
       }
     }
   }
@@ -306,7 +331,7 @@
     border-radius: 35px;
     @include RP(("font-size": 15), 1);
     font-weight: 500;
-    width: fit-content;
+    width: fit-content !important;
 
     @media screen and (max-width: 992px) {
       font-size: 10px !important;

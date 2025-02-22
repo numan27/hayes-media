@@ -7,6 +7,7 @@ import Image from "next/image";
 import CustomSecondaryHeading from "components/common/customSecondaryHeading";
 import BoxAnimation from "./boxAnimation";
 import CustomButton from "components/common/customButton";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const Features = () => {
   const sectionData = [
@@ -28,14 +29,14 @@ const Features = () => {
     },
   ];
   return (
-    <section className={classNames(styles.sectionContainer)}>
+    <section className={classNames(styles.sectionContainer, "pb-4")}>
       <div className={classNames(styles.customContainer)}>
         <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
           animationSpeed="5s"
           borderRadius="8px"
         >
-          <div className={classNames(styles.contentWrapper)}>
+          <div className={classNames(styles.contentWrapper, "pb-4")}>
             <div className="sm:px-0 px-3">
               <CustomSectionHeading
                 centered
@@ -86,9 +87,14 @@ const Features = () => {
             <div className="md:mt-16 mt-3 md:pt-20 pt-8">
               <BoxAnimation />
             </div>
-            {/* <div className="flex justify-center -pt-16 pb-4">
-              <CustomButton title="Get a Quote" />
-            </div> */}
+            <div
+              className={classNames(
+                styles.buttonContainer,
+                "flex justify-center mb-4"
+              )}
+            >
+              <CustomButton onClick={handleScrollToQuote} title="Get a Quote" />
+            </div>
           </div>
         </CustomAnimatedBorder>
       </div>

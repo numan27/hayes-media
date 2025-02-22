@@ -11,14 +11,27 @@ const BoxAnimation = () => {
   const [clickedRetargeting, setClickedRetargeting] = useState<boolean>(false);
   const [isLineVisible, setIsLineVisible] = useState<boolean>(false);
   const firstContentRef = useRef<HTMLDivElement>(null);
+  const hideLineTimeout = useRef<NodeJS.Timeout | null>(null);
+  const [visibleIndex, setVisibleIndex] = useState<number | null>(null);
+  const featureItemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
-    if (index === 2) setIsLineVisible(true); // Keep line visible
+    if (index === 2) {
+      setIsLineVisible(true);
+      // Clear any existing timeout to prevent hiding the line
+      if (hideLineTimeout.current) {
+        clearTimeout(hideLineTimeout.current);
+        hideLineTimeout.current = null;
+      }
+    }
   };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null);
+    if (!clickedRetargeting) {
+      setHoveredIndex(null);
+      setIsLineVisible(false);
+    }
   };
 
   const handleRetargetingClick = () => {
@@ -36,12 +49,13 @@ const BoxAnimation = () => {
       setClickedRetargeting(false);
     } else {
       setHoveredIndex(null);
+      setIsLineVisible(false);
     }
   };
 
   useEffect(() => {
     const hideLineOnScrollOrMouseMove = () => {
-      if (isLineVisible) {
+      if (isLineVisible && hoveredIndex !== 2) {
         setIsLineVisible(false);
       }
     };
@@ -53,7 +67,46 @@ const BoxAnimation = () => {
       window.removeEventListener("scroll", hideLineOnScrollOrMouseMove);
       window.removeEventListener("mousemove", hideLineOnScrollOrMouseMove);
     };
-  }, [isLineVisible]);
+  }, [isLineVisible, hoveredIndex]);
+
+  // Clear the timeout when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (hideLineTimeout.current) {
+        clearTimeout(hideLineTimeout.current);
+      }
+    };
+  }, []);
+
+  // Handle scroll for mobile
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureItemRefs.current.indexOf(
+              entry.target as HTMLDivElement
+            );
+            setVisibleIndex(index); // Set the visible index
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the item is visible
+      }
+    );
+
+    // Observe each feature item
+    featureItemRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      featureItemRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   const featuresData = [
     {
@@ -90,11 +143,6 @@ const BoxAnimation = () => {
         { icon: <Icons.CoreValuesIcon2 />, title: "Email Opt-in" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Form" },
         { icon: <Icons.CoreValuesIcon3 />, title: "Subscribe" },
-        // {
-        //   icon: <Icons.CoreValuesIcon3 />,
-        //   title: "Re-targeting",
-        //   onClick: handleRetargetingClick,
-        // },
       ],
     },
     {
@@ -107,6 +155,7 @@ const BoxAnimation = () => {
       ],
     },
   ];
+
   const containerVariants = {
     hidden: { opacity: 0, visibility: "hidden" },
     visible: {
@@ -148,7 +197,9 @@ const BoxAnimation = () => {
         {featuresData.map((feature, index) => (
           <div
             key={index}
-            ref={index === 0 ? firstContentRef : null}
+            // @ts-ignore
+            ref={(el) => (featureItemRefs.current[index] = el)}
+            // ref={index === 0 ? firstContentRef : null}
             className={classNames(
               styles.contentItem,
               "relative w-full my-auto"
@@ -231,9 +282,8 @@ const BoxAnimation = () => {
                     stroke="url(#lineGradient)"
                     strokeWidth="1"
                     fill="none"
-                    // vectorEffect="non-scaling-stroke"
-                    strokeDasharray="10,5" // Dashed Line
-                    strokeLinecap="round" // Makes dashed line rounded
+                    strokeDasharray="10,5"
+                    strokeLinecap="round"
                     className={styles.animatedPath}
                   />
                 </svg>
