@@ -1,4 +1,5 @@
 "use client";
+
 import { Images } from "assets";
 import FAQs from "components/home/faqs";
 import GetStartedCall from "components/home/getStartedCall";
@@ -11,6 +12,7 @@ import OtherServices from "components/advertisement/otherServices";
 import Stats from "components/advertisement/stats";
 import VideoSection from "components/advertisement/videoSection";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const ServiceDetails = () => {
   const { width } = useWindowDimensions();
@@ -46,6 +48,7 @@ const ServiceDetails = () => {
           </>
         }
         videoSrc="/WebsitePageH1Updated.webm"
+        buttonAction={handleScrollToQuote}
       />
       <Features />
       <Stats />

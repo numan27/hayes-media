@@ -10,16 +10,23 @@ const Footer = () => {
   const { width } = useWindowDimensions();
   const socialLink = [
     {
-      icon: <Icons.Facebook />,
+      // icon: <Icons.Facebook />,
+      icon: Images.Facebook,
       link: "https://www.facebook.com/hayesmediahtx",
     },
     {
-      icon: <Icons.LinkedIn />,
+      // icon: <Icons.LinkedIn />,
+      icon: Images.LinkedIn,
       link: "https://www.linkedin.com/company/hayesmedia/",
     },
-    { icon: <Icons.Twitter />, link: "https://x.com/HayesMediaHTX" },
     {
-      icon: <Icons.Youtube />,
+      // icon: <Icons.Twitter />,
+      icon: Images.Twitter,
+      link: "https://x.com/HayesMediaHTX",
+    },
+    {
+      // icon: <Icons.Youtube />,
+      icon: Images.Youtube,
       link: "https://www.youtube.com/@hayesmedia5639",
     },
   ];
@@ -130,9 +137,14 @@ const Footer = () => {
                 )}
               >
                 {socialLink.map((item, index) => (
-                  <Link key={index} href={item.link}>
-                    <span key={index} className={classNames(styles.socialItem)}>
-                      {item.icon}
+                  <Link
+                    className={classNames(styles.socialItem)}
+                    key={index}
+                    href={item.link}
+                  >
+                    <span key={index}>
+                      {/* {item.icon} */}
+                      <Image src={item.icon} alt="social-icon" />
                     </span>
                   </Link>
                 ))}

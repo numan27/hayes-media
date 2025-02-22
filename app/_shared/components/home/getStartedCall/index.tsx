@@ -6,6 +6,7 @@ import { Images } from "assets";
 import Image from "next/image";
 import CustomButton from "components/common/customButton";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const GetStartedCall = () => {
   const { width } = useWindowDimensions();
@@ -31,7 +32,11 @@ const GetStartedCall = () => {
               alt="icon"
             />
           </span>
-          <CustomButton title="Sign up" containerStyle="md:mt-6 sm:mt-5 mt-4" />
+          <CustomButton
+            title="Get A Quote"
+            containerStyle="md:mt-6 sm:mt-5 mt-4"
+            onClick={handleScrollToQuote}
+          />
         </div>
       </div>
     </section>

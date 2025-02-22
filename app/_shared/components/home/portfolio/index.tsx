@@ -94,7 +94,11 @@ const Portfolio = () => {
   }, [isHovered, swiperInstance]);
 
   return (
-    <section className={classNames(styles.sectionContainer)} ref={sectionRef}>
+    <section
+      id="portfolio"
+      className={classNames(styles.sectionContainer)}
+      ref={sectionRef}
+    >
       <div className={classNames(styles.customContainer)}>
         <CustomAnimatedBorder
           gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"

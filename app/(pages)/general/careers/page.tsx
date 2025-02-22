@@ -27,7 +27,7 @@ const Careers = () => {
         btnTitle="View Open Positions"
       />
       <Jobs />
-      <OurTeam />
+      {/* <OurTeam /> */}
       <CareersCTA />
       <Newsletter />
     </div>

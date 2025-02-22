@@ -11,6 +11,7 @@ interface VideoSectionProps {
   title?: string | any;
   desc?: string | any;
   btnText?: string | any;
+  buttonAction?: string | any;
   videoSrc?: string | any;
 }
 
@@ -18,6 +19,7 @@ const VideoSection = ({
   title,
   desc = "Online advertising can be complicated. We make it simple. Innovative targeting practices and consistent moderation turn yoursearch engine and social media advertisements into finely tuned money-making machines. Every campaign is treated as if it were our own, backed by a passion for efficiency and quality.",
   btnText = "Contact Us",
+  buttonAction,
   videoSrc = "/SocialMediaCube1.mp4",
 }: VideoSectionProps) => {
   const { width } = useWindowDimensions();
@@ -56,7 +58,7 @@ const VideoSection = ({
               }
             />
             <p>{desc}</p>
-            <CustomButton title={btnText} />
+            <CustomButton title={btnText} onClick={buttonAction} />
           </div>
         </div>
       </div>

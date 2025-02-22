@@ -69,7 +69,7 @@ const TrustedPartners = () => {
                     )}
                   >
                     <div>
-                      <h3 className="uppercase mb-3">
+                      <h3 className="uppercase mb-6">
                         <span>{items.title}</span>
                       </h3>
                       <ul>
@@ -83,7 +83,7 @@ const TrustedPartners = () => {
                         ))}
                       </ul>
                     </div>
-                    <div
+                    {/* <div
                       className={classNames(
                         styles.buttonContainer,
                         "flex justify-start mb-3"
@@ -93,7 +93,7 @@ const TrustedPartners = () => {
                         title="See Content Samples"
                         containerStyle=""
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </CustomAnimatedBorder>
               </div>

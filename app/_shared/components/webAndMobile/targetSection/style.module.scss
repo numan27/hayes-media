@@ -38,6 +38,12 @@
       @include RP(("padding-top": 40,
         ));
 
+      h2,
+      p {
+        z-index: 99 !important;
+        background-color: #191214 !important;
+      }
+
       .rocketContainer {
         position: relative;
 

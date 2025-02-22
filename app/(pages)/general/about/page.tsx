@@ -1,3 +1,5 @@
+"use client";
+
 import { Images } from "assets";
 import CoreValues from "components/about/coreValues";
 import GetStartedCall from "components/home/getStartedCall";
@@ -11,6 +13,7 @@ import VideoSection from "components/advertisement/videoSection";
 import EmotionalIntelligence from "components/about/emotionalIntelligence";
 // import ClientsSlider from "components/about/clientsSlider";
 import MeetTheFounder from "components/about/meetTheFounder";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const About = () => {
   const brands = [
@@ -39,6 +42,7 @@ const About = () => {
         desc="At Hayes Media, we’re reshaping how marketing is done. We believe marketing can be both entertaining and impactful. Why settle for dull, forgettable ads when every campaign could feel like a Super Bowl commercial? We’re building a culture where every piece of content engages, inspires, and delivers results. Businesses embracing this philosophy will thrive in the long run, and we’re here to make that happen"
         btnText="Get Started Today"
         videoSrc="/SocialMediaAnimation2.mp4"
+        buttonAction={handleScrollToQuote}
       />
       <CoreValues />
       <EmotionalIntelligence />

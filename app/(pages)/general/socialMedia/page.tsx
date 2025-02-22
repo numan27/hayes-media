@@ -13,6 +13,10 @@ import VideoSection from "components/advertisement/videoSection";
 import InnovationSection from "components/socialMedia/innovationSection";
 import SocialMediaScope from "components/socialMedia/socialMediaScope";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import {
+  handleScrollToPortfolio,
+  handleScrollToQuote,
+} from "utils/scrollHelpers";
 
 const SocialMedia = () => {
   const { width } = useWindowDimensions();
@@ -30,18 +34,21 @@ const SocialMedia = () => {
       title: "Tailored Social Media Management Strategy",
       desc: "We begin by understanding your unique business goals and audience to create a custom social media plan that aligns with your vision so that things work as per your set strategies.",
       buttonText: "Schedule A Discovery Call",
+      buttonAction: "tel:+17134834953",
     },
     {
       videoSrc: "/SocialMediaCube1.mp4",
       title: "Engaging Content Creation and Posting",
       desc: "Our team crafts visually compelling and engaging content that resonates with your target audience and schedules posts for optimal reach. With us, targeting your audience and engaging with them on a regular basis is a breeze.",
       buttonText: "See Our Work",
+      buttonAction: handleScrollToPortfolio,
     },
     {
       videoSrc: "/SocialMediaAnimation2.mp4",
       title: "Community Driven Optimization",
       desc: "We regularly analyze performance data to tweak and improve your social media marketing strategy, ensuring maximum reach and engagement. This leads to better conversion rates and improved results.",
       buttonText: "Get A Custom Quote",
+      buttonAction: handleScrollToQuote,
     },
   ];
 
@@ -73,6 +80,7 @@ const SocialMedia = () => {
             details to build strong relationships with your clients.
           </>
         }
+        buttonAction={handleScrollToQuote}
       />
       <ServicesDetail servicesData={servicesData} isHaveHeading />
       <InnovationSection />

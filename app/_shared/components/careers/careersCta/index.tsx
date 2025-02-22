@@ -26,10 +26,10 @@ const CareersCTA = () => {
             Pinnacle Infotech careers for opportunities to grow, learn, and
             lead.
           </p>
-          <CustomButton
-            // onClick={handleScrollToJobs}
+          {/* <CustomButton
+            onClick={handleScrollToJobs}
             title="Apply Now"
-          />
+          /> */}
         </div>
       </div>
     </section>

@@ -5,9 +5,25 @@ import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import CustomButton from "components/common/customButton";
 import Image from "next/image";
 import { Images } from "assets";
+import { routeConstant } from "routes/constants";
+import Link from "next/link";
+
+interface Service {
+  img?: string | any;
+  buttonAction?: string | any;
+}
 
 const OtherServices = () => {
-  const otherServicesData = [Images.OtherServiceImg1, Images.OtherServiceImg2];
+  const otherServicesData: Service[] = [
+    {
+      img: Images.OtherServiceImg1,
+      buttonAction: routeConstant.webMobile.path,
+    },
+    {
+      img: "/OnlineAdsHeader.webp",
+      buttonAction: routeConstant.socialMedia.path,
+    },
+  ];
 
   return (
     <section className={classNames(styles.sectionContainer)}>
@@ -24,7 +40,7 @@ const OtherServices = () => {
               "grid sm:grid-cols-2 grid-cols-1 lg:gap-8 sm:gap-5 xs:gap-4 gap-3"
             )}
           >
-            {otherServicesData.map((items: any, index) => (
+            {otherServicesData.map((items, index) => (
               <div key={index} className={classNames(styles.gridItem)}>
                 <CustomAnimatedBorder
                   gradientColors="linear-gradient(135deg, #EC1E24 0%, #141212 50%, #902880 100%)"
@@ -33,7 +49,13 @@ const OtherServices = () => {
                 >
                   <div className={classNames(styles.content)}>
                     <div className={classNames(styles.imgContainer)}>
-                      <Image src={items} alt="section-img" />
+                      <Image
+                        height={242}
+                        width={400}
+                        src={items.img}
+                        className="w-full"
+                        alt="section-img"
+                      />
                     </div>
                     <div
                       className={classNames(
@@ -41,10 +63,12 @@ const OtherServices = () => {
                         "flex justify-center"
                       )}
                     >
-                      <CustomButton
-                        title="Get A Quote"
-                        containerStyle="w-full"
-                      />
+                      <Link className="w-full" href={items.buttonAction}>
+                        <CustomButton
+                          title="Learn More"
+                          containerStyle="w-full"
+                        />
+                      </Link>
                     </div>
                   </div>
                 </CustomAnimatedBorder>

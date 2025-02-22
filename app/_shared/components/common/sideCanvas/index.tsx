@@ -36,6 +36,20 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
     });
   }, [pathname]);
 
+  const handleScrollToQuote = () => {
+    const quoteSection = document.getElementById("get-a-quote");
+
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      quoteSection.classList.add("soft-glow");
+
+      setTimeout(() => {
+        quoteSection.classList.remove("soft-glow");
+      }, 2000);
+    }
+  };
+
   return (
     <div
       className={classNames(styles.backDropContainer, "lg:hidden")}
@@ -149,12 +163,19 @@ const SideCanvas = ({ isOpen, setIsOpen }: SideCanvasProps) => {
               <CustomButton
                 title="Get A Quote"
                 containerStyle="transparent-button"
+                onClick={handleScrollToQuote}
               />
             </CustomAnimatedBorder>
-            <CustomButton
-              title="Log In"
-              containerStyle={classNames(styles.login_btn, "w-full")}
-            />
+            <a
+              href="tel:+17134834953"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CustomButton
+                title="Call Now"
+                containerStyle={classNames(styles.login_btn, "w-full")}
+              />
+            </a>
           </div>
         </div>
       </div>

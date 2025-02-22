@@ -1,3 +1,5 @@
+"use client";
+
 import { Images } from "assets";
 import GetStartedCall from "components/home/getStartedCall";
 import HeroBanner from "components/home/heroBanner";
@@ -10,6 +12,7 @@ import VideoSection from "components/advertisement/videoSection";
 import TargetSection from "components/webAndMobile/targetSection";
 import TrustedPartners from "components/webAndMobile/trustedPartners";
 import FullWidthVideo from "components/webAndMobile/fullWidthVideo";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const WebDevelopment = () => {
   const brands = [
@@ -40,6 +43,7 @@ const WebDevelopment = () => {
       <VideoSection
         videoSrc="/WebsiteAnimation2Updated.webm"
         title="Cutting-Edge Web & App Development Solutions for Your Digital Success"
+        buttonAction={handleScrollToQuote}
       />
       <TrustedPartners />
       {/* <MobileSlider /> */}

@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 import Image from "next/image";
 import { Images } from "assets";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const TargetSection = () => {
   const [launch, setLaunch] = useState(false);
@@ -45,7 +46,10 @@ const TargetSection = () => {
                 presence is impactful, efficient, and aligned with your business
                 objectives.
               </p>
-              <CustomButton title="Optimize My Website Now" />
+              <CustomButton
+                onClick={handleScrollToQuote}
+                title="Optimize My Website Now"
+              />
             </div>
             <div
               className={classNames(

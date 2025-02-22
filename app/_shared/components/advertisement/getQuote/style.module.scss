@@ -9,14 +9,14 @@
 
 
   @media screen and (min-width: 2000px) {
-    height: 100vh !important;
+    // height: 100vh !important;
     @include RP(("padding-top": 130,
         "padding-bottom": 80,
       ), 1);
   }
 
   @media screen and (min-width: 1600px) and (max-width: 1999px) {
-    height: 100vh !important;
+    // height: 100vh !important;
     @include RP(("padding-top": 60,
         "padding-bottom": 70,
       ), 1);

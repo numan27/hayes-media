@@ -6,6 +6,7 @@ import CustomButton from "components/common/customButton";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import Image from "next/image";
 import { Images } from "assets";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const InnovationSection = () => {
   return (
@@ -29,7 +30,10 @@ const InnovationSection = () => {
               description="Social media moves fast, and staying ahead is a must. At Hayes Media, we’re all about keeping up with the latest trends, algorithms, and your competitors to make sure your business stays relevant and impactful."
             />
             <div className="flex md:justify-start justify-center mt-2">
-              <CustomButton title="Get a Custom Quote" />
+              <CustomButton
+                title="Get a Custom Quote"
+                onClick={handleScrollToQuote}
+              />
             </div>
           </div>
 

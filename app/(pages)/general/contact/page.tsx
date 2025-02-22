@@ -86,10 +86,16 @@ const Contact = () => {
                   "flex items-center justify-center gap-4 md:border-r lg:pr-8 pr-5 border-[#C2C2C2] lg:h-20 h-16"
                 )}
               >
-                <span>
-                  <Icons.PhoneIcon />
-                </span>
-                <p>+94 4444 5555 6</p>
+                <a
+                  className="flex items-center gap-4"
+                  target="_blank"
+                  href="tel:+1713483-4953"
+                >
+                  <span>
+                    <Icons.PhoneIcon />
+                  </span>
+                  <p> +1 (713) 483-4953</p>
+                </a>
               </div>
               <div
                 className={classNames(
@@ -105,7 +111,7 @@ const Contact = () => {
                     alt="icon"
                   />
                 </span>
-                <p>Lorem ipsum is dummy text</p>
+                <p>Austin TX</p>
               </div>
             </div>
           </div>

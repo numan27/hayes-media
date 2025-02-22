@@ -83,6 +83,10 @@ import PortfolioImgHayes3 from "./portfolio-hayes-3.jpg";
 import PortfolioImgHayes4 from "./portfolio-hayes-4.jpg";
 import PortfolioImgHayes5 from "./portfolio-hayes-5.jpg";
 import BackQuote from "./back-quote.png";
+import Facebook from "./facebook.png";
+import LinkedIn from "./linkedin.png";
+import Twitter from "./twitter.png";
+import Youtube from "./youtube.png";
 
 
 const Images = {
@@ -170,7 +174,11 @@ const Images = {
   PortfolioImgHayes3,
   PortfolioImgHayes4,
   PortfolioImgHayes5,
-  BackQuote
+  BackQuote,
+  Facebook,
+  LinkedIn,
+  Twitter,
+  Youtube
 };
 
 export { Images };

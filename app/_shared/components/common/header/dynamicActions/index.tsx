@@ -1,9 +1,7 @@
 import styles from "../style.module.scss";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { MyContext } from "utils/myContext";
-import { routeConstant } from "routes/constants";
 import CustomButton from "components/common/customButton";
-import { Icons } from "assets";
 import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import classNames from "classnames";
 import dynamic from "next/dynamic";
@@ -21,6 +19,20 @@ const DynamicActions = () => {
   // const closeFellowModal = () => {
   //   setBecomeFellowModal(false);
   // };
+
+  const handleScrollToQuote = () => {
+    const quoteSection = document.getElementById("get-a-quote");
+
+    if (quoteSection) {
+      quoteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      quoteSection.classList.add("soft-glow");
+
+      setTimeout(() => {
+        quoteSection.classList.remove("soft-glow");
+      }, 2000);
+    }
+  };
 
   return (
     <>
@@ -52,14 +64,16 @@ const DynamicActions = () => {
           >
             <CustomButton
               title="Get A Quote"
-              // containerStyle="outlinedPrimary"
               containerStyle="transparent-button"
+              onClick={handleScrollToQuote}
             />
           </CustomAnimatedBorder>
-          <CustomButton
-            title="Log In"
-            containerStyle={classNames(styles.login_btn)}
-          />
+          <a href="tel:+17134834953" target="_blank" rel="noopener noreferrer">
+            <CustomButton
+              title="Call Now"
+              containerStyle={classNames(styles.login_btn)}
+            />
+          </a>
         </>
         {/* )} */}
       </div>
@@ -72,6 +86,20 @@ export default dynamic(() => Promise.resolve(DynamicActions), {
   loading: () => {
     const value = useContext(MyContext);
     const { user } = value;
+
+    const handleScrollToQuote = () => {
+      const quoteSection = document.getElementById("get-a-quote");
+
+      if (quoteSection) {
+        quoteSection.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        quoteSection.classList.add("soft-glow");
+
+        setTimeout(() => {
+          quoteSection.classList.remove("soft-glow");
+        }, 2000);
+      }
+    };
 
     return (
       <div
@@ -94,12 +122,19 @@ export default dynamic(() => Promise.resolve(DynamicActions), {
               <CustomButton
                 title="Get A Quote"
                 containerStyle="transparent-button"
+                onClick={handleScrollToQuote}
               />
             </CustomAnimatedBorder>
-            <CustomButton
-              title="Log In"
-              containerStyle={classNames(styles.login_btn)}
-            />
+            <a
+              href="tel:+17134834953"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CustomButton
+                title="Call Now"
+                containerStyle={classNames(styles.login_btn)}
+              />
+            </a>
           </>
         )}
       </div>

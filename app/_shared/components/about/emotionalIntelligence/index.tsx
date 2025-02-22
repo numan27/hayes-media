@@ -2,6 +2,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomButton from "components/common/customButton";
+import { handleScrollToQuote } from "utils/scrollHelpers";
 
 const EmotionalIntelligence = () => {
   return (
@@ -27,7 +28,10 @@ const EmotionalIntelligence = () => {
             shared—organically. That’s the power of emotional intelligence in
             marketing.
           </p>
-          <CustomButton title="Get Started Today" />
+          <CustomButton
+            title="Get Started Today"
+            onClick={handleScrollToQuote}
+          />
         </div>
       </div>
     </section>

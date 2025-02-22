@@ -20,7 +20,7 @@
         ));
 
       .gridItem {
-        @include RP(("height": 315,
+        @include RP(("height": 280,
           ), 1);
 
         .content {
