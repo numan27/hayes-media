@@ -82,7 +82,11 @@
         }
 
         @media screen and (max-width: 576px) {
-          transform: translateY(-90%) !important;
+          transform: translateY(-146%) !important;
+        }
+
+        @media screen and (max-width: 431px) {
+          transform: translateY(-75%) !important;
         }
       }
 
@@ -108,7 +112,7 @@
         }
 
         @media screen and (max-width: 576px) {
-          transform: translateY(-147%) !important;
+          transform: translateY(-120%) !important;
         }
       }
 
@@ -224,15 +228,15 @@
         svg {
           width: 100% !important;
 
-          @media screen and (max-width: 576px) {
-            height: 400px !important;
-          }
+          // @media screen and (max-width: 576px) {
+          //   height: 400px !important;
+          // }
 
-          path {
-            @media screen and (max-width: 576px) {
-              height: 400px !important;
-            }
-          }
+          // path {
+          //   @media screen and (max-width: 576px) {
+          //     height: 400px !important;
+          //   }
+          // }
         }
 
         .heading {
