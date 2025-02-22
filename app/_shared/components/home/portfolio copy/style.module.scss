@@ -82,42 +82,14 @@
         "padding-bottom": 50,
       ));
 
-    .swiper-slide {
-      width: auto !important; // Allow slides to adapt to content width
-      height: 474px !important; // Fixed height for all slides
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
 
     .activeSlide {
       position: relative;
 
       .reviewItem {
-        height: 474px !important;
         min-height: 474px !important;
-        max-height: 474px !important;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
 
-        video,
-        img,
-        embed {
-          height: 100% !important;
-          width: auto !important;
-          max-width: 100%;
-          object-fit: cover;
-          border-radius: 8px !important;
-        }
-
-        embed {
-          width: 100% !important;
+        video {
           height: 100% !important;
         }
 
@@ -128,8 +100,6 @@
       position: relative;
 
       .reviewItem {
-        height: 474px !important;
-        min-height: 474px !important;
         max-height: 474px !important;
         position: relative;
         width: 100%;
@@ -139,18 +109,7 @@
         justify-content: center;
         overflow: hidden;
 
-        video,
-        img,
-        embed {
-          height: 100% !important;
-          width: auto !important;
-          max-width: 100%;
-          object-fit: cover;
-          border-radius: 8px !important;
-        }
-
-        embed {
-          width: 100% !important;
+        video {
           height: 100% !important;
         }
 
@@ -158,34 +117,30 @@
     }
 
     .reviewItem {
+      border-radius: 8px;
       height: 474px !important;
       min-height: 474px !important;
-      max-height: 474px !important;
-      // position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      overflow: hidden;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
-      border-radius: 8px;
 
-      video,
-      img,
-      embed {
-        height: 100% !important;
-        width: auto !important;
-        max-width: 100%;
-        object-fit: cover;
-        border-radius: 8px !important;
-      }
-
-      embed {
+      @media screen and (max-width: 576px) {
         width: 100% !important;
-        height: 100% !important;
       }
 
+      video {
+        height: 100% !important;
+
+        @media screen and (max-width: 576px) {
+          width: 100% !important;
+        }
+      }
+
+      video {
+        width: 100% !important;
+        min-width: 100% !important;
+        border-radius: 8px;
+        object-fit: cover;
+        height: 474px !important;
+        min-height: 474px !important;
+      }
     }
   }
 }

@@ -54,7 +54,7 @@ const Portfolio = () => {
   );
   const [portfolioModal, setPortfolioModal] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const sectionRef = useRef<HTMLElement | null>(null); // Ref for the portfolio section
+  const sectionRef = useRef<HTMLElement | null>(null);
   const { width } = useWindowDimensions();
 
   const handleDoubleClick = (direction: "prev" | "next") => {
@@ -126,9 +126,8 @@ const Portfolio = () => {
                 styles.newsSlider,
                 "newsSlider xs:w-10/12 w-full mx-auto"
               )}
-              slidesPerView={
-                width > 1800 ? 4 : width > 992 ? 3 : width > 768 ? 2 : 1
-              }
+              // slidesPerView={"auto"}
+              slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
               slidesPerGroup={slidesPerGroup}
               loop={true}
               spaceBetween={15}
@@ -139,7 +138,7 @@ const Portfolio = () => {
               }}
               speed={800}
               breakpoints={{
-                1200: { slidesPerView: 4 },
+                1200: { slidesPerView: 3 },
                 992: { slidesPerView: 3 },
                 768: { slidesPerView: 2 },
                 0: { slidesPerView: 1 },
@@ -166,14 +165,17 @@ const Portfolio = () => {
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div
-                    className={classNames(styles.reviewItem, "relative h-full")}
+                    className={classNames(
+                      styles.reviewItem,
+                      "h-full shadow-md"
+                    )}
                   >
                     {item.type === "video" ? (
-                      <>
+                      <div className="relative w-full h-full">
                         <video
                           // @ts-ignore
                           ref={(el) => (videoRefs.current[index] = el)}
-                          className="absolute inset-0 w-full h-full object-contain"
+                          className="w-full h-full object-contain"
                           // @ts-ignore
                           src={item.src}
                           loop
@@ -201,10 +203,10 @@ const Portfolio = () => {
                             <MdVolumeUp size={20} color="#fff" />
                           )}
                         </button>
-                      </>
+                      </div>
                     ) : item.type === "image" ? (
                       <Image
-                        className="w-full h-full object-cover rounded-md"
+                        className="w-full h-full object-contain"
                         src={item.src}
                         alt="Portfolio Image"
                       />
@@ -219,7 +221,7 @@ const Portfolio = () => {
                         }}
                       >
                         <embed
-                          className="w-full h-full object-cover"
+                          className="w-full h-full"
                           // @ts-ignore
                           src={item.src}
                           type="application/pdf"
