@@ -347,6 +347,73 @@
     }
   }
 
+  .customBadge {
+    background: $PRIMARY;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5px 3px;
+    color: #fff;
+    border-radius: 35px;
+    @include RP(("font-size": 15), 1);
+    font-weight: 500;
+    width: fit-content !important;
+
+    @media screen and (max-width: 992px) {
+      font-size: 10px !important;
+    }
+
+    .badgeContent {
+      border: 2px solid #000 !important;
+      width: 100%;
+      height: 100%;
+      border-radius: 35px;
+      padding: 2px 13px 2px 2px;
+
+      @media screen and (max-width: 992px) {
+        @include RP(("padding-right": 8,
+          ), 1);
+      }
+
+      @media screen and (max-width: 640px) {
+        padding: 2px 4px;
+      }
+
+      @media screen and (max-width: 450px) {
+        padding: 1px 3px;
+        font-size: 6px !important;
+        height: 22px !important;
+      }
+
+      .iconContainer {
+        border-radius: 100%;
+        background-color: $WHITE;
+        @include RP(("width": 40, "height": 40), 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: 992px) {
+          @include RP(("width": 32, "height": 32), 1);
+        }
+
+        @media screen and (max-width: 640px) {
+          display: none;
+        }
+
+
+        svg {
+          @include RP(("width": 26, "height": 26), 1);
+
+          @media screen and (max-width: 992px) {
+            @include RP(("width": 18, "height": 18), 1);
+          }
+
+        }
+      }
+    }
+  }
+
   .hiddenContent {
     @media screen and (max-width: 450px) {
       gap: 2px !important;
