@@ -83,8 +83,9 @@
       ));
 
     .swiper-slide {
-      width: auto !important; // Allow slides to adapt to content width
-      height: 474px !important; // Fixed height for all slides
+      width: auto !important;
+      max-width: fit-content !important;
+      height: 474px !important;
       display: flex;
       align-items: center;
       justify-content: center;

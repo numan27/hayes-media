@@ -138,3 +138,13 @@ body {
 #nprogress .bar {
   background: linear-gradient(135deg, #ec1e24 0%, #902880 100%) !important;
 }
+.swiper-slide {
+  max-width: fit-content !important;
+  width: fit-content !important;
+}
+@media screen and (max-width: 450px) {
+  .swiper-slide {
+    max-width: auto !important;
+    width: auto !important;
+  }
+}

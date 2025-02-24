@@ -127,7 +127,8 @@ const Portfolio = () => {
                 "newsSlider xs:w-10/12 w-full mx-auto"
               )}
               // slidesPerView={"auto"}
-              slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
+              slidesPerView={width > 992 ? "auto" : width > 768 ? 2 : 1}
+              // slidesPerView={width > 992 ? 3 : width > 768 ? 2 : 1}
               slidesPerGroup={slidesPerGroup}
               loop={true}
               spaceBetween={15}
@@ -138,8 +139,8 @@ const Portfolio = () => {
               }}
               speed={800}
               breakpoints={{
-                1200: { slidesPerView: 3 },
-                992: { slidesPerView: 3 },
+                // 1200: { slidesPerView: 3 },
+                // 992: { slidesPerView: 3 },
                 768: { slidesPerView: 2 },
                 0: { slidesPerView: 1 },
               }}
