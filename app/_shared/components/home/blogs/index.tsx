@@ -1,10 +1,7 @@
 "use client";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Images } from "assets";
 import CustomSectionHeading from "components/common/customSectionHeading";
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect } from "react";
 import AOS from "aos";
 import CustomButton from "components/common/customButton";
@@ -30,10 +27,18 @@ const Blogs = () => {
     {
       img: "",
       category: "Digital marketing",
-      title: "Why We Collect User’s Data",
+      title: "Why We Collect Information from Users",
     },
-    { img: "", category: "Branding", title: "How We Optimized Our SEO" },
-    { img: "", category: "DEVELOPMENT", title: "Automation. Advanced Level" },
+    {
+      img: "",
+      category: "Branding",
+      title: "How We Successfully Optimized Our SEO",
+    },
+    {
+      img: "",
+      category: "DEVELOPMENT",
+      title: "Advanced Level Automation Techniques",
+    },
   ];
 
   return (

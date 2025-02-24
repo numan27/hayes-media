@@ -50,7 +50,7 @@ const OtherServices = () => {
                   <div className={classNames(styles.content)}>
                     <div className={classNames(styles.imgContainer)}>
                       <Image
-                        height={242}
+                        height={300}
                         width={400}
                         src={items.img}
                         className="w-full"

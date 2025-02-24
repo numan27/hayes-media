@@ -183,7 +183,7 @@ const Portfolio = () => {
                           autoPlay={index === activeIndex}
                         />
                         <button
-                          className="absolute top-2 right-2 bg-black bg-opacity-50 p-2 rounded-full"
+                          className="absolute top-2 left-2 bg-black bg-opacity-50 p-2 rounded-full"
                           onClick={(e) => {
                             e.stopPropagation();
                             setMutedVideos((prev) => {

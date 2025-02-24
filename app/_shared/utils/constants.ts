@@ -49,6 +49,8 @@ interface Job {
   title: string;
   level: string;
   description: string;
+  category: string;
+  location: string;
   specifications: string[];
   details: Details[];
 }
@@ -57,6 +59,8 @@ const jobsData: Job[] = [
   {
     title: "Media Buyer (Meta, Google, LinkedIn, TikTok, X)",
     level: "Mid-Level",
+    category: "marketing_advertising",
+    location: "austin_tx",
     description:
       "Develop and execute paid media strategies across multiple platforms, including Meta, Google, LinkedIn, TikTok, and X. Monitor campaign performance and optimize ads to maximize ROI. Analyze data trends to refine targeting and audience segmentation. Collaborate with creative teams to design compelling ad creatives and messaging. Stay updated with industry trends and platform changes to maintain campaign effectiveness.",
     specifications: [
@@ -79,6 +83,8 @@ const jobsData: Job[] = [
   {
     title: "Social Media Manager (All Platforms)",
     level: "Mid-Level",
+    category: "social_media",
+    location: "houston_tx",
     description:
       "Manage and grow social media presence across all major platforms. Develop engaging content strategies to increase brand awareness and engagement. Monitor trends, analyze performance metrics, and adjust strategies accordingly. Work closely with content creators, designers, and marketing teams to maintain a consistent brand voice. Stay updated with social media trends and algorithm updates to ensure optimal engagement.",
     specifications: [
@@ -101,6 +107,8 @@ const jobsData: Job[] = [
   {
     title: "Video Editor/Motion Graphics Manager/Graphics Designer (Adobe)",
     level: "Mid-Level",
+    category: "graphic_design",
+    location: "dallas_tx",
     description:
       "Create high-quality video content and motion graphics for marketing campaigns. Edit videos using Adobe Premiere Pro, After Effects, and other Adobe tools. Design eye-catching graphics for social media, ads, and branding materials. Work closely with marketing teams to ensure visuals align with brand identity. Stay updated with the latest design and animation trends.",
     specifications: [
@@ -123,6 +131,8 @@ const jobsData: Job[] = [
   {
     title: "UX/UI Designer (Figma, WordPress)",
     level: "Mid-Level",
+    category: "ui_ux",
+    location: "san_antonio_tx",
     description:
       "Design intuitive user experiences and modern UI elements for web and mobile applications. Create wireframes, prototypes, and design systems using Figma. Collaborate with developers to ensure seamless implementation of designs. Optimize WordPress website designs for usability and performance. Conduct user research to improve engagement and conversion rates.",
     specifications: [
@@ -145,6 +155,8 @@ const jobsData: Job[] = [
   {
     title: "Next.js Developer",
     level: "Mid-Level",
+    category: "it_software",
+    location: "austin_tx",
     description:
       "Develop scalable and high-performance applications using Next.js. Optimize web applications for speed, SEO, and responsiveness. Integrate APIs and third-party services to enhance functionality. Collaborate with designers and backend developers to build seamless user experiences. Stay updated with the latest trends in React and Next.js development.",
     specifications: [
@@ -167,6 +179,8 @@ const jobsData: Job[] = [
   {
     title: "Brand & Brand Voice Marketer",
     level: "Mid-Level",
+    category: "marketing_advertising",
+    location: "dallas_tx",
     description:
       "Develop and maintain a consistent brand voice across all marketing channels. Craft compelling messaging that resonates with the target audience. Work closely with content strategists and designers to align brand communication. Analyze market trends to refine brand positioning and messaging strategies. Ensure brand consistency across digital, print, and social media platforms.",
     specifications: [

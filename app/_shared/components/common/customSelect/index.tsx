@@ -8,7 +8,7 @@ import Image from "next/image";
 
 interface OptionProps {
   title: string;
-  action: () => void;
+  action?: () => void; // Make action optional
 }
 
 interface CustomSelectProps {
@@ -53,12 +53,14 @@ const CustomSelect = ({
     }
   }, [externalActiveItem]);
 
-  const handleOptionClick = (title: string, action: () => void) => {
+  const handleOptionClick = (title: string, action?: () => void) => {
     setActiveItem(title);
     if (onChange) {
-      onChange(title);
+      onChange(title); // Call the onChange prop with the selected title
     }
-    action();
+    if (action && typeof action === "function") {
+      action(); // Call the action if it's a function
+    }
     setOpenSelection(false);
   };
 
@@ -126,7 +128,6 @@ const CustomSelect = ({
                       <Icons.ChevDownFilled />
                     </span>
                   ) : (
-                    // <Icons.ChevDown />
                     <Image
                       width={15}
                       height={8}

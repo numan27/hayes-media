@@ -16,6 +16,14 @@
         ));
 
       .gridItem {
+        &:first-child {
+          .content {
+            img {
+              transform: scaleX(-1);
+            }
+          }
+        }
+
         .content {
           @include RP(("padding-top": 24,
               "padding-bottom": 24,
@@ -25,7 +33,8 @@
 
           img {
             width: 100% !important;
-            max-height: 242px;
+            max-height: 300px !important;
+            height: auto !important;
           }
         }
       }
