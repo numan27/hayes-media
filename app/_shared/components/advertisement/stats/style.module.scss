@@ -8,5 +8,17 @@
     ));
   background: $PRIMARY;
 
-  .contentContainer {}
+  .contentContainer {
+    p {
+      text-transform: uppercase;
+      @include RP(("margin-top": 25,
+        ), 1);
+    }
+
+    svg {
+      @include RP(("width": 24,
+          "height": 24,
+        ), 1);
+    }
+  }
 }

@@ -2,15 +2,17 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 
-interface InputProps extends React.HTMLProps<HTMLInputElement> {
-  label: string;
-  required: boolean;
-  error: string;
-  placeholder: string;
-  onChange: any;
-  customLabelStyle: any;
-  customInputStyle: any;
-  customInputContainer: any;
+interface TextAreaProps {
+  label?: string;
+  required?: boolean;
+  error?: string;
+  placeholder?: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+  customLabelStyle?: string;
+  customInputStyle?: string;
+  customInputContainer?: string;
   limit?: number;
   showLimit?: boolean;
   rows?: number;
@@ -23,27 +25,29 @@ const CustomTextArea = ({
   value,
   placeholder,
   onChange,
+  onBlur,
   customLabelStyle,
   customInputStyle,
   customInputContainer,
   limit,
   showLimit,
   rows,
-}: Partial<InputProps>) => {
+}: TextAreaProps) => {
   const charLimit = limit ? limit : 3000;
+
   return (
-    <div className="relative mb-3 w-full">
+    <div className="relative w-full">
       <div className="flex flex-col items-start w-full gap-2">
-        {label ? (
+        {label && (
           <label
             className={classNames(
               styles.inputLabel,
               customLabelStyle && customLabelStyle
             )}
           >
-            {label} {!!required && <label className={styles.asterik}>*</label>}
+            {label} {required && <span className={styles.asterik}>*</span>}
           </label>
-        ) : null}
+        )}
 
         <div
           className={classNames(
@@ -54,7 +58,8 @@ const CustomTextArea = ({
         >
           <textarea
             rows={rows}
-            onChange={onChange}
+            onChange={onChange} // Ensure this is correctly bound
+            onBlur={onBlur} // Ensure this is correctly bound
             placeholder={placeholder}
             className={classNames(
               styles.inputStyle,
@@ -64,11 +69,11 @@ const CustomTextArea = ({
           />
         </div>
       </div>
-      {!!error ? (
+      {error ? (
         <div className={styles.error}>{error}</div>
       ) : showLimit ? (
         <label className={classNames(styles.lmtLabel)}>
-          {Number(charLimit - String(value).length)} character left
+          {charLimit - (value ? value.length : 0)} characters left
         </label>
       ) : null}
     </div>

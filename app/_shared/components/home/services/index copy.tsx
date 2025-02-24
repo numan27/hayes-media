@@ -1,5 +1,3 @@
-"use client";
-
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Images } from "assets";
@@ -9,13 +7,8 @@ import CustomButton from "components/common/customButton";
 import Image from "next/image";
 import Link from "next/link";
 import { routeConstant } from "routes/constants";
-import useWindowDimensions from "hooks/useWindowDimensions";
-import CustomSlider from "components/common/customSlider";
 
 const Services = () => {
-  const { width } = useWindowDimensions();
-  const isMobile = width <= 768;
-
   const servicesData = [
     {
       icon: Images.ServiceIcon1,
@@ -44,7 +37,7 @@ const Services = () => {
     {
       icon: Images.ServiceIcon5,
       title: "SEO",
-      desc: "The secret science to being seen. We’ll help you climb to the top  of search engines and stay there.",
+      desc: "The secret science to being seen. We’ll help you climb to the top  of search engines and stay there.",
       path: routeConstant.advertisement.path,
     },
     {
@@ -54,53 +47,6 @@ const Services = () => {
       path: routeConstant.socialMedia.path,
     },
   ];
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    pauseOnHover: false,
-    pauseOnFocus: true,
-  };
-
-  // @ts-ignore
-  const ServiceCard = ({ item, index }) => (
-    <CustomAnimatedBorder
-      gradientColors="linear-gradient(270deg, #EC1E24 0%, #141212 50%, #902880 100%)"
-      animationSpeed="6s"
-      borderRadius="8px"
-    >
-      <div
-        key={index}
-        className={classNames(
-          styles.gridItem,
-          "flex flex-col md:items-start items-center justify-between"
-        )}
-      >
-        <div className="flex flex-col gap-3 xs:items-start items-center py-4 px-2.5">
-          <span className={classNames(styles.iconContainer)}>
-            <Image
-              height={48}
-              width={48}
-              // @ts-ignore
-              src={item.icon}
-              alt="icon"
-            />
-          </span>
-          <h4>{item.title}</h4>
-          <p>{item.desc}</p>
-        </div>
-        <Link className="mb-3" href={item.path}>
-          <CustomButton title="More Details" containerStyle="" />
-        </Link>
-      </div>
-    </CustomAnimatedBorder>
-  );
 
   return (
     <section className={classNames(styles.sectionContainer)}>
@@ -116,26 +62,43 @@ const Services = () => {
               heading="OUR SERVICES"
               description="Your business deserves more than a cookie-cutter approach. This is where our marketing consultants in Austin craft unforgettable digital experiences that inspire conversions, spark loyalty and leave your customers satisfied."
             />
-            {isMobile ? (
-              <CustomSlider settings={sliderSettings}>
-                {servicesData.map((item, index) => (
-                  <div className="mt-4">
-                    <ServiceCard key={index} item={item} index={index} />
+            <div
+              className={classNames(
+                styles.gridContainer,
+                "grid lg:grid-cols-3 sm:grid-cols-2 gap-5"
+              )}
+            >
+              {servicesData.map((items, index) => (
+                <CustomAnimatedBorder
+                  gradientColors="linear-gradient(270deg, #EC1E24 0%, #141212 50%, #902880 100%)"
+                  animationSpeed="6s"
+                  borderRadius="8px"
+                >
+                  <div key={index} className={classNames(styles.gridItem)}>
+                    <div className="flex flex-col gap-3 xs:items-start items-center">
+                      <span className={classNames(styles.iconContainer)}>
+                        {/* {items.icon} */}
+                        <Image
+                          height={48}
+                          width={48}
+                          // @ts-ignore
+                          src={items.icon}
+                          alt="icon"
+                        />
+                      </span>
+                      <h4>{items.title}</h4>
+                      <p>{items.desc}</p>
+                      <Link href={items.path}>
+                        <CustomButton
+                          title="More Details"
+                          containerStyle="mt-3"
+                        />
+                      </Link>
+                    </div>
                   </div>
-                ))}
-              </CustomSlider>
-            ) : (
-              <div
-                className={classNames(
-                  styles.gridContainer,
-                  "grid lg:grid-cols-3 sm:grid-cols-2 gap-5"
-                )}
-              >
-                {servicesData.map((item, index) => (
-                  <ServiceCard key={index} item={item} index={index} />
-                ))}
-              </div>
-            )}
+                </CustomAnimatedBorder>
+              ))}
+            </div>
           </div>
         </CustomAnimatedBorder>
       </div>

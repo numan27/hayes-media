@@ -39,6 +39,7 @@ const ServiceDetails = () => {
         desc="Hayes Media, an Austin-based agency, specializes in targeted online ad campaigns that help you reach the right audience at the right time and at the right place. From search to social."
         brandImagesData={brands}
         brandsHeading="Platforms we work with"
+        isImageBanner
       />
       <VideoSection
         title={

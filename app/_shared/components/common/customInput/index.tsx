@@ -64,7 +64,6 @@ const CustomInput: ForwardRefRenderFunction<any, Partial<InputProps>> = (
   ref
 ) => {
   const [inputType, setInputType] = useState<string>(type ? type : "");
-  const [inputValue, setInputValue] = useState<any>(value ? value : "");
   const dateRef: any = useRef(null);
   const [width, setWidth] = useState<number | undefined>(0);
   const direction = {
@@ -77,14 +76,6 @@ const CustomInput: ForwardRefRenderFunction<any, Partial<InputProps>> = (
     setWidth(elem?.clientWidth ? elem?.clientWidth : 0);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    setInputValue(newValue);
-    if (onChange) {
-      onChange(e);
-    }
-  };
-
   useEffect(() => {
     let topElem: any = document.getElementById("input-container");
     const observer: any = new ResizeObserver(handleResizeObserver).observe(
@@ -94,6 +85,7 @@ const CustomInput: ForwardRefRenderFunction<any, Partial<InputProps>> = (
       observer?.unobserve(topElem);
     };
   }, []);
+
   return (
     <div
       className={classNames(
@@ -160,7 +152,6 @@ const CustomInput: ForwardRefRenderFunction<any, Partial<InputProps>> = (
                 />
               </div>
               <div className="flex items-center w-full">
-                {/* <Icons.Calendar /> */}
                 <input
                   defaultValue={defaultValue}
                   type={"text"}
@@ -187,8 +178,8 @@ const CustomInput: ForwardRefRenderFunction<any, Partial<InputProps>> = (
                 customInputStyle,
                 readOnly ? styles.readonly : ""
               )}
-              value={inputValue}
-              onChange={handleChange}
+              value={value} // Use the value prop directly
+              onChange={onChange} // Pass the onChange prop directly
               onKeyDown={onKeyDown}
               readOnly={readOnly}
               onPaste={onPaste}

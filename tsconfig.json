@@ -44,7 +44,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
-    "custom-fonts.d.ts"
+    "custom-fonts.d.ts",
+    "app/api/route.jsntact.js"
   ],
   "exclude": ["node_modules"]
 }

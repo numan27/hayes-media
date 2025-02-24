@@ -19,6 +19,7 @@ const changingTexts = [
 
 interface HeroBannerProps {
   contentIcon?: boolean;
+  isImageBanner?: boolean;
   title?: string | any;
   desc?: string | any;
   videoSrc?: string | any;
@@ -32,7 +33,7 @@ const HeroBanner = ({
   title,
   desc,
   videoSrc = "/HomePageHeaderFinalUpdated.webm",
-  // videoSrc = "/HomePageHeaderFinal.mp4",
+  isImageBanner,
   brandImagesData,
   brandsHeading,
   btnTitle = "Get Started",
@@ -165,11 +166,30 @@ const HeroBanner = ({
                 "flex items-center md:justify-end justify-center md:order-2 order-1"
               )}
             >
-              <BannerVideo
-                videoSrc={videoSrc}
-                thumbnailSrc="/hero-banner.png"
-                alt="Sample Video Thumbnail"
-              />
+              {isImageBanner ? (
+                <>
+                  <Image
+                    width={400}
+                    height={300}
+                    src="/OnlineAdsHeader.webp"
+                    alt="banner"
+                    className="hidden md:block"
+                  />
+                  <Image
+                    width={400}
+                    height={300}
+                    src="/OnlineAdsHeaderMobile.webp"
+                    alt="banner"
+                    className="block md:hidden"
+                  />
+                </>
+              ) : (
+                <BannerVideo
+                  videoSrc={videoSrc}
+                  thumbnailSrc="/hero-banner.png"
+                  alt="Sample Video Thumbnail"
+                />
+              )}
             </div>
           </div>
 

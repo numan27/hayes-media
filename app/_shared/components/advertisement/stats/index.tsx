@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
+import { Icons } from "assets";
 
 const Stats = () => {
   const stats = [
-    { number: "6", details: "Happy Clients" },
-    { number: "11", details: "Completed Projects" },
-    { number: "7M", details: "Transactions" },
-    { number: "6000 +", details: "Customers" },
+    { number: "50", details: "Happy Clients" },
+    { number: "100", details: "Completed Projects" },
+    { number: "10000", details: "Videos Created" },
+    { number: "5M", details: "Impressions" },
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
@@ -54,12 +55,13 @@ const Stats = () => {
                 "flex flex-col items-center"
               )}
             >
-              <h1>
+              <h1 className="flex items-center gap-1.5">
                 {counts[index]}
+                {index < 3 && <Icons.PlusIcon />}
                 {item.number.includes("M") && "M"}
-                {item.number.includes("+") && "+"}
+                {/* {item.number.includes("+") && "+"} */}
               </h1>
-              <p>{item.details}</p>
+              <p className="font-semibold mt-2">{item.details}</p>
             </div>
           ))}
         </div>

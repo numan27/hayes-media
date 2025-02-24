@@ -42,21 +42,46 @@
       @include RP(("padding-top": 40,
         ));
 
+      label {
+        font-weight: 500 !important;
+        @include RP(("font-size": 14,
+          ), 1);
+        color: $WHITE !important;
+
+        span {
+          @include PRIMARY_TEXT;
+        }
+      }
+
+      .error {
+        width: fit-content;
+        color: #ea5b5b;
+        font-size: 11px;
+        text-align: left;
+        z-index: 1;
+        margin-left: 5px;
+      }
+
       .quoteInput {
         background-color: $DARK2 !important;
         // background-color: $BLACK;
         border-radius: 6px !important;
         border-color: #FFFFFF33 !important;
+        border: 1px solid #FFFFFF33;
         // border-color: $BORDER !important;
+        resize: none;
+        box-shadow: none !important;
+        outline: 0 !important;
 
         input {
           background-color: $DARK2 !important;
         }
 
         textarea {
+
           ::placeholder {
             color: $LIGHT_GRAY2 !important;
-            @include RP(("font-size": 14,
+            @include RP(("font-size": 12,
               ), 1);
           }
         }

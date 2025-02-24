@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
@@ -10,55 +12,64 @@ import CustomInput from "components/common/customInput";
 import CustomTextArea from "components/common/customTextArea";
 
 const GetQuote = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
-
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  // Handle input changes
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Yup Validation Schema
+  const validationSchema = Yup.object({
+    firstName: Yup.string().trim().required("First Name is required"),
+    lastName: Yup.string().trim().required("Last Name is required"),
+    phone: Yup.string()
+      .matches(
+        /^[+\-\s()\d]+$/,
+        "Phone number can only contain numbers, spaces, and symbols: + - ( )"
+      )
+      .required("Phone number is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    message: Yup.string().trim().required("Message is required"),
+  });
 
-  // Handle form submission
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setSuccess(false);
+  // Formik Setup
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      message: "",
+    },
+    validationSchema,
+    onSubmit: async (values, { resetForm }) => {
+      setLoading(true);
+      setError("");
+      setSuccess(false);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
 
-      if (!response.ok) throw new Error("Failed to send message.");
+        const result = await response.json();
 
-      setSuccess(true);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        message: "",
-      }); // Reset form
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+        if (!response.ok) {
+          throw new Error(result.error || "Failed to send message.");
+        }
+
+        setSuccess(true);
+        resetForm(); // This will reset the form values to their initial state
+      } catch (err) {
+        // @ts-ignore
+        setError(err.message || "Something went wrong. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    },
+  });
 
   return (
     <section id="get-a-quote" className={classNames(styles.sectionContainer)}>
@@ -76,7 +87,7 @@ const GetQuote = () => {
             />
 
             <div className="md:w-9/12 xs:w-10/12 w-full mx-auto">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={formik.handleSubmit}>
                 <div
                   className={classNames(
                     styles.gridContainer,
@@ -90,9 +101,12 @@ const GetQuote = () => {
                       name="firstName"
                       placeholder="Enter First Name"
                       customInputContainer={classNames(styles.quoteInput)}
-                      value={formData.firstName}
-                      // @ts-ignore
-                      onChange={handleChange}
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.firstName && formik.errors.firstName
+                      }
                     />
                   </div>
                   <div className="xs:col-span-6 col-span-12">
@@ -102,9 +116,10 @@ const GetQuote = () => {
                       name="lastName"
                       placeholder="Enter Last Name"
                       customInputContainer={classNames(styles.quoteInput)}
-                      value={formData.lastName}
-                      // @ts-ignore
-                      onChange={handleChange}
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.lastName && formik.errors.lastName}
                     />
                   </div>
                   <div className="col-span-12">
@@ -112,12 +127,13 @@ const GetQuote = () => {
                       required
                       label="Phone"
                       name="phone"
-                      type="number"
+                      type="text"
                       placeholder="Enter Phone Number"
                       customInputContainer={classNames(styles.quoteInput)}
-                      value={formData.phone}
-                      // @ts-ignore
-                      onChange={handleChange}
+                      value={formik.values.phone}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.phone && formik.errors.phone}
                     />
                   </div>
                   <div className="col-span-12">
@@ -128,26 +144,42 @@ const GetQuote = () => {
                       type="email"
                       placeholder="Enter Email"
                       customInputContainer={classNames(styles.quoteInput)}
-                      value={formData.email}
-                      // @ts-ignore
-                      onChange={handleChange}
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.email && formik.errors.email}
                     />
                   </div>
-                  <div className="col-span-12">
-                    <CustomTextArea
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Write Message"
-                      name="message"
-                      customInputContainer={classNames(styles.quoteInput)}
-                    />
+                  <div className="col-span-12 flex flex-col items-start gap-2.5">
+                    <label htmlFor="message">
+                      Message <span>*</span>
+                    </label>
+                    <>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formik.values.message}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        rows={6}
+                        placeholder="Write Message"
+                        className={classNames(styles.quoteInput, "w-full p-3")}
+                      />
+                      {formik.touched.message && formik.errors.message && (
+                        <div
+                          className={classNames(
+                            styles.error,
+                            "text-red-500 text-sm"
+                          )}
+                        >
+                          {formik.errors.message}
+                        </div>
+                      )}
+                    </>
                   </div>
                 </div>
 
-                {error && (
-                  <p className="text-red-500 text-center mt-2">{error}</p>
-                )}
+                {error && <p className="text-red-500 text-center">{error}</p>}
                 {success && (
                   <p className="text-green-500 text-center mt-2">
                     Message sent successfully!
@@ -163,6 +195,7 @@ const GetQuote = () => {
                   <CustomButton
                     title={loading ? "Sending..." : "Get A Quote"}
                     disabled={loading}
+                    type="submit"
                   />
                 </div>
               </form>

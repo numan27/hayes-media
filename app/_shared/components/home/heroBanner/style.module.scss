@@ -20,6 +20,19 @@
   .content {
 
     .videoWrapper {
+      img {
+        width: 100% !important;
+        height: auto !important;
+
+        @media screen and (max-width: 767px) {
+          width: 50% !important;
+        }
+
+        @media screen and (max-width: 510px) {
+          width: 75% !important;
+        }
+      }
+
       .videoContainer {
 
         @media screen and (max-width: 767px) {
