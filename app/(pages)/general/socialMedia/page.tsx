@@ -31,6 +31,7 @@ const SocialMedia = () => {
 
   const servicesData = [
     {
+      videoSrc: "/SocialMediaAnimation3.webm",
       title: "Tailored Social Media Management Strategy",
       desc: "We begin by understanding your unique business goals and audience to create a custom social media plan that aligns with your vision so that things work as per your set strategies.",
       buttonText: "Schedule A Discovery Call",
